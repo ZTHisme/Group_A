@@ -1,0 +1,203 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15;
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+body {
+  width: 100%;
+  line-height: 1.5;
+  margin: 0;
+  background-color: #fff;
+  color: #212529;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
+}
+
+#content {
+  width: 100%;
+  min-height: 100vh;
+}
+
+hr {
+  height: 0;
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+a {
+  display: inline-block;
+}
+
+.navbar-nav {
+  display: -webkit-inline-box;
+  float: right;
+  flex-direction: column;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.navbar {
+  margin-bottom: 40px;
+  padding: 1rem 1rem;
+  border: none;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 0;
+}
+
+.navbar-btn {
+  border: none;
+  box-shadow: none;
+  outline: none !important;
+}
+
+.profile-img {
+  width: 45px;
+  height: 45px;
+  margin-top: -1px;
+  margin-right: 16px;
+  border-radius: 10px;
+}
+
+#sidebar {
+  background: #3e64ff;
+  color: #fff;
+}
+
+#sidebar.active {
+  width: 186px;
+  text-align: center;
+}
+
+#sidebar.active ul.components li {
+  font-size: 14px;
+}
+
+#sidebar.active ul.components li a {
+  line-height: 2.4;
+  padding: 14px 0;
+  text-decoration: none;
+}
+
+#sidebar.active ul.components li a span {
+  display: block;
+  margin-right: 0;
+  font-size: 24px;
+}
+
+#sidebar.active .logo {
+  padding: 11px 0 36px 0;
+  text-decoration: none;
+}
+
+#sidebar.active .footer {
+  display: none;
+}
+
+#sidebar .logo {
+  display: block;
+  color: #fff;
+  font-size: 25px;
+}
+
+
+#sidebar ul.components {
+  padding: 0;
+  transition: 0.3s;
+}
+
+
+#sidebar ul.components {
+  transition: none;
+}
+
+
+#sidebar ul li {
+  font-size: 16px;
+}
+
+#sidebar ul li>ul {
+  margin-left: 10px;
+}
+
+#sidebar ul li>ul li {
+  font-size: 14px;
+}
+
+#sidebar ul li a {
+  display: block;
+  padding: 10px 30px;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#sidebar ul li a span {
+  margin-right: 15px;
+}
+
+.dropbtn {
+  padding: 10px;
+  border: none;
+  background-color: #3e64ff;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+  min-width: 160px;
+}
+
+.dropdown-content a {
+  padding: 12px 37px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  width: 100%;
+  background-color: #0032f8;
+}
