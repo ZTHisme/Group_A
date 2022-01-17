@@ -2,10 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\MstDepartment;
+use App\Models\MstRole;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
-class UserFactory extends Factory
+class EmployeeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +20,13 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'password' => Hash::make('password'),
+            'phone' => $this->faker->phoneNumber(),
+            'address' => $this->faker->sentence(rand(4, 8), true),
+            'profile' => Str::random(10),
+            'created_user_id' => 1,
+            'role_id' => MstRole::all()->random()->id,
+            'department_id' => MstDepartment::all()->random()->id
         ];
     }
 
