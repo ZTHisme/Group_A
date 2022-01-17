@@ -41,4 +41,44 @@ class Employee extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the role that owns the employee.
+     */
+    public function role()
+    {
+        return $this->belongsTo(MstRole::class);
+    }
+
+    /**
+     * Get the department that owns the employee.
+     */
+    public function department()
+    {
+        return $this->belongsTo(MstDepartment::class);
+    }
+
+    /**
+     * Get the salary associated with the employee.
+     */
+    public function salary()
+    {
+        return $this->hasOne(Salary::class);
+    }
+
+    /**
+     * Get the final salaries for the employee.
+     */
+    public function finalsalaries()
+    {
+        return $this->hasMany(FinalSalary::class);
+    }
+
+    /**
+     * Get the attendance for the employee.
+     */
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class);
+    }
 }
