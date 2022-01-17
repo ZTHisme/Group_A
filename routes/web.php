@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Employee\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.app');
+// Employee list resource route
+Route::group(['prefix' => 'employees'], function () {
+    Route::get('/lists', [EmployeeController::class, 'index'])->name('employee#showLists');
 });
