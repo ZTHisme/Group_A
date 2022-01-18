@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.design')
+
+@section('title', 'Forget Password')
 
 @section('content')
 <main class="login-form">
@@ -27,6 +29,7 @@
                 <button type="submit" class="btn btn-primary">
                   Send Password Reset Link
                 </button>
+                <a href="#" id="back" class="btn btn-danger">Back to Log in</a>
               </div>
             </form>
 

@@ -10,13 +10,6 @@ use App\Http\Requests\UserRegisterRequest;
 interface AuthServiceInterface
 {
     /**
-     * To Save User with values from request
-     * @param Request $request request including inputs
-     * @return Object created user object
-     */
-    public function saveUser(UserRegisterRequest $request);
-
-    /**
      * To Login the user
      * 
      * @param array $user input value

@@ -1,65 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Laravel Quickstart - Basic</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
+  <title>@yield('title') | Group A</title>
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/library/fontawesome.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/library/jquery.dataTables.min.css') }}">
+  @yield('css')
+
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
- 
-
+  <script src="{{ asset('js/library/jquery-3.6.0.min.js') }}"></script>
+  <script src="{{ asset('js/common.js') }}"></script>
+  <script src="{{ asset('js/library/sweetalert2.min.js') }}"></script>
+  <script src="{{ asset('js/library/jquery.dataTables.min.js') }}"></script>
 </head>
 
 <body>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" 
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <!-- Right Side Of Navbar -->
-          <ul class="navbar-nav ms-auto">
-            @guest
-              {{--<li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('login') ? 'active' : '' }}" 
-                  aria-current="page" href="{{ route('login') }}">
-                  {{ __('Login') }}
-                </a>
-              </li>--}}
-              <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('register') ? 'active' : '' }}" 
-                  aria-current="page" href="{{ route('register') }}">
-                  {{ __('Register') }}
-                </a>
-              </li>
-            @else
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" 
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  {{ auth()->user()->name }}
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="{{ route('logout') }}">{{ __('Logout') }}</a></li>
-                </ul>
-              </li>
-            @endguest
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- Display Alert Messages -->
-    @include('common.alert')
-    <!-- Display Validation Errors -->
-    @include('common.errors')
-  </div><!-- /.container -->
 
-  @yield('content')
+  <div class="wrapper d-flex">
+    <!-- Page Content  -->
+    <div id="content">
+      <nav class="navbar">
+      </nav>
+      <!-- Display Alert Messages -->
+      {{--@include('common.alert')--}}
+      <!-- Display Validation Errors -->
+      @include('common.errors')
+      <div class="seprator">
+      </div>
+      @yield('content')
+      @yield('script')
+      <script>
+        $(function() {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          });
+
+          @if (session('success'))
+            Toast.fire({
+              icon: 'success',
+              title: "{{session('success')}}"
+            });
+          @endif
+        });
+      </script>
+    </div>
+  </div>
 </body>
 
 </html>

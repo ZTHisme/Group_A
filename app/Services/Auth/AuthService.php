@@ -27,18 +27,6 @@ class AuthService implements AuthServiceInterface
         $this->authDao = $authDao;
     }
 
-
-    /**
-     * To Save User with values from request
-     * @param Request $request request including inputs
-     * @return Object created user object
-     */
-    public function saveUser(UserRegisterRequest $request)
-    {
-        // Log in the registered user.
-        return Auth::login($this->authDao->saveUser($request));
-    }
-
     /**
      * To Login the user
      * 

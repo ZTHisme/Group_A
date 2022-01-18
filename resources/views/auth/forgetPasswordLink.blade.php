@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.design')
+
+@section('title', 'Reset Password')
 
 @section('content')
 <main class="login-form">

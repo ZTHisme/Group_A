@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Attendance\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,19 +17,20 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return redirect()->route('attendances#index');
 });
 
-
-
+// Attendance Routes
+Route::prefix('attendances')->middleware('auth')->group(function() {
+    Route::get('list', [AttendanceController::class, 'index'])->name('attendances#index');
+    Route::post('store', [AttendanceController::class, 'store'])->name('attendances#store');
+    Route::get('update', [AttendanceController::class, 'update'])->name('attendances#update');
+});
 
 // Custom auth routes
 Route::group(['middleware' => ['guest']], function () {
     Route::get('login', [AuthController::class, 'index'])->name('login');
     Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
-    Route::get('registration', [AuthController::class, 'registration'])->name('register');
-    Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
-    Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
     Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])
         ->name('forget.password.get');
     Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])
