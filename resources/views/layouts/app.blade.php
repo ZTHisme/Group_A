@@ -14,12 +14,14 @@
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/library/fontawesome.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/library/jquery.dataTables.min.css') }}">
   @yield('css')
 
   <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
+  {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
   <script src="{{ asset('js/library/jquery-3.6.0.min.js') }}"></script>
   <script src="{{ asset('js/library/sweetalert2.min.js') }}"></script>
+  <script src="{{ asset('js/library/jquery.dataTables.min.js') }}"></script>
 </head>
 
 <body>
@@ -62,8 +64,34 @@
         <div>
         </div>
       </nav>
+      <!-- Display Alert Messages -->
+      {{--@include('common.alert')--}}
+      <!-- Display Validation Errors -->
+      @include('common.errors')
       @yield('content')
       @yield('script')
+      <script>
+        $(function() {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          });
+
+          @if (session('success'))
+            Toast.fire({
+              icon: 'success',
+              title: "{{session('success')}}"
+            });
+          @endif
+        });
+      </script>
     </div>
   </div>
 </body>

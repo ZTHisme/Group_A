@@ -20,9 +20,9 @@ class CreateFinalSalariesTable extends Migration
             $table->decimal('month', 2, 0);
             $table->decimal('total_leave_days', 2, 0)->nullable();
             $table->decimal('total_leave_fines', 10, 2)->nullable();
-            $table->decimal('total_overtimes', 3, 1)->nullable();
+            $table->decimal('total_overtimes', 5, 1)->nullable();
             $table->decimal('total_overtime_fees', 10, 2)->nullable();
-            $table->decimal('total_working_hours', 3, 1)->nullable();
+            $table->decimal('total_working_hours', 5, 1)->nullable();
             $table->decimal('salary', 10, 2);
             $table->timestamps();
             $table->softDeletes();

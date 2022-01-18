@@ -16,10 +16,10 @@ class CreateAttendancesTable extends Migration
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
             $table->foreignId('employee_id')->references('id')->on('employees');
-            $table->decimal('working_hours', 2, 1)->nullable();
+            $table->decimal('working_hours', 3, 1)->nullable();
             $table->integer('leave')->default(0);
-            $table->integer('type')->comment('0 for wfh, 1 for office');
-            $table->decimal('overtime', 2, 1)->nullable();
+            $table->integer('type')->nullable()->comment('0 for wfh, 1 for office');
+            $table->decimal('overtime', 3, 1)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

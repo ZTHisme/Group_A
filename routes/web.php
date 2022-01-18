@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Attendance\AttendanceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('layouts.app');
+});
+
+// Attendance Routes
+Route::prefix('attendances')->group(function() {
+    Route::get('list', [AttendanceController::class, 'index'])->name('attendances#index');
+    Route::post('store', [AttendanceController::class, 'store'])->name('attendances#store');
+    Route::get('update', [AttendanceController::class, 'update'])->name('attendances#update');
 });
