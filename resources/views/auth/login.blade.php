@@ -1,5 +1,7 @@
 @extends('layouts.design')
 
+@section('title', 'Log In')
+
 @section('content')
 <main class="login-form">
   <div class="cotainer">
@@ -16,8 +18,7 @@
                   E-Mail Address
                 </label>
                 <div class="col-md-6">
-                  <input type="text" id="email_address" 
-                    class="form-control @error('email') is-invalid @enderror" name="email" autofocus>
+                  <input type="text" id="email_address" class="form-control @error('email') is-invalid @enderror" name="email" autofocus>
                   @if ($errors->has('email'))
                   <span class="text-danger">{{ $errors->first('email') }}</span>
                   @endif
@@ -29,8 +30,7 @@
                   Password
                 </label>
                 <div class="col-md-6">
-                  <input type="password" id="password" 
-                    class="form-control @error('password') is-invalid @enderror" name="password">
+                  <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password">
                   @if ($errors->has('password'))
                   <span class="text-danger">{{ $errors->first('password') }}</span>
                   @endif

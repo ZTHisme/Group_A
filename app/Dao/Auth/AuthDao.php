@@ -16,20 +16,6 @@ use Carbon\Carbon;
 class AuthDao implements AuthDaoInterface
 {
     /**
-     * To Save User with values from request
-     * @param Request $request request including inputs
-     * @return Object created user object
-     */
-    public function saveUser(UserRegisterRequest $request)
-    {
-        return Employee::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
-    }
-
-    /**
      * To Save token and email for password reset table
      * @param string email
      * @param string token

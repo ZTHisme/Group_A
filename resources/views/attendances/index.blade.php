@@ -17,7 +17,7 @@
     <div class="card-body">
       <form action="{{ route('attendances#store') }}" method="POST">
         {{ csrf_field() }}
-        @checkedin(1)
+        @checkedin
         <div class="card-text">Please check out before shutting down your pc.</div>
         @else
         <div class="form-check form-check-inline">
@@ -33,7 +33,7 @@
           <label class="form-check-label" for="leave">Leave</label>
         </div>
         @endcheckedin
-        @checkedin(1)
+        @checkedin
         <a href="{{ route('attendances#update') }}" class="btn btn-primary d-block w-25 mt-3 mx-auto">
           <i class="fa fa-user-check me-2"></i>Check Out
         </a>

@@ -44,7 +44,7 @@ class ForgotPasswordController extends Controller
     public function submitForgetPasswordForm(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|exists:users',
+            'email' => 'required|email|exists:employees',
         ]);
 
         $this->forgetPasswordInterface->processForgetPasswordForm($request);

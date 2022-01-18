@@ -31,7 +31,7 @@ class AttendanceDao implements AttendanceDaoInterface
      */
     public function saveAttendance(Request $request)
     {
-        $attendance = Employee::findOrFail(1)
+        $attendance = auth()->user()
             ->attendances()
             ->whereDate('created_at', Carbon::today())
             ->first();
@@ -41,7 +41,7 @@ class AttendanceDao implements AttendanceDaoInterface
             return false;
         } else {
             $attendance = DB::transaction(function () use ($request) {
-                return Employee::findOrFail(1)
+                return auth()->user()
                     ->attendances()
                     ->create($request->all());
             }, 5);
@@ -55,7 +55,7 @@ class AttendanceDao implements AttendanceDaoInterface
      */
     public function updateAttendance()
     {
-        $attendance = Employee::findOrFail(1)
+        $attendance = auth()->user()
             ->attendances()
             ->whereDate('created_at', Carbon::today())
             ->where('leave', 0)

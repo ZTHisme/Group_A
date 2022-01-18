@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Employee;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class Attendance extends Model
 {
@@ -39,7 +40,13 @@ class Attendance extends Model
      */
     public function getTypeNameAttribute()
     {
-        return $this->type == config('constants.WFH') ? 'WFH' : 'Office';
+        if ($this->type === config('constants.WFH')) {
+            return 'WFH';
+        } elseif ($this->type == config('constants.Office')) {
+            return 'Office';
+        } else {
+            return '-';
+        }
     }
 
     /**
@@ -49,11 +56,7 @@ class Attendance extends Model
      */
     public function getStatusAttribute()
     {
-        $attendance = Employee::findOrFail(1)
-                ->attendances()
-                ->whereDate('created_at', Carbon::today())
-                ->where('leave', 0)
-                ->first();
+        $attendance = $this->leave == 0;
         return $attendance ? 'Present' : 'Absent';
     }
 }

@@ -54,47 +54,12 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         // Check logged in successfully or not.
         if ($this->authInterface->login($credentials, $remember)) {
-            //return redirect()->intended('dashboard')
-            return view('dashboard')->with('success','You have Successfully logged in');
-            //   ->withSuccess('You have Successfully loggedin');
-           
+            return redirect()
+                ->intended('attendances/list')
+                ->withSuccess('You have Successfully loggedin');
         }
 
         return redirect("login")->withErrors('Oppes! You have entered invalid credentials');
-    }
-
-    /**
-     * To show register page
-     *
-     * @return View login form
-     */
-    public function registration()
-    {
-        return view('auth.registration');
-    }
-
-    /**
-     * To register the user
-     *
-     * @param App\Http\Requests\UserRegisterRequest $request
-     * @return redirect()
-     */
-    public function postRegistration(UserRegisterRequest $request)
-    {
-        $this->authInterface->saveUser($request);
-
-        return redirect()
-            ->route('dashboard')
-            ->withSuccess('Great! You have Successfully loggedin');
-    }
-
-    public function dashboard()
-    {
-        if(Auth::check()){
-            return view('dashboard');
-        }
-  
-        return redirect("login")->withSuccess('Opps! You do not have access');
     }
 
     /**

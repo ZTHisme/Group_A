@@ -24,7 +24,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Services\Attendance\AttendanceServiceInterface', 'App\Services\Attendance\AttendanceService');
         $this->app->bind('App\Contracts\Services\Auth\AuthServiceInterface', 'App\Services\Auth\AuthService');
         $this->app->bind('App\Contracts\Services\Auth\ForgetPasswordInterface', 'App\Services\Auth\ForgetPasswordService');
-      
     }
 
     /**
@@ -34,32 +33,36 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::if('checkedin', function ($user) {
-            $attendance = Employee::findOrFail($user)
-                ->attendances()
-                ->whereDate('created_at', Carbon::today())
-                ->first();
-            if ($attendance) {
-                return true;
+        Blade::if('checkedin', function () {
+            if (auth()->check()) {
+                $attendance = auth()->user()
+                    ->attendances()
+                    ->whereDate('created_at', Carbon::today())
+                    ->first();
+                if ($attendance) {
+                    return true;
+                }
+                return false;
             }
-            return false;
         });
 
         Blade::if('checkedout', function () {
-            $leave = Employee::findOrFail(1)
-                ->attendances()
-                ->whereDate('created_at', Carbon::today())
-                ->where('leave', 1)
-                ->first();
-            $checkout = Employee::findOrFail(1)
-                ->attendances()
-                ->whereDate('created_at', Carbon::today())
-                ->whereNotNull('working_hours')
-                ->first();
-            if ($leave || $checkout) {
-                return true;
+            if (auth()->check()) {
+                $leave = auth()->user()
+                    ->attendances()
+                    ->whereDate('created_at', Carbon::today())
+                    ->where('leave', 1)
+                    ->first();
+                $checkout = auth()->user()
+                    ->attendances()
+                    ->whereDate('created_at', Carbon::today())
+                    ->whereNotNull('working_hours')
+                    ->first();
+                if ($leave || $checkout) {
+                    return true;
+                }
+                return false;
             }
-            return false;
         });
     }
 }
