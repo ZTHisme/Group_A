@@ -53,11 +53,14 @@
           </li>
           <li>
             <div class="dropdown">
-              <button class="dropbtn btn">Username <i class="fas fa-caret-down"></i></button>
+              <button class="dropbtn btn"><i class="fas fa-caret-down">  {{ auth()->user()->name }}</i></button>
               <div class="dropdown-content">
-                <a href="#">Profile</a>
-                <a href="#">Logout</a>
+              
+                <a  class="nav-link" href="{{ route('register') }}">&nbsp;&nbsp;Register</a>
+                <a  class="nav-link" href="{{ route('logout') }}">&nbsp;&nbsp;Logout</a>
+                
               </div>
+            
             </div>
           </li>
         </ul>
