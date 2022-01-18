@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Attendance\AttendanceController;
+use App\Http\Controllers\Payroll\PayrollController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,11 @@ Route::prefix('attendances')->middleware('auth')->group(function() {
     Route::get('list', [AttendanceController::class, 'index'])->name('attendances#index');
     Route::post('store', [AttendanceController::class, 'store'])->name('attendances#store');
     Route::get('update', [AttendanceController::class, 'update'])->name('attendances#update');
+});
+
+// Payroll Routes
+Route::prefix('payrolls')->middleware('auth')->group(function() {
+    Route::get('list', [PayrollController::class, 'index'])->name('payrolls#index');
 });
 
 // Custom auth routes
