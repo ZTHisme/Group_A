@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Employee\EmployeeController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Attendance\AttendanceController;
@@ -16,6 +17,11 @@ use App\Http\Controllers\Payroll\PayrollController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Employee list resource route
+Route::middleware('auth')->group(['prefix' => 'employees'], function () {
+    Route::get('/lists', [EmployeeController::class, 'index'])->name('employee#showLists');
+});
 
 Route::get('/', function () {
     return redirect()->route('attendances#index');
