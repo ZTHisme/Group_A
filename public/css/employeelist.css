@@ -1,0 +1,25 @@
+.mr-icon {
+  padding: 7px;
+}
+
+.form-display {
+  display: inline;
+}
+
+td {
+  padding: 13px !important;
+}
+
+.table {
+  margin-bottom: 0 !important;
+}
+
+input[type=date] {
+  margin-left: 15px !important;
+  text-align: right;
+}
+
+input[type="date"]:before {
+  color: #b9b7b7;
+  content: attr(placeholder) !important;
+}
