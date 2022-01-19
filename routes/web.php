@@ -19,7 +19,7 @@ use App\Http\Controllers\Payroll\PayrollController;
 */
 
 // Employee list resource route
-Route::middleware('auth')->group(['prefix' => 'employees'], function () {
+Route::prefix('employees')->middleware('auth')->group(function () {
     Route::get('/lists', [EmployeeController::class, 'index'])->name('employee#showLists');
 });
 
@@ -28,15 +28,19 @@ Route::get('/', function () {
 });
 
 // Attendance Routes
-Route::prefix('attendances')->middleware('auth')->group(function() {
+Route::prefix('attendances')->middleware('auth')->group(function () {
     Route::get('list', [AttendanceController::class, 'index'])->name('attendances#index');
     Route::post('store', [AttendanceController::class, 'store'])->name('attendances#store');
     Route::get('update', [AttendanceController::class, 'update'])->name('attendances#update');
 });
 
 // Payroll Routes
-Route::prefix('payrolls')->middleware('auth')->group(function() {
+Route::prefix('payrolls')->middleware('auth')->group(function () {
     Route::get('list', [PayrollController::class, 'index'])->name('payrolls#index');
+    Route::get('{employee}/calculate', [PayrollController::class, 'calculate'])->name('payrolls#calculate');
+    Route::get('sendpayrollmail/{finalsalary}', [PayrollController::class, 'sendPayrollMail'])
+        ->name('payrolls#sendPayrollMail');
+    Route::get('{employee}/recalculate', [PayrollController::class, 'recalculate'])->name('payrolls#recalculate');
 });
 
 // Custom auth routes

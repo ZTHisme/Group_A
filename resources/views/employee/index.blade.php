@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Employees List')
+
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/employeelist.css') }}">
 @endsection
@@ -42,6 +44,7 @@
             <td>{{ \Carbon\Carbon::parse ($employee->created_at)->toDateString();}}</td>
             <td>
               <a href="" class="btn btn-primary btn-sm me-2">Show</a>
+              @manager
               <a href="" class="btn btn-warning btn-sm me-2">Edit</a>
               <form action="" class="form-display" onclick="return confirm('Are you sure?')" method="POST">
                 @csrf
@@ -50,6 +53,7 @@
                   Delete
                 </button>
               </form>
+              @endmanager
             </td>
           </tr>
           @endforeach

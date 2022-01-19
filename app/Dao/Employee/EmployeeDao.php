@@ -5,22 +5,15 @@ namespace App\Dao\Employee;
 use App\Contracts\Dao\Employee\EmployeeDaoInterface;
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\MstCalender;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Carbon;
 
 /**
  * Data Access Object for Employee
  */
 class EmployeeDao implements EmployeeDaoInterface
 {
-    /**
-     * To get employee lists
-     * @return $array of employee
-     */
-    public function getEmployee()
-    {
-        return Employee::with('role', 'department')->orderBy('created_at', 'asc')->get();
-    }
     /**
      * To search employee lists
      * 
