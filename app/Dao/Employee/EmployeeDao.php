@@ -3,9 +3,11 @@
 namespace App\Dao\Employee;
 
 use App\Contracts\Dao\Employee\EmployeeDaoInterface;
+use App\Models\Attendance;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 /**
@@ -46,5 +48,55 @@ class EmployeeDao implements EmployeeDaoInterface
             $employees->whereDate('employees.created_at', '<=', $end_date);
         }
         return $employees->get()->except('employees.deleted_at');
+    }
+
+    /**
+     * To show graph
+     * @return $array of employee
+     */
+    public function showPieGraph()
+    {
+        $record = Attendance::select(DB::raw("COUNT(*) as count"), DB::raw("(mst_departments.name) as department_name"), DB::raw("DAY(attendances.created_at) as day"))
+            ->join('employees', 'attendances.employee_id', '=', 'employees.id')
+            ->join('mst_departments', 'employees.department_id', '=', 'mst_departments.id')
+            ->where('leave', 0)
+            ->whereDate('attendances.created_at', Carbon::today())
+            ->groupBy('department_name', 'day')
+            ->orderBy('day')
+            ->get();
+
+        $data = [];
+        foreach ($record as $row) {
+            $data['label'][] = $row->department_name;
+            $data['data'][] = (int) $row->count;
+        }
+
+        $data['chart_data'] = json_encode($data);
+        return $data;
+    }
+
+    /**
+     * To show bar graph
+     * @return $array of employee
+     */
+    public function showBarGraph()
+    {
+        $barrecord = Attendance::select(DB::raw("COUNT(*) as count"), DB::raw("(mst_departments.name) as department_name"), DB::raw("DAY(attendances.created_at) as day"))
+            ->join('employees', 'attendances.employee_id', '=', 'employees.id')
+            ->join('mst_departments', 'employees.department_id', '=', 'mst_departments.id')
+            ->where('leave', 1)
+            ->whereDate('attendances.created_at', Carbon::today())
+            ->groupBy('department_name', 'day')
+            ->orderBy('day')
+            ->get();
+
+        $bardata = [];
+        foreach ($barrecord as $row) {
+            $bardata['label'][] = $row->department_name;
+            $bardata['data'][] = (int) $row->count;
+        }
+
+        $bardata['barchart_data'] = json_encode($bardata);
+        return $bardata;
     }
 }

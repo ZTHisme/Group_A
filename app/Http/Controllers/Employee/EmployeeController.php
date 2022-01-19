@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Employee;
 
 use App\Contracts\Services\Employee\EmployeeServiceInterface;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
+use App\Models\Employee;
 
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
@@ -34,5 +37,12 @@ class EmployeeController extends Controller
         $employees = $this->employeeInterface->getEmployee();
         $employees = $this->employeeInterface->searchEmployee($request);
         return view('employee.index', compact('employees'));
+    }
+
+    public function graph()
+    {
+        $data = $this->employeeInterface->showPieGraph();
+        $bardata = $this->employeeInterface->showBarGraph();
+        return view('dashboard.index', $data , $bardata);
     }
 }

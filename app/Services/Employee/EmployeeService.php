@@ -44,4 +44,22 @@ class EmployeeService implements EmployeeServiceInterface
     {
         return $this->employeeDao->searchEmployee($request);
     }
+
+    /**
+     * To show pie graph
+     * @return $array of employee
+     */
+    public function showPieGraph()
+    {
+        return $this->employeeDao->showPieGraph();
+    }
+
+    /**
+     * To show bar graph
+     * @return $array of employee
+     */
+    public function showBarGraph()
+    {
+        return $this->employeeDao->showBarGraph();
+    }
 }

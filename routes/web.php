@@ -18,3 +18,5 @@ use App\Http\Controllers\Employee\EmployeeController;
 Route::group(['prefix' => 'employees'], function () {
     Route::get('/lists', [EmployeeController::class, 'index'])->name('employee#showLists');
 });
+
+Route::get('/dashboard', [EmployeeController::class, 'graph'])->name('graph#dashBoard');
