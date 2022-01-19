@@ -44,7 +44,7 @@
             <td>{{ \Carbon\Carbon::parse ($employee->created_at)->toDateString();}}</td>
             <td>
               <a href="" class="btn btn-primary btn-sm me-2">Show</a>
-              @manager
+              @can('isManager')
               <a href="" class="btn btn-warning btn-sm me-2">Edit</a>
               <form action="" class="form-display" onclick="return confirm('Are you sure?')" method="POST">
                 @csrf
@@ -53,7 +53,7 @@
                   Delete
                 </button>
               </form>
-              @endmanager
+              @endcan
             </td>
           </tr>
           @endforeach

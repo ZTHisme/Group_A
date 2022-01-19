@@ -78,11 +78,11 @@
       </tr>
       <tr>
         <td>Your Leave Fines</td>
-        <td>{{ $calculatedPayroll->total_leave_fines }}</td>
+        <td>-{{ $calculatedPayroll->total_leave_fines }}</td>
       </tr>
       <tr>
         <td>Your Overtime Fees</td>
-        <td>{{ $calculatedPayroll->total_overtime_fees }}</td>
+        <td>+{{ $calculatedPayroll->total_overtime_fees }}</td>
       </tr>
       <tr>
         <td>Total Final Salary</td>

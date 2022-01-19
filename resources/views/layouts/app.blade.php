@@ -42,11 +42,11 @@
         <li>
           <a href="{{ route('attendances#index') }}"><span class="fas fa-file-invoice"></span> Attendance</a>
         </li>
-        @manager
+        @can('isManager')
         <li>
           <a href="{{ route('payrolls#index') }}"><span class="fas fa-cash-register"></span> Payroll Management</a>
         </li>
-        @endmanager
+        @endcan
       </ul>
     </nav>
     <!-- Page Content  -->

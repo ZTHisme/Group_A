@@ -36,16 +36,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        Blade::if('manager', function () {
-            if (auth()->check()) {
-                if (auth()->user()->role_id == config('constants.Manager')) {
-                    return true;
-                }
-                return false;
-            }
-        });
-        
+    {        
         Blade::if('checkedin', function () {
             if (auth()->check()) {
                 $attendance = auth()->user()

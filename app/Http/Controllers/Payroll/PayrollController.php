@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use App\Models\FinalSalary;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class PayrollController extends Controller
 {
@@ -33,6 +34,11 @@ class PayrollController extends Controller
      */
     public function index(Request $request)
     {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
         $employees = $this->payrollInterface->getEmployee($request);
 
         return view('payrolls.index')
@@ -47,6 +53,11 @@ class PayrollController extends Controller
      */
     public function calculate(Employee $employee)
     {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
         $data = $this->payrollInterface->calculate($employee);
 
         return view('payrolls.calculate')
@@ -61,6 +72,11 @@ class PayrollController extends Controller
      */
     public function recalculate(Employee $employee)
     {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
         $data = $this->payrollInterface->recalculate($employee);
 
         return view('payrolls.calculate')
@@ -75,6 +91,11 @@ class PayrollController extends Controller
      */
     public function sendPayrollMail(FinalSalary $finalsalary)
     {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
         if ($this->payrollInterface->sendPayrollMail($finalsalary)) {
             return redirect()
                 ->route('payrolls#index')
