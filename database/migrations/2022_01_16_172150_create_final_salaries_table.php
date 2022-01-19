@@ -24,6 +24,7 @@ class CreateFinalSalariesTable extends Migration
             $table->decimal('total_overtime_fees', 10, 2)->nullable();
             $table->decimal('total_working_hours', 5, 1)->nullable();
             $table->decimal('salary', 10, 2);
+            $table->string('file', 255);
             $table->timestamps();
             $table->softDeletes();
         });

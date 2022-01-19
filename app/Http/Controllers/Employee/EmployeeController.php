@@ -32,7 +32,6 @@ class EmployeeController extends Controller
      */
     public function index(Request $request)
     {
-        $employees = $this->employeeInterface->getEmployee();
         $employees = $this->employeeInterface->searchEmployee($request);
         return view('employee.index', compact('employees'));
     }

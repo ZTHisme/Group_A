@@ -1,0 +1,16 @@
+.card {
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 12px #7992e2;
+  border-radius: 1.094vw;
+}
+
+.card:hover {
+  box-shadow: 0 0 6px #7992e2;
+}
+
+.title {
+  font-size: 20px;
+  color: #7992e2;
+}
