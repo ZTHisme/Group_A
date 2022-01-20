@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Attendance;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Salary;
+use Illuminate\Support\Carbon;
 
 class Employee extends Authenticatable
 {
@@ -30,8 +30,7 @@ class Employee extends Authenticatable
         'profile',
         'role_id',
         'department_id',
-        //'created_user_id',
-
+        'created_user_id'
     ];
 
     /**
@@ -91,5 +90,50 @@ class Employee extends Authenticatable
     public function attendances()
     {
         return $this->hasMany(Attendance::class);
+    }
+
+    /**
+     * Get the employee's total working days.
+     *
+     * @return int
+     */
+    public function getWorkingDaysAttribute()
+    {
+        $count = Attendance::where('employee_id', $this->id)
+            ->whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('leave', 0)
+            ->count();
+        return $count;
+    }
+
+    /**
+     * Get the employee's total leave days.
+     *
+     * @return int
+     */
+    public function getLeaveDaysAttribute()
+    {
+        $count = Attendance::where('employee_id', $this->id)
+            ->whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('leave', 1)
+            ->count();
+        return $count;
+    }
+
+    /**
+     * Get the employee's total overtimes.
+     *
+     * @return int
+     */
+    public function getOvertimesAttribute()
+    {
+        $sum = Attendance::where('employee_id', $this->id)
+            ->whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->whereNotNull('overtime')
+            ->sum('overtime');
+        return $sum;
     }
 }

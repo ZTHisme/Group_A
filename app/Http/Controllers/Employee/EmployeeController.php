@@ -2,33 +2,35 @@
 
 namespace App\Http\Controllers\Employee;
 
-use App\Contracts\Services\Employee\EmployeeServicesInterface;
+use App\Contracts\Services\Employee\EmployeeServiceInterface;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\EditEmployeeRequest;
-use App\Http\Requests\StoreEmployeeRequest;
 use App\Models\Employee;
-use Illuminate\Auth\Events\Validated;
-use SebastianBergmann\Environment\Console;
-use Illuminate\Support\Facades\Hash;
+
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
+    /**
+     * task interface
+     */
     private $employeeInterface;
 
     /**
-     * Class Constructor
-     * @param EmployeeServicesInterface
-     * @return
+     * Create a new controller instance.
+     *
+     * @return void
      */
-    public function __construct(EmployeeServicesInterface $employeeServicesInterface)
+    public function __construct(EmployeeServiceInterface $employeeServiceInterface)
     {
-        $this->employeeInterface = $employeeServicesInterface;
+        $this->employeeInterface = $employeeServiceInterface;
     }
 
     /**
      * Display a listing of the resource.
      *
+     * @param Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -130,5 +132,19 @@ class EmployeeController extends Controller
     {
         $this->employeeInterface->deleteEmployeeById($id);
         return redirect()->route('employee#showLists')->with(['deleteMessage' => 'The employee record is deleted successfully!']);
+        $employees = $this->employeeInterface->searchEmployee($request);
+        return view('employee.index', compact('employees'));
+    }
+
+    /**
+     * Display chart data.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function graph()
+    {
+        $data = $this->employeeInterface->showPieGraph();
+        $bardata = $this->employeeInterface->showBarGraph();
+        return view('dashboard.index', $data, $bardata);
     }
 }

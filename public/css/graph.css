@@ -1,0 +1,38 @@
+.container{
+  margin: 0 auto;
+  max-width: 1900px;
+}
+
+.card {
+  float: left;
+  width: 800px;
+  margin: 20px;
+  padding-bottom: 10px;
+  border: 1px solid #ccc;
+  background-color: #f4f4f4;
+}
+
+.card-header{
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #c4c4c4;
+  background-color: #c4c4c4;
+}
+.icon-margin{
+  padding: 5px;
+}
+
+.card-body{
+  width: 800px;
+}
+.show-date{
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.clearfix::after {
+  display: table;
+  clear: both;
+  content: "";
+}

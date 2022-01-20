@@ -2,20 +2,19 @@
 
 namespace App\Services\Employee;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use Maatwebsite\Excel\Facades\Excel;
 use App\Contracts\Dao\Employee\EmployeeDaoInterface;
-use App\Contracts\Services\Employee\EmployeeServicesInterface;
-use Illuminate\Support\Facades\Storage;
+use App\Contracts\Services\Employee\EmployeeServiceInterface;
+use App\Models\Employee;
+use Illuminate\Http\Request;
+
 
 /**
- * Service class for task.
+ * Service class for employee
  */
-class EmployeeService implements EmployeeServicesInterface
+class EmployeeService implements EmployeeServiceInterface
 {
     /**
-     * task dao
+     * employee dao
      */
     private $employeeDao;
     /**
@@ -121,5 +120,52 @@ class EmployeeService implements EmployeeServicesInterface
     {
         $this->employeeDao->deleteEmployeeById($id);
         return true;
+    }
+
+    /*
+     * To search employee lists
+     * 
+     * @param Illuminate\Http\Request $request
+     * @return $array of employee
+     */
+    public function searchEmployee(Request $request)
+    {
+        return $this->employeeDao->searchEmployee($request);
+    }
+
+    /**
+     * To show pie graph
+     * @return $array of employee
+     */
+    public function showPieGraph()
+    {
+        $record = $this->employeeDao->showPieGraph();
+
+        $data = [];
+        foreach ($record as $row) {
+            $data['label'][] = $row->department_name;
+            $data['data'][] = (int) $row->count;
+        }
+        $data['chart_data'] = json_encode($data);
+
+        return $data;
+    }
+
+    /**
+     * To show bar graph
+     * @return $array of employee
+     */
+    public function showBarGraph()
+    {
+        $barrecord = $this->employeeDao->showBarGraph();
+
+        $bardata = [];
+        foreach ($barrecord as $row) {
+            $bardata['label'][] = $row->department_name;
+            $bardata['data'][] = (int) $row->count;
+        }
+        $bardata['barchart_data'] = json_encode($bardata);
+
+        return $bardata;
     }
 }
