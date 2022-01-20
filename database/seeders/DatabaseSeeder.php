@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         }
 
         // Roles dummy
-        $roles = ['Manager', 'Senior', 'Junior'];
+        $roles= ['Manager', 'Senior', 'Junior'];
         foreach ($roles as $role) {
             DB::table('mst_roles')->insert([
                 'name' => $role

@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Salary;
 
 class Employee extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +25,13 @@ class Employee extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'address',
+        'profile',
+        'role_id',
+        'department_id',
+        //'created_user_id',
+
     ];
 
     /**

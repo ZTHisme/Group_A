@@ -11,7 +11,7 @@
   <title>@yield('title') | Group A</title>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <!--<link rel="stylesheet" href="{{ asset('css/app.css') }}">-->
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/library/fontawesome.css') }}">
   @yield('css')

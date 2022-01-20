@@ -20,7 +20,7 @@ class CreateEmployeesTable extends Migration
             $table->string('password');
             $table->string('phone', 20);
             $table->string('address', 255);
-            $table->string('profile', 255);
+            $table->string('profile', 255); 
             $table->foreignId('created_user_id')->references('id')->on('employees');
             $table->foreignId('role_id')->references('id')->on('mst_roles');
             $table->foreignId('department_id')->references('id')->on('mst_departments');
