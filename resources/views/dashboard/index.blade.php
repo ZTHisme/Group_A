@@ -40,3 +40,4 @@
     barchartdata = '<?php echo $barchart_data; ?>';
   </script>
   @endsection
+  

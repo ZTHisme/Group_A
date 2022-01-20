@@ -54,8 +54,8 @@ class DatabaseSeeder extends Seeder
                 'basic_salary' => 500000
             ]);
 
-            $begin = Carbon::create(2015, 12, 1, 8, 0, 0, 'Asia/Yangon');
-            $end = Carbon::create(2015, 12, 31, 8, 0, 0, 'Asia/Yangon');
+            $begin = Carbon::create(2022, 1, 1, 8, 0, 0, 'Asia/Yangon');
+            $end = Carbon::create(2022, 1, 18, 8, 0, 0, 'Asia/Yangon');
             $period = CarbonPeriod::create($begin, $end);
             foreach ($period as $date) {
                 $employee->attendances()->create([

@@ -12,13 +12,9 @@ use App\Models\Employee;
 interface EmployeeDaoInterface
 {
     /**
-     * To get employee lists
-     * @return $array of employee
-     */
-    public function getEmployee();
-
-    /**
      * To search employee lists
+     * 
+     * @param Illuminate\Http\Request $request
      * @return $array of employee
      */
     public function searchEmployee(Request $request);

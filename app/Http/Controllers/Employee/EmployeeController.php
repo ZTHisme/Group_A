@@ -30,19 +30,24 @@ class EmployeeController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-        $employees = $this->employeeInterface->getEmployee();
         $employees = $this->employeeInterface->searchEmployee($request);
         return view('employee.index', compact('employees'));
     }
 
+    /**
+     * Display chart data.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function graph()
     {
         $data = $this->employeeInterface->showPieGraph();
         $bardata = $this->employeeInterface->showBarGraph();
-        return view('dashboard.index', $data , $bardata);
+        return view('dashboard.index', $data, $bardata);
     }
 }

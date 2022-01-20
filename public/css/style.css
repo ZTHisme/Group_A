@@ -61,12 +61,15 @@ a {
 }
 
 .navbar {
-  margin-bottom: 40px;
   padding: 1rem 1rem;
   border: none;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   background: #fff;
   border-radius: 0;
+}
+
+.seprator {
+  margin-top: 40px;
 }
 
 .navbar-btn {
