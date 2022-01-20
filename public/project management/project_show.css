@@ -1,0 +1,87 @@
+.card-show {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 200px;
+    height: 130px;
+    margin-left: 30px;
+    margin-top: 40px;
+    display: inline-block;
+}
+
+.card-show:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    background-color: #5e77db;
+}
+
+.box-show {
+    padding: 2px 16px;
+}
+
+.position {
+    margin: -75px 10px 10px 10px;
+}
+
+.delete-btn {
+    margin-left: 900px;
+}
+
+.my-button1 {
+    background-color: #e90606;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.my-button1:hover,
+.my-button1:focus {
+    background-color: #eebf25;
+}
+
+#container {
+    width: 200px;
+    height: auto;
+    margin-top: 14px;
+    margin-left: 377px;
+    margin-bottom: 10px;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 5px 15px 0 rgb(0 0 0 / 25%);
+    transform: translate3d(-50%, -50%, 0);
+}
+
+h2 {
+    padding: 8px;
+    color: white;
+    background: #3E4FB2;
+    font-weight: 300;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.detail {
+    color: #777;
+    padding: 20px;
+    line-height: 0.5;
+    font-family: 'Roboto', sans-serif;
+}

@@ -28,6 +28,8 @@ Route::get('/dashboard', [EmployeeController::class, 'graph'])->name('graph#dash
 
 Route::get('/', function () {
     return redirect()->route('attendances#index');
+
+   
 });
 
 // Attendance Routes

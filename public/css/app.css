@@ -3013,7 +3013,7 @@ textarea.form-control-lg {
   }
 }
 .btn:hover {
-  color: #ffffff;
+  color: #212529;
 }
 .btn-check:focus + .btn, .btn:focus {
   outline: 0;
@@ -4025,7 +4025,7 @@ textarea.form-control-lg {
 
 .navbar {
   position: relative;
-  display: flow-root;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
