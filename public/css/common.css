@@ -89,7 +89,7 @@ a {
   border-radius: 10px;
 }
 
-/* ------------------------Error Msg------------------------------- */
+/* ------------------------Error Msg------------------ -------- */
 .error-msg {
   display: inline-block;
   margin: 5px 0 0;
@@ -115,7 +115,7 @@ a {
   font-size: 15px;
   font-weight: bold;
 }
-
+/* ----------------------------Side Bar----------------------- */
 #sidebar {
   width: 186px;
   background: #3e64ff;
@@ -151,7 +151,7 @@ a {
   color: #ffffff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
+/* ----------------------------DropDown Btn----------------------- */
 .dropbtn {
   padding: 10px;
   border: none;

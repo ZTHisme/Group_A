@@ -41,7 +41,7 @@ class EmployeeDao implements EmployeeDaoInterface
         if ($end_date) {
             $employees->whereDate('employees.created_at', '<=', $end_date);
         }
-        return $employees->get()->except('employees.deleted_at');        ;
+        return $employees->get()->except('employees.deleted_at');
     }
 
     /**
