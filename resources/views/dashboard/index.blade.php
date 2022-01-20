@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Dashboard')
+
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/graph.css') }}">
 @endsection

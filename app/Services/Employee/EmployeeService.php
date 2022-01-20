@@ -53,7 +53,16 @@ class EmployeeService implements EmployeeServiceInterface
      */
     public function showPieGraph()
     {
-        return $this->employeeDao->showPieGraph();
+        $record = $this->employeeDao->showPieGraph();
+
+        $data = [];
+        foreach ($record as $row) {
+            $data['label'][] = $row->department_name;
+            $data['data'][] = (int) $row->count;
+        }
+        $data['chart_data'] = json_encode($data);
+
+        return $data;
     }
 
     /**
@@ -62,6 +71,15 @@ class EmployeeService implements EmployeeServiceInterface
      */
     public function showBarGraph()
     {
-        return $this->employeeDao->showBarGraph();
+        $barrecord = $this->employeeDao->showBarGraph();
+
+        $bardata = [];
+        foreach ($barrecord as $row) {
+            $bardata['label'][] = $row->department_name;
+            $bardata['data'][] = (int) $row->count;
+        }
+        $bardata['barchart_data'] = json_encode($bardata);
+        
+        return $bardata;
     }
 }
