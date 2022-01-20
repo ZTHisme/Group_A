@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Payroll;
 
 use App\Contracts\Services\Payroll\PayrollServiceInterface;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdatePayrollRequest;
 use App\Models\Employee;
 use App\Models\FinalSalary;
 use Illuminate\Http\Request;
@@ -100,6 +101,41 @@ class PayrollController extends Controller
             return redirect()
                 ->route('payrolls#index')
                 ->with('success', 'Email has been sent.');
+        }
+    }
+
+    /**
+     * Show the edit view.
+     *
+     * @param App\Models\Employee $employee
+     * @return \Illuminate\Http\Response
+     */
+    public function showEditView(Employee $employee)
+    {
+        $employee->load('salary');
+
+        return view('payrolls.edit')
+            ->with(['employee' => $employee]);
+    }
+
+    /**
+     * Update the basic salary of employee.
+     *
+     * @param App\Http\Requests\UpdatePayrollRequest $request
+     * @param App\Models\Employee $employee
+     * @return \Illuminate\Http\Response
+     */
+    public function updatePayroll(UpdatePayrollRequest $request, Employee $employee)
+    {
+        $employee = $this->payrollInterface->updatePayroll($request, $employee);
+
+        if ($employee) {
+            return redirect()
+                ->route('payrolls#index')
+                ->with('success', 'Employee payroll edited successfully.');
+        } else {
+            return back()
+                ->withErrors('Unknown error occured! Please try again.');
         }
     }
 }

@@ -24,7 +24,7 @@ Route::prefix('employees')->middleware('auth')->group(function () {
 });
 
 // Dashboard route to show chart
-Route::get('/dashboard', [EmployeeController::class, 'graph'])->name('graph#dashBoard');
+Route::get('/dashboard', [EmployeeController::class, 'graph'])->name('graph#dashBoard')->middleware('auth');
 
 Route::get('/', function () {
     return redirect()->route('attendances#index');
@@ -44,6 +44,10 @@ Route::prefix('payrolls')->middleware('auth')->group(function () {
     Route::get('sendpayrollmail/{finalsalary}', [PayrollController::class, 'sendPayrollMail'])
         ->name('payrolls#sendPayrollMail');
     Route::get('{employee}/recalculate', [PayrollController::class, 'recalculate'])->name('payrolls#recalculate');
+    Route::get('editview/{employee}', [PayrollController::class, 'showEditView'])
+        ->name('payroll#showEditView');
+    Route::patch('updatepayroll/{employee}', [PayrollController::class, 'updatePayroll'])
+        ->name('payrolls#updatePayroll');
 });
 
 // Custom auth routes

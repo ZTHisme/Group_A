@@ -169,4 +169,21 @@ class PayrollDao implements PayrollDaoInterface
             'calculatedPayroll' => $calculatedPayroll
         ];
     }
+
+    /**
+     * To update employee payroll
+     * 
+     * @param Illuminate\Http\Request $request
+     * @param App\Models\Employee $employee
+     * @return $employee object
+     */
+    public function updatePayroll(Request $request, Employee $employee)
+    {
+        $employee = DB::transaction(function() use ($request, $employee) {
+            return $employee->salary()
+                ->update($request->except('_token', '_method'));
+        });
+
+        return $employee;
+    }
 }

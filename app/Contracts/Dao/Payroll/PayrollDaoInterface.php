@@ -33,4 +33,13 @@ interface PayrollDaoInterface
      * @return $array of employee
      */
     public function recalculate(Employee $employee);
+
+    /**
+     * To update employee payroll
+     * 
+     * @param Illuminate\Http\Request $request
+     * @param App\Models\Employee $employee
+     * @return $employee object
+     */
+    public function updatePayroll(Request $request, Employee $employee);
 }
