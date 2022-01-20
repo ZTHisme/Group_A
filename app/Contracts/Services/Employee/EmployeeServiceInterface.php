@@ -11,12 +11,6 @@ use Illuminate\Http\Request;
 interface EmployeeServiceInterface
 {
     /**
-     * To get employee lists
-     * @return $array of employee
-     */
-    public function getEmployee();
-
-    /**
      * To search employee lists
      * 
      * @param Illuminate\Http\Request $request

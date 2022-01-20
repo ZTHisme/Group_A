@@ -26,16 +26,6 @@ class EmployeeService implements EmployeeServiceInterface
     {
         $this->employeeDao = $employeeDao;
     }
-
-    /**
-     * To get employee lists
-     * @return $array of employee
-     */
-    public function getEmployee()
-    {
-        return $this->employeeDao->getEmployee();
-    }
-
     /**
      * To search employee lists
      * 

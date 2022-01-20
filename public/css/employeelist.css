@@ -1,9 +1,17 @@
 .mr-icon {
-  padding: 7px;
+  padding: 20px 7px 0 0;
+}
+
+.pull-right {
+  float: right;
 }
 
 .form-display {
   display: inline;
+}
+
+.searchForm {
+  display: inline-block;
 }
 
 td {
@@ -14,12 +22,24 @@ td {
   margin-bottom: 0 !important;
 }
 
-input[type=date] {
-  margin-left: 15px !important;
-  text-align: right;
+.search-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #3e64ff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
-input[type="date"]:before {
+input[type=date] {
+  margin: 10px 0 10px 15px;
+  padding: 6px 10px;
+  border: 1px solid #d1d0d0;
+  text-align: right;
+  border-radius: 10px;
+}
+
+input[type=date]:before {
   color: #b9b7b7;
   content: attr(placeholder) !important;
 }

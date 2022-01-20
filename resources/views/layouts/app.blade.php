@@ -29,10 +29,10 @@
 
 <body>
 
-  <div class="wrapper d-flex">
-    <nav id="sidebar" class="active">
+  <div class="d-flex">
+    <nav id="sidebar">
       <h1><a href="#" class="logo">Employee Management</a></h1>
-      <ul class="components">
+      <ul>
         <li>
           <a href="{{ route('graph#dashBoard') }}"><span class="fas fa-tachometer-alt"></span> Dashboard</a>
         </li>
