@@ -20,3 +20,7 @@
   width: 100%;
   outline: none;
 }
+
+.error-help-block {
+  color: #FF0000;
+}

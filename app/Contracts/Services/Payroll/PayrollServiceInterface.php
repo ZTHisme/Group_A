@@ -42,4 +42,13 @@ interface PayrollServiceInterface
      * @return bool
      */
     public function sendPayrollMail(FinalSalary $finalsalary);
+
+    /**
+     * To update employee payroll
+     * 
+     * @param Illuminate\Http\Request $request
+     * @param App\Models\Employee $employee
+     * @return $employee object
+     */
+    public function updatePayroll(Request $request, Employee $employee);
 }

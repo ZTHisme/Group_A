@@ -127,5 +127,15 @@ class PayrollController extends Controller
      */
     public function updatePayroll(UpdatePayrollRequest $request, Employee $employee)
     {
+        $employee = $this->payrollInterface->updatePayroll($request, $employee);
+
+        if ($employee) {
+            return redirect()
+                ->route('payrolls#index')
+                ->with('success', 'Employee payroll edited successfully.');
+        } else {
+            return back()
+                ->withErrors('Unknown error occured! Please try again.');
+        }
     }
 }
