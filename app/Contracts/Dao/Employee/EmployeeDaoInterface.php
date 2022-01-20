@@ -18,4 +18,16 @@ interface EmployeeDaoInterface
      * @return $array of employee
      */
     public function searchEmployee(Request $request);
+
+    /**
+     * To show graph
+     * @return $array of employee
+     */
+    public function showPieGraph();
+
+    /**
+     * To show bar graph
+     * @return $array of employee
+     */
+    public function showBarGraph();
 }

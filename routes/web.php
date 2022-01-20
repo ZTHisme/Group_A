@@ -23,6 +23,9 @@ Route::prefix('employees')->middleware('auth')->group(function () {
     Route::get('/lists', [EmployeeController::class, 'index'])->name('employee#showLists');
 });
 
+// Dashboard route to show chart
+Route::get('/dashboard', [EmployeeController::class, 'graph'])->name('graph#dashBoard');
+
 Route::get('/', function () {
     return redirect()->route('attendances#index');
 });

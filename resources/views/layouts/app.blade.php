@@ -34,7 +34,7 @@
       <h1><a href="#" class="logo">Employee Management</a></h1>
       <ul class="components">
         <li>
-          <a href="#"><span class="fas fa-tachometer-alt"></span> Dashboard</a>
+          <a href="{{ route('graph#dashBoard') }}"><span class="fas fa-tachometer-alt"></span> Dashboard</a>
         </li>
         <li>
           <a href="{{ route('employee#showLists') }}"><span class="fa fa-users"></span> Employee List</a>
