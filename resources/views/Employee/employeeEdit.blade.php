@@ -28,7 +28,7 @@
         <small class="text-danger">*{{ $errors->first('phone') }}</small>
         @endif</label><br>
       <input type="tel" name="phone" class="form-control" value="{{ $employee->phone }}" placeholder="Enter employee phone">
-        <br>
+      <br>
 
       <label class="form-label">Choose Role @if ($errors->has('role'))
         <small class="text-danger">*{{ $errors->first('role') }}</small>
@@ -63,8 +63,8 @@
 
 
       <div class="con-left">
-      <input type="submit" value="Update" class="btn-add">
-        </div>
+        <input type="submit" value="Update" class="btn-add">
+      </div>
       <div class="con-right">
         <a href="{{ route('employee#showLists') }}" class="btn-cancel">Cancel</a>
       </div>

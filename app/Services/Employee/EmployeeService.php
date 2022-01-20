@@ -67,15 +67,9 @@ class EmployeeService implements EmployeeServicesInterface
     public function addEmployee(Request $request)
     {
         $employee = $this->employeeDao->addEmployee($request);
-        Mail::send('newEmployeeMail', ['employee_name' => $request->name], function ($message) use ($request) {
-            $message->to($request->email, 'New Employee')->subject('Registration Information');
-        });
-
-        //Storage::move(
-        //    config('path.public_tmp') . $request['profile'],
-        //    config('path.profile') . $employee->id . config('path.separator') . $request['profile']
-        //);
-
+        //Mail::send('newEmployeeMail', ['employee_name' => $request->name], function ($message) use ($request) {
+        //    $message->to($request->email, 'New Employee')->subject('Registration Information');
+        //});
         return $employee;
     }
 

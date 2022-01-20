@@ -59,7 +59,6 @@ class EmployeeController extends Controller
     {
         $roles = $this->employeeInterface->getRoles();
         $departments = $this->employeeInterface->getDepartments();
-
         return view('Employee.employeeCreate')->with(['roles' => $roles, 'departments' => $departments]);
     }
 
@@ -70,14 +69,9 @@ class EmployeeController extends Controller
      */
     public function submitEmployeeForm(StoreEmployeeRequest $request)
     {
-        dd($request);
-
-        $validated = $request->validated();
-        $this->employeeInterface->addEmployee($request, $validated);
+        //dd($request);
+        $this->employeeInterface->addEmployee($request);
         return redirect()->route('employee#showLists')
-            //->withInput()
-            //->with('profileName', $profile['name'])
-            //->with('profilePath', $profile['path'])
             ->with(['successMessage' => 'The new employee is added successfully!']);
     }
 
@@ -90,7 +84,6 @@ class EmployeeController extends Controller
     {
         $roles = $this->employeeInterface->getRoles();
         $departments = $this->employeeInterface->getDepartments();
-
         $employee = $this->employeeInterface->getEmployeeById($id);
         return view('Employee.employeeShow')->with(['employee' => $employee, 'roles' => $roles, 'departments' => $departments]);
     }
@@ -104,7 +97,6 @@ class EmployeeController extends Controller
     {
         $roles = $this->employeeInterface->getRoles();
         $departments = $this->employeeInterface->getDepartments();
-
         $employee = $this->employeeInterface->getEmployeeById($id);
         return view('Employee.employeeEdit')->with(['employee' => $employee, 'roles' => $roles, 'departments' => $departments]);
     }
@@ -114,9 +106,8 @@ class EmployeeController extends Controller
      * @param student id, Request $request
      * @return message success or not
      */
-    public function submitEmployeeEditForm(Request $request, $id)
+    public function submitEmployeeEditForm(EditEmployeeRequest $request, $id)
     {
-        //$validated = $request->validated();
         $this->employeeInterface->editEmployeeById($request, $id);
         return redirect()->route('employee#showLists')->with(['successMessage' => 'The employee data is updated successfully!']);
     }

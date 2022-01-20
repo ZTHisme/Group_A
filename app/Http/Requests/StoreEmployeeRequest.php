@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Validator;
 
 class StoreEmployeeRequest extends FormRequest
 {
@@ -24,11 +25,12 @@ class StoreEmployeeRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rule =  [
             'name' => 'required',
             'email' => 'required|email|unique:employees',
-            'password' => 'required',
-            'confirm_password' => 'required',
+            'password' => ['required', 'string', 'min:6', 'max:12',],            // must be at least 8 characters in length
+            'confirm_password' => 'required|same:password|min:6',
+            //'phone' => 'required',
             'phone' => [
                 'required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10', 'max:15', 'ends_with:0,1,2,3,4,5,6,7,8,9',
                 function ($attribute, $value, $fail) {
@@ -43,13 +45,16 @@ class StoreEmployeeRequest extends FormRequest
                 },
             ],
             'address' => 'required',
-            'profile' => 'required',
-            'role_id' => 'required',
-            'department_id' => 'required',
+            'profile' => 'required | mimes:jpeg,jpg,png | max:1000',
+            'role' => 'required',
+            'department' => 'required',
             'leave_fine' => 'required',
             'overtime_fee' => 'required',
             'basic_salary' => 'required',
         ];
+        Log:
+        info($rule);
+        return $rule;
     }
 
     /**

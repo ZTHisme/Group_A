@@ -40,13 +40,3 @@ Route::get('/employee/edit/{id}', [EmployeeController::class, 'showEmployeeEditF
 Route::post('/employee/edit/{id}', [EmployeeController::class, 'submitEmployeeEditForm'])->name('edit.employee.post');
 
 Route::get('/student/delete/{id}', [EmployeeController::class, 'deleteEmployee'])->name('delete.employee');
-
-
-
-
-//Route::get('/employees/add', [EmployeeController::class, 'showEmploeeForm'])->name('addEmployee.get');
-//Route::post('/employees/add', [EmployeeController::class, 'submitEmployeeForm'])->name('addEmployee.post');
-//Route::get('image/upload', [EmployeeController::class, 'imageUpload'])->name('image.upload');
-//Route::post('image/upload', [EmployeeController::class, 'imageUploadPost'])->name('image.upload.post');
-//Route::resource('image', EmployeeController::class);
-//Route::get('/', [EmployeeController::class, 'showEmployeeList'])->name('employeeList');

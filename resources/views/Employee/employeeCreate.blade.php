@@ -4,13 +4,6 @@
 @endsection
 @section('content')
 
-@if (Session::has('successMessage'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-  {{ Session::get('successMessage') }}
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-@endif
-
 <div class="cardcreate">
   <div class="card-header">
     <h2>New Employee Information</h2>
@@ -100,22 +93,22 @@
       <label class="form-label">Basic Salary : @if ($errors->has('basic_salary'))
         <small class="text-danger">*{{ $errors->first('basic_salary') }}</small>
         @endif</label><br>
-        <input type="text" value="{{ old('basic_salary') }}" name="basic_salary" class="form-control" placeholder="Enter Basic Salary">
-        <br>
+      <input type="text" value="{{ old('basic_salary') }}" name="basic_salary" class="form-control" placeholder="Enter Basic Salary">
+      <br>
 
-        @if ($errors->has('profile'))
-        <small class="text-danger">*{{ $errors->first('profile') }}</small>
-        @endif
-        <input type="file" name="profile" class="form-control">
-        <br>
+      @if ($errors->has('profile'))
+      <small class="text-danger">*{{ $errors->first('profile') }}</small>
+      @endif
+      <input value="{{ old('$filename') }}" type="file" name="profile" class="form-control">
+      <br>
 
-        <div class="con-left">
-          <input type="submit" value="Add Student" class="btn-add">
-        </div>
-        <div class="con-right">
-          <a href="{{ route('employee#showLists') }}" class="btn-cancel">Cancel</a>
-        </div>
-        <br>
+      <div class="con-left">
+        <input type="submit" value="Add Student" class="btn-add">
+      </div>
+      <div class="con-right">
+        <a href="{{ route('employee#showLists') }}" class="btn-cancel">Cancel</a>
+      </div>
+      <br>
     </form>
     <br>
   </div>

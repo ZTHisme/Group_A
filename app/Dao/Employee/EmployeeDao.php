@@ -67,16 +67,6 @@ class EmployeeDao implements EmployeeDaoInterface
 
         $employee = new Employee();
 
-        //if ($profile = $request->file('profile')) {
-        //  $name = time().'_'.$request->file('profile')->getClientOriginalName();
-        //  $request->file('profile')->store('public/images');
-        //  $user['profile'] = "$name";
-
-        //      $imageName = time() . '.' . $request->profile->extension();
-        //
-        //      $request->profile->move(public_path('images'), $imageName);
-        //}
-
         if ($request->hasfile('profile')) {
             $file = $request->file('profile');
             $extention = $file->clientExtension();
@@ -91,23 +81,9 @@ class EmployeeDao implements EmployeeDaoInterface
         $employee->phone = $request->phone;
         $employee->address = $request->address;
         $employee->profile = $filename;
-
-        //        $image = Image::make($image_file);
-        //
-        //        Response::make($image->encode('jpeg'));
-
-        //if ($request->hasfile('profile')) {
-        //  $file = $request->file('profile');
-        //  $extention = $file->getClientOriginalExtension();
-        //  $filename = time() . '.' . $extention;
-        //  $file->move('uploads/employees/', $filename);
-        //  $employee->profile = $filename;
-        //}
-
         $employee->role_id = $request->role;
         $employee->created_user_id = 1;
         $employee->department_id = $request->department;
-
         $employee->save();
 
         $salary = new Salary();
@@ -117,7 +93,6 @@ class EmployeeDao implements EmployeeDaoInterface
         $salary->basic_salary = $request->basic_salary;
 
         $employee->salary()->save($salary);
-
         return $employee;
     }
 

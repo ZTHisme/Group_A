@@ -9,9 +9,12 @@
   </div>
   <div>
     <div class="card">
-    <img class="profile-img" src="{{ asset('uploads/employees/' . $employee->profile) }}" />
+      <img class="profile-img" src="{{ asset('uploads/employees/' . $employee->profile) }}" />
       <div class="container">
-        <h4><b><p>Name : {{ $employee->name }}<p></b></h4>
+        <h4><b>
+            <p>Name : {{ $employee->name }}
+            <p>
+          </b></h4>
         <p>Email address : {{ $employee->email }}</p>
         <p>Phone : {{ $employee->phone }}</p>
         <p>Role : {{ $employee->role->name }}</p>
