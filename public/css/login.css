@@ -21,13 +21,11 @@
 
 .underlineHover:after {
   display: block;
-  bottom: -10px;
-  left: 0;
   width: 0;
   height: 2px;
   background-color: #3e64ff;
   content: "";
-  transition: 0.4s;
+  transition: 0.5s;
 }
 
 .underlineHover:hover {

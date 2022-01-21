@@ -1,20 +1,22 @@
 @extends('layouts.app')
 
 @section('title', 'Attendance Lists')
-
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/attendance.css') }}">
+@endsection
 @section('content')
 <div class="container">
   @checkedout
-  <div class="alert alert-success w-50 mx-auto"><i class="fa fa-calendar-check me-3"></i>
+  <div class="success-msg w-50 mx-auto"><i class="fa fa-calendar-check mr-icon"></i>
     You already have submitted record for today.
   </div>
   @else
-  <div class="card w-50 mx-auto">
-    <div class="card-header">
+  <div class="card-submit w-50 mx-auto">
+    <div class="cardheader-submit clearfix">
       Attendance Submit Form
-      <span class="text-muted float-end">{{ now()->format('d-m-Y') }}</span>
+      <span class="txt-date">{{ now()->format('d-m-Y') }}</span>
     </div>
-    <div class="card-body">
+    <div class="card-body clearfix">
       <form action="{{ route('attendances#store') }}" method="POST">
         {{ csrf_field() }}
         @checkedin
@@ -34,31 +36,35 @@
         </div>
         @endcheckedin
         @checkedin
-        <a href="{{ route('attendances#update') }}" class="btn btn-primary d-block w-25 mt-3 mx-auto">
-          <i class="fa fa-user-check me-2"></i>Check Out
+        <a href="{{ route('attendances#update') }}" class="blue-btn checkout-btn">
+          <i class="fa fa-user-check mr-icon"></i>Check Out
         </a>
         @else
-        <button type="submit" class="btn btn-primary d-block mt-3 mx-auto">
-          <i class="fa fa-user-check me-2"></i>Check In
+        <button type="submit" class="blue-btn checkin-btn">
+          <i class="fa fa-user-check mr-icon"></i>Check In
         </button>
         @endcheckedin
       </form>
     </div>
   </div>
   @endcheckedout
-  <table class="table table-hover" id="attendances">
-    <thead>
-      <tr>
-        <th class="header-cell" scope="col">#</th>
-        <th class="header-cell" scope="col">Name</th>
-        <th class="header-cell" scope="col">Role</th>
-        <th class="header-cell" scope="col">Department</th>
-        <th class="header-cell" scope="col">Attendance</th>
-        <th class="header-cell" scope="col">Type</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach ($attendances as $attendance)
+  <div class="list-card">
+    <div class="listcard-header mr-table">
+      Attendance Lists
+    </div>
+    <table class="table table-hover" id="attendances">
+      <thead>
+        <tr>
+          <th class="header-cell" scope="col">#</th>
+          <th class="header-cell" scope="col">Name</th>
+          <th class="header-cell" scope="col">Role</th>
+          <th class="header-cell" scope="col">Department</th>
+          <th class="header-cell" scope="col">Attendance</th>
+          <th class="header-cell" scope="col">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($attendances as $attendance)
         <tr>
           <td>{{ $loop->iteration }}</td>
           <td>{{ $attendance->employee->name }}</td>
@@ -67,9 +73,10 @@
           <td>{{ $attendance->status }}</td>
           <td>{{ $attendance->type_name }}</td>
         </tr>
-      @endforeach
-    </tbody>
-  </table>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
 </div>
 @endsection
 

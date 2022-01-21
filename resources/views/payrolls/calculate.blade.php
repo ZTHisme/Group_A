@@ -8,7 +8,10 @@
 
 @section('content')
 <div class="container">
-  <div class="card">
+  <div class="list-card">
+    <div class="listcard-header mr-table">
+      Payroll Calculate
+    </div>
     <ul>
       <li class="row clearfix">
         <p class="float-left label">Name</p>
