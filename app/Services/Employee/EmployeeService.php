@@ -28,15 +28,6 @@ class EmployeeService implements EmployeeServiceInterface
     }
 
     /**
-     * To get employee lists
-     * @return $array of employee
-     */
-    public function getEmployee()
-    {
-        return $this->employeeDao->getEmployee();
-    }
-
-    /**
      * To get list of roles
      *  @return $roles
      */
@@ -48,7 +39,7 @@ class EmployeeService implements EmployeeServiceInterface
 
     /**
      * To get list of departs
-     *  @param
+     *  
      *  @return $departs
      */
     public function getDepartments()
@@ -64,10 +55,7 @@ class EmployeeService implements EmployeeServiceInterface
      */
     public function addEmployee(Request $request)
     {
-        $employee = $this->employeeDao->addEmployee($request);
-        Mail::send('newEmployeeMail', ['employee_name' => $request->name], function ($message) use ($request) {
-            $message->to($request->email, 'New Employee')->subject('Registration Information');
-        });
+        return $this->employeeDao->addEmployee($request);
 
         //Storage::move(
         //    config('path.public_tmp') . $request['profile'],
@@ -75,17 +63,6 @@ class EmployeeService implements EmployeeServiceInterface
         //);
 
         return $employee;
-    }
-
-    /**
-     * To get all employee list
-     * @param
-     * @return $employees
-     */
-    public function getAllEmployees()
-    {
-        $employees = $this->employeeDao->getAllEmployees();
-        return $employees;
     }
 
     /**
@@ -106,8 +83,7 @@ class EmployeeService implements EmployeeServiceInterface
      */
     public function editEmployeeById(Request $request, $id)
     {
-        $this->employeeDao->editEmployeeById($request, $id);
-        return true;
+        return $this->employeeDao->editEmployeeById($request, $id);
     }
 
     /**
@@ -117,8 +93,7 @@ class EmployeeService implements EmployeeServiceInterface
      */
     public function deleteEmployeeById($id)
     {
-        $this->employeeDao->deleteEmployeeById($id);
-        return true;
+        return $this->employeeDao->deleteEmployeeById($id);
     }
 
     /*

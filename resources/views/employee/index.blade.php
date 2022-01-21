@@ -13,16 +13,16 @@
       <div class="card-body">
         <form action="{{ route('employee#showLists') }}" method="GET">
           <div class="input-group my-5">
-            <input type="text" class="form-control" placeholder="Name" name="name">
-            <input type="date" class="form-control" placeholder="Start Date" name="start_date">
-            <input type="date" class="form-control" placeholder="End Date" name="end_date">
+            <input type="text" class="form-inline" placeholder="Name" name="name">
+            <input type="date" class="form-inline" placeholder="Start Date" name="start_date">
+            <input type="date" class="form-inline" placeholder="End Date" name="end_date">
             <button class="btn btn-primary" type="submit">Search</button>
           </div>
         </form>
       </div>
     </div>
     <div class="panel-body">
-      <a href="#" class="pull-right"><i class="fas fa-user-plus mr-icon"></i></a>
+      <a href="{{ route('addEmployee.get') }}" class="pull-right"><i class="fas fa-user-plus mr-icon"></i></a>
       <table class="table table-striped task-table">
         <thead>
           <th>Name</th>
@@ -43,15 +43,13 @@
             <td>{{ $employee->department }}</td>
             <td>{{ \Carbon\Carbon::parse ($employee->created_at)->toDateString();}}</td>
             <td>
-              <a href="" class="btn btn-primary btn-sm me-2">Show</a>
+              <a href="{{ route('show.employee.get', [$employee->id]) }}" class="btn btn-primary btn-sm me-2">Show</a>
               @can('isManager')
-              <a href="" class="btn btn-warning btn-sm me-2">Edit</a>
-              <form action="" class="form-display" onclick="return confirm('Are you sure?')" method="POST">
+              <a href="{{ route('edit.employee.get', [$employee->id]) }}" class="btn btn-warning btn-sm me-2">Edit</a>
+              <a href="#" class="delete-btn" data-id="{{ $employee->id }}">Delete</a>
+              <form action="{{ route('delete.employee', [$employee->id]) }}" method="POST" id="del-form{{ $employee->id }}">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger btn-sm delete">
-                  Delete
-                </button>
               </form>
               @endcan
             </td>
@@ -62,4 +60,8 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('script')
+<script src="{{ asset('js/employee/index.js') }}"></script>
 @endsection

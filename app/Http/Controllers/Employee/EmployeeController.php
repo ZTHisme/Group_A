@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Employee;
 
-use App\Contracts\Services\Employee\EmployeeServiceInterface;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
-use App\Http\Controllers\Controller;
 use App\Models\Employee;
-
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreEmployeeRequest;
+use App\Contracts\Services\Employee\EmployeeServiceInterface;
+use App\Http\Requests\EditEmployeeRequest;
 
 class EmployeeController extends Controller
 {
@@ -35,8 +34,7 @@ class EmployeeController extends Controller
      */
     public function index(Request $request)
     {
-        $employees = $this->employeeInterface->getEmployee();
-        //$employees = $this->employeeInterface->searchEmployee($request);
+        $employees = $this->employeeInterface->searchEmployee($request);
         return view('Employee.index', compact('employees'));
     }
 
@@ -55,20 +53,22 @@ class EmployeeController extends Controller
 
     /**
      * To save new employee
-     * @param Request $request
+     * 
+     * @param App\Http\Requests\StoreEmployeeRequest $request
      * @return massage success or not
      */
     public function submitEmployeeForm(StoreEmployeeRequest $request)
     {
-        dd($request);
+        $employee = $this->employeeInterface->addEmployee($request);
 
-        $validated = $request->validated();
-        $this->employeeInterface->addEmployee($request, $validated);
-        return redirect()->route('employee#showLists')
-            //->withInput()
-            //->with('profileName', $profile['name'])
-            //->with('profilePath', $profile['path'])
-            ->with(['successMessage' => 'The new employee is added successfully!']);
+        if ($employee) {
+            return redirect()
+                ->route('employee#showLists')
+                ->with('success', 'Employee created successfully.');
+        } else {
+            return back()
+                ->withErrors('Unknown error occured! Please try again.');
+        }
     }
 
     /**
@@ -78,16 +78,13 @@ class EmployeeController extends Controller
      */
     public function showEmployeeDetailForm($id)
     {
-        $roles = $this->employeeInterface->getRoles();
-        $departments = $this->employeeInterface->getDepartments();
-
         $employee = $this->employeeInterface->getEmployeeById($id);
-        return view('Employee.employeeShow')->with(['employee' => $employee, 'roles' => $roles, 'departments' => $departments]);
+        return view('Employee.employeeShow')->with(['employee' => $employee]);
     }
 
     /**
      * To redirect student edit information form
-     * @param
+     * @param $id
      * @return view
      */
     public function showEmployeeEditForm($id)
@@ -96,19 +93,28 @@ class EmployeeController extends Controller
         $departments = $this->employeeInterface->getDepartments();
 
         $employee = $this->employeeInterface->getEmployeeById($id);
-        return view('Employee.employeeEdit')->with(['employee' => $employee, 'roles' => $roles, 'departments' => $departments]);
+        return view('Employee.employeeEdit')
+            ->with(['employee' => $employee, 'roles' => $roles, 'departments' => $departments]);
     }
 
     /**
      * To update student information
-     * @param student id, Request $request
+     * @param App\Http\Requests\StoreEmployeeRequest $request
+     * @param $id
      * @return message success or not
      */
-    public function submitEmployeeEditForm(Request $request, $id)
+    public function submitEmployeeEditForm(EditEmployeeRequest $request, $id)
     {
-        //$validated = $request->validated();
-        $this->employeeInterface->editEmployeeById($request, $id);
-        return redirect()->route('employee#showLists')->with(['successMessage' => 'The employee data is updated successfully!']);
+        $employee = $this->employeeInterface->editEmployeeById($request, $id);
+
+        if ($employee) {
+            return redirect()
+                ->route('employee#showLists')
+                ->with('success', 'Employee data is updated successfully.');
+        } else {
+            return back()
+                ->withErrors('Unknown error occured! Please try again.');
+        }
     }
 
     /**
@@ -118,10 +124,16 @@ class EmployeeController extends Controller
      */
     public function deleteEmployee($id)
     {
-        $this->employeeInterface->deleteEmployeeById($id);
-        return redirect()->route('employee#showLists')->with(['deleteMessage' => 'The employee record is deleted successfully!']);
-        $employees = $this->employeeInterface->searchEmployee($request);
-        return view('employee.index', compact('employees'));
+        $employee = $this->employeeInterface->deleteEmployeeById($id);
+
+        if ($employee) {
+            return redirect()
+                ->route('employee#showLists')
+                ->with('success', 'Employee data is deleted successfully.');
+        } else {
+            return back()
+                ->withErrors('Unknown error occured! Please try again.');
+        }
     }
 
     /**

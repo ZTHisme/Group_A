@@ -26,30 +26,24 @@ class EditEmployeeRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' =>'required',
-            //'password' => 'required',
-            //'confirm_password' => 'required',
-            'phone' => 'required',
-            //[
-            //    'required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10', 'max:15', 'ends_with:0,1,2,3,4,5,6,7,8,9',
-            //    function ($attribute, $value, $fail) {
-            //        if (Str::substrCount($value, '-',) > 1) {
-            //            $fail('The ' . $attribute . ' number must contain only one special character');
-            //        }
-            //    },
-            //    function ($attribute, $value, $fail) {
-            //        if (Str::substrCount($value, '+',) > 1) {
-            //            $fail('The ' . $attribute . ' number must contain only one special character');
-            //        }
-            //    },
-            //],
-            //'address' => 'required',
-            //'profile' => 'required',
+            'email' => 'required|email|unique:employees,email,' . $this->id,
+            'phone' => [
+                'required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10', 'max:15', 'ends_with:0,1,2,3,4,5,6,7,8,9',
+                function ($attribute, $value, $fail) {
+                    if (Str::substrCount($value, '-',) > 1) {
+                        $fail('The ' . $attribute . ' number must contain only one special character');
+                    }
+                },
+                function ($attribute, $value, $fail) {
+                    if (Str::substrCount($value, '+',) > 1) {
+                        $fail('The ' . $attribute . ' number must contain only one special character');
+                    }
+                },
+            ],
+            'address' => 'required',
             'role_id' => 'required',
             'department_id' => 'required',
-            //'leave_fine' => 'required',
-            //'overtime_fee' => 'required',
-            //'basic_salary' => 'required',
+            'profile' => 'mimes:png,jpg,jpeg,svg'
         ];
     }
 

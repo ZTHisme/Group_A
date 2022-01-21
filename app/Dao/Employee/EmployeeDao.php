@@ -12,28 +12,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Contracts\Dao\Employee\EmployeeDaoInterface;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class EmployeeDao implements EmployeeDaoInterface
 {
-    /**
-     * To get all employee list
-     * @param
-     * @return $employees
-     */
-    public function getAllEmployees()
-    {
-        return Employee::get();
-    }
-
-    /**
-     * To get employee lists
-     * @return $array of employee
-     */
-    public function getEmployee()
-    {
-        return Employee::with('role', 'department')->orderBy('created_at', 'asc')->get();
-    }
-
     /**
      * To get list of roles
      *  @param
@@ -63,59 +45,38 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function addEmployee(Request $request)
     {
+        $employee = DB::transaction(function () use ($request) {
+            $employee = new Employee();
 
-        $employee = new Employee();
+            if ($request->hasfile('profile')) {
+                $file = $request->file('profile');
+                $extention = $file->clientExtension();
+                $filename = time() . '.' . $extention;
+                $request->file('profile')->storeAs('employees', $filename, 'public');
+                $employee->profile = $filename;
+            }
 
-        //if ($profile = $request->file('profile')) {
-        //  $name = time().'_'.$request->file('profile')->getClientOriginalName();
-        //  $request->file('profile')->store('public/images');
-        //  $user['profile'] = "$name";
-
-        //      $imageName = time() . '.' . $request->profile->extension();
-        //
-        //      $request->profile->move(public_path('images'), $imageName);
-        //}
-
-        if ($request->hasfile('profile')) {
-            $file = $request->file('profile');
-            $extention = $file->clientExtension();
-            $filename = time() . '.' . $extention;
-            $file->move('uploads/employees/', $filename);
+            $employee->name = $request->name;
+            $employee->email = $request->email;
+            $employee->password = Hash::make($request->password);
+            $employee->phone = $request->phone;
+            $employee->address = $request->address;
             $employee->profile = $filename;
-        }
+            $employee->role_id = $request->role_id;
+            $employee->created_user_id = auth()->id();
+            $employee->department_id = $request->department_id;
+            $employee->save();
 
-        $employee->name = $request->name;
-        $employee->email = $request->email;
-        $employee->password = $request->password;
-        $employee->phone = $request->phone;
-        $employee->address = $request->address;
-        $employee->profile = $filename;
+            $salary = new Salary();
+            $salary->employee_id = $request->employee;
+            $salary->leave_fine = $request->leave_fine;
+            $salary->overtime_fee = $request->overtime_fee;
+            $salary->basic_salary = $request->basic_salary;
 
-        //        $image = Image::make($image_file);
-        //
-        //        Response::make($image->encode('jpeg'));
+            $employee->salary()->save($salary);
 
-        //if ($request->hasfile('profile')) {
-        //  $file = $request->file('profile');
-        //  $extention = $file->getClientOriginalExtension();
-        //  $filename = time() . '.' . $extention;
-        //  $file->move('uploads/employees/', $filename);
-        //  $employee->profile = $filename;
-        //}
-
-        $employee->role_id = $request->role;
-        $employee->created_user_id = 1;
-        $employee->department_id = $request->department;
-
-        $employee->save();
-
-        $salary = new Salary();
-        $salary->employee_id = $request->employee;
-        $salary->leave_fine = $request->leave_fine;
-        $salary->overtime_fee = $request->overtime_fee;
-        $salary->basic_salary = $request->basic_salary;
-
-        $employee->salary()->save($salary);
+            return $employee;
+        }, 5);
 
         return $employee;
     }
@@ -127,7 +88,7 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function getEmployeeById($id)
     {
-        return Employee::find($id);
+        return Employee::with('role', 'department')->findOrFail($id);
     }
 
     /**
@@ -137,15 +98,30 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function editEmployeeById(Request $request, $id)
     {
-        Employee::where('id', $id)
-            ->update([
+        $employee = DB::transaction(function () use ($request, $id) {
+            $employee = Employee::findOrFail($id);
+            if ($request->hasfile('profile')) {
+                $file = $request->file('profile');
+                $extention = $file->clientExtension();
+                $filename = time() . '.' . $extention;
+                $request->file('profile')->storeAs('employees', $filename, 'public');
+                Storage::disk('public')->delete('employees' . config('path.separator') . $employee->profile);
+                $employee->profile = $filename;
+            }
+
+            $employee->update([
                 'name' => $request->name,
                 'email' => $request->email,
-                'role_id' => $request->role,
-                'department_id' => $request->department,
+                'role_id' => $request->role_id,
+                'department_id' => $request->department_id,
                 'phone' => $request->phone,
-                //'joindate' => $request->created_at->toDateString(),
+                'address' => $request->address
             ]);
+
+            return $employee;
+        }, 5);
+
+        return $employee;
     }
 
     /**
@@ -155,9 +131,13 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function deleteEmployeeById($id)
     {
-        Employee::find($id)->delete();
+        $employee = DB::transaction(function () use ($id) {
+            return Employee::find($id)->delete();
+        }, 5);
+
+        return $employee;
     }
-    
+
     /**
      * To search employee lists
      * 
@@ -184,7 +164,7 @@ class EmployeeDao implements EmployeeDaoInterface
         if ($end_date) {
             $employees->whereDate('employees.created_at', '<=', $end_date);
         }
-        return $employees->get()->except('employees.deleted_at');
+        return $employees->latest()->get()->except('employees.deleted_at');
     }
 
     /**

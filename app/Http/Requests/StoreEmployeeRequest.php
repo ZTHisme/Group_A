@@ -24,9 +24,19 @@ class StoreEmployeeRequest extends FormRequest
      */
     public function rules()
     {
+        $rule = [
+            'required',
+            'max:10',
+            function ($attribute, $value, $fail) {
+                if ($value < 1000) {
+                    $fail('The ' . $attribute . ' should be at least 1000 mmk');
+                }
+            },
+        ];
+
         return [
             'name' => 'required',
-            'email' => 'required|email|unique:employees',
+            'email' => 'required|email|unique:employees,email',
             'password' => 'required|confirmed|min:6',
             'phone' => [
                 'required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10', 'max:15', 'ends_with:0,1,2,3,4,5,6,7,8,9',
@@ -45,9 +55,9 @@ class StoreEmployeeRequest extends FormRequest
             'profile' => 'required|mimes:png,jpg,jpeg,svg',
             'role_id' => 'required',
             'department_id' => 'required',
-            'leave_fine' => 'required',
-            'overtime_fee' => 'required',
-            'basic_salary' => 'required',
+            'leave_fine' => $rule,
+            'overtime_fee' => $rule,
+            'basic_salary' => $rule,
         ];
     }
 

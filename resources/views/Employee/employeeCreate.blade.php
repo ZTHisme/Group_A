@@ -16,107 +16,138 @@
     <form action="{{ route('addEmployee.post') }}" method="POST" enctype="multipart/form-data">
       @csrf
 
-      <label class="form-label">Name : @if ($errors->has('name'))
-        <small class="text-danger">*{{ $errors->first('name') }}</small>
-        @endif </label><br>
-      <input class="form-control" type="name" value="{{ old('name') }}" name="name" placeholder="Enter employee name">
-      <br>
-
-      <label class="form-label">Email address : @if ($errors->has('email'))
-        <small class="text-danger">*{{ $errors->first('email') }}</small>
-        @endif</label><br>
-      <input type="email" value="{{ old('email') }}" name="email" class="form-control" placeholder="Enter employee email">
-      <br>
-
-      <label class="form-label">Password : @if ($errors->has('password'))
-        <small class="text-danger">*{{ $errors->first('password') }}</small>
-        @endif</label><br>
-      <input type="password" value="{{ old('password') }}" name="password" class="form-control" placeholder="Create Passowrd">
-      <br>
-
-      <label class="form-label">Confirm Password : @if ($errors->has('password_confirmation'))
-        <small class="text-danger">*{{ $errors->first('password_confirmation') }}</small>
-        @endif </label><br>
-      <input type="password" value="{{ old('password_confirmation') }}" name="password_confirmation" class="form-control" placeholder="Confirm Passowrd">
-      <br>
-
-      <label class="form-label">Phone : @if ($errors->has('phone'))
-        <small class="text-danger">*{{ $errors->first('phone') }}</small>
-        @endif </label><br>
-      <input type="tel" value="{{ old('phone') }}" name="phone" class="form-control" placeholder="Enter phone number">
-      <br>
-
-      <label class="form-label">Address : @if ($errors->has('address'))
-        <small class="text-danger">*{{ $errors->first('address') }}</small>
-        @endif </label><br>
-      <textarea type="address" name="address" class="form-control" placeholder="Enter address">{{ old('address') }}</textarea>
-      <br>
-
-      <label for="role" class="form-label">Role : @if ($errors->has('role'))
-        <small class="text-danger">*{{ $errors->first('role') }}</small>
-        @endif</label><br>
-      <select class="form-control" name="role">
-        <option value="">Choose Role</option>
-        @foreach ($roles as $role)
-        @if (old('role') == $role->id)
-        <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
-        @else
-        <option value="{{$role->id}}">{{ $role->name }}</option>
-        @endif
-        @endforeach
-      </select>
-      <br>
-
-      <label for="department" class="form-label">Department : @if ($errors->has('department'))
-        <small class="text-danger">*{{ $errors->first('department') }}</small>
-        @endif</label><br>
-      <select class="form-control" name="department">
-        <option value="">Choose Department</option>
-        @foreach ($departments as $department)
-        @if (old('department') == $department->id)
-        <option value="{{ $department->id }}" selected>{{ $department->name }}</option>
-        @else
-        <option value="{{$department->id}}">{{ $department->name }}</option>
-        @endif
-        @endforeach
-      </select>
-      <br>
-
-      <label class="form-label">Leave Fine : @if ($errors->has('leave_fine'))
-        <small class="text-danger">*{{ $errors->first('leave_fine') }}</small>
-        @endif </label><br>
-      <input type="text" value="{{ old('leave_fine') }}" name="leave_fine" class="form-control" placeholder="Enter Leave Fine">
-      <br>
-
-      <label class="form-label">OverTime Fee : @if ($errors->has('overtime_fee'))
-        <small class="text-danger">*{{ $errors->first('overtime_fee') }}</small>
-        @endif</label><br>
-      <input type="text" value="{{ old('overtime_fee') }}" name="overtime_fee" class="form-control" placeholder="Enter Overtime Fee">
-      <br>
-
-      <label class="form-label">Basic Salary : @if ($errors->has('basic_salary'))
-        <small class="text-danger">*{{ $errors->first('basic_salary') }}</small>
-        @endif</label><br>
-        <input type="text" value="{{ old('basic_salary') }}" name="basic_salary" class="form-control" placeholder="Enter Basic Salary">
-        <br>
-
-        @if ($errors->has('profile'))
-        <small class="text-danger">*{{ $errors->first('profile') }}</small>
-        @endif
-        <input type="file" name="profile" class="form-control">
-        <br>
-
-        <div class="con-left">
-          <input type="submit" value="Add Student" class="btn-add">
+      <div class="row clearfix">
+        <div class="float-left text">
+          <label for="name">Name</label>
         </div>
-        <div class="con-right">
-          <a href="{{ route('employee#showLists') }}" class="btn-cancel">Cancel</a>
+        <div class="float-left input">
+          <input type="text" name="name" class="form-control" placeholder="Enter employee name">
         </div>
-        <br>
+      </div>
+
+      <div class="row clearfix">
+        <div class="float-left text">
+          <label for="email">Email address</label>
+        </div>
+        <div class="float-left input">
+          <input type="email" name="email" class="form-control" placeholder="Enter employee email">
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="float-left text">
+          <label for="password">Password</label>
+        </div>
+        <div class="float-left input">
+          <input type="password" name="password" class="form-control" placeholder="Enter password">
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="float-left text">
+          <label for="password">Confirm Password</label>
+        </div>
+        <div class="float-left input">
+          <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm password">
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="float-left text">
+          <label for="phone">Phone</label>
+        </div>
+        <div class="float-left input">
+          <input type="tel" name="phone" class="form-control" placeholder="Enter phone number">
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="float-left text">
+          <label for="address">Address</label>
+        </div>
+        <div class="float-left input">
+          <textarea name="address" class="form-control" rows="5" placeholder="Enter address"></textarea>
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="float-left text">
+          <label for="role">Role</label>
+        </div>
+        <div class="float-left input">
+          <select name="role_id" class="form-control">
+            @foreach ($roles as $role)
+            <option value="{{ $role->id }}">{{ $role->name }}</option>
+            @endforeach
+          </select>
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="float-left text">
+          <label for="department">Department</label>
+        </div>
+        <div class="float-left input">
+          <select name="department_id" class="form-control">
+            @foreach ($departments as $department)
+            <option value="{{ $department->id }}">{{ $department->name }}</option>
+            @endforeach
+          </select>
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="float-left text">
+          <label for="leave_fine">Leave Fine</label>
+        </div>
+        <div class="float-left input">
+          <input type="number" name="leave_fine" class="form-control" placeholder="Enter Leave Fine">
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="float-left text">
+          <label for="overtime_fee">OverTime Fee</label>
+        </div>
+        <div class="float-left input">
+          <input type="number" name="overtime_fee" class="form-control" placeholder="Enter Overtime Fee">
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="float-left text">
+          <label for="basic_salary">Basic Salary</label>
+        </div>
+        <div class="float-left input">
+          <input type="number" name="basic_salary" class="form-control" placeholder="Enter Basic Salary">
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="float-left text">
+          <label for="profile">Profile Picture</label>
+        </div>
+        <div class="float-left input">
+          <input type="file" name="profile" class="form-control" placeholder="Enter Basic Salary" id="profile">
+          <img src="" id="preview-profile">
+        </div>
+      </div>
+
+      <div class="con-left">
+        <input type="submit" value="Add Student" class="btn-add">
+      </div>
+      <div class="con-right">
+        <a href="#" id="back">Cancel</a>
+      </div>
+      <br>
     </form>
     <br>
   </div>
-
 </div>
+{!! JsValidator::formRequest('App\Http\Requests\StoreEmployeeRequest'); !!}
+@endsection
 
+@section('script')
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+<script src="{{ asset('js/employee/create.js') }}"></script>
 @endsection

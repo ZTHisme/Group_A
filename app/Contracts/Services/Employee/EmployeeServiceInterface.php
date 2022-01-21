@@ -31,19 +31,6 @@ interface EmployeeServiceInterface
     public function showBarGraph();
 
     /**
-     * To get all employee list
-     * @param
-     * @return $employees
-     */
-    public function getAllEmployees();
-
-    /**
-     * To get employee lists
-     * @return $array of employee
-     */
-    public function getEmployee();
-
-    /**
      * To get list of roles
      *  @param
      *  @return $roles
