@@ -11,7 +11,7 @@
   <title>@yield('title') | Group A</title>
 
   <!-- Styles -->
-  {{--<link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
+ <!--<link rel="stylesheet" href="{{ asset('css/app.css') }}">-->
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/common.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -20,7 +20,7 @@
   @yield('css')
 
   <!-- Scripts -->
-  {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
+  <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
   <script src="{{ asset('js/library/jquery-3.6.0.min.js') }}"></script>
   <script src="{{ asset('js/common.js') }}"></script>
   <script src="{{ asset('js/library/sweetalert2.min.js') }}"></script>
@@ -29,10 +29,10 @@
 
 <body>
 
-  <div class="wrapper d-flex">
-    <nav id="sidebar" class="active">
+  <div class="d-flex">
+    <nav id="sidebar">
       <h1><a href="#" class="logo">Employee Management</a></h1>
-      <ul class="components">
+      <ul>
         <li>
           <a href="{{ route('graph#dashBoard') }}"><span class="fas fa-tachometer-alt"></span> Dashboard</a>
         </li>

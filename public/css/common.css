@@ -1,3 +1,230 @@
+body {
+  width: 100%;
+  line-height: 1.5;
+  margin: 0;
+  background-color: #fff;
+  color: #212529;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
+}
+
+#content {
+  width: 100%;
+  min-height: 100vh;
+}
+
+a {
+  display: inline-block;
+}
+
+.navbar-nav {
+  display: -webkit-inline-box;
+  float: right;
+  flex-direction: column;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.navbar {
+  display: flow-root;
+  padding: 1rem 1rem;
+  border: none;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 0;
+}
+
+.seprator {
+  margin-top: 40px;
+}
+
+.profile-img {
+  width: 45px;
+  height: 45px;
+  margin-top: -1px;
+  margin-right: 16px;
+  border-radius: 10px;
+}
+
+.rounded-input {
+  margin: 10px 0px 10px 20px;
+  padding: 10px 20px;
+  border: 1px solid #d1d0d0;
+  border-radius: 10px;
+}
+
+.rounded-input:focus {
+  border: 1px solid #d1d0d0;
+}
+
+.blue-btn {
+  padding: 6px 14px;
+  border: none;
+  background-color: #3e64ff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.yellow-btn {
+  padding: 6px 16px;
+  border: none;
+  background-color: #ca9801;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.red-btn {
+  padding: 10px 10px;
+  border: none;
+  background-color: #dc3545;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* ------------------------Error Msg------------------ -------- */
+.error-msg {
+  display: inline-block;
+  margin: 5px 0 0;
+  color: #cc0033;
+  font-size: 13px;
+}
+
+.alert-errmsg {
+  padding: 20px 30px;
+  border: 3px solid #ff9596;
+  background-color: #FFBABA;
+  text-align: center;
+}
+
+.alert-errmsg strong {
+  color: #D8000C;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.errline-msg {
+  color: #bb002f98;
+  font-size: 15px;
+  font-weight: bold;
+}
+/* ------------------------Success Msg------------------ -------- */
+.success-msg{
+  margin: 25px 0;
+  padding: 20px;
+  background-color: #DFF2BF;
+  color: #4F8A10;
+}
+/* ----------------------------Side Bar----------------------- */
+#sidebar {
+  width: 186px;
+  background: #3e64ff;
+  color: #fff;
+  text-align: center;
+}
+
+#sidebar ul li {
+  font-size: 14px;
+}
+
+#sidebar ul li a span {
+  display: block;
+  margin-right: 0;
+  font-size: 24px;
+}
+
+#sidebar .logo {
+  padding: 11px 0 36px 0;
+  text-decoration: none;
+}
+
+#sidebar .logo {
+  display: block;
+  color: #fff;
+  font-size: 25px;
+}
+
+#sidebar ul li a {
+  display: block;
+  line-height: 3;
+  padding: 15px;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+/* ----------------------------DropDown Btn----------------------- */
+.dropbtn {
+  padding: 10px;
+  border: none;
+  background-color: #3e64ff;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+}
+
+.dropdown-content a {
+  padding: 12px 51px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  width: 100%;
+  background-color: #0032f8;
+}
+/* -------------------------Card------------------------------- */
+.list-card {
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+}
+
+.listcard-header {
+  padding: 10px;
+  border: 1px solid #d3d1d1;
+  background-color: #d3d1d1;
+  font-size: 20px;
+}
+
+.mr-table {
+  margin-bottom: 15px;
+}
+
+.align {
+  margin: 10px;
+}
+
 .container {
   padding: 0 5%;
 }
@@ -23,6 +250,7 @@ tfoot,
 tr,
 td,
 th {
+  text-align: center;
   border-color: inherit;
   border-style: solid;
   border-width: 0;
@@ -32,18 +260,18 @@ tr:nth-child(even) {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.table > :not(caption) > * > * {
+.table> :not(caption)>*>* {
   padding: 0.5rem 0.5rem;
   box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
   background-color: var(--bs-table-bg);
   border-bottom-width: 1px;
 }
 
-.table > :not(:first-child) {
+.table> :not(:first-child) {
   border-top: 2px solid currentColor;
 }
 
-.table > tbody {
+.table>tbody {
   vertical-align: inherit;
 }
 
@@ -67,14 +295,14 @@ tr:nth-child(even) {
 
 .label {
   width: 30%;
-  text-align: end;
   font-weight: bold;
+  text-align: end;
 }
 
 .value {
   width: 55%;
-  border: 1px solid black;
   padding: 0 10px;
+  border: 1px solid black;
   border-radius: 10px;
 }
 
