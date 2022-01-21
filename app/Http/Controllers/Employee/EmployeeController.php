@@ -41,18 +41,6 @@ class EmployeeController extends Controller
     }
 
     /**
-     * To get all employee list
-     * @param
-     * @return $employees
-     */
-    public function showEmployeeList()
-    {
-        $employees = $this->employeeInterface->getEmployee();
-        return view('Employee.index', compact('employees'));
-        //return view('Employee.index')->with(['employees' => $employees]);
-    }
-
-    /**
      * To redirect new employee information form
      * @param
      * @return view

@@ -21,13 +21,11 @@ use App\Http\Controllers\Payroll\PayrollController;
 // Employee list resource route
 Route::prefix('employees')->middleware('auth')->group(function () {
     Route::get('/lists', [EmployeeController::class, 'index'])->name('employee#showLists');
-    Route::get('/', [EmployeeController::class, 'showEmployeeList'])->name('employeeList');
-    Route::get('/lists', [EmployeeController::class, 'index'])->name('employee#showLists');
 
     Route::get('/employee/show/{id}', [EmployeeController::class, 'showEmployeeDetailForm'])->name('show.employee.get');
 
-    Route::get('/employees/add', [EmployeeController::class, 'showEmploeeForm'])->name('addEmployee.get');
-    Route::post('/employees/add', [EmployeeController::class, 'submitEmployeeForm'])->name('addEmployee.post');
+    Route::get('add', [EmployeeController::class, 'showEmploeeForm'])->name('addEmployee.get');
+    Route::post('add', [EmployeeController::class, 'submitEmployeeForm'])->name('addEmployee.post');
 
     Route::get('/employee/edit/{id}', [EmployeeController::class, 'showEmployeeEditForm'])->name('edit.employee.get');
     Route::post('/employee/edit/{id}', [EmployeeController::class, 'submitEmployeeEditForm'])->name('edit.employee.post');
@@ -36,10 +34,10 @@ Route::prefix('employees')->middleware('auth')->group(function () {
 });
 
 // Dashboard route to show chart
-Route::get('/dashboard', [EmployeeController::class, 'graph'])->name('graph#dashBoard');
+Route::get('/dashboard', [EmployeeController::class, 'graph'])->name('graph#dashBoard')->middleware('auth');
 
 Route::get('/', function () {
-    return redirect()->route('attendances#index');
+    return redirect()->route('graph#dashBoard');
 });
 
 // Attendance Routes

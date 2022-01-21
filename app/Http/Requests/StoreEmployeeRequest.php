@@ -27,8 +27,7 @@ class StoreEmployeeRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email|unique:employees',
-            'password' => 'required',
-            'confirm_password' => 'required',
+            'password' => 'required|confirmed|min:6',
             'phone' => [
                 'required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10', 'max:15', 'ends_with:0,1,2,3,4,5,6,7,8,9',
                 function ($attribute, $value, $fail) {
@@ -43,7 +42,7 @@ class StoreEmployeeRequest extends FormRequest
                 },
             ],
             'address' => 'required',
-            'profile' => 'required',
+            'profile' => 'required|mimes:png,jpg,jpeg,svg',
             'role_id' => 'required',
             'department_id' => 'required',
             'leave_fine' => 'required',

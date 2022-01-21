@@ -2,17 +2,16 @@
 
 namespace App\Dao\Employee;
 
-use App\Models\MstRole;
-use App\Models\MstDepartment;
-use App\Models\Employee;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Contracts\Dao\Employee\EmployeeDaoInterface;
 use App\Models\Salary;
+use App\Models\MstRole;
+use App\Models\Employee;
+use App\Models\Attendance;
+use Illuminate\Http\Request;
+use App\Models\MstDepartment;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Images;
-use Illuminate\Support\Facades\Response;
-use Image;
+use App\Contracts\Dao\Employee\EmployeeDaoInterface;
+use Illuminate\Support\Carbon;
 
 class EmployeeDao implements EmployeeDaoInterface
 {
@@ -42,7 +41,7 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function getRoles()
     {
-        $roles = MstRole::get();
+        $roles = MstRole::all();
         return $roles;
     }
 
@@ -53,7 +52,7 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function getDepartments()
     {
-        $departments = MstDepartment::get();
+        $departments = MstDepartment::all();
         return $departments;
     }
 

@@ -1,15 +1,12 @@
 @extends('layouts.app')
-@section('css')
-<link rel="stylesheet" href="{{ asset('css/employeecrud.css') }}">
-@endsection
-@section('content')
 
-@if (Session::has('successMessage'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-  {{ Session::get('successMessage') }}
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-@endif
+@section('title', 'Employee Create')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/employee/employeecrud.css') }}">
+@endsection
+
+@section('content')
 
 <div class="cardcreate">
   <div class="card-header">
@@ -37,10 +34,10 @@
       <input type="password" value="{{ old('password') }}" name="password" class="form-control" placeholder="Create Passowrd">
       <br>
 
-      <label class="form-label">Confirm Password : @if ($errors->has('confirm_password'))
-        <small class="text-danger">*{{ $errors->first('confirm_password') }}</small>
+      <label class="form-label">Confirm Password : @if ($errors->has('password_confirmation'))
+        <small class="text-danger">*{{ $errors->first('password_confirmation') }}</small>
         @endif </label><br>
-      <input type="password" value="{{ old('confirm_password') }}" name="confirm_password" class="form-control" placeholder="Confirm Passowrd">
+      <input type="password" value="{{ old('password_confirmation') }}" name="password_confirmation" class="form-control" placeholder="Confirm Passowrd">
       <br>
 
       <label class="form-label">Phone : @if ($errors->has('phone'))

@@ -38,7 +38,6 @@ class EmployeeService implements EmployeeServiceInterface
 
     /**
      * To get list of roles
-     *  @param
      *  @return $roles
      */
     public function getRoles()
