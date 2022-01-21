@@ -28,5 +28,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('isManager', function($user) {
             return $user->role_id == config('constants.Manager');
         });
+
+        Gate::define('update-employee', function($user, $id) {
+            return $user->role_id == config('constants.Manager') || $user->id == $id;
+        });
     }
 }

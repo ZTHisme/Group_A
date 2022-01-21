@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Employee;
 
-use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Contracts\Services\Employee\EmployeeServiceInterface;
 use App\Http\Requests\EditEmployeeRequest;
+use Illuminate\Support\Facades\Gate;
 
 class EmployeeController extends Controller
 {
@@ -45,6 +45,11 @@ class EmployeeController extends Controller
      */
     public function showEmploeeForm()
     {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
         $roles = $this->employeeInterface->getRoles();
         $departments = $this->employeeInterface->getDepartments();
 
@@ -59,6 +64,11 @@ class EmployeeController extends Controller
      */
     public function submitEmployeeForm(StoreEmployeeRequest $request)
     {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
         $employee = $this->employeeInterface->addEmployee($request);
 
         if ($employee) {
@@ -89,6 +99,11 @@ class EmployeeController extends Controller
      */
     public function showEmployeeEditForm($id)
     {
+        // Check user own profile or user has manager role.
+        if (Gate::denies('update-employee', $id)) {
+            abort(401);
+        }
+
         $roles = $this->employeeInterface->getRoles();
         $departments = $this->employeeInterface->getDepartments();
 
@@ -105,6 +120,11 @@ class EmployeeController extends Controller
      */
     public function submitEmployeeEditForm(EditEmployeeRequest $request, $id)
     {
+        // Check user own profile or user has manager role.
+        if (Gate::denies('update-employee', $id)) {
+            abort(401);
+        }
+
         $employee = $this->employeeInterface->editEmployeeById($request, $id);
 
         if ($employee) {
@@ -124,6 +144,11 @@ class EmployeeController extends Controller
      */
     public function deleteEmployee($id)
     {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
         $employee = $this->employeeInterface->deleteEmployeeById($id);
 
         if ($employee) {

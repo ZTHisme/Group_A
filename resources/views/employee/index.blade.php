@@ -22,7 +22,9 @@
       </div>
     </div>
     <div class="panel-body">
+      @can('isManager')
       <a href="{{ route('addEmployee.get') }}" class="pull-right"><i class="fas fa-user-plus mr-icon"></i></a>
+      @endcan
       <table class="table table-striped task-table">
         <thead>
           <th>Name</th>
@@ -44,8 +46,10 @@
             <td>{{ \Carbon\Carbon::parse ($employee->created_at)->toDateString();}}</td>
             <td>
               <a href="{{ route('show.employee.get', [$employee->id]) }}" class="btn btn-primary btn-sm me-2">Show</a>
-              @can('isManager')
+              @can('update-employee', $employee->id)
               <a href="{{ route('edit.employee.get', [$employee->id]) }}" class="btn btn-warning btn-sm me-2">Edit</a>
+              @endcan
+              @can('isManager')
               <a href="#" class="delete-btn" data-id="{{ $employee->id }}">Delete</a>
               <form action="{{ route('delete.employee', [$employee->id]) }}" method="POST" id="del-form{{ $employee->id }}">
                 @csrf

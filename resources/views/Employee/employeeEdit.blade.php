@@ -115,3 +115,4 @@
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
 <script src="{{ asset('js/employee/create.js') }}"></script>
 @endsection
+
