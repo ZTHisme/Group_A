@@ -30,7 +30,7 @@ interface EmployeeDaoInterface
      * @param Request $request
      * @return
      */
-    public function addEmployee(Request $request);
+    public function addEmployee(Request $request, $filename);
 
     /**
      * To get a employee by id
@@ -44,7 +44,7 @@ interface EmployeeDaoInterface
      * @param $id,Request $request
      * @return
      */
-    public function editEmployeeById(Request $request, $id);
+    public function editEmployeeById(Request $request, $data);
 
     /**
      * To delete employee by id

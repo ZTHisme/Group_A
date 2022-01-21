@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Contracts\Dao\Employee\EmployeeDaoInterface;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Storage;
 
 class EmployeeDao implements EmployeeDaoInterface
 {
@@ -43,19 +42,10 @@ class EmployeeDao implements EmployeeDaoInterface
      * @param Request $request
      * @return
      */
-    public function addEmployee(Request $request)
+    public function addEmployee(Request $request, $filename)
     {
-        $employee = DB::transaction(function () use ($request) {
+        $employee = DB::transaction(function () use ($request, $filename) {
             $employee = new Employee();
-
-            if ($request->hasfile('profile')) {
-                $file = $request->file('profile');
-                $extention = $file->clientExtension();
-                $filename = time() . '.' . $extention;
-                $request->file('profile')->storeAs('employees', $filename, 'public');
-                $employee->profile = $filename;
-            }
-
             $employee->name = $request->name;
             $employee->email = $request->email;
             $employee->password = Hash::make($request->password);
@@ -96,19 +86,14 @@ class EmployeeDao implements EmployeeDaoInterface
      * @param $id,Request $request
      * @return
      */
-    public function editEmployeeById(Request $request, $id)
+    public function editEmployeeById(Request $request, $data)
     {
-        $employee = DB::transaction(function () use ($request, $id) {
-            $employee = Employee::findOrFail($id);
-            if ($request->hasfile('profile')) {
-                $file = $request->file('profile');
-                $extention = $file->clientExtension();
-                $filename = time() . '.' . $extention;
-                $request->file('profile')->storeAs('employees', $filename, 'public');
-                Storage::disk('public')->delete('employees' . config('path.separator') . $employee->profile);
-                $employee->profile = $filename;
-            }
+        $employee = DB::transaction(function () use ($request, $data) {
+            $employee = Employee::findOrFail($data['id']);
 
+            if ($data['filename']) {
+                $employee->profile = $data['filename'];
+            }
             $employee->update([
                 'name' => $request->name,
                 'email' => $request->email,
