@@ -33,7 +33,7 @@
         <td>{{ $employee->overtimes }}</td>
         <td>
           <a href="{{ route('payrolls#calculate', [$employee->id]) }}" class="btn btn-primary btn-sm me-2">Calculate</a>
-          <a href="#" class="btn btn-warning btn-sm">Edit Payroll</a>
+          <a href="{{ route('payroll#showEditView', [$employee->id]) }}" class="btn btn-warning btn-sm">Edit Payroll</a>
         </td>
       </tr>
       @endforeach

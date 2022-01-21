@@ -79,4 +79,16 @@ class PayrollService implements PayrollServiceInterface
             return true;
         }
     }
+
+    /**
+     * To update employee payroll
+     * 
+     * @param Illuminate\Http\Request $request
+     * @param App\Models\Employee $employee
+     * @return $employee object
+     */
+    public function updatePayroll(Request $request, Employee $employee)
+    {
+        return $this->payrollDao->updatePayroll($request, $employee);
+    }
 }

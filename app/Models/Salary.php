@@ -9,17 +9,14 @@ class Salary extends Model
 {
     use HasFactory;
 
-    public function employees()
-    {
-        return $this->hasMany(Employee::class);
-    }
-
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
-        //'employee_id',
-        'leave_fine',
-        'overtime_fee',
         'basic_salary',
-
-
+        'leave_fine',
+        'overtime_fee'
     ];
 }
