@@ -20,7 +20,9 @@
           <button class="search-btn" type="submit">Search</button>
         </div>
       </form>
-      <a href="#" class="pull-right"><i class="fas fa-user-plus mr-icon"></i></a>
+      @can('isManager')
+      <a href="{{ route('addEmployee.get') }}" class="pull-right"><i class="fas fa-user-plus mr-icon"></i></a>
+      @endcan
     </div>
     <div class="card-body">
       <table class="table table-striped task-table">
@@ -43,12 +45,12 @@
             <td>{{ $employee->department }}</td>
             <td>{{ \Carbon\Carbon::parse ($employee->created_at)->toDateString();}}</td>
             <td>
-              <a href="{{ route('show.employee.get', [$employee->id]) }}" class="blue-btn">Show</a>
+              <a href="{{ route('show.employee.get', [$employee->id]) }}" class="blue-btn sm-btn">Show</a>
               @can('update-employee', $employee->id)
-              <a href="{{ route('edit.employee.get', [$employee->id]) }}" class="yellow-btn">Edit</a>
+              <a href="{{ route('edit.employee.get', [$employee->id]) }}" class="yellow-btn sm-btn">Edit</a>
               @endcan
               @can('isManager')
-              <a href="#" class="delete-btn red-btn" data-id="{{ $employee->id }}">Delete</a>
+              <a href="#" class="delete-btn red-btn sm-btn" data-id="{{ $employee->id }}">Delete</a>
               <form action="{{ route('delete.employee', [$employee->id]) }}" method="POST" id="del-form{{ $employee->id }}">
                 @csrf
                 @method('DELETE')

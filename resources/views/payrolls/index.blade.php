@@ -11,7 +11,6 @@
     <table class="table" id="payrolls">
       <thead>
         <tr>
-          <th class="header-cell" scope="col">#</th>
           <th class="header-cell" scope="col">Name</th>
           <th class="header-cell" scope="col">Email</th>
           <th class="header-cell" scope="col">Basic Salary</th>
@@ -26,7 +25,6 @@
       <tbody>
         @foreach ($employees as $employee)
         <tr>
-          <td>{{ $loop->iteration }}</td>
           <td>{{ $employee->name }}</td>
           <td>{{ $employee->email }}</td>
           <td>{{ $employee->salary->basic_salary }}</td>
@@ -36,8 +34,8 @@
           <td>{{ $employee->leave_days }}</td>
           <td>{{ $employee->overtimes }}</td>
           <td>
-            <a href="{{ route('payrolls#calculate', [$employee->id]) }}" class="blue-btn">Calculate</a>
-            <a href="{{ route('payroll#showEditView', [$employee->id]) }}" class="yellow-btn">Edit Payroll</a>
+            <a href="{{ route('payrolls#calculate', [$employee->id]) }}" class="blue-btn sm-btn">Calculate</a>
+            <a href="{{ route('payroll#showEditView', [$employee->id]) }}" class="yellow-btn sm-btn">Edit Payroll</a>
           </td>
         </tr>
         @endforeach

@@ -65,31 +65,39 @@ a {
 }
 
 .blue-btn {
-  padding: 6px 14px;
+  padding: 10px 14px;
   border: none;
   background-color: #3e64ff;
   color: #fff;
   cursor: pointer;
   border-radius: 10px;
+  display: inline;
 }
 
 .yellow-btn {
-  padding: 6px 16px;
+  padding: 10px 14px;
   border: none;
   background-color: #ca9801;
   color: #fff;
   cursor: pointer;
   border-radius: 10px;
+  display: inline;
 }
 
 .red-btn {
-  padding: 10px 10px;
+  padding: 10px 14px;
   border: none;
   background-color: #dc3545;
   color: #fff;
   font-size: 15px;
   cursor: pointer;
   border-radius: 10px;
+  display: inline;
+}
+
+.sm-btn {
+  font-size: 10px;
+  padding: 5px 10px;
 }
 
 /* ------------------------Error Msg------------------ -------- */
@@ -315,16 +323,22 @@ tr:nth-child(even) {
 }
 
 .text {
-  padding: 10px;
+  padding: 10px 0;
   width: 30%;
+  margin-left: 50px;
 }
 
 .input {
-  width: 70%;
+  width: 50%;
+}
+
+input[type=submit] {
+  font-size: 16px;
 }
 
 .form-control {
-  padding: 10px;
+  padding: 10px 0;
   width: 100%;
   outline: none;
+  padding-left: 10px;
 }

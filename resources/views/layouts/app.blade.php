@@ -14,7 +14,6 @@
   {{--<link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/common.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/library/fontawesome.css') }}">
   <link rel="stylesheet" href="{{ asset('css/library/jquery.dataTables.min.css') }}">
   @yield('css')
@@ -54,7 +53,7 @@
       <nav class="navbar">
         <ul class="navbar-nav">
           <li>
-            <img class="profile-img" src="#" id="img">
+            <img class="profile-img" src="{{ asset(config('path.profile_path') . auth()->user()->profile) }}" id="img">
           </li>
           <li>
             <div class="dropdown">

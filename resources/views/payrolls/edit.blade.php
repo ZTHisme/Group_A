@@ -9,6 +9,9 @@
 @section('content')
 <div class="container">
   <div class="card">
+    <div class="listcard-header mr-table">
+      Edit Payroll
+    </div>
     <form action="{{ route('payrolls#updatePayroll', [$employee->id]) }}" method="POST">
       {{ csrf_field() }}
       @method('PATCH')
@@ -36,8 +39,8 @@
           <input type="number" name="leave_fine" class="form-control" value="{{ $employee->salary->leave_fine }}">
         </div>
       </div>
-      <input type="submit" value="Update">
-      <a href="#" id="back">Cancel</a>
+      <input type="submit" value="Update" class="blue-btn">
+      <a href="#" id="back" class="red-btn">Cancel</a>
     </form>
   </div>
 </div>
