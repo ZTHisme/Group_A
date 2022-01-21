@@ -55,7 +55,7 @@ class AuthController extends Controller
         // Check logged in successfully or not.
         if ($this->authInterface->login($credentials, $remember)) {
             return redirect()
-                ->intended('attendances/list')
+                ->intended('dashboard')
                 ->withSuccess('You have Successfully loggedin');
         }
 
