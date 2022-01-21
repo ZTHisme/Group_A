@@ -11,7 +11,7 @@
   <title>@yield('title') | Group A</title>
 
   <!-- Styles -->
- <!--<link rel="stylesheet" href="{{ asset('css/app.css') }}">-->
+  {{--<link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/common.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -20,7 +20,7 @@
   @yield('css')
 
   <!-- Scripts -->
-  <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
+  {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
   <script src="{{ asset('js/library/jquery-3.6.0.min.js') }}"></script>
   <script src="{{ asset('js/common.js') }}"></script>
   <script src="{{ asset('js/library/sweetalert2.min.js') }}"></script>
@@ -60,7 +60,7 @@
             <div class="dropdown">
               <button class="dropbtn btn"><i class="fas fa-caret-down"> {{ auth()->user()->name }}</i></button>
               <div class="dropdown-content">
-                <a class="nav-link" href="#">&nbsp;&nbsp;Register</a>
+                <a class="nav-link" href="{{ route('show.employee.get', [auth()->id()]) }}">&nbsp;&nbsp;Profile</a>
                 <a class="nav-link" href="{{ route('logout') }}">&nbsp;&nbsp;Logout</a>
               </div>
 
