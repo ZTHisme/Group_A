@@ -61,6 +61,7 @@
           @endforeach
         </tbody>
       </table>
+      {!! $employees->withQueryString()->links() !!}
     </div>
   </div>
 </div>

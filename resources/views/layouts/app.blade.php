@@ -53,7 +53,10 @@
       <nav class="navbar">
         <ul class="navbar-nav">
           <li>
-            <img class="profile-img" src="{{ asset(config('path.profile_path') . auth()->user()->profile) }}" id="img">
+            <img class="profile-img" 
+              src="{{ \Illuminate\Support\Facades\Storage::exists('public/employees/' . auth()->user()->profile) ?
+              asset(config('path.profile_path') . auth()->user()->profile) : 
+              'https://ui-avatars.com/api/?name='.auth()->user()->name}}" id="img">
           </li>
           <li>
             <div class="dropdown">

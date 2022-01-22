@@ -136,4 +136,18 @@ class Employee extends Authenticatable
             ->sum('overtime');
         return $sum;
     }
+
+    /**  
+     * Ondelete cascade for employee
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($employee) {
+            $employee->salary()->delete();
+            $employee->finalsalaries()->delete();
+            $employee->attendances()->delete();
+        });
+    }
 }

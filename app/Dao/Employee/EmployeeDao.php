@@ -149,7 +149,7 @@ class EmployeeDao implements EmployeeDaoInterface
         if ($end_date) {
             $employees->whereDate('employees.created_at', '<=', $end_date);
         }
-        return $employees->latest()->get()->except('employees.deleted_at');
+        return $employees->latest()->paginate(10);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Services\Auth;
 
 use App\Contracts\Dao\Auth\AuthDaoInterface;
 use App\Contracts\Services\Auth\ForgetPasswordInterface;
+use App\Jobs\SendForgetPasswordMailJob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Mail;
@@ -35,14 +36,11 @@ class ForgetPasswordService implements ForgetPasswordInterface
      */
     public function processForgetPasswordForm(Request $request)
     {
-        $token = Str::random(64);
-        $email = $request->email;
+        $data['token'] = Str::random(64);
+        $data['email'] = $request->email;
         // Check password reset datas are successfully stored or not.
-        if ($this->authDao->saveToken($email, $token)) {
-            return Mail::send('email.forgetPassword', ['token' => $token], function ($message) use ($email) {
-                $message->to($email);
-                $message->subject('Reset Password');
-            });
+        if ($this->authDao->saveToken($data['email'], $data['token'])) {
+            dispatch(new SendForgetPasswordMailJob($data));
         }
     }
 

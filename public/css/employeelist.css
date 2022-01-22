@@ -39,3 +39,36 @@ input[type=date]:before {
   color: #b9b7b7;
   content: attr(placeholder) !important;
 }
+
+.pagination::before,
+.pagination:after {
+  display: table;
+  content: " ";
+  clear: both;
+}
+
+.pagination {
+  margin: 10px;
+}
+
+.page-item {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: gray;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 10px;
+  float: left;
+  margin-right: 5px;
+}
+
+.page-link {
+  color: white;
+}
+
+.active,
+.disabled {
+  background-color: darkgray;
+}
