@@ -24,7 +24,17 @@ class ProjectService implements ProjectServiceInterface
     {
         $this->projectDao = $projectDao;
     }
-    
+
+    /**
+     * To get all projects
+     * 
+     * @return $array of projects
+     */
+    public function getProjects()
+    {
+        return $this->projectDao->getProjects();
+    }
+
     /**
      * To get all employees
      * 
@@ -35,7 +45,7 @@ class ProjectService implements ProjectServiceInterface
         return $this->projectDao->getEmployee();
     }
 
-     /**
+    /**
      * To store project
      * 
      * @param Illuminate\Http\Request $request

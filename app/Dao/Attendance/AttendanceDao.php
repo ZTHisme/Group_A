@@ -22,6 +22,7 @@ class AttendanceDao implements AttendanceDaoInterface
     {
         return Attendance::whereDate('created_at', Carbon::today())
             ->with('employee.role')
+            ->latest()
             ->get();
     }
 

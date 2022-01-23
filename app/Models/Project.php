@@ -36,4 +36,25 @@ class Project extends Model
     {
         return $this->hasMany(Schedule::class);
     }
+
+    /**
+     * Get the manager that owns the project.
+     */
+    public function manager()
+    {
+        return $this->belongsTo(Employee::class, 'manager_id');
+    }
+
+    /**
+     * Get the project's pending tasks.
+     *
+     * @return int
+     */
+    public function getPendingTasksAttribute()
+    {
+        $count = $this->schedules()
+            ->where('status', 0)
+            ->count();
+        return $count;
+    }
 }

@@ -342,3 +342,8 @@ input[type=submit] {
   outline: none;
   padding-left: 10px;
 }
+
+.dataTables_filter,
+.dataTables_length {
+  margin-bottom: 15px;
+}

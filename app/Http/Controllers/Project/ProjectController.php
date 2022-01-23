@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Project;
 use App\Contracts\Services\Project\ProjectServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
+use App\Models\Employee;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Gate;
 
 class ProjectController extends Controller
 {
@@ -33,6 +35,10 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        $projects = $this->projectInterface->getProjects();
+
+        return view('projects.index')
+            ->with(['projects' => $projects]);
     }
 
     /**
@@ -42,6 +48,11 @@ class ProjectController extends Controller
      */
     public function showCreateView()
     {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
         $employees = $this->projectInterface->getEmployee();
 
         return view('projects.create')
@@ -56,6 +67,11 @@ class ProjectController extends Controller
      */
     public function postCreate(StoreProjectRequest $request)
     {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
         $project = $this->projectInterface->storeProject($request);
 
         Session::flash('success', 'Project Created Successfully.');
@@ -114,5 +130,20 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param App\Models\Project $project
+     * @return \Illuminate\Http\Response
+     */
+    public function getMembers(Project $project)
+    {
+        $members = $project->employees;
+        $nonMembers = Employee::all()->diff($members);
+        $members = $members->pluck('id');
+        $nonMembers = $nonMembers->pluck('id');
+        dd($nonMembers);
     }
 }

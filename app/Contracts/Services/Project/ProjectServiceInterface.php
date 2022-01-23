@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 interface ProjectServiceInterface
 {
     /**
+     * To get all projects
+     * 
+     * @return $array of projects
+     */
+    public function getProjects();
+
+    /**
      * To get all employees
      * 
      * @return $array of employee

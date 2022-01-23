@@ -11,7 +11,8 @@
   <title>@yield('title') | Group A</title>
 
   <!-- Styles -->
-  {{--<link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
+  {{--
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/common.css') }}">
   <link rel="stylesheet" href="{{ asset('css/library/fontawesome.css') }}">
@@ -46,6 +47,9 @@
           <a href="{{ route('payrolls#index') }}"><span class="fas fa-cash-register"></span> Payroll Management</a>
         </li>
         @endcan
+        <li>
+          <a href="{{ route('projects#index') }}"><span class="fas fa-tasks"></span> Project Management</a>
+        </li>
       </ul>
     </nav>
     <!-- Page Content  -->
@@ -53,8 +57,7 @@
       <nav class="navbar">
         <ul class="navbar-nav">
           <li>
-            <img class="profile-img" 
-              src="{{ \Illuminate\Support\Facades\Storage::exists('public/employees/' . auth()->user()->profile) ?
+            <img class="profile-img" src="{{ \Illuminate\Support\Facades\Storage::exists('public/employees/' . auth()->user()->profile) ?
               asset(config('path.profile_path') . auth()->user()->profile) : 
               'https://ui-avatars.com/api/?name='.auth()->user()->name}}" id="img">
           </li>

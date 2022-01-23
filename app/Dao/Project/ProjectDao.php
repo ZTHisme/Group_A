@@ -14,6 +14,19 @@ use Illuminate\Support\Facades\DB;
 class ProjectDao implements ProjectDaoInterface
 {
     /**
+     * To get all projects
+     * 
+     * @return $array of projects
+     */
+    public function getProjects()
+    {
+        return Project::with('manager')
+            ->withCount('employees')
+            ->latest()
+            ->get();
+    }
+
+    /**
      * To get all employees
      * 
      * @return $array of employee

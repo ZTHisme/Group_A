@@ -64,6 +64,8 @@ Route::prefix('projects')->middleware('auth')->group(function () {
         ->name('projects#showCreateView');
     Route::post('store', [ProjectController::class, 'postCreate'])
         ->name('projects#postCreate');
+    Route::get('{project}/members', [ProjectController::class, 'getMembers'])
+        ->name('projects#getMembers');
 });
 
 // Custom auth routes
