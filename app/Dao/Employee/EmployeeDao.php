@@ -124,11 +124,17 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function deleteEmployeeById($id)
     {
-        $employee = DB::transaction(function () use ($id) {
-            return Employee::find($id)->delete();
-        }, 5);
+        try {
+            DB::beginTransaction();
 
-        return $employee;
+            Employee::find($id)->delete();
+
+            DB::commit();
+            return true;
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
     }
 
     /**
@@ -157,7 +163,7 @@ class EmployeeDao implements EmployeeDaoInterface
         if ($end_date) {
             $employees->whereDate('employees.created_at', '<=', $end_date);
         }
-        return $employees->latest()->get()->except('employees.deleted_at');
+        return $employees->latest()->paginate(10);
     }
 
     /**

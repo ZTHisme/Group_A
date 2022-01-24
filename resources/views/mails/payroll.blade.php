@@ -3,7 +3,7 @@
 
 We have attached your payroll detail.
 
-@component('mail::button', ['url' => $url])
+@component('mail::button', ['url' => 'http://localhost:8000/dashboard'])
 More Info
 @endcomponent
 

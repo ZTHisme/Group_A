@@ -4,7 +4,6 @@ namespace App\Services\Employee;
 
 use App\Contracts\Dao\Employee\EmployeeDaoInterface;
 use App\Contracts\Services\Employee\EmployeeServiceInterface;
-use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 

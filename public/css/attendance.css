@@ -1,0 +1,53 @@
+.card-submit {
+  width: 400px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.cardheader-submit {
+  padding: 10px;
+  border: 1px solid #e2e1e1;
+  background-color: #e2e1e1;
+  font-size: 15px;
+}
+
+.txt-date {
+  float: right;
+  color: #7a7a7a;
+}
+
+.form-check {
+  display: inline-block;
+  margin: 20px;
+}
+
+.form-check-input {
+  margin-bottom: 6px;
+}
+
+.float-end {
+  float: right;
+  margin-right: 34px;
+}
+
+.card-text {
+  padding: 15px 0 15px 10px;
+}
+
+.checkout-btn {
+  margin-left: 135px;
+}
+
+.checkin-btn {
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.mr-icon {
+  margin-right: 4px;
+  padding: 5px 0;
+}

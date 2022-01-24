@@ -11,18 +11,21 @@
   <title>@yield('title') | Group A</title>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  {{--
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
+  <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/login.css') }}">
   <link rel="stylesheet" href="{{ asset('css/library/fontawesome.css') }}">
   <link rel="stylesheet" href="{{ asset('css/library/jquery.dataTables.min.css') }}">
   @yield('css')
 
   <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
+  {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
   <script src="{{ asset('js/library/jquery-3.6.0.min.js') }}"></script>
-  <script src="{{ asset('js/common.js') }}"></script>
   <script src="{{ asset('js/library/sweetalert2.min.js') }}"></script>
   <script src="{{ asset('js/library/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('js/common.js') }}"></script>
 </head>
 
 <body>
@@ -30,12 +33,6 @@
   <div class="wrapper d-flex">
     <!-- Page Content  -->
     <div id="content">
-      <nav class="navbar">
-      </nav>
-      <!-- Display Alert Messages -->
-      {{--@include('common.alert')--}}
-      <!-- Display Validation Errors -->
-      @include('common.errors')
       <div class="seprator">
       </div>
       @yield('content')
@@ -49,16 +46,15 @@
             timer: 5000,
             timerProgressBar: true,
             didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
           });
-
-          @if (session('success'))
-            Toast.fire({
-              icon: 'success',
-              title: "{{session('success')}}"
-            });
+          @if(session('success'))
+          Toast.fire({
+            icon: 'success',
+            title: "{{session('success')}}"
+          });
           @endif
         });
       </script>

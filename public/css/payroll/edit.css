@@ -1,22 +1,11 @@
 .card {
   width: 60%;
   margin: 0 auto;
-  padding: 20px;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  padding-bottom: 20px;
 }
 
-.text {
-  padding: 10px;
-  width: 30%;
-}
-
-.input {
-  width: 70%;
-}
-
-.form-control {
-  padding: 10px;
-  width: 100%;
-  outline: none;
+.blue-btn {
+  margin-left: 50px;
 }

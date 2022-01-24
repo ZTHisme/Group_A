@@ -78,9 +78,9 @@
           <input type="text" class="form-control" value="{{ \Carbon\Carbon::parse ($employee->created_at)->toDateString(); }}" readonly>
         </div>
       </div>
-      <a href="#" id="back" class="btn-back">Back</a>
+      <a href="#" id="back" class="blue-btn">Back</a>
       @can('update-employee', $employee->id)
-        <a href="{{ route('edit.employee.get', [$employee->id]) }}">Edit Profile</a>
+      <a href="{{ route('edit.employee.get', [$employee->id]) }}" class="yellow-btn">Edit Profile</a>
       @endcan
     </div>
   </div>

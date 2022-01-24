@@ -112,6 +112,11 @@ class PayrollController extends Controller
      */
     public function showEditView(Employee $employee)
     {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
         $employee->load('salary');
 
         return view('payrolls.edit')
@@ -127,6 +132,11 @@ class PayrollController extends Controller
      */
     public function updatePayroll(UpdatePayrollRequest $request, Employee $employee)
     {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
         $employee = $this->payrollInterface->updatePayroll($request, $employee);
 
         if ($employee) {
