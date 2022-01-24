@@ -2,19 +2,135 @@
 
 namespace App\Dao\Employee;
 
-use App\Contracts\Dao\Employee\EmployeeDaoInterface;
+use App\Models\Salary;
+use App\Models\MstRole;
+use App\Models\Employee;
 use App\Models\Attendance;
 use Illuminate\Http\Request;
-use App\Models\Employee;
-use App\Models\MstCalender;
+use App\Models\MstDepartment;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use App\Contracts\Dao\Employee\EmployeeDaoInterface;
 use Illuminate\Support\Carbon;
 
-/**
- * Data Access Object for Employee
- */
 class EmployeeDao implements EmployeeDaoInterface
 {
+    /**
+     * To get list of roles
+     *  @param
+     *  @return $roles
+     */
+    public function getRoles()
+    {
+        $roles = MstRole::all();
+        return $roles;
+    }
+
+    /**
+     * To get list of departs
+     *  @param
+     *  @return $departs
+     */
+    public function getDepartments()
+    {
+        $departments = MstDepartment::all();
+        return $departments;
+    }
+
+    /**
+     * To add new employee
+     * @param Request $request
+     * @return
+     */
+    public function addEmployee(Request $request, $filename)
+    {
+        try {
+            DB::beginTransaction();
+
+            $employee = new Employee();
+            $employee->name = $request->name;
+            $employee->email = $request->email;
+            $employee->password = Hash::make($request->password);
+            $employee->phone = $request->phone;
+            $employee->address = $request->address;
+            $employee->profile = $filename;
+            $employee->role_id = $request->role_id;
+            $employee->created_user_id = auth()->id();
+            $employee->department_id = $request->department_id;
+            $employee->save();
+
+            $salary = new Salary();
+            $salary->employee_id = $request->employee;
+            $salary->leave_fine = $request->leave_fine;
+            $salary->overtime_fee = $request->overtime_fee;
+            $salary->basic_salary = $request->basic_salary;
+
+            $employee->salary()->save($salary);
+
+            DB::commit();
+            return $employee;
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
+    }
+
+    /**
+     * To get a employee by id
+     * @param $id
+     * @return Object $employee
+     */
+    public function getEmployeeById($id)
+    {
+        return Employee::with('role', 'department')->findOrFail($id);
+    }
+
+    /**
+     * To edit employee information
+     * @param $id,Request $request
+     * @return
+     */
+    public function editEmployeeById(Request $request, $data)
+    {
+        $employee = Employee::findOrFail($data['id']);
+
+        try {
+            DB::beginTransaction();
+
+            if ($data['filename']) {
+                $employee->profile = $data['filename'];
+            }
+            $employee->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'role_id' => $request->role_id,
+                'department_id' => $request->department_id,
+                'phone' => $request->phone,
+                'address' => $request->address
+            ]);
+
+            DB::commit();
+            return $employee;
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
+    }
+
+    /**
+     * To delete employee by id
+     * @param $id
+     * @return
+     */
+    public function deleteEmployeeById($id)
+    {
+        $employee = DB::transaction(function () use ($id) {
+            return Employee::find($id)->delete();
+        }, 5);
+
+        return $employee;
+    }
+
     /**
      * To search employee lists
      * 
@@ -41,7 +157,7 @@ class EmployeeDao implements EmployeeDaoInterface
         if ($end_date) {
             $employees->whereDate('employees.created_at', '<=', $end_date);
         }
-        return $employees->get()->except('employees.deleted_at');
+        return $employees->latest()->get()->except('employees.deleted_at');
     }
 
     /**

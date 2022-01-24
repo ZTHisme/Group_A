@@ -6,6 +6,7 @@ use App\Contracts\Dao\Employee\EmployeeDaoInterface;
 use App\Contracts\Services\Employee\EmployeeServiceInterface;
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 /**
@@ -28,15 +29,87 @@ class EmployeeService implements EmployeeServiceInterface
     }
 
     /**
-     * To get employee lists
-     * @return $array of employee
+     * To get list of roles
+     *  @return $roles
      */
-    public function getEmployee()
+    public function getRoles()
     {
-        return $this->employeeDao->getEmployee();
+        $roles = $this->employeeDao->getRoles();
+        return $roles;
     }
 
     /**
+     * To get list of departs
+     *  
+     *  @return $departs
+     */
+    public function getDepartments()
+    {
+        $departments = $this->employeeDao->getDepartments();
+        return $departments;
+    }
+
+    /**
+     * To add new employee
+     * @param Request $request
+     * @return
+     */
+    public function addEmployee(Request $request)
+    {
+        if ($request->hasfile('profile')) {
+            $file = $request->file('profile');
+            $extention = $file->clientExtension();
+            $filename = time() . '.' . $extention;
+            $request->file('profile')->storeAs('employees', $filename, 'public');
+        }
+        return $this->employeeDao->addEmployee($request, $filename);
+    }
+
+    /**
+     * To get a employee by id
+     * @param $id
+     * @return Object $employee
+     */
+    public function getEmployeeById($id)
+    {
+        $employee = $this->employeeDao->getEmployeeById($id);
+        return $employee;
+    }
+
+    /**
+     * To edit emplyee information
+     * @param $id,Request $request
+     * @return
+     */
+    public function editEmployeeById(Request $request, $id)
+    {
+        $filename = null;
+        if ($request->hasfile('profile')) {
+            $employee =  $this->employeeDao->getEmployeeById($id);
+            $file = $request->file('profile');
+            $extention = $file->clientExtension();
+            $filename = time() . '.' . $extention;
+            $request->file('profile')->storeAs('employees', $filename, 'public');
+            Storage::disk('public')->delete('employees' . config('path.separator') . $employee->profile);
+        }
+        $data = [
+            'id' => $id,
+            'filename' => $filename
+        ];
+        return $this->employeeDao->editEmployeeById($request, $data);
+    }
+
+    /**
+     * To delete employee by id
+     * @param $id
+     * @return
+     */
+    public function deleteEmployeeById($id)
+    {
+        return $this->employeeDao->deleteEmployeeById($id);
+    }
+
+    /*
      * To search employee lists
      * 
      * @param Illuminate\Http\Request $request
@@ -79,7 +152,7 @@ class EmployeeService implements EmployeeServiceInterface
             $bardata['data'][] = (int) $row->count;
         }
         $bardata['barchart_data'] = json_encode($bardata);
-        
+
         return $bardata;
     }
 }

@@ -21,13 +21,23 @@ use App\Http\Controllers\Payroll\PayrollController;
 // Employee list resource route
 Route::prefix('employees')->middleware('auth')->group(function () {
     Route::get('/lists', [EmployeeController::class, 'index'])->name('employee#showLists');
+
+    Route::get('/show/{id}', [EmployeeController::class, 'showEmployeeDetailForm'])->name('show.employee.get');
+
+    Route::get('add', [EmployeeController::class, 'showEmploeeForm'])->name('addEmployee.get');
+    Route::post('add', [EmployeeController::class, 'submitEmployeeForm'])->name('addEmployee.post');
+
+    Route::get('/edit/{id}', [EmployeeController::class, 'showEmployeeEditForm'])->name('edit.employee.get');
+    Route::patch('/edit/{id}', [EmployeeController::class, 'submitEmployeeEditForm'])->name('edit.employee.post');
+
+    Route::delete('/delete/{id}', [EmployeeController::class, 'deleteEmployee'])->name('delete.employee');
 });
 
 // Dashboard route to show chart
 Route::get('/dashboard', [EmployeeController::class, 'graph'])->name('graph#dashBoard')->middleware('auth');
 
 Route::get('/', function () {
-    return redirect()->route('attendances#index');
+    return redirect()->route('graph#dashBoard');
 });
 
 // Attendance Routes

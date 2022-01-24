@@ -8,4 +8,12 @@ return [
      * This value is the path reparator.
      */
     'separator' => '/',
+
+    /**
+     * --------------------------------------------------------------------------
+     * Profile image path
+     * --------------------------------------------------------------------------
+     * This value is the profile image path.
+     */
+    'profile_path' => 'storage/employees/',
 ];

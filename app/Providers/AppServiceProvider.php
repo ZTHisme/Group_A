@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {        
+    {
         Blade::if('checkedin', function () {
             if (auth()->check()) {
                 $attendance = auth()->user()
