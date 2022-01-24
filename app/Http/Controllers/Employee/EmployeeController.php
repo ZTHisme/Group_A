@@ -149,9 +149,9 @@ class EmployeeController extends Controller
             abort(401);
         }
 
-        $employee = $this->employeeInterface->deleteEmployeeById($id);
+        $result = $this->employeeInterface->deleteEmployeeById($id);
 
-        if ($employee) {
+        if ($result) {
             return redirect()
                 ->route('employee#showLists')
                 ->with('success', 'Employee data is deleted successfully.');
