@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Employee;
 
 use Illuminate\Http\Request;
+use App\Exports\EmployeesExport;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\EditEmployeeRequest;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Contracts\Services\Employee\EmployeeServiceInterface;
-use App\Http\Requests\EditEmployeeRequest;
-use Illuminate\Support\Facades\Gate;
 
 class EmployeeController extends Controller
 {
@@ -172,4 +174,43 @@ class EmployeeController extends Controller
         $bardata = $this->employeeInterface->showBarGraph();
         return view('dashboard.index', $data, $bardata);
     }
+
+    /**
+     * To download csv file
+     * @return File Download CSV file
+     */
+    public function downloadCSV()
+    {
+        return Excel::download(new EmployeesExport, 'form.xlsx');
+    }
+    
+    /**
+     * Show the form of upload file
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showUpload()
+    {
+        return view('employee.upload');
+    }
+
+    /**
+     * Import the csv file
+     * 
+     * @param \Illuminate\Http\Request $request 
+     * @return \Illuminate\Http\Response
+     */
+    public function submitUpload(Request $request)
+    {
+        $request->validate([
+            'file' => 'required',
+        ]);
+
+        if ($this->employeeInterface->uploadCSV()) {
+            return redirect()
+                ->route('employee#showLists')
+                ->with('success', 'Successfully Imported CSV File.');
+        }
+    }
+
 }

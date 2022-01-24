@@ -8,10 +8,12 @@ use App\Models\Employee;
 use App\Models\Attendance;
 use Illuminate\Http\Request;
 use App\Models\MstDepartment;
+use Illuminate\Support\Carbon;
+use App\Imports\EmployeesImport;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Contracts\Dao\Employee\EmployeeDaoInterface;
-use Illuminate\Support\Carbon;
 
 class EmployeeDao implements EmployeeDaoInterface
 {
@@ -135,6 +137,15 @@ class EmployeeDao implements EmployeeDaoInterface
             DB::rollback();
             throw $e;
         }
+    }
+
+    /**
+     * To upload csv file
+     * @return File upload csv
+     */
+    public function uploadCSV()
+    {
+        return Excel::import(new EmployeesImport, request()->file('file'));
     }
 
     /**
