@@ -44,7 +44,9 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function addEmployee(Request $request, $filename)
     {
-        $employee = DB::transaction(function () use ($request, $filename) {
+        try {
+            DB::beginTransaction();
+
             $employee = new Employee();
             $employee->name = $request->name;
             $employee->email = $request->email;
@@ -65,10 +67,12 @@ class EmployeeDao implements EmployeeDaoInterface
 
             $employee->salary()->save($salary);
 
+            DB::commit();
             return $employee;
-        }, 5);
-
-        return $employee;
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
     }
 
     /**
@@ -88,8 +92,10 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function editEmployeeById(Request $request, $data)
     {
-        $employee = DB::transaction(function () use ($request, $data) {
-            $employee = Employee::findOrFail($data['id']);
+        $employee = Employee::findOrFail($data['id']);
+
+        try {
+            DB::beginTransaction();
 
             if ($data['filename']) {
                 $employee->profile = $data['filename'];
@@ -103,10 +109,12 @@ class EmployeeDao implements EmployeeDaoInterface
                 'address' => $request->address
             ]);
 
+            DB::commit();
             return $employee;
-        }, 5);
-
-        return $employee;
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
     }
 
     /**
