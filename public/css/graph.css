@@ -4,9 +4,8 @@
 }
 
 .card {
-  float: left;
   width: 800px;
-  margin: 20px;
+  margin: 20px auto;
   padding-bottom: 10px;
   border: 1px solid #ccc;
   background-color: #f4f4f4;

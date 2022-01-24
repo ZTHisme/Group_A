@@ -39,7 +39,6 @@ class EmployeePayroll extends Mailable
         return $this->from('employeemanagementsystem@gmail.com', config('constants.Name'))
             ->subject('Payroll Notify')
             ->markdown('mails.payroll')
-            ->with('url', route('attendances#index'))
             ->attachFromStorage($this->finalsalary->file);
     }
 }

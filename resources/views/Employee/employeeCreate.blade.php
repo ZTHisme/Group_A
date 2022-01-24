@@ -133,13 +133,8 @@
         </div>
       </div>
 
-      <div class="con-left">
-        <input type="submit" value="Add Student" class="btn-add">
-      </div>
-      <div class="con-right">
-        <a href="#" id="back">Cancel</a>
-      </div>
-      <br>
+      <input type="submit" value="Add Student" class="blue-btn">
+      <a href="#" id="back" class="red-btn">Cancel</a>
     </form>
     <br>
   </div>

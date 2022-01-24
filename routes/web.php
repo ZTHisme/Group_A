@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Attendance\AttendanceController;
 use App\Http\Controllers\Payroll\PayrollController;
+use App\Http\Controllers\Project\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +22,11 @@ use App\Http\Controllers\Payroll\PayrollController;
 // Employee list resource route
 Route::prefix('employees')->middleware('auth')->group(function () {
     Route::get('/lists', [EmployeeController::class, 'index'])->name('employee#showLists');
-
     Route::get('/show/{id}', [EmployeeController::class, 'showEmployeeDetailForm'])->name('show.employee.get');
-
     Route::get('add', [EmployeeController::class, 'showEmploeeForm'])->name('addEmployee.get');
     Route::post('add', [EmployeeController::class, 'submitEmployeeForm'])->name('addEmployee.post');
-
     Route::get('/edit/{id}', [EmployeeController::class, 'showEmployeeEditForm'])->name('edit.employee.get');
     Route::patch('/edit/{id}', [EmployeeController::class, 'submitEmployeeEditForm'])->name('edit.employee.post');
-
     Route::delete('/delete/{id}', [EmployeeController::class, 'deleteEmployee'])->name('delete.employee');
 });
 
@@ -58,6 +55,17 @@ Route::prefix('payrolls')->middleware('auth')->group(function () {
         ->name('payroll#showEditView');
     Route::patch('updatepayroll/{employee}', [PayrollController::class, 'updatePayroll'])
         ->name('payrolls#updatePayroll');
+});
+
+// Project Management Routes
+Route::prefix('projects')->middleware('auth')->group(function () {
+    Route::get('list', [ProjectController::class, 'index'])->name('projects#index');
+    Route::get('createview', [ProjectController::class, 'showCreateView'])
+        ->name('projects#showCreateView');
+    Route::post('store', [ProjectController::class, 'postCreate'])
+        ->name('projects#postCreate');
+    Route::get('{project}/members', [ProjectController::class, 'getMembers'])
+        ->name('projects#getMembers');
 });
 
 // Custom auth routes

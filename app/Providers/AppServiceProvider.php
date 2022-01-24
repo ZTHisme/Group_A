@@ -6,6 +6,7 @@ use App\Models\Employee;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Dao\Attendance\AttendanceDaoInterface', 'App\Dao\Attendance\AttendanceDao');
         $this->app->bind('App\Contracts\Dao\Auth\AuthDaoInterface', 'App\Dao\Auth\AuthDao');
         $this->app->bind('App\Contracts\Dao\Payroll\PayrollDaoInterface', 'App\Dao\Payroll\PayrollDao');
+        $this->app->bind('App\Contracts\Dao\Project\ProjectDaoInterface', 'App\Dao\Project\ProjectDao');
 
         // Business logic registration
         $this->app->bind('App\Contracts\Services\Employee\EmployeeServiceInterface', 'App\Services\Employee\EmployeeService');
@@ -28,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Services\Auth\AuthServiceInterface', 'App\Services\Auth\AuthService');
         $this->app->bind('App\Contracts\Services\Auth\ForgetPasswordInterface', 'App\Services\Auth\ForgetPasswordService');
         $this->app->bind('App\Contracts\Services\Payroll\PayrollServiceInterface', 'App\Services\Payroll\PayrollService');
+        $this->app->bind('App\Contracts\Services\Project\ProjectServiceInterface', 'App\Services\Project\ProjectService');
     }
 
     /**
@@ -37,6 +40,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Paginator::useBootstrap();
+
         Blade::if('checkedin', function () {
             if (auth()->check()) {
                 $attendance = auth()->user()

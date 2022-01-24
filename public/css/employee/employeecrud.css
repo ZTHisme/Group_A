@@ -7,7 +7,6 @@
 }
 
 .card-header {
-  width: 100%;
   padding: 20px;
   background-color: blue;
   color: #fff;
@@ -25,7 +24,7 @@
 }
 
 .card-body {
-  padding: 20px;
+  padding: 20px 0;
   text-align: left;
 }
 
@@ -38,15 +37,13 @@
   float: left;
   width: 50%;
   margin-bottom: 20px;
+  margin-left: 50px;
 }
 
 .con-right {
   float: right;
   margin-right: 13%;
-  /*height: 100px;*/
   margin-bottom: 20px;
-  /*margin-left: 10%;*/
-  background-color: black;
 }
 
 .btn-cancel {
@@ -111,4 +108,12 @@ select.mySelect option {
   padding: 0 10px;
   padding-bottom: 20px;
   color: #000;
+}
+
+.blue-btn {
+  margin-left: 50px;
+}
+
+select {
+  width: 310px !important;
 }
