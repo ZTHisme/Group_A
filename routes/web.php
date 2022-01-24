@@ -66,6 +66,14 @@ Route::prefix('projects')->middleware('auth')->group(function () {
         ->name('projects#postCreate');
     Route::get('{project}/members', [ProjectController::class, 'getMembers'])
         ->name('projects#getMembers');
+    Route::get('editview/{project}', [ProjectController::class, 'showEditView'])
+        ->name('projects#showEditView');
+    Route::get('{project}/membertoogle/{id}', [ProjectController::class, 'memberToogle'])
+        ->name('projects#memberToogle');
+    Route::patch('updateproject/{project}', [ProjectController::class, 'updateProject'])
+        ->name('projects#updateProject');
+    Route::delete('deleteproject/{project}', [ProjectController::class, 'deleteProject'])
+        ->name('projects#deleteProject');
 });
 
 // Custom auth routes
