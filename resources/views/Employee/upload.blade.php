@@ -19,4 +19,9 @@
     <button class="btn-import">Import data</button>
   </form>
 </div>
+{!! JsValidator::formRequest('App\Http\Requests\ImportEmployeesRequest'); !!}
+@endsection
+
+@section('script')
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
 @endsection
