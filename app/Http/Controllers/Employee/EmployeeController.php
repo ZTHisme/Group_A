@@ -10,6 +10,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\EditEmployeeRequest;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Contracts\Services\Employee\EmployeeServiceInterface;
+use App\Http\Requests\ImportEmployeesRequest;
 
 class EmployeeController extends Controller
 {
@@ -181,9 +182,14 @@ class EmployeeController extends Controller
      */
     public function downloadCSV()
     {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
         return Excel::download(new EmployeesExport, 'form.xlsx');
     }
-    
+
     /**
      * Show the form of upload file
      *
@@ -191,20 +197,26 @@ class EmployeeController extends Controller
      */
     public function showUpload()
     {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
         return view('employee.upload');
     }
 
     /**
      * Import the csv file
      * 
-     * @param \Illuminate\Http\Request $request 
+     * @param \App\Http\Requests\ImportEmployeesRequest $request 
      * @return \Illuminate\Http\Response
      */
-    public function submitUpload(Request $request)
+    public function submitUpload(ImportEmployeesRequest $request)
     {
-        $request->validate([
-            'file' => 'required',
-        ]);
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
 
         if ($this->employeeInterface->uploadCSV()) {
             return redirect()
@@ -212,5 +224,4 @@ class EmployeeController extends Controller
                 ->with('success', 'Successfully Imported CSV File.');
         }
     }
-
 }

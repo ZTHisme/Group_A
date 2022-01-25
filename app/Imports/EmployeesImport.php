@@ -29,7 +29,6 @@ class EmployeesImport implements ToModel, WithHeadingRow, WithStartRow, WithCust
     public function model(array $row)
     {
         return new Employee([
-           
             'name'  => $row['name'],
             'email' => $row['email'],
             'password' => $row['password'],

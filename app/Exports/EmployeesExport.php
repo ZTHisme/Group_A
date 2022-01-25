@@ -6,8 +6,9 @@ use App\Models\Employee;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class EmployeesExport implements FromCollection, WithCustomCsvSettings, WithHeadings
+class EmployeesExport implements FromCollection, WithCustomCsvSettings, WithHeadings, ShouldAutoSize
 {
     public function getCsvSettings(): array
     {
@@ -19,7 +20,6 @@ class EmployeesExport implements FromCollection, WithCustomCsvSettings, WithHead
     public function headings(): array
     {
         return [
-            
             'Name',
             'Email',
             'Phone',
@@ -40,7 +40,6 @@ class EmployeesExport implements FromCollection, WithCustomCsvSettings, WithHead
     {
         return Employee::select(
             [
-               
                 'name',
                 'email',
                 'phone',
@@ -51,6 +50,7 @@ class EmployeesExport implements FromCollection, WithCustomCsvSettings, WithHead
                 'department_id',
                 'created_at',
                 'updated_at'
-            ])->get();
+            ]
+        )->get();
     }
 }

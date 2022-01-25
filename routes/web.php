@@ -22,9 +22,9 @@ use App\Http\Controllers\Project\ProjectController;
 // Employee list resource route
 Route::prefix('employees')->middleware('auth')->group(function () {
     Route::get('/lists', [EmployeeController::class, 'index'])->name('employee#showLists');
-    Route::get('employees/download', [EmployeeController::class, 'downloadCSV'])->name('employees.download');
-    Route::get('employees/upload', [EmployeeController::class, 'showUpload'])->name('employees.upload');
-    Route::post('employees/submit', [EmployeeController::class, 'submitUpload'])->name('employees.submit');
+    Route::get('download', [EmployeeController::class, 'downloadCSV'])->name('employees.download');
+    Route::get('upload', [EmployeeController::class, 'showUpload'])->name('employees.upload');
+    Route::post('submit', [EmployeeController::class, 'submitUpload'])->name('employees.submit');
     Route::get('/show/{id}', [EmployeeController::class, 'showEmployeeDetailForm'])->name('show.employee.get');
     Route::get('add', [EmployeeController::class, 'showEmploeeForm'])->name('addEmployee.get');
     Route::post('add', [EmployeeController::class, 'submitEmployeeForm'])->name('addEmployee.post');

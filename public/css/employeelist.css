@@ -1,97 +1,97 @@
 .mr-icon {
-    padding: 20px 7px 0 0;
+  padding: 20px 7px 0 0;
 }
 
 .pull-right {
-    float: right;
+  float: right;
 }
 
 .form-display {
-    display: inline;
+  display: inline;
 }
 
 .searchForm {
-    display: inline-block;
+  display: inline-block;
 }
 
 .table {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .search-btn {
-    padding: 10px 20px;
-    border: none;
-    background-color: #3e64ff;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #3e64ff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 .import-btn {
-    padding: 6px;
-    border: none;
-    margin-left: 20px;
-    background-color: #04a51f;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 7px;
-    font-size: 15px;
-    margin-bottom: 10px;
+  padding: 6px;
+  border: none;
+  margin-left: 20px;
+  background-color: #04a51f;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 15px;
+  margin-bottom: 10px;
 }
 
 .export-btn {
-    padding: 6px;
-    border: none;
-    background-color: #f05811;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 7px;
-    font-size: 15px;
-    margin-bottom: 10px;
+  padding: 6px;
+  border: none;
+  background-color: #f05811;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 15px;
+  margin-bottom: 10px;
 }
 
 input[type=date] {
-    margin: 10px 0 10px 15px;
-    padding: 6px 10px;
-    border: 1px solid #d1d0d0;
-    text-align: right;
-    border-radius: 10px;
+  margin: 10px 0;
+  padding: 6px 10px;
+  border: 1px solid #d1d0d0;
+  text-align: right;
+  border-radius: 10px;
 }
 
 input[type=date]:before {
-    color: #b9b7b7;
-    content: attr(placeholder) !important;
+  color: #b9b7b7;
+  content: attr(placeholder) !important;
 }
 
 .pagination::before,
 .pagination:after {
-    display: table;
-    content: " ";
-    clear: both;
+  display: table;
+  content: " ";
+  clear: both;
 }
 
 .pagination {
-    margin: 10px;
+  margin: 10px;
 }
 
 .page-item {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-color: gray;
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    border-radius: 10px;
-    float: left;
-    margin-right: 5px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: gray;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 10px;
+  float: left;
+  margin-right: 5px;
 }
 
 .page-link {
-    color: white;
+  color: white;
 }
 
 .active,
 .disabled {
-    background-color: darkgray;
+  background-color: darkgray;
 }

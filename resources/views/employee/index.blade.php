@@ -21,17 +21,10 @@
         </div>
       </form>
       @can('isManager')
+      <a href="{{ route('employees.upload') }}" class="import-btn">Import Data</a>
+      <a href="{{ route('employees.download') }}" class="export-btn">Export Data</a>
       <a href="{{ route('addEmployee.get') }}" class="pull-right"><i class="fas fa-user-plus mr-icon"></i></a>
       @endcan
-    </div>
-    <div class="clearfix">
-
-        <div class="input-group my-5">
-          <a href="{{ route('employees.upload') }}" class="import-btn">Import Data</a>
-          <a href="{{ route('employees.download') }}" class="export-btn">Export Data</a>
-          </div>
-
-     
     </div>
     <div class="card-body">
       <table class="table table-striped task-table">

@@ -72,13 +72,9 @@ interface EmployeeServiceInterface
      */
     public function deleteEmployeeById($id);
 
-     /**
+    /**
      * To upload csv file
      * @return File upload csv
      */
     public function uploadCSV();
 }
-
-
-
-

@@ -60,13 +60,16 @@ interface EmployeeDaoInterface
      * @return $array of employee
      */
 
-      /**
+    /**
      * To upload csv file
      * @return File upload csv
      */
     public function uploadCSV();
 
-     
+    /**
+     * To show employee
+     * @return $array of employee
+     */
     public function searchEmployee(Request $request);
 
     /**
