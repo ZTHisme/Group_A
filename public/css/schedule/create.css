@@ -1,0 +1,10 @@
+
+.row {
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+input[type=text].form-control {
+  width: 100%;
+}

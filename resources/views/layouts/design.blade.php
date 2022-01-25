@@ -10,6 +10,7 @@
 
   <title>@yield('title') | Group A</title>
 
+  <link rel="icon" href="{{ asset('images/management .png') }}">
   <!-- Styles -->
   {{--
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}

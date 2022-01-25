@@ -53,7 +53,7 @@ class Project extends Model
     public function getPendingTasksAttribute()
     {
         $count = $this->schedules()
-            ->where('status', 0)
+            ->where('status', '<>', config('constants.Finished'))
             ->count();
         return $count;
     }
