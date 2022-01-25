@@ -212,4 +212,60 @@ class EmployeeDao implements EmployeeDaoInterface
 
         return $barrecord;
     }
+
+    /**
+     * To show total employee
+     * @return $array of employee
+     */
+    public function allEmployee()
+    {
+        $totalemployee = Employee::select(DB::raw("COUNT(*) as count"))
+            ->whereNull('deleted_at')
+            ->get();
+
+        return $totalemployee;
+    }
+
+    /**
+     * To show new employee
+     * @return $array of employee
+     */
+    public function newEmployee()
+    {
+        $newemployee = Employee::select(DB::raw("COUNT(*) as count"))
+            ->whereMonth('created_at', Carbon::now()->month)
+            ->whereNull('deleted_at')
+            ->get();
+
+        return $newemployee;
+    }
+
+    /**
+     * To show turnover employee
+     * @return $array of employee
+     */
+    public function turnoverEmployee()
+    {
+        $employeeleave = Employee::select(DB::raw("COUNT(*) as count"))
+            ->whereMonth('deleted_at', Carbon::now()->month)
+            ->onlyTrashed()
+            ->get();
+
+        return $employeeleave;
+    }
+
+    /**
+     * To show employee who come to office
+     * @return $array of employee
+     */
+    public function comeOfficeEmployee()
+    {
+        $officeemployee = Attendance::select(DB::raw("COUNT(*) as count"))
+            ->join('employees', 'attendances.employee_id', '=', 'employees.id')
+            ->where('type', 1)
+            ->whereDate('attendances.created_at', Carbon::today())
+            ->get();
+
+        return $officeemployee;
+    }
 }

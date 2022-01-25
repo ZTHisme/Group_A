@@ -11,6 +11,9 @@ use App\Http\Requests\EditEmployeeRequest;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Contracts\Services\Employee\EmployeeServiceInterface;
 use App\Http\Requests\ImportEmployeesRequest;
+use App\Models\Employee;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class EmployeeController extends Controller
 {
@@ -173,7 +176,11 @@ class EmployeeController extends Controller
     {
         $data = $this->employeeInterface->showPieGraph();
         $bardata = $this->employeeInterface->showBarGraph();
-        return view('dashboard.index', $data, $bardata);
+        $totalemployee= $this->employeeInterface->allEmployee();
+        $newemployee = $this->employeeInterface->newEmployee();
+        $employeeleave = $this->employeeInterface->turnoverEmployee();
+        $officeemployee = $this->employeeInterface->comeOfficeEmployee();
+        return view('dashboard.index', $data, $bardata)->with(['totalemployee' => $totalemployee, 'newemployee' => $newemployee, 'employeeleave' => $employeeleave, 'officeemployee' => $officeemployee]);
     }
 
     /**

@@ -1,11 +1,12 @@
 .container{
   margin: 0 auto;
-  max-width: 1900px;
+  max-width: 1122px;
 }
 
 .card {
   width: 800px;
-  margin: 20px auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding-bottom: 10px;
   border: 1px solid #ccc;
   background-color: #f4f4f4;
@@ -29,7 +30,75 @@
   font-size: 20px;
   font-weight: bold;
 }
+.show-date{
+  float: right;
+  color: #696969;
+  font-size: 20px;
+  font-weight: bold;
+}
+.ttl-dashboard{
+  display: inline;
+  color: #696969;
+  font-size: 27px;
+}
+.dashboard-card{
+  display: inline-block;
+  margin-top: 35px;
+  padding: 20px 25px;
+  border: 1px solid rgba(0,0,0,.05);
+  box-shadow: 1px 1px 3px rgb(0 0 0 / 10%);
+  border-radius: 5px;
+}
+.card-col{
+  display: inline-block;
+}
 
+.ttl-card{
+  color: #696969;
+  font-size: 17px;
+}
+.count-data{
+  padding-bottom: 15px;
+  font-size: 40px;
+}
+.card-icon{
+  float: right;
+  padding-left: 65px;
+  font-size: 70px;
+}
+.icon-empall, .font-empall{
+  color: #0074D9;
+}
+
+.icon-newemp, .font-newemp{
+  color: #3D9970;
+}
+
+.icon-turnover {
+  padding-left: 30px;
+  color: #FF851B;
+}
+
+.font-turnover{
+  color: #FF851B;
+}
+
+.icon-office {
+  padding-left: 48px;
+  color: #5C40C0;
+}
+
+.font-office{
+  color: #5C40C0;
+}
+.mr-space{
+  margin-right: 15px;
+}
+.subttl-card{
+  color: #696969;
+  font-size: 12px;
+  opacity: .6;
+}
 .clearfix::after {
   display: table;
   clear: both;
