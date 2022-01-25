@@ -27,8 +27,31 @@
   border-radius: 10px;
 }
 
+.import-btn {
+  padding: 6px;
+  border: none;
+  margin-left: 20px;
+  background-color: #04a51f;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.export-btn {
+  padding: 6px;
+  border: none;
+  background-color: #f05811;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
 input[type=date] {
-  margin: 10px 0 10px 15px;
+  margin: 10px 0;
   padding: 6px 10px;
   border: 1px solid #d1d0d0;
   text-align: right;

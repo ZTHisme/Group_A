@@ -154,4 +154,13 @@ class EmployeeService implements EmployeeServiceInterface
 
         return $bardata;
     }
+
+    /**
+     * To upload csv file
+     * @return File Upload CSV file
+     */
+    public function uploadCSV()
+    {
+        return $this->employeeDao->uploadCSV();
+    }
 }

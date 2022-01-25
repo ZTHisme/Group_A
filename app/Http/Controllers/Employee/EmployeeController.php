@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Employee;
 
 use Illuminate\Http\Request;
+use App\Exports\EmployeesExport;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\EditEmployeeRequest;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Contracts\Services\Employee\EmployeeServiceInterface;
-use App\Http\Requests\EditEmployeeRequest;
-use Illuminate\Support\Facades\Gate;
+use App\Http\Requests\ImportEmployeesRequest;
 
 class EmployeeController extends Controller
 {
@@ -171,5 +174,54 @@ class EmployeeController extends Controller
         $data = $this->employeeInterface->showPieGraph();
         $bardata = $this->employeeInterface->showBarGraph();
         return view('dashboard.index', $data, $bardata);
+    }
+
+    /**
+     * To download csv file
+     * @return File Download CSV file
+     */
+    public function downloadCSV()
+    {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
+        return Excel::download(new EmployeesExport, 'form.xlsx');
+    }
+
+    /**
+     * Show the form of upload file
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showUpload()
+    {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
+        return view('employee.upload');
+    }
+
+    /**
+     * Import the csv file
+     * 
+     * @param \App\Http\Requests\ImportEmployeesRequest $request 
+     * @return \Illuminate\Http\Response
+     */
+    public function submitUpload(ImportEmployeesRequest $request)
+    {
+        // Check user has manager access or not.
+        if (Gate::denies('isManager')) {
+            abort(401);
+        }
+
+        if ($this->employeeInterface->uploadCSV()) {
+            return redirect()
+                ->route('employee#showLists')
+                ->with('success', 'Successfully Imported CSV File.');
+        }
     }
 }
