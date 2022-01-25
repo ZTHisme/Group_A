@@ -77,4 +77,10 @@ interface EmployeeServiceInterface
      * @return File upload csv
      */
     public function uploadCSV();
+
+    /**
+     * To send email to manager
+     * @return 
+     */
+    public function sendEmployeeMail(Employee $employee);
 }
