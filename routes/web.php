@@ -22,6 +22,9 @@ use App\Http\Controllers\Project\ProjectController;
 // Employee list resource route
 Route::prefix('employees')->middleware('auth')->group(function () {
     Route::get('/lists', [EmployeeController::class, 'index'])->name('employee#showLists');
+    Route::get('download', [EmployeeController::class, 'downloadCSV'])->name('employees.download');
+    Route::get('upload', [EmployeeController::class, 'showUpload'])->name('employees.upload');
+    Route::post('submit', [EmployeeController::class, 'submitUpload'])->name('employees.submit');
     Route::get('/show/{id}', [EmployeeController::class, 'showEmployeeDetailForm'])->name('show.employee.get');
     Route::get('add', [EmployeeController::class, 'showEmploeeForm'])->name('addEmployee.get');
     Route::post('add', [EmployeeController::class, 'submitEmployeeForm'])->name('addEmployee.post');
@@ -66,6 +69,14 @@ Route::prefix('projects')->middleware('auth')->group(function () {
         ->name('projects#postCreate');
     Route::get('{project}/members', [ProjectController::class, 'getMembers'])
         ->name('projects#getMembers');
+    Route::get('editview/{project}', [ProjectController::class, 'showEditView'])
+        ->name('projects#showEditView');
+    Route::get('{project}/membertoogle/{id}', [ProjectController::class, 'memberToogle'])
+        ->name('projects#memberToogle');
+    Route::patch('updateproject/{project}', [ProjectController::class, 'updateProject'])
+        ->name('projects#updateProject');
+    Route::delete('deleteproject/{project}', [ProjectController::class, 'deleteProject'])
+        ->name('projects#deleteProject');
 });
 
 // Custom auth routes

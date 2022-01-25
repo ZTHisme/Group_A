@@ -57,4 +57,17 @@ class Project extends Model
             ->count();
         return $count;
     }
+
+    /**  
+     * Ondelete cascade for employee
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($project) {
+            $project->schedules()->delete();
+            $project->employees()->detach();
+        });
+    }
 }

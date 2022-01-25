@@ -23,7 +23,7 @@ $(function () {
             },
             success: function (data) {
                 if (data.result) {
-                    location.href = "/dashboard";
+                    location.href = "/projects/list";
                 }
             },
             error: function (err) {

@@ -40,12 +40,16 @@
             @foreach ($employees as $key => $value)
             <tr>
               <td>{{ $value }}</td>
-              <td><a href="javascript:void(0)" data-id="{{ $key }}"  class="button-4 sync">Add</a></td>
+              <td><a href="javascript:void(0)" data-id="{{ $key }}" class="button-4 sync">Add</a></td>
             </tr>
             @endforeach
           </tbody>
         </table>
-        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25"></div>
+      <div class="col-75">
         <a href="javascript:void(0)" id="submit-post" class="blue-btn">Create</a>
         <a href="javascript:void(0)" id="back" class="red-btn">Cancel</a>
       </div>

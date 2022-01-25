@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Project;
 use App\Contracts\Services\Project\ProjectServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
-use App\Models\Employee;
+use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -104,9 +104,15 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function showEditView(Project $project)
     {
-        //
+        // Check user own the project.
+        if (Gate::denies('own', $project->manager_id)) {
+            abort(401);
+        }
+
+        return view('projects.edit')
+            ->with(['project' => $project]);
     }
 
     /**
@@ -116,9 +122,28 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Project $project)
+    public function updateProject(UpdateProjectRequest $request, Project $project)
     {
-        //
+        // Check user own the project.
+        if (Gate::denies('own', $project->manager_id)) {
+            abort(401);
+        }
+
+        if ($project->employees->count() < 1) {
+            return back()
+                ->withInput()
+                ->withErrors('Your project should have at least one employee.');
+        }
+
+        $project = $this->projectInterface->updateProject($request, $project);
+        if ($project) {
+            return redirect()
+                ->route('projects#index')
+                ->with('success', 'Project Updated Successfully.');
+        } else {
+            return back()
+                ->withErrors('Unknown error occured.');
+        }
     }
 
     /**
@@ -127,9 +152,24 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Project $project)
+    public function deleteProject(Project $project)
     {
-        //
+        // Check user own the project.
+        if (Gate::denies('own', $project->manager_id)) {
+            abort(401);
+        }
+
+        $result = $this->projectInterface->deleteProject($project);
+
+        if ($result) {
+            return response()->json([
+                'result' => 1,
+            ]);
+        } else {
+            return response()->json([
+                'result' => 0,
+            ]);
+        }
     }
 
     /**
@@ -140,10 +180,45 @@ class ProjectController extends Controller
      */
     public function getMembers(Project $project)
     {
-        $members = $project->employees;
-        $nonMembers = Employee::all()->diff($members);
-        $members = $members->pluck('id');
-        $nonMembers = $nonMembers->pluck('id');
-        dd($nonMembers);
+        $data = $this->projectInterface->getMembers($project);
+
+        if ($data) {
+            return response()->json([
+                'result' => 1,
+                'data' => $data
+            ]);
+        } else {
+            return response()->json([
+                'result' => 0,
+                'data' => null
+            ]);
+        }
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Illuminate\Http\Request $request
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function memberToogle(Project $project, $id)
+    {
+        // Check user own the project.
+        if (Gate::denies('own', $project->manager_id)) {
+            abort(401);
+        }
+
+        $result = $this->projectInterface->memberToogle($project, $id);
+
+        if ($result) {
+            return response()->json([
+                'result' => 1,
+            ]);
+        } else {
+            return response()->json([
+                'result' => 0,
+            ]);
+        }
     }
 }

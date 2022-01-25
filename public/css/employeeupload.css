@@ -1,0 +1,49 @@
+.con {
+  width: 100%
+}
+
+.mt-5 {
+  margin-top: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.emp {
+  font-weight: 900;
+}
+
+.btn-import {
+  padding: 6px;
+  border: none;
+  margin-left: 20px;
+  background-color: #04a51f;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  margin-top: 17px;
+}
+
+.mb-4 {
+  margin-bottom: 10px;
+}
+
+.alert-danger {
+  width: 100%;
+  border-radius: 10px;
+  background: #f55190;
+  padding: 20px;
+}
+
+.form-group {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.custom-file {
+  margin-top: 24px;
+  text-align: center;
+}
