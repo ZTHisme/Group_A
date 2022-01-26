@@ -46,8 +46,6 @@ class SendNewEmployee implements ShouldQueue
             ->select('employees.*')
             ->get();
 
-        //dd($email);
-
         Mail::to($email)
             ->send(new EmployeeMail($this->employee));
     }

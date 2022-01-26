@@ -80,7 +80,9 @@ interface EmployeeServiceInterface
 
     /**
      * To send email to manager
-     * @return 
+     * 
+     * @param App\Models\Employee $employee
+     * @return bool
      */
     public function sendEmployeeMail(Employee $employee);
 }

@@ -11,10 +11,6 @@ use App\Http\Requests\EditEmployeeRequest;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Contracts\Services\Employee\EmployeeServiceInterface;
 use App\Http\Requests\ImportEmployeesRequest;
-use App\Mail\EmployeeMail;
-use App\Mail\NewEmployeeMail;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 
 class EmployeeController extends Controller
 {
@@ -82,12 +78,6 @@ class EmployeeController extends Controller
             return redirect()
                 ->route('employee#showLists')
                 ->with('success', 'New Employee Created and Email has been sent to Managers.');
-        }
-
-        if ($employee) {
-            return redirect()
-                ->route('employee#showLists')
-                ->with('success', 'Employee created successfully.');
         } else {
             return back()
                 ->withErrors('Unknown error occured! Please try again.');

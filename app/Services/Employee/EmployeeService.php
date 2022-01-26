@@ -8,7 +8,6 @@ use App\Jobs\SendNewEmployee;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 /**
@@ -169,7 +168,7 @@ class EmployeeService implements EmployeeServiceInterface
 
     /**
      * Sending mail to employee.
-     * @param 
+     * @param App\Models\Employee $employee
      * @return bool
      */
     public function sendEmployeeMail(Employee $employee)
