@@ -23,6 +23,7 @@ class ScheduleDao implements ScheduleDaoInterface
     public function storeSchedule(Request $request, Project $project)
     {
         try {
+            $schedule = false;
             DB::beginTransaction();
 
             if ($file = $request->file('file')) {
@@ -37,8 +38,6 @@ class ScheduleDao implements ScheduleDaoInterface
                         'assignor_id' => auth()->id(),
                         'assignee_id' => $request->assignee_id
                     ]);
-            } else {
-                $schedule = false;
             }
 
             DB::commit();
