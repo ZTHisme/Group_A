@@ -1,0 +1,36 @@
+.git-link {
+  display: block;
+}
+
+.git-link input {
+  cursor: pointer;
+}
+
+.half {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.box {
+  width: 50%;
+  margin: 0 auto;
+}
+
+input[type=text] {
+  width: 100%;
+}
+
+input[type=text].group {
+  width: 90%;
+  margin-bottom: 5px;
+}
+
+.list-card {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.dataTables_wrapper {
+  width: 100%;
+}

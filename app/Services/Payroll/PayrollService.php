@@ -2,14 +2,15 @@
 
 namespace App\Services\Payroll;
 
+use Mail;
 use App\Models\Employee;
 use App\Models\FinalSalary;
 use Illuminate\Http\Request;
+use App\Mail\EmployeePayroll;
+use App\Jobs\SendPayrollMailJob;
+use Illuminate\Support\Facades\Log;
 use App\Contracts\Dao\Payroll\PayrollDaoInterface;
 use App\Contracts\Services\Payroll\PayrollServiceInterface;
-use App\Jobs\SendPayrollMailJob;
-use App\Mail\EmployeePayroll;
-use Mail;
 
 /**
  * Service class for employee
