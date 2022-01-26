@@ -2,7 +2,7 @@
 
 @section('title', 'Attendance Lists')
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/attendance.css') }}">
+<link rel="stylesheet" href="{{ asset('css/attendance/attendance.css') }}">
 @endsection
 @section('content')
 <div class="container">

@@ -34,3 +34,7 @@ input[type=text].group {
 .dataTables_wrapper {
   width: 100%;
 }
+
+textarea {
+  width: 100%;
+}

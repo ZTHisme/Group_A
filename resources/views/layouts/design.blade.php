@@ -12,17 +12,14 @@
 
   <link rel="icon" href="{{ asset('images/management .png') }}">
   <!-- Styles -->
-  {{--
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/common.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/auth/login.css') }}">
   <link rel="stylesheet" href="{{ asset('css/library/fontawesome.css') }}">
   <link rel="stylesheet" href="{{ asset('css/library/jquery.dataTables.min.css') }}">
   @yield('css')
 
   <!-- Scripts -->
-  {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
   <script src="{{ asset('js/library/jquery-3.6.0.min.js') }}"></script>
   <script src="{{ asset('js/library/sweetalert2.min.js') }}"></script>
   <script src="{{ asset('js/library/jquery.dataTables.min.js') }}"></script>

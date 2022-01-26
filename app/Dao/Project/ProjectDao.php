@@ -2,11 +2,12 @@
 
 namespace App\Dao\Project;
 
-use App\Contracts\Dao\Project\ProjectDaoInterface;
-use App\Models\Employee;
 use App\Models\Project;
+use App\Models\Employee;
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Contracts\Dao\Project\ProjectDaoInterface;
 
 /**
  * Data Access Object for Payroll
@@ -155,5 +156,31 @@ class ProjectDao implements ProjectDaoInterface
             DB::rollback();
             throw $e;
         }
+    }
+
+    /**
+     * To get schedules
+     * 
+     * @return collection of schedules
+     */
+    public function getSchedules()
+    {
+        $authUserSchedules = Schedule::where('project_id', request()->route('project')->id)
+            ->where(function ($query) {
+                $query->where('assignee_id', auth()->id())
+                    ->orWhere('assignor_id', auth()->id());
+            })
+            ->orderBy('status', 'asc')
+            ->get();
+
+        $sortedSchedules = Schedule::where('project_id', request()->route('project')->id)
+            ->where(function ($query) {
+                $query->where('assignee_id', '<>', auth()->id())
+                    ->where('assignor_id', '<>', auth()->id());
+            })
+            ->orderBy('status', 'asc')
+            ->get();
+        
+        return $authUserSchedules->concat($sortedSchedules);
     }
 }

@@ -84,6 +84,12 @@ Route::prefix('projects')->middleware('auth')->group(function () {
         ->name('projects#scheduleCreateView');
     Route::post('{project}/storeschedule', [ScheduleController::class, 'storeSchedule'])
         ->name('projects#storeSchedule');
+    Route::get('schedules/{schedule}/showschedule', [ScheduleController::class, 'showSchedule'])
+        ->name('projects#showSchedule');
+    Route::get('schedules/{schedule}/downloadfile', [ScheduleController::class, 'downloadFile'])
+        ->name('projects#downloadFile');
+    Route::get('schedules/{schedule}/updatestatus', [ScheduleController::class, 'updateStatus'])
+        ->name('projects#updateStatus');
 });
 
 // Custom auth routes

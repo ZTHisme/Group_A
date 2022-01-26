@@ -17,15 +17,19 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($project->schedules as $schedule)
-      <tr>
+      @foreach ($schedules as $schedule)
+      <tr class="@if ($schedule->assignee_id == auth()->id() || $schedule->assignor_id == auth()->id())
+        associated
+      @endif">
         <td>{{ $schedule->name }}</td>
         <td>{{ \Carbon\Carbon::parse($schedule->end_date )->toDateString() }}</td>
         <td>{{ $schedule->status_text }}</td>
         <td>{{ $schedule->assignor->name }}</td>
         <td>{{ $schedule->assignee->name }}</td>
         <td>
-
+          @can('view-task', $schedule)
+          <a href="{{ route('projects#showSchedule', [$schedule->id]) }}" class="blue-btn sm-btn">Detail</a>
+          @endcan
         </td>
       </tr>
       @endforeach

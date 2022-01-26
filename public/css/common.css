@@ -126,13 +126,15 @@ a {
   font-size: 15px;
   font-weight: bold;
 }
+
 /* ------------------------Success Msg------------------ -------- */
-.success-msg{
+.success-msg {
   margin: 25px 0;
   padding: 20px;
   background-color: #DFF2BF;
   color: #4F8A10;
 }
+
 /* ----------------------------Side Bar----------------------- */
 #sidebar {
   width: 186px;
@@ -169,6 +171,7 @@ a {
   color: #ffffff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 /* ----------------------------DropDown Btn----------------------- */
 .dropbtn {
   padding: 10px;
@@ -212,6 +215,7 @@ a {
   width: 100%;
   background-color: #0032f8;
 }
+
 /* -------------------------Card------------------------------- */
 .list-card {
   border: 1px solid #cdcdcd;
@@ -344,6 +348,27 @@ input[type=submit] {
 }
 
 .dataTables_filter,
-.dataTables_length {
-  margin-bottom: 15px;
+.dataTables_length,
+.dataTables_info,
+.dataTables_paginate {
+  margin: 10px;
+}
+
+div.dataTables_length select {
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: none;
+}
+
+.associated {
+  background-color: #04dbcd !important;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  margin-left: 0.5em;
+  padding: 5px;
+  border-radius: 10px;
 }

@@ -95,10 +95,15 @@ class ProjectController extends Controller
      */
     public function showDetail(Project $project)
     {
-        $project->load('manager', 'schedules');
+        $project->load('manager');
 
+        $schedules = $this->projectInterface->getSchedules();
+        
         return view('projects.show')
-            ->with(['project' => $project]);
+            ->with([
+                'project' => $project,
+                'schedules' => $schedules
+            ]);
     }
 
     /**
