@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Attendance\AttendanceController;
 use App\Http\Controllers\Payroll\PayrollController;
 use App\Http\Controllers\Project\ProjectController;
+use App\Http\Controllers\Schedule\ScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +78,12 @@ Route::prefix('projects')->middleware('auth')->group(function () {
         ->name('projects#updateProject');
     Route::delete('deleteproject/{project}', [ProjectController::class, 'deleteProject'])
         ->name('projects#deleteProject');
+    Route::get('showdetail/{project}', [ProjectController::class, 'showDetail'])
+        ->name('projects#showDetail');
+    Route::get('{project}/schedulecreateview', [ScheduleController::class, 'scheduleCreateView'])
+        ->name('projects#scheduleCreateView');
+    Route::post('{project}/storeschedule', [ScheduleController::class, 'storeSchedule'])
+        ->name('projects#storeSchedule');
 });
 
 // Custom auth routes

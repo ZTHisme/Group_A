@@ -12,8 +12,6 @@ use App\Http\Requests\StoreEmployeeRequest;
 use App\Contracts\Services\Employee\EmployeeServiceInterface;
 use App\Http\Requests\ImportEmployeesRequest;
 use App\Models\Employee;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Carbon;
 
 class EmployeeController extends Controller
 {
@@ -77,10 +75,10 @@ class EmployeeController extends Controller
 
         $employee = $this->employeeInterface->addEmployee($request);
 
-        if ($employee) {
+        if ($this->employeeInterface->sendEmployeeMail($employee)) {
             return redirect()
                 ->route('employee#showLists')
-                ->with('success', 'Employee created successfully.');
+                ->with('success', 'New Employee Created and Email has been sent to Managers.');
         } else {
             return back()
                 ->withErrors('Unknown error occured! Please try again.');
@@ -88,7 +86,7 @@ class EmployeeController extends Controller
     }
 
     /**
-     * To redirect student edit information form
+     * To redirect employee edit information form
      * @param
      * @return view
      */
@@ -99,7 +97,7 @@ class EmployeeController extends Controller
     }
 
     /**
-     * To redirect student edit information form
+     * To redirect employee edit information form
      * @param $id
      * @return view
      */
@@ -119,7 +117,7 @@ class EmployeeController extends Controller
     }
 
     /**
-     * To update student information
+     * To update employee information
      * @param App\Http\Requests\StoreEmployeeRequest $request
      * @param $id
      * @return message success or not
@@ -144,8 +142,8 @@ class EmployeeController extends Controller
     }
 
     /**
-     * To delete student by id
-     * @param student id
+     * To delete employee by id
+     * @param employee id
      * @return message success or not
      */
     public function deleteEmployee($id)
@@ -180,7 +178,8 @@ class EmployeeController extends Controller
         $newemployee = $this->employeeInterface->newEmployee();
         $employeeleave = $this->employeeInterface->turnoverEmployee();
         $officeemployee = $this->employeeInterface->comeOfficeEmployee();
-        return view('dashboard.index', $data, $bardata)->with(['totalemployee' => $totalemployee, 'newemployee' => $newemployee, 'employeeleave' => $employeeleave, 'officeemployee' => $officeemployee]);
+        return view('dashboard.index', $data, $bardata)
+            ->with(['totalemployee' => $totalemployee, 'newemployee' => $newemployee, 'employeeleave' => $employeeleave, 'officeemployee' => $officeemployee]);
     }
 
     /**

@@ -101,4 +101,12 @@ interface EmployeeServiceInterface
      * @return $array of employee
      */
     public function comeOfficeEmployee();
+
+    /**
+     * To send email to manager
+     * 
+     * @param App\Models\Employee $employee
+     * @return bool
+     */
+    public function sendEmployeeMail(Employee $employee);
 }

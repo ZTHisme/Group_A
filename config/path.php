@@ -16,4 +16,12 @@ return [
      * This value is the profile image path.
      */
     'profile_path' => 'storage/employees/',
+
+    /**
+     * --------------------------------------------------------------------------
+     * Schedule file storage path
+     * --------------------------------------------------------------------------
+     * This value is the profile image path.
+     */
+    'schedule_path' => 'tasks/',
 ];

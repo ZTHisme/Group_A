@@ -262,7 +262,7 @@ class EmployeeDao implements EmployeeDaoInterface
     {
         $officeemployee = Attendance::select(DB::raw("COUNT(*) as count"))
             ->join('employees', 'attendances.employee_id', '=', 'employees.id')
-            ->where('type', 1)
+            ->where('type', config('constants.Office'))
             ->whereDate('attendances.created_at', Carbon::today())
             ->get();
 

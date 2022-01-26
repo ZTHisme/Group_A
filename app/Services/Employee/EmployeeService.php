@@ -4,9 +4,11 @@ namespace App\Services\Employee;
 
 use App\Contracts\Dao\Employee\EmployeeDaoInterface;
 use App\Contracts\Services\Employee\EmployeeServiceInterface;
+use App\Jobs\SendNewEmployee;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Service class for employee
@@ -197,5 +199,21 @@ class EmployeeService implements EmployeeServiceInterface
     public function comeOfficeEmployee()
     {
         return $this->employeeDao->comeOfficeEmployee();
+    }
+
+    /**
+     * Sending mail to employee.
+     * @param App\Models\Employee $employee
+     * @return bool
+     */
+    public function sendEmployeeMail(Employee $employee)
+    {
+        dispatch(new SendNewEmployee($employee));
+        // Check mail sending process has error.
+        if (count(Mail::failures()) > 0) {
+            Log::error('Mail Sending Error', Mail::failures());
+        } else {
+            return true;
+        }
     }
 }
