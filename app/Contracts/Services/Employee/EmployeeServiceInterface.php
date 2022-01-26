@@ -77,4 +77,12 @@ interface EmployeeServiceInterface
      * @return File upload csv
      */
     public function uploadCSV();
+
+    /**
+     * To send email to manager
+     * 
+     * @param App\Models\Employee $employee
+     * @return bool
+     */
+    public function sendEmployeeMail(Employee $employee);
 }
