@@ -165,6 +165,41 @@ class EmployeeService implements EmployeeServiceInterface
     {
         return $this->employeeDao->uploadCSV();
     }
+    /**
+     * To show total employee
+     * @return $array of employee
+     */
+    public function allEmployee()
+    {
+        return $this->employeeDao->allEmployee();
+    }
+
+    /**
+     * To show new employee
+     * @return $array of employee
+     */
+    public function newEmployee()
+    {
+        return $this->employeeDao->newEmployee();
+    }
+
+    /**
+     * To show turnover employee
+     * @return $array of employee
+     */
+    public function turnoverEmployee()
+    {
+        return $this->employeeDao->turnoverEmployee();
+    }
+
+    /**
+     * To show employee who come to office
+     * @return $array of employee
+     */
+    public function comeOfficeEmployee()
+    {
+        return $this->employeeDao->comeOfficeEmployee();
+    }
 
     /**
      * Sending mail to employee.

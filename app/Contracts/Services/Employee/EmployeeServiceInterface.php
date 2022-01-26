@@ -79,6 +79,30 @@ interface EmployeeServiceInterface
     public function uploadCSV();
 
     /**
+     * To show total employee
+     * @return $array of employee
+     */
+    public function allEmployee();
+
+    /**
+     * To show new employee
+     * @return $array of employee
+     */
+    public function newEmployee();
+
+    /**
+     * To show turnover employee
+     * @return $array of employee
+     */
+    public function turnoverEmployee();
+
+    /**
+     * To show employee who come to office
+     * @return $array of employee
+     */
+    public function comeOfficeEmployee();
+
+    /**
      * To send email to manager
      * 
      * @param App\Models\Employee $employee

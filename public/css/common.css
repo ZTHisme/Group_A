@@ -165,7 +165,7 @@ a {
 #sidebar ul li a {
   display: block;
   line-height: 3;
-  padding: 15px;
+  padding: 14px 0;
   color: #ffffff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
