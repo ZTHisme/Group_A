@@ -93,9 +93,12 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function showDetail(Project $project)
     {
-        //
+        $project->load('manager', 'schedules');
+
+        return view('projects.show')
+            ->with(['project' => $project]);
     }
 
     /**

@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+<div class="listcard-header">Project Edit</div>
 <div class="box">
   <form action="{{ route('projects#updateProject', [$project->id]) }}" method="POST">
     @csrf

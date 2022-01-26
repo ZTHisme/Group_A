@@ -35,7 +35,7 @@
           <td>{{ $project->employees_count }}</td>
           <td>{{ $project->pending_tasks }}</td>
           <td>
-            <a href="#" class="blue-btn sm-btn">Detail</a>
+            <a href="{{ route('projects#showDetail', [$project->id]) }}" class="blue-btn sm-btn">Detail</a>
             @can('own', $project->manager_id)
             <a href="{{ route('projects#showEditView', [$project->id]) }}" class="yellow-btn sm-btn">Edit</a>
             <a href="javascript:void(0)" class="red-btn sm-btn del-btn" data-id="{{ $project->id }}">Delete</a>

@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+<div class="listcard-header">Project Create</div>
 <div class="box">
   <form action="javascript:void(0)">
     @csrf
