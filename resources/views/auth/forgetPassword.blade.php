@@ -5,9 +5,6 @@
 @section('content')
 <form action="{{ route('forget.password.post') }}" method="POST" class="login-form">
   @csrf
-  <!-- Display Alert Messages -->
-  {{--@include('common.alert')--}}
-  <!-- Display Validation Errors -->
   @include('common.errors')
   <h1 class="login-header">Reset Password</h1>
   <div>
@@ -23,4 +20,9 @@
     <a href="/login" id="back" class="underlineHover">Back to Log in</a>
   </div>
 </form>
+{!! JsValidator::formRequest('App\Http\Requests\ForgetPasswordRequest'); !!}
+@endsection
+
+@section('script')
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
 @endsection
