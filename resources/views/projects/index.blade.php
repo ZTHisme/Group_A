@@ -28,7 +28,9 @@
       </thead>
       <tbody>
         @foreach ($projects as $project)
-        <tr>
+        <tr class="@if ($project->manager_id == auth()->id() || $project->employees->contains(auth()->id()))
+          associated
+        @endif">
           <td>{{ $project->name }}</td>
           <td><a href="{{ $project->link }}" target="_blank">{{ $project->link }}</a></td>
           <td>{{ $project->manager->name }}</td>

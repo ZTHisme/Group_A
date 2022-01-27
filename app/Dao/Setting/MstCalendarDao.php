@@ -9,7 +9,7 @@ use App\Imports\MstCalendarsImport;
 
 class MstCalendarDao implements MstCalendarDaoInterface
 {
-  /**
+    /**
      * To upload csv file
      * @return File upload csv
      */
@@ -17,4 +17,4 @@ class MstCalendarDao implements MstCalendarDaoInterface
     {
         return Excel::import(new MstCalendarsImport, request()->file('file'));
     }
-  }
+}

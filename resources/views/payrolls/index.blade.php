@@ -24,7 +24,9 @@
       </thead>
       <tbody>
         @foreach ($employees as $employee)
-        <tr>
+        <tr class="@if ($employee == auth()->user())
+          associated
+        @endif">
           <td>{{ $employee->name }}</td>
           <td>{{ $employee->email }}</td>
           <td>{{ $employee->salary->basic_salary }}</td>
