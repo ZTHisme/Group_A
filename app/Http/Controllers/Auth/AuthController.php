@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\UserRegisterRequest;
 use App\Contracts\Services\Auth\AuthServiceInterface;
+use App\Http\Requests\LoginRequest;
 use Session;
 
 class AuthController extends Controller
@@ -39,16 +39,11 @@ class AuthController extends Controller
     /**
      * To Login the user
      * 
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\LoginRequest $request
      * @return redirect()
      */
-    public function postLogin(Request $request)
+    public function postLogin(LoginRequest $request)
     {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-
         // Check user want to remember me or not.
         $remember = isset($request->remember) ? true : false;
         $credentials = $request->only('email', 'password');

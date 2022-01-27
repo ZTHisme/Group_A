@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PasswordResetRequest;
 use App\Contracts\Services\Auth\ForgetPasswordInterface;
+use App\Http\Requests\ForgetPasswordRequest;
 use Hash;
 
 class ForgotPasswordController extends Controller
@@ -38,15 +39,11 @@ class ForgotPasswordController extends Controller
     /**
      * To Store password reset data in database and sned user email.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\ForgetPasswordRequest $request
      * @return response()
      */
-    public function submitForgetPasswordForm(Request $request)
+    public function submitForgetPasswordForm(ForgetPasswordRequest $request)
     {
-        $request->validate([
-            'email' => 'required|email|exists:employees',
-        ]);
-
         $this->forgetPasswordInterface->processForgetPasswordForm($request);
 
         // Check there is any error with mail sending.

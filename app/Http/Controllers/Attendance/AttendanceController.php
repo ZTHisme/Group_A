@@ -5,10 +5,6 @@ namespace App\Http\Controllers\Attendance;
 use App\Contracts\Services\Attendance\AttendanceServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAttendanceRequest;
-use App\Models\Attendance;
-use App\Models\Employee;
-use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
 class AttendanceController extends Controller
 {
