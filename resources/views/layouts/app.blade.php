@@ -48,6 +48,11 @@
         <li>
           <a href="{{ route('projects#index') }}"><span class="fas fa-tasks"></span> Project Management</a>
         </li>
+        @can('isManager')
+        <li>
+          <a href="{{ route('calendar.upload') }}"><span class="fas fa-cog"></span> Setting</a>
+        </li>
+        @endcan
       </ul>
     </nav>
     <!-- Page Content  -->
@@ -71,9 +76,8 @@
           </li>
         </ul>
       </nav>
-      <!-- Display Alert Messages -->
-      {{--@include('common.alert')--}}
-      <!-- Display Validation Errors -->
+      
+      <!-- Display Errors -->
       @include('common.errors')
       <div class="seprator">
       </div>

@@ -65,7 +65,9 @@
       </thead>
       <tbody>
         @foreach ($attendances as $attendance)
-        <tr>
+        <tr class="@if ($attendance->employee_id == auth()->id())
+          associated
+        @endif">
           <td>{{ $loop->iteration }}</td>
           <td>{{ $attendance->employee->name }}</td>
           <td>{{ $attendance->employee->role->name }}</td>

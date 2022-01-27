@@ -39,7 +39,9 @@
         </thead>
         <tbody>
           @foreach ($employees as $employee)
-          <tr>
+          <tr class="@if ($employee->id == auth()->id())
+            associated
+          @endif">
             <td>{{ $employee->name }}</td>
             <td>{{ $employee->email }}</td>
             <td>{{ $employee->phone }}</td>

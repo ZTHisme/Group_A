@@ -1,3 +1,5 @@
 $(function () {
-    $('#payrolls').DataTable();
+    $('#payrolls').DataTable({
+        "aaSorting": []
+    });
 });
