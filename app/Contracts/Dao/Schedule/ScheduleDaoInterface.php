@@ -19,4 +19,12 @@ interface ScheduleDaoInterface
      * @return bool
      */
     public function storeSchedule(Request $request, Project $project);
+
+    /**
+     * To update schedule
+     * 
+     * @param \App\Models\Schedule $schedule
+     * @return bool
+     */
+    public function updateStatus(Schedule $schedule);
 }

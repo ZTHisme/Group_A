@@ -3,7 +3,7 @@
 @section('title', 'Employees List')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/employeelist.css') }}">
+<link rel="stylesheet" href="{{ asset('css/employee/employeelist.css') }}">
 @endsection
 @section('content')
 <div class="container">

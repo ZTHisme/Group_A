@@ -65,4 +65,11 @@ interface ProjectServiceInterface
      * @return bool
      */
     public function deleteProject(Project $project);
+
+    /**
+     * To get schedules
+     * 
+     * @return collection of schedules
+     */
+    public function getSchedules();
 }

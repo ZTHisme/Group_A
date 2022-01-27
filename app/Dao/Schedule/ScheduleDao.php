@@ -47,4 +47,29 @@ class ScheduleDao implements ScheduleDaoInterface
             throw $e;
         }
     }
+
+    /**
+     * To update schedule
+     * 
+     * @param \App\Models\Schedule $schedule
+     * @return bool
+     */
+    public function updateStatus(Schedule $schedule)
+    {
+        try {
+            DB::beginTransaction();
+
+            $schedule->update([
+                'status' => $schedule->status == config('constants.Not_Started') ?
+                    config('constants.Progress') :
+                    config('constants.Finished')
+            ]);
+
+            DB::commit();
+            return $schedule;
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
+    }
 }

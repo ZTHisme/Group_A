@@ -58,4 +58,12 @@ class Schedule extends Model
     {
         return $this->belongsTo(Employee::class, 'assignee_id');
     }
+
+    /**
+     * Get the project that owns the schedule.
+     */
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 }

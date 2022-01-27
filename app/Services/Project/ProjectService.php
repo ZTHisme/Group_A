@@ -102,4 +102,14 @@ class ProjectService implements ProjectServiceInterface
     {
         return $this->projectDao->deleteProject($project);
     }
+
+    /**
+     * To get schedules
+     * 
+     * @return collection of schedules
+     */
+    public function getSchedules()
+    {
+        return $this->projectDao->getSchedules();
+    }
 }

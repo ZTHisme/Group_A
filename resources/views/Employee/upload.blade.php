@@ -3,7 +3,7 @@
 @section('title', 'Upload CSV')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/employeeupload.css') }}">
+<link rel="stylesheet" href="{{ asset('css/employee/employeeupload.css') }}">
 @endsection
 
 @section('content')

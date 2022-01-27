@@ -52,4 +52,15 @@ class ScheduleService implements ScheduleServiceInterface
 
         return $schedule;
     }
+
+    /**
+     * To update schedule
+     * 
+     * @param \App\Models\Schedule $schedule
+     * @return bool
+     */
+    public function updateStatus(Schedule $schedule)
+    {
+        return $this->scheduleDao->updateStatus($schedule);
+    }
 }
