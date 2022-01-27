@@ -48,6 +48,9 @@
         <li>
           <a href="{{ route('projects#index') }}"><span class="fas fa-tasks"></span> Project Management</a>
         </li>
+        <li>
+          <a href="{{ route('calendar.upload') }}"><span class="fas fa-cog"></span> Setting</a>
+        </li>
       </ul>
     </nav>
     <!-- Page Content  -->
