@@ -47,6 +47,8 @@ Route::prefix('attendances')->middleware('auth')->group(function () {
     Route::get('list', [AttendanceController::class, 'index'])->name('attendances#index');
     Route::post('store', [AttendanceController::class, 'store'])->name('attendances#store');
     Route::get('update', [AttendanceController::class, 'update'])->name('attendances#update');
+    Route::post('customleave', [AttendanceController::class, 'customLeave'])
+        ->name('attendances#customLeave');
 });
 
 // Payroll Routes

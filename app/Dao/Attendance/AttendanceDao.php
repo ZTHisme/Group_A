@@ -7,6 +7,7 @@ use App\Models\Attendance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Contracts\Dao\Attendance\AttendanceDaoInterface;
+use Carbon\CarbonPeriod;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -85,6 +86,47 @@ class AttendanceDao implements AttendanceDaoInterface
             return $attendance;
         } else {
             return false;
+        }
+    }
+
+    /**
+     * To store custom leave record
+     * @return collection of $attendances
+     */
+    public function saveCustomLeave(Request $request)
+    {
+        $start = Carbon::parse($request->start_date)->format('Y-m-d H:i:s');
+        $end = Carbon::parse($request->end_date)->format('Y-m-d H:i:s');
+        $period = CarbonPeriod::create($start, $end);
+        $attendances = [];
+
+        try {
+            DB::beginTransaction();
+
+            foreach ($period as $date) {
+                $attendance = auth()->user()
+                    ->attendances()
+                    ->whereDate('created_at', $date)
+                    ->first();
+                if (
+                    $date->format('l') != config('constants.Sat') &&
+                    $date->format('l') != config('constants.Sun') &&
+                    !$attendance
+                ) {
+                    $attendances[] = auth()->user()
+                        ->attendances()
+                        ->create([
+                            'leave' => 1,
+                            'created_at' => $date
+                        ]);
+                }
+            }
+
+            DB::commit();
+            return $attendances;
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
         }
     }
 }

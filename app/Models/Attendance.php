@@ -22,7 +22,8 @@ class Attendance extends Model
         'working_hours',
         'leave',
         'type',
-        'overtime'
+        'overtime',
+        'created_at'
     ];
 
     /**

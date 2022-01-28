@@ -8,6 +8,11 @@
 
 @section('content')
 <div class="container">
+  @oldcalculation($calculatedPayroll)
+  <div class="alert-errmsg"><i class="fa fa-calculator mr-icon"></i>
+    This payroll calculation was not calculated up to today. Please recalculate again to know up to date info.
+  </div>
+  @endoldcalculation
   <div class="list-card">
     <div class="listcard-header mr-table">
       Payroll Calculate

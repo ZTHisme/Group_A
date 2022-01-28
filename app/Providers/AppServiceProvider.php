@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Employee;
+use App\Models\FinalSalary;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
@@ -76,6 +77,13 @@ class AppServiceProvider extends ServiceProvider
                 }
                 return false;
             }
+        });
+
+        Blade::if('oldcalculation', function (FinalSalary $finalSalary) {
+            if (Carbon::parse($finalSalary->updated_at)->format('m-d') == Carbon::today()->format('m-d')) {
+                return false;
+            }
+            return true;
         });
     }
 }

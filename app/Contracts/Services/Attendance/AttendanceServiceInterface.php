@@ -26,4 +26,10 @@ interface AttendanceServiceInterface
      * @return attendance object
      */
     public function updateAttendance();
+
+    /**
+     * To store custom leave record
+     * @return collection of $attendances
+     */
+    public function saveCustomLeave(Request $request);
 }

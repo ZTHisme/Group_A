@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Attendance;
 
 use App\Contracts\Services\Attendance\AttendanceServiceInterface;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CustomLeaveRequest;
 use App\Http\Requests\StoreAttendanceRequest;
 
 class AttendanceController extends Controller
@@ -72,6 +73,26 @@ class AttendanceController extends Controller
         } else {
             return back()
                 ->withErrors('You have already checked out or you may have taken leave.');
+        }
+    }
+
+    /**
+     * Create custom leave more than today.
+     *
+     * @param  \App\Http\Requests\CustomLeaveRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function customLeave(CustomLeaveRequest $request)
+    {
+        $leaves = $this->attendanceInterface->saveCustomLeave($request);
+
+        if (count($leaves)) {
+            return redirect()
+                ->route('attendances#index')
+                ->with('success', 'Your leave form has been recorded successfully.');
+        } else {
+            return back()
+                ->withErrors('You already have taken leave for these days.');
         }
     }
 }
