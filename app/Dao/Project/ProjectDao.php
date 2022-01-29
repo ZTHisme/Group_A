@@ -8,6 +8,7 @@ use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Contracts\Dao\Project\ProjectDaoInterface;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Data Access Object for Payroll
@@ -21,10 +22,24 @@ class ProjectDao implements ProjectDaoInterface
      */
     public function getProjects()
     {
-        return Project::with('manager')
+        $authProjects = Project::where('manager_id', auth()->id())
+            ->orWhereHas('employees', function (Builder $query) {
+                $query->where('employees.id', auth()->id());
+            })
+            ->with('manager')
+            ->withCount('employees')
+            ->get();
+
+        $sortedProjects = Project::where('manager_id', '<>', auth()->id())
+            ->whereDoesntHave('employees', function (Builder $query) {
+                $query->where('employees.id', auth()->id());
+            })
+            ->with('manager')
             ->withCount('employees')
             ->latest()
             ->get();
+
+        return $authProjects->concat($sortedProjects);
     }
 
     /**
@@ -180,7 +195,7 @@ class ProjectDao implements ProjectDaoInterface
             })
             ->orderBy('status', 'asc')
             ->get();
-        
+
         return $authUserSchedules->concat($sortedSchedules);
     }
 }

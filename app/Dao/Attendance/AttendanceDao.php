@@ -20,10 +20,18 @@ class AttendanceDao implements AttendanceDaoInterface
      */
     public function getAttendances()
     {
-        return Attendance::whereDate('created_at', Carbon::today())
-            ->with('employee.role')
+        $authUser = Attendance::whereDate('created_at', Carbon::today())
+            ->where('employee_id', auth()->id())
+            ->with('employee.role', 'employee.department', 'employee')
+            ->get();
+
+        $sortedAttendances = Attendance::whereDate('created_at', Carbon::today())
+            ->where('employee_id', '<>', auth()->id())
+            ->with('employee.role', 'employee.department', 'employee')
             ->latest()
             ->get();
+
+        return $authUser->concat($sortedAttendances);
     }
 
     /**

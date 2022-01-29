@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Employee\EmployeeController;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\Attendance\AttendanceController;
 use App\Http\Controllers\Payroll\PayrollController;
 use App\Http\Controllers\Project\ProjectController;
+use App\Http\Controllers\Employee\EmployeeController;
 use App\Http\Controllers\Schedule\ScheduleController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Setting\MstCalendarController;
+use App\Http\Controllers\Attendance\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +91,12 @@ Route::prefix('projects')->middleware('auth')->group(function () {
         ->name('projects#downloadFile');
     Route::get('schedules/{schedule}/updatestatus', [ScheduleController::class, 'updateStatus'])
         ->name('projects#updateStatus');
+});
+
+// Setting Routes
+Route::prefix('settings')->middleware('auth')->group(function () {
+    Route::get('upload', [MstCalendarController::class, 'showUpload'])->name('calendar.upload');
+    Route::post('submit', [MstCalendarController::class, 'submitUpload'])->name('calendar.submit');
 });
 
 // Custom auth routes

@@ -156,25 +156,42 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function searchEmployee(Request $request)
     {
-        $name = $request->name;
-        $start_date = $request->start_date;
-        $end_date = $request->end_date;
+        if ($request->all() > 0) {
+            $name = $request->name;
+            $start_date = $request->start_date;
+            $end_date = $request->end_date;
+            $query = DB::table('employees')
+                ->join('mst_roles', 'employees.role_id', '=', 'mst_roles.id')
+                ->join('mst_departments', 'employees.department_id', '=', 'mst_departments.id')
+                ->whereNull('employees.deleted_at')
+                ->select('employees.*', 'mst_roles.name as role', 'mst_departments.name as department');
+        }
+
+        $auth = DB::table('employees')
+            ->join('mst_roles', 'employees.role_id', '=', 'mst_roles.id')
+            ->join('mst_departments', 'employees.department_id', '=', 'mst_departments.id')
+            ->whereNull('employees.deleted_at')
+            ->where('employees.id', '<>', auth()->id())
+            ->select('employees.*', 'mst_roles.name as role', 'mst_departments.name as department');
 
         $employees = DB::table('employees')
             ->join('mst_roles', 'employees.role_id', '=', 'mst_roles.id')
             ->join('mst_departments', 'employees.department_id', '=', 'mst_departments.id')
             ->whereNull('employees.deleted_at')
+            ->where('employees.id', auth()->id())
+            ->union($auth)
             ->select('employees.*', 'mst_roles.name as role', 'mst_departments.name as department');
+
         if ($name) {
-            $employees->where('employees.name', 'LIKE', '%' . $name . '%');
+            $employees = $query->where('employees.name', 'LIKE', '%' . $name . '%');
         }
         if ($start_date) {
-            $employees->whereDate('employees.created_at', '>=', $start_date);
+            $employees = $query->whereDate('employees.created_at', '>=', $start_date);
         }
         if ($end_date) {
-            $employees->whereDate('employees.created_at', '<=', $end_date);
+            $employees = $query->whereDate('employees.created_at', '<=', $end_date);
         }
-        return $employees->latest()->paginate(10);
+        return $employees->paginate(10);
     }
 
     /**

@@ -25,7 +25,15 @@ class PayrollDao implements PayrollDaoInterface
      */
     public function getEmployee(Request $request)
     {
-        return Employee::with('role', 'department', 'salary')->orderBy('created_at', 'asc')->get();
+        $authUser = auth()->user()
+            ->load('role', 'department', 'salary');
+
+        $sortedEmployees = Employee::where('id', '<>', auth()->id())
+            ->with('role', 'department', 'salary')
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        return $sortedEmployees->prepend($authUser);
     }
 
     /**

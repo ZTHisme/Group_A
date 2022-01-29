@@ -1,5 +1,7 @@
 $(function () {
-    $('#projects').DataTable();
+    $('#projects').DataTable({
+        "aaSorting": []
+    });
     $('#projects').on('click', '.del-btn', function () {
         var id = $(this).data('id');
         var node = $(this).parent().parent();

@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Dao\Payroll\PayrollDaoInterface', 'App\Dao\Payroll\PayrollDao');
         $this->app->bind('App\Contracts\Dao\Project\ProjectDaoInterface', 'App\Dao\Project\ProjectDao');
         $this->app->bind('App\Contracts\Dao\Schedule\ScheduleDaoInterface', 'App\Dao\Schedule\ScheduleDao');
+        $this->app->bind('App\Contracts\Dao\Setting\MstCalendarDaoInterface', 'App\Dao\Setting\MstCalendarDao');
 
         // Business logic registration
         $this->app->bind('App\Contracts\Services\Employee\EmployeeServiceInterface', 'App\Services\Employee\EmployeeService');
@@ -33,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Services\Payroll\PayrollServiceInterface', 'App\Services\Payroll\PayrollService');
         $this->app->bind('App\Contracts\Services\Project\ProjectServiceInterface', 'App\Services\Project\ProjectService');
         $this->app->bind('App\Contracts\Services\Schedule\ScheduleServiceInterface', 'App\Services\Schedule\ScheduleService');
+        $this->app->bind('App\Contracts\Services\Setting\MstCalendarServiceInterface', 'App\Services\Setting\MstCalendarService');
     }
 
     /**
