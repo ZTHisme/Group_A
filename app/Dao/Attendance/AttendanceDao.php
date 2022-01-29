@@ -129,4 +129,39 @@ class AttendanceDao implements AttendanceDaoInterface
             throw $e;
         }
     }
+
+    /**
+     * To get attendance status
+     * @return int type of none, checkedin, checkedout
+     */
+    public function getAttendanceStatus()
+    {
+        $status = config('constants.None');
+
+        $checkedin = auth()->user()
+            ->attendances()
+            ->whereDate('created_at', Carbon::today())
+            ->where('leave', config('constants.Non-leave'))
+            ->whereNull('working_hours')
+            ->first();
+
+        $checkedout =  auth()->user()
+            ->attendances()
+            ->whereDate('created_at', Carbon::today())
+            ->where(function ($query) {
+                $query->whereNotNull('working_hours')
+                    ->orWhere('leave', config('constants.Leave'));
+            })
+            ->first();
+
+        if ($checkedin) {
+            $status = config('constants.Checkedin');
+        }
+
+        if ($checkedout) {
+            $status = config('constants.Checkedout');
+        }
+
+        return $status;
+    }
 }

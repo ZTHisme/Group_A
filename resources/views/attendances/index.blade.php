@@ -6,9 +6,11 @@
 <link rel="stylesheet" href="{{ asset('css/library/daterangepicker.min.css') }}">
 @endsection
 @section('content')
+@if ($status = Session::get(\Carbon\Carbon::today()->format('m-d')))
+@endif
 <div class="container">
   <div class="clearfix">
-    @checkedout
+    @if ($status == config('constants.Checkedout'))
     <div class="success-msg w-50 mx-auto"><i class="fa fa-calendar-check mr-icon"></i>
       You already have submitted record for today or taken leave.
     </div>
@@ -21,7 +23,7 @@
       <div class="card-body clearfix">
         <form action="{{ route('attendances#store') }}" method="POST">
           {{ csrf_field() }}
-          @checkedin
+          @if ($status == config('constants.Checkedin'))
           <div class="card-text">Please check out before shutting down your pc.</div>
           @else
           <div class="form-check form-check-inline">
@@ -36,8 +38,8 @@
             <input class="form-check-input" type="checkbox" id="leave" name="leave" value="1">
             <label class="form-check-label" for="leave">Leave</label>
           </div>
-          @endcheckedin
-          @checkedin
+          @endif
+          @if ($status == config('constants.Checkedin'))
           <a href="{{ route('attendances#update') }}" class="blue-btn checkout-btn">
             <i class="fa fa-user-check mr-icon"></i>Check Out
           </a>
@@ -45,11 +47,11 @@
           <button type="submit" class="blue-btn checkin-btn">
             <i class="fa fa-user-check mr-icon"></i>Check In
           </button>
-          @endcheckedin
+          @endif
         </form>
       </div>
     </div>
-    @endcheckedout
+    @endif
     <div class="card-submit float-right">
       <div class="cardheader-submit clearfix">
         Custom Leave

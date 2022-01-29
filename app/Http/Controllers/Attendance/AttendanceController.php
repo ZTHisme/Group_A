@@ -6,6 +6,8 @@ use App\Contracts\Services\Attendance\AttendanceServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomLeaveRequest;
 use App\Http\Requests\StoreAttendanceRequest;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class AttendanceController extends Controller
 {
@@ -33,6 +35,11 @@ class AttendanceController extends Controller
     {
         $attendances = $this->attendanceInterface->getAttendances();
 
+        if (!Session::has(Carbon::today()->format('m-d'))) {
+            $status = $this->attendanceInterface->getAttendanceStatus();
+            Session::put(Carbon::today()->format('m-d'), $status);
+        }
+
         return view('attendances.index')
             ->with(['attendances' => $attendances]);
     }
@@ -46,6 +53,9 @@ class AttendanceController extends Controller
     public function store(StoreAttendanceRequest $request)
     {
         $result = $this->attendanceInterface->saveAttendance($request);
+
+        $status = $this->attendanceInterface->getAttendanceStatus();
+        Session::put(Carbon::today()->format('m-d'), $status);
 
         if ($result) {
             return redirect()
@@ -66,6 +76,9 @@ class AttendanceController extends Controller
     {
         $result = $this->attendanceInterface->updateAttendance();
 
+        $status = $this->attendanceInterface->getAttendanceStatus();
+        Session::put(Carbon::today()->format('m-d'), $status);
+
         if ($result) {
             return redirect()
                 ->route('attendances#index')
@@ -85,6 +98,9 @@ class AttendanceController extends Controller
     public function customLeave(CustomLeaveRequest $request)
     {
         $leaves = $this->attendanceInterface->saveCustomLeave($request);
+
+        $status = $this->attendanceInterface->getAttendanceStatus();
+        Session::put(Carbon::today()->format('m-d'), $status);
 
         if (count($leaves)) {
             return redirect()

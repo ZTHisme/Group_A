@@ -32,4 +32,10 @@ interface AttendanceServiceInterface
      * @return collection of $attendances
      */
     public function saveCustomLeave(Request $request);
+
+    /**
+     * To get attendance status
+     * @return int type of none, checkedin, checkedout
+     */
+    public function getAttendanceStatus();
 }

@@ -61,4 +61,13 @@ class AttendanceService implements AttendanceServiceInterface
     {
         return $this->attendanceDao->saveCustomLeave($request);
     }
+
+    /**
+     * To get attendance status
+     * @return int type of none, checkedin, checkedout
+     */
+    public function getAttendanceStatus()
+    {
+        return $this->attendanceDao->getAttendanceStatus();
+    }
 }
