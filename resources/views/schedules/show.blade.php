@@ -23,7 +23,7 @@
       <label for="github">Schedule Description</label>
     </div>
     <div class="col-75">
-      <textarea rows="5">{{ $schedule->description }}</textarea>
+      <textarea rows="5" class="form-control">{{ $schedule->description }}</textarea>
     </div>
   </div>
   <div class="row">
