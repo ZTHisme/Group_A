@@ -61,7 +61,9 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-25"></div>
+        <div class="col-25">
+          <label></label>
+        </div>
         <div class="col-75">
           <input type="submit" value="Update" class="blue-btn">
           <a href="javascript:void(0)" id="back" class="red-btn">Cancel</a>

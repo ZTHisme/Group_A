@@ -50,7 +50,7 @@
         </li>
         @can('isManager')
         <li>
-          <a href="{{ route('calendar.upload') }}"><span class="fas fa-cog"></span> Setting</a>
+          <a href="{{ route('calendar.upload') }}" class="{{ Request::routeIs('calendar.upload') ? 'active' : '' }}"><span class="far fa-calendar-alt"></span> Add Calendar</a>
         </li>
         @endcan
       </ul>
