@@ -1,5 +1,9 @@
 .mr-icon {
-  padding: 20px 7px 0 0;
+  margin: 15px;
+  padding: 6px;
+  background-color: #3e64ff;
+  color: #fff;
+  border-radius: 5px;
 }
 
 .pull-right {
@@ -28,26 +32,26 @@
 }
 
 .import-btn {
+  margin-bottom: 10px;
+  margin-left: 20px;
   padding: 6px;
   border: none;
-  margin-left: 20px;
   background-color: #04a51f;
   color: #fff;
+  font-size: 15px;
   cursor: pointer;
   border-radius: 7px;
-  font-size: 15px;
-  margin-bottom: 10px;
 }
 
 .export-btn {
+  margin-bottom: 10px;
   padding: 6px;
   border: none;
-  background-color: #f05811;
+  background-color: #07a6be;
   color: #fff;
+  font-size: 15px;
   cursor: pointer;
   border-radius: 7px;
-  font-size: 15px;
-  margin-bottom: 10px;
 }
 
 input[type=date] {
@@ -63,35 +67,57 @@ input[type=date]:before {
   content: attr(placeholder) !important;
 }
 
-.pagination::before,
+nav::before,
+nav:after, .pagination::before,
 .pagination:after {
   display: table;
-  content: " ";
   clear: both;
+  content: " ";
 }
 
 .pagination {
+  float: right;
   margin: 10px;
 }
 
 .page-item {
   display: inline-block;
-  width: 30px;
-  height: 30px;
-  background-color: gray;
-  color: white;
-  font-size: 20px;
+  width: 35px;
+  height: 28px;
+  margin-right: 4px;
+  padding-top: 5px;
+  background-color: #ffffff;
+  font-size: 16px;
   text-align: center;
-  border-radius: 10px;
-  float: left;
-  margin-right: 5px;
+  border-radius: 2px;
+}
+
+.page-item .page-link:hover {
+  width: 35px;
+  height: 28px;
+  background-color: #3e64ff;
+  color: #fff;
+  border-radius: 2px;
 }
 
 .page-link {
-  color: white;
+  padding-top: 5px;
+  color: #000000;
 }
 
-.active,
+.active {
+  background-color: #3e64ff;
+}
+
 .disabled {
-  background-color: darkgray;
+  display: none;
+}
+
+.active .page-link,
+.disabled .page-link {
+  color: #fff;
+}
+
+.mr-5{
+  margin: 0 5px;
 }

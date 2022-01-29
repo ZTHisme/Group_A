@@ -1,23 +1,11 @@
 .cardcreate {
-  width: 50%;
-  margin: 0 auto;
-  margin-bottom: 30px;
-  padding-bottom: 30px;
-  box-shadow: 0 4px 8px 0 rgba(37, 18, 206, 0.2);
-}
-
-.card-header {
-  padding: 20px;
-  background-color: blue;
-  color: #fff;
-  text-align: left;
-  font-size: 20px;
+  padding: 0px 40px 30px;
 }
 
 .profile-pic {
+  display: block;
   width: 200px;
   height: 200px;
-  display: block;
   margin: 0 auto;
   margin-bottom: 20px;
   border-radius: 50%;
@@ -25,7 +13,9 @@
 
 .card-body {
   padding: 20px 0;
+  background-color: #f2f2f2;
   text-align: left;
+  border: 1px solid #79797954;
 }
 
 #preview-profile {
@@ -88,32 +78,4 @@
   margin: 0 auto;
   color: black;
   font-size: 30px;
-}
-
-select.form-select {
-  width: 500px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  padding: 0 10px;
-  padding-bottom: 20px;
-  background: #deece7;
-  color: #000;
-  font-size: 22px;
-}
-
-select.mySelect option {
-  width: 500px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  padding: 0 10px;
-  padding-bottom: 20px;
-  color: #000;
-}
-
-.blue-btn {
-  margin-left: 50px;
-}
-
-select {
-  width: 310px !important;
 }

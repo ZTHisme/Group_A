@@ -38,3 +38,14 @@ input[type=text].group {
 textarea {
   width: 100%;
 }
+
+.btn-download{
+  padding: 5px;
+  background-color: #3e64ff;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.icon-download{
+  padding: 6px 6px;
+}

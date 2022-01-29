@@ -31,7 +31,7 @@
       <label for="member">Document</label>
     </div>
     <div class="col-75">
-      <a href="{{ route('projects#downloadFile', [$schedule->id]) }}" class="blue-btn">Download</a>
+      <a href="{{ route('projects#downloadFile', [$schedule->id]) }}" class="btn-download">Download<i class="fas fa-download icon-download"></i></a>
     </div>
   </div>
   <div class="row">
@@ -79,7 +79,7 @@
   <div class="row clearfix">
     <div class="col-25">
     </div>
-    <div class="col-75">
+    <div class="col-75 btn-group">
       @if ($schedule->status == config('constants.Not_Started'))
       <a href="{{ route('projects#updateStatus', [$schedule->id]) }}" class="blue-btn">Mark as Progress</a>
       @elseif ($schedule->status == config('constants.Progress'))

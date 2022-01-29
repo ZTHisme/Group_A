@@ -60,9 +60,7 @@
       <div class="col-25">
         <label for="member">Documents</label>
       </div>
-      <div class="col-75">
-        <input type="file" name="file" class="form-control">
-      </div>
+        <input type="file" name="file" class="btn-choose">
     </div>
     <div class="row">
       <div class="col-25"></div>
