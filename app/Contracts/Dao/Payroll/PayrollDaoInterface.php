@@ -13,10 +13,16 @@ interface PayrollDaoInterface
     /**
      * To get employee lists
      * 
-     * @param Illuminate\Http\Request $request
      * @return $array of employee
      */
-    public function getEmployee(Request $request);
+    public function getEmployee();
+
+    /**
+     * To get employee lists
+     * 
+     * @return $array of employee
+     */
+    public function getEmployees();
 
     /**
      * To get employee lists
