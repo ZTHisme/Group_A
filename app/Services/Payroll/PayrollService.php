@@ -34,13 +34,23 @@ class PayrollService implements PayrollServiceInterface
     /**
      * To get employee lists
      * 
-     * @param Illuminate\Http\Request $request
      * @return $array of employee
      */
-    public function getEmployee(Request $request)
+    public function getEmployee()
     {
-        return $this->payrollDao->getEmployee($request);
+        return $this->payrollDao->getEmployee();
     }
+
+    /**
+     * To get employee lists
+     * 
+     * @return $array of employee
+     */
+    public function getEmployees()
+    {
+        return $this->payrollDao->getEmployees();
+    }
+
 
     /**
      * To calculate pay roll

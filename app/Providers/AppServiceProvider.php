@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Employee;
+use App\Models\FinalSalary;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
@@ -46,36 +47,11 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
 
-        Blade::if('checkedin', function () {
-            if (auth()->check()) {
-                $attendance = auth()->user()
-                    ->attendances()
-                    ->whereDate('created_at', Carbon::today())
-                    ->first();
-                if ($attendance) {
-                    return true;
-                }
+        Blade::if('oldcalculation', function (FinalSalary $finalSalary) {
+            if (Carbon::parse($finalSalary->updated_at)->format('m-d') == Carbon::today()->format('m-d')) {
                 return false;
             }
-        });
-
-        Blade::if('checkedout', function () {
-            if (auth()->check()) {
-                $leave = auth()->user()
-                    ->attendances()
-                    ->whereDate('created_at', Carbon::today())
-                    ->where('leave', 1)
-                    ->first();
-                $checkout = auth()->user()
-                    ->attendances()
-                    ->whereDate('created_at', Carbon::today())
-                    ->whereNotNull('working_hours')
-                    ->first();
-                if ($leave || $checkout) {
-                    return true;
-                }
-                return false;
-            }
+            return true;
         });
     }
 }

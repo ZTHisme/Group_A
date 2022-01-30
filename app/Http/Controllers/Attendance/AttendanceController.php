@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Attendance;
 
 use App\Contracts\Services\Attendance\AttendanceServiceInterface;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CustomLeaveRequest;
 use App\Http\Requests\StoreAttendanceRequest;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class AttendanceController extends Controller
 {
@@ -32,6 +35,11 @@ class AttendanceController extends Controller
     {
         $attendances = $this->attendanceInterface->getAttendances();
 
+        if (!Session::has(Carbon::today()->format('m-d'))) {
+            $status = $this->attendanceInterface->getAttendanceStatus();
+            Session::put(Carbon::today()->format('m-d'), $status);
+        }
+
         return view('attendances.index')
             ->with(['attendances' => $attendances]);
     }
@@ -45,6 +53,9 @@ class AttendanceController extends Controller
     public function store(StoreAttendanceRequest $request)
     {
         $result = $this->attendanceInterface->saveAttendance($request);
+
+        $status = $this->attendanceInterface->getAttendanceStatus();
+        Session::put(Carbon::today()->format('m-d'), $status);
 
         if ($result) {
             return redirect()
@@ -65,6 +76,9 @@ class AttendanceController extends Controller
     {
         $result = $this->attendanceInterface->updateAttendance();
 
+        $status = $this->attendanceInterface->getAttendanceStatus();
+        Session::put(Carbon::today()->format('m-d'), $status);
+
         if ($result) {
             return redirect()
                 ->route('attendances#index')
@@ -72,6 +86,29 @@ class AttendanceController extends Controller
         } else {
             return back()
                 ->withErrors('You have already checked out or you may have taken leave.');
+        }
+    }
+
+    /**
+     * Create custom leave more than today.
+     *
+     * @param  \App\Http\Requests\CustomLeaveRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function customLeave(CustomLeaveRequest $request)
+    {
+        $leaves = $this->attendanceInterface->saveCustomLeave($request);
+
+        $status = $this->attendanceInterface->getAttendanceStatus();
+        Session::put(Carbon::today()->format('m-d'), $status);
+
+        if (count($leaves)) {
+            return redirect()
+                ->route('attendances#index')
+                ->with('success', 'Your leave form has been recorded successfully.');
+        } else {
+            return back()
+                ->withErrors('You already have taken leave for these days.');
         }
     }
 }

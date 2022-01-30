@@ -63,4 +63,14 @@ class ScheduleService implements ScheduleServiceInterface
     {
         return $this->scheduleDao->updateStatus($schedule);
     }
+
+    /**
+     * To update schedule
+     * 
+     * @return collection of schedules
+     */
+    public function getUserSchedules()
+    {
+        return $this->scheduleDao->getUserSchedules();
+    }
 }

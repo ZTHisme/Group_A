@@ -52,4 +52,22 @@ class AttendanceService implements AttendanceServiceInterface
     {
         return $this->attendanceDao->updateAttendance();
     }
+
+    /**
+     * To store custom leave record
+     * @return collection of $attendances
+     */
+    public function saveCustomLeave(Request $request)
+    {
+        return $this->attendanceDao->saveCustomLeave($request);
+    }
+
+    /**
+     * To get attendance status
+     * @return int type of none, checkedin, checkedout
+     */
+    public function getAttendanceStatus()
+    {
+        return $this->attendanceDao->getAttendanceStatus();
+    }
 }

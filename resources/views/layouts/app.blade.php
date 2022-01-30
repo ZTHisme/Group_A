@@ -76,7 +76,7 @@
           </li>
         </ul>
       </nav>
-      
+
       <!-- Display Errors -->
       @include('common.errors')
       <div class="seprator">
@@ -89,7 +89,7 @@
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 5000,
+            timer: 3000,
             timerProgressBar: true,
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -102,6 +102,17 @@
               icon: 'success',
               title: "{{session('success')}}"
             });
+          @endif
+
+          @if (session('task'))
+            setTimeout(() => {
+              Swal.fire({
+                icon: 'info',
+                title: 'Alert...',
+                text: '{{session('task')}}',
+                footer: '<a href="{{ route('projects#index') }}">Go to Project Page...</a>'
+              });
+            }, 3000);
           @endif
         });
       </script>

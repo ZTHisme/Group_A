@@ -72,4 +72,19 @@ class ScheduleDao implements ScheduleDaoInterface
             throw $e;
         }
     }
+
+    /**
+     * To update schedule
+     * 
+     * @return collection of schedules
+     */
+    public function getUserSchedules()
+    {
+        return Schedule::where('status', '<>', config('constants.Finished'))
+            ->where(function ($query) {
+                $query->where('assignor_id', auth()->id())
+                    ->orWhere('assignee_id', auth()->id());
+            })
+            ->count();
+    }
 }

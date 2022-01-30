@@ -30,17 +30,16 @@ class PayrollController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         // Check user has manager access or not.
         if (Gate::denies('isManager')) {
             abort(401);
         }
 
-        $employees = $this->payrollInterface->getEmployee($request);
+        $employees = $this->payrollInterface->getEmployee();
 
         return view('payrolls.index')
             ->with(['employees' => $employees]);

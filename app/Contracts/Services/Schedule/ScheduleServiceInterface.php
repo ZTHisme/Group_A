@@ -27,4 +27,11 @@ interface ScheduleServiceInterface
      * @return bool
      */
     public function updateStatus(Schedule $schedule);
+
+    /**
+     * To update schedule
+     * 
+     * @return collection of schedules
+     */
+    public function getUserSchedules();
 }

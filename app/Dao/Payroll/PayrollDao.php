@@ -20,10 +20,9 @@ class PayrollDao implements PayrollDaoInterface
     /**
      * To get employee lists
      * 
-     * @param Illuminate\Http\Request $request
      * @return $array of employee
      */
-    public function getEmployee(Request $request)
+    public function getEmployee()
     {
         $authUser = auth()->user()
             ->load('role', 'department', 'salary');
@@ -35,6 +34,17 @@ class PayrollDao implements PayrollDaoInterface
 
         return $sortedEmployees->prepend($authUser);
     }
+
+    /**
+     * To get employee lists
+     * 
+     * @return $array of employee
+     */
+    public function getEmployees()
+    {
+        return Employee::all();
+    }
+
 
     /**
      * To get employee lists
@@ -187,7 +197,7 @@ class PayrollDao implements PayrollDaoInterface
      */
     public function updatePayroll(Request $request, Employee $employee)
     {
-        $employee = DB::transaction(function() use ($request, $employee) {
+        $employee = DB::transaction(function () use ($request, $employee) {
             return $employee->salary()
                 ->update($request->except('_token', '_method'));
         });
