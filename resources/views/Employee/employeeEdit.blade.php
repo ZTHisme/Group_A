@@ -58,7 +58,7 @@
           <label for="role">Role</label>
         </div>
         <div class="float-left input">
-          <select name="role_id" class="form-control">
+          <select name="role_id" class="form-select valid">
             @foreach ($roles as $item)
             @if($employee->role_id == $item->id)
             <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
@@ -75,7 +75,7 @@
           <label for="department">Department</label>
         </div>
         <div class="float-left input">
-          <select name="department_id" class="form-control">
+          <select name="department_id" class="form-select valid">
             @foreach ($departments as $item)
             @if($employee->department_id == $item->id)
             <option value="{{ $item->id }}" selected>{{ $item->name }}</option>

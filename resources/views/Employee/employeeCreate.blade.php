@@ -132,10 +132,9 @@
           <img src="" id="preview-profile">
         </div>
       </div>
-      <div class="btn-group">
-        <input type="submit" value="Add Student" class="blue-btn">
-        <a href="#" id="back" class="red-btn">Cancel</a>
-      </div>
+
+      <input type="submit" value="Add Employee" class="blue-btn">
+      <a href="#" id="back" class="red-btn">Cancel</a>
     </form>
     <br>
   </div>
