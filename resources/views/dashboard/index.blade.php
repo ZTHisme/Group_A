@@ -10,7 +10,7 @@
 <div class="container clearfix">
   <p class="ttl-dashboard">Dashboard Overview</p>
   <p class="show-date">Date:
-    <?php echo (strftime("%d/%m/%Y %H:%M")); ?>
+    <?php echo (strftime("%d/%m/%Y")); ?>
   </p>
 </div>
 <div class="container">

@@ -32,25 +32,25 @@
       <h1><a href="#" class="logo">Employee Management</a></h1>
       <ul>
         <li>
-          <a href="{{ route('graph#dashBoard') }}"><span class="fas fa-tachometer-alt"></span> Dashboard</a>
+          <a href="{{ route('graph#dashBoard') }}" class="{{ Request::routeIs('graph#dashBoard') ? 'active' : '' }}"><span class="fas fa-tachometer-alt"></span> Dashboard</a>
         </li>
         <li>
-          <a href="{{ route('employee#showLists') }}"><span class="fa fa-users"></span> Employee List</a>
+          <a href="{{ route('employee#showLists') }}" class="{{ Request::routeIs('employee#showLists') ? 'active' : '' }}"><span class="fa fa-users"></span> Employee List</a>
         </li>
         <li>
-          <a href="{{ route('attendances#index') }}"><span class="fas fa-file-invoice"></span> Attendance</a>
+          <a href="{{ route('attendances#index') }}" class="{{ Request::routeIs('attendances#index') ? 'active' : '' }}"><span class="fas fa-file-invoice"></span> Attendance</a>
         </li>
         @can('isManager')
         <li>
-          <a href="{{ route('payrolls#index') }}"><span class="fas fa-cash-register"></span> Payroll Management</a>
+          <a href="{{ route('payrolls#index') }}" class="{{ Request::routeIs('payrolls#index') ? 'active' : '' }}"><span class="fas fa-cash-register"></span> Payroll Management</a>
         </li>
         @endcan
         <li>
-          <a href="{{ route('projects#index') }}"><span class="fas fa-tasks"></span> Project Management</a>
+          <a href="{{ route('projects#index') }}" class="{{ Request::routeIs('projects#index') ? 'active' : '' }}"><span class="fas fa-tasks"></span> Project Management</a>
         </li>
         @can('isManager')
         <li>
-          <a href="{{ route('calendar.upload') }}"><span class="fas fa-cog"></span> Setting</a>
+          <a href="{{ route('calendar.upload') }}" class="{{ Request::routeIs('calendar.upload') ? 'active' : '' }}"><span class="far fa-calendar-alt"></span> Add Calendar</a>
         </li>
         @endcan
       </ul>
@@ -92,27 +92,29 @@
             timer: 3000,
             timerProgressBar: true,
             didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
           });
 
-          @if (session('success'))
-            Toast.fire({
-              icon: 'success',
-              title: "{{session('success')}}"
-            });
+          @if(session('success'))
+          Toast.fire({
+            icon: 'success',
+            title: "{{session('success')}}"
+          });
           @endif
 
-          @if (session('task'))
-            setTimeout(() => {
-              Swal.fire({
-                icon: 'info',
-                title: 'Alert...',
-                text: '{{session('task')}}',
-                footer: '<a href="{{ route('projects#index') }}">Go to Project Page...</a>'
-              });
-            }, 3000);
+          @if(session('task'))
+          setTimeout(() => {
+            Swal.fire({
+              icon: 'info',
+              title: 'Alert...',
+              text: '{{session('
+              task ')}}',
+              footer: '<a href="{{ route('
+              projects #index ') }}">Go to Project Page...</a>'
+            });
+          }, 3000);
           @endif
         });
       </script>

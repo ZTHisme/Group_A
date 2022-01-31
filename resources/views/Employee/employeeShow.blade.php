@@ -9,8 +9,8 @@
 @section('content')
 <div class="container">
   <div class="cardcreate">
-    <div class="card-header">
-      <h5> {{ $employee->name }}'s Information</h5>
+    <div class="listcard-header">
+      {{ $employee->name }}'s Information
     </div>
     <div class="card-body">
       <img class="profile-pic" src="{{ asset(config('path.profile_path') . $employee->profile) }}" alt="Profile" />
@@ -78,10 +78,12 @@
           <input type="text" class="form-control" value="{{ \Carbon\Carbon::parse ($employee->created_at)->toDateString(); }}" readonly>
         </div>
       </div>
-      <a href="#" id="back" class="blue-btn">Back</a>
-      @can('update-employee', $employee->id)
-      <a href="{{ route('edit.employee.get', [$employee->id]) }}" class="yellow-btn">Edit Profile</a>
-      @endcan
+      <div class="btn-group">
+        @can('update-employee', $employee->id)
+        <a href="{{ route('edit.employee.get', [$employee->id]) }}" class="yellow-btn">Edit Profile</a>
+        @endcan
+        <a href="#" id="back" class="blue-btn">Back</a>
+      </div>
     </div>
   </div>
 </div>

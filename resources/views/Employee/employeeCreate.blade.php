@@ -9,8 +9,8 @@
 @section('content')
 
 <div class="cardcreate">
-  <div class="card-header">
-    <h2>New Employee Information</h2>
+  <div class="listcard-header">
+    New Employee Information
   </div>
   <div class="card-body">
     <form action="{{ route('addEmployee.post') }}" method="POST" enctype="multipart/form-data">
@@ -75,7 +75,7 @@
           <label for="role">Role</label>
         </div>
         <div class="float-left input">
-          <select name="role_id" class="form-control">
+          <select name="role_id" class="form-select">
             @foreach ($roles as $role)
             <option value="{{ $role->id }}">{{ $role->name }}</option>
             @endforeach
@@ -88,7 +88,7 @@
           <label for="department">Department</label>
         </div>
         <div class="float-left input">
-          <select name="department_id" class="form-control">
+          <select name="department_id" class="form-select">
             @foreach ($departments as $department)
             <option value="{{ $department->id }}">{{ $department->name }}</option>
             @endforeach
@@ -128,13 +128,15 @@
           <label for="profile">Profile Picture</label>
         </div>
         <div class="float-left input">
-          <input type="file" name="profile" class="form-control" placeholder="Enter Basic Salary" id="profile">
+          <input type="file" name="profile" class="btn-filechoose" placeholder="Enter Basic Salary" id="profile">
           <img src="" id="preview-profile">
         </div>
       </div>
 
-      <input type="submit" value="Add Employee" class="blue-btn">
-      <a href="#" id="back" class="red-btn">Cancel</a>
+      <div class="btn-group">
+        <input type="submit" value="Add Employee" class="blue-btn">
+        <a href="#" id="back" class="red-btn">Cancel</a>
+      </div>
     </form>
     <br>
   </div>

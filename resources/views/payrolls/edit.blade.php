@@ -39,8 +39,10 @@
           <input type="number" name="leave_fine" class="form-control" value="{{ $employee->salary->leave_fine }}">
         </div>
       </div>
-      <input type="submit" value="Update" class="blue-btn">
-      <a href="#" id="back" class="red-btn">Cancel</a>
+      <div class="btn-group">
+        <input type="submit" value="Update" class="blue-btn">
+        <a href="#" id="back" class="red-btn">Cancel</a>
+      </div>
     </form>
   </div>
 </div>

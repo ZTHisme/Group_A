@@ -36,7 +36,7 @@
           <td>{{ $employee->leave_days }}</td>
           <td>{{ $employee->overtimes }}</td>
           <td>
-            <a href="{{ route('payrolls#calculate', [$employee->id]) }}" class="blue-btn sm-btn">Calculate</a>
+            <a href="{{ route('payrolls#calculate', [$employee->id]) }}" class="blue-btn sm-btn cal-btn">Calculate</a>
             <a href="{{ route('payroll#showEditView', [$employee->id]) }}" class="yellow-btn sm-btn">Edit Payroll</a>
           </td>
         </tr>

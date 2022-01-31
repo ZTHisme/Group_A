@@ -23,7 +23,7 @@
       <label for="github">Schedule Description</label>
     </div>
     <div class="col-75">
-      <textarea rows="5">{{ $schedule->description }}</textarea>
+    <textarea rows="5" class="form-control">{{ $schedule->description }}</textarea>
     </div>
   </div>
   <div class="row">
@@ -31,7 +31,7 @@
       <label for="member">Document</label>
     </div>
     <div class="col-75">
-      <a href="{{ route('projects#downloadFile', [$schedule->id]) }}" class="blue-btn">Download</a>
+      <a href="{{ route('projects#downloadFile', [$schedule->id]) }}" class="btn-download">Download<i class="fas fa-download icon-download"></i></a>
     </div>
   </div>
   <div class="row">
@@ -63,8 +63,7 @@
       <label for="member">Assignor</label>
     </div>
     <div class="col-75">
-      <input type="text" readonly 
-        value="{{ $schedule->assignor_id == auth()->id() ? 'Me' : $schedule->assignor->name}}">
+      <input type="text" readonly value="{{ $schedule->assignor_id == auth()->id() ? 'Me' : $schedule->assignor->name}}">
     </div>
   </div>
   <div class="row">
@@ -72,14 +71,13 @@
       <label for="member">Assignee</label>
     </div>
     <div class="col-75">
-      <input type="text" readonly 
-        value="{{ $schedule->assignee_id == auth()->id() ? 'Me' : $schedule->assignee->name}}">
+      <input type="text" readonly value="{{ $schedule->assignee_id == auth()->id() ? 'Me' : $schedule->assignee->name}}">
     </div>
   </div>
   <div class="row clearfix">
     <div class="col-25">
     </div>
-    <div class="col-75">
+    <div class="col-75 btn-group">
       @if ($schedule->status == config('constants.Not_Started'))
       <a href="{{ route('projects#updateStatus', [$schedule->id]) }}" class="blue-btn">Mark as Progress</a>
       @elseif ($schedule->status == config('constants.Progress'))

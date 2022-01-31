@@ -8,8 +8,8 @@
 
 @section('content')
 <div class="cardcreate">
-  <div class="card-header">
-    <h2>Edit Employee Information</h2>
+  <div class="listcard-header">
+    Edit Employee Information
   </div>
   <div class="card-body">
     <img class="profile-pic" src="{{ asset(config('path.profile_path') . $employee->profile) }}" id="preview-profile" alt="Profile" />
@@ -22,7 +22,7 @@
           <label for="profile">Profile Picture</label>
         </div>
         <div class="float-left input">
-          <input type="file" name="profile" class="form-control" id="profile">
+          <input type="file" name="profile" class="btn-filechoose" id="profile">
         </div>
       </div>
 
@@ -58,7 +58,7 @@
           <label for="role">Role</label>
         </div>
         <div class="float-left input">
-          <select name="role_id" class="form-control">
+          <select name="role_id" class="form-select valid">
             @foreach ($roles as $item)
             @if($employee->role_id == $item->id)
             <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
@@ -75,7 +75,7 @@
           <label for="department">Department</label>
         </div>
         <div class="float-left input">
-          <select name="department_id" class="form-control">
+          <select name="department_id" class="form-select valid">
             @foreach ($departments as $item)
             @if($employee->department_id == $item->id)
             <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
@@ -97,8 +97,10 @@
         </div>
       </div>
 
-      <input type="submit" value="Update" class="blue-btn">
-      <a href="#" id="back" class="red-btn">Cancel</a>
+      <div class="btn-group">
+        <input type="submit" value="Update" class="blue-btn">
+        <a href="#" id="back" class="red-btn">Cancel</a>
+      </div>
     </form>
   </div>
 </div>
