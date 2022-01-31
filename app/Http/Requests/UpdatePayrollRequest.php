@@ -25,10 +25,14 @@ class UpdatePayrollRequest extends FormRequest
     {
         $rule = [
             'required',
-            'max:10',   
             function ($attribute, $value, $fail) {
                 if ($value < 1000) {
-                    $fail('The ' . $attribute . ' should be at least 1000 mmk');
+                    $fail('The ' . $attribute . ' should be at least 1000.');
+                }
+            },
+            function ($attribute, $value, $fail) {
+                if ($value > 99999999) {
+                    $fail('The ' . $attribute . ' should be at max 99999999.');
                 }
             },
         ];

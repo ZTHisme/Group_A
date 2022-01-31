@@ -102,6 +102,7 @@
         </div>
         <div class="float-left input">
           <input type="number" name="leave_fine" class="form-control" placeholder="Enter Leave Fine">
+          <span class="mmk">MMK</span>
         </div>
       </div>
 
@@ -111,6 +112,7 @@
         </div>
         <div class="float-left input">
           <input type="number" name="overtime_fee" class="form-control" placeholder="Enter Overtime Fee">
+          <span class="mmk">MMK</span>
         </div>
       </div>
 
@@ -120,6 +122,7 @@
         </div>
         <div class="float-left input">
           <input type="number" name="basic_salary" class="form-control" placeholder="Enter Basic Salary">
+          <span class="mmk">MMK</span>
         </div>
       </div>
 

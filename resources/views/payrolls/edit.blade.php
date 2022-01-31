@@ -22,6 +22,7 @@
           </div>
           <div class="float-left input">
             <input type="number" name="basic_salary" class="form-control" value="{{ $employee->salary->basic_salary }}" placeholder="MMK">
+            <span class="mmk">MMK</span>
           </div>
         </div>
         <div class="row clearfix">
@@ -30,6 +31,7 @@
           </div>
           <div class="float-left input">
             <input type="number" name="overtime_fee" class="form-control" value="{{ $employee->salary->overtime_fee }}">
+            <span class="mmk">MMK</span>
           </div>
         </div>
         <div class="row clearfix">
@@ -38,6 +40,7 @@
           </div>
           <div class="float-left input">
             <input type="number" name="leave_fine" class="form-control" value="{{ $employee->salary->leave_fine }}">
+            <span class="mmk">MMK</span>
           </div>
         </div>
         <div class="btn-group">

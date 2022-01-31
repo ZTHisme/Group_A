@@ -14,9 +14,9 @@
     <div class="clearfix">
       <form action="{{ route('employee#showLists') }}" method="GET" class="searchForm">
         <div class="input-group my-5">
-          <input type="text" class="rounded-input" placeholder="Name" name="name">
-          <input type="date" placeholder="Start Date" name="start_date">
-          <input type="date" placeholder="End Date" name="end_date">
+          <input type="text" class="rounded-input" placeholder="Name" name="name" value="{{ request()->name ?? request()->name }}">
+          <input type="date" placeholder="Start Date" name="start_date" value="{{ request()->start_date ?? request()->start_date }}">
+          <input type="date" placeholder="End Date" name="end_date" value="{{ request()->end_date ?? request()->end_date }}">
           <button class="search-btn" type="submit">Search</button>
         </div>
       </form>

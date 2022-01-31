@@ -79,3 +79,8 @@
   color: black;
   font-size: 30px;
 }
+
+input[type=number] {
+  width: 92%;
+  position: relative;
+}
