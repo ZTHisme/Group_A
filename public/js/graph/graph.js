@@ -1,4 +1,20 @@
 $(function () {
+    Chart.plugins.register({
+        afterDraw: function (chart) {
+            if (chart.data.datasets[0].data.every(item => item === 0)) {
+                let ctx = chart.chart.ctx;
+                let width = chart.chart.width;
+                let height = chart.chart.height;
+
+                chart.clear();
+                ctx.save();
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('No data for today', width / 2, height / 2);
+                ctx.restore();
+            }
+        }
+    });
     //get the pie chart canvas
     var cData = JSON.parse(chartdata);
     var ctx = $("#pie-chart");
