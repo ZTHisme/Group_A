@@ -357,8 +357,8 @@ tr:nth-child(even) {
 .value {
   width: 55%;
   padding: 7px 10px;
-  border: 1px solid #ddddddec;
   border-radius: 6px;
+  background: #fff;
 }
 
 .row {
