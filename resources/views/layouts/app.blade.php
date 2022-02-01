@@ -60,13 +60,13 @@
       <nav class="navbar">
         <ul class="navbar-nav">
           <li>
-            <img class="profile-img" src="{{ \Illuminate\Support\Facades\Storage::exists('public/employees/' . auth()->user()->profile) ?
+            <img class="profile-img ipad-profile" src="{{ \Illuminate\Support\Facades\Storage::exists('public/employees/' . auth()->user()->profile) ?
               asset(config('path.profile_path') . auth()->user()->profile) : 
               'https://ui-avatars.com/api/?name='.auth()->user()->name}}" id="img">
           </li>
           <li>
             <div class="dropdown">
-              <button class="dropbtn btn"><i class="fas fa-caret-down"> {{ auth()->user()->name }}</i></button>
+              <button class="dropbtn btn ipad-drop"><i class="fas fa-caret-down"> {{ auth()->user()->name }}</i></button>
               <div class="dropdown-content">
                 <a class="nav-link" href="{{ route('show.employee.get', [auth()->id()]) }}">&nbsp;&nbsp;Profile</a>
                 <a class="nav-link" href="{{ route('logout') }}">&nbsp;&nbsp;Logout</a>

@@ -49,9 +49,9 @@
             <td>{{ $employee->department }}</td>
             <td>{{ \Carbon\Carbon::parse ($employee->created_at)->toDateString();}}</td>
             <td>
-              <a href="{{ route('show.employee.get', [$employee->id]) }}" class="blue-btn sm-btn">Show</a>
+              <a href="{{ route('show.employee.get', [$employee->id]) }}" class="blue-btn sm-btn ">Show</a>
               @can('update-employee', $employee->id)
-              <a href="{{ route('edit.employee.get', [$employee->id]) }}" class="yellow-btn sm-btn">Edit</a>
+              <a href="{{ route('edit.employee.get', [$employee->id]) }}" class="yellow-btn sm-btn ">Edit</a>
               @endcan
               @can('isManager')
               <a href="#" class="delete-btn red-btn sm-btn" data-id="{{ $employee->id }}">Delete</a>

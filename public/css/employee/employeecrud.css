@@ -1,86 +1,164 @@
 .cardcreate {
-  padding: 0px 40px 30px;
+    padding: 0px 40px 30px;
 }
 
 .profile-pic {
-  display: block;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  border-radius: 50%;
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 50%;
 }
 
 .card-body {
-  padding: 20px 0;
-  border: 1px solid #79797954;
-  background-color: #f2f2f2;
-  text-align: left;
+    padding: 20px 0;
+    border: 1px solid #79797954;
+    background-color: #f2f2f2;
+    text-align: left;
 }
 
 #preview-profile {
-  width: 200px;
-  max-height: 200px;
+    width: 200px;
+    max-height: 200px;
 }
 
 .con-left {
-  float: left;
-  width: 50%;
-  margin-bottom: 20px;
-  margin-left: 50px;
+    float: left;
+    width: 50%;
+    margin-bottom: 20px;
+    margin-left: 50px;
 }
 
 .con-right {
-  float: right;
-  margin-right: 13%;
-  margin-bottom: 20px;
+    float: right;
+    margin-right: 13%;
+    margin-bottom: 20px;
 }
 
 .btn-cancel {
-  width: 100px;
-  padding-bottom: 10px;
-  background-color: red;
-  color: #fff;
-  font-size: 16px;
-  text-align: center;
+    width: 100px;
+    padding-bottom: 10px;
+    background-color: red;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
 }
 
 .btn-back {
-  width: 100px;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  background-color: rgb(250, 245, 245);
-  color: black;
-  font-size: 16px;
-  text-align: center;
+    width: 100px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    background-color: rgb(250, 245, 245);
+    color: black;
+    font-size: 16px;
+    text-align: center;
 }
 
 .btn-add {
-  width: 130px;
-  padding-bottom: 10px;
-  background-color: blue;
-  color: #fff;
-  font-size: 16px;
-  text-align: center;
+    width: 130px;
+    padding-bottom: 10px;
+    background-color: blue;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
 }
 
 .text-danger {
-  color: red;
-  font-weight: bold;
+    color: red;
+    font-weight: bold;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .title {
-  width: 500px;
-  margin: 0 auto;
-  color: black;
-  font-size: 30px;
+    width: 500px;
+    margin: 0 auto;
+    color: black;
+    font-size: 30px;
 }
 
 input[type=number] {
-  width: 92%;
-  position: relative;
+    width: 92%;
+    position: relative;
+}
+
+
+/*---------Ipad--------------*/
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .cardcreate {
+        padding: 0vw 3.906vw 2.930vw;
+    }
+    .profile-pic {
+        display: block;
+        height: 200px;
+        margin: 0 auto;
+        margin-bottom: 1.953vw;
+        border-radius: 50%;
+    }
+    .card-body {
+        padding: 1.953vw 0;
+        border: 0.098vw solid #79797954;
+        background-color: #f2f2f2;
+        text-align: left;
+    }
+    #preview-profile {
+        max-height: 200px;
+    }
+    .con-left {
+        float: left;
+        width: 50%;
+        margin-bottom: 1.953vw;
+        margin-left: 4.883vw;
+    }
+    .con-right {
+        float: right;
+        margin-right: 13%;
+        margin-bottom: 1.953vw;
+    }
+    .btn-cancel {
+        width: 100%;
+        padding-bottom: 0.977vw;
+        background-color: red;
+        color: #fff;
+        font-size: 1.563vw;
+        text-align: center;
+    }
+    .btn-back {
+        width: 100%;
+        margin-bottom: 1.953vw;
+        padding-bottom: 0.977vw;
+        background-color: rgb(250, 245, 245);
+        color: black;
+        font-size: 1.563vw;
+        text-align: center;
+    }
+    .btn-add {
+        width: 100%;
+        padding-bottom: 0.977vw;
+        background-color: blue;
+        color: #fff;
+        font-size: 1.563vw;
+        text-align: center;
+    }
+    .text-danger {
+        color: red;
+        font-weight: bold;
+    }
+    .card:hover {
+        box-shadow: 0 0.781vw 1.563vw 0 rgba(0, 0, 0, 0.2);
+    }
+    .title {
+        width: 100%;
+        margin: 0 auto;
+        color: black;
+        font-size: 2.930vw;
+    }
+    input[type=number] {
+        width: 92%;
+        position: relative;
+    }
 }

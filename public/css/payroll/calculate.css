@@ -1,23 +1,49 @@
 .card {
-  width: 60%;
-  margin: 0 auto;
-  padding: 20px;
-  box-shadow: 0 0 12px #7992e2;
-  border-radius: 1.094vw;
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 12px #7992e2;
+    border-radius: 1.094vw;
 }
 
 .card:hover {
-  box-shadow: 0 0 6px #7992e2;
+    box-shadow: 0 0 6px #7992e2;
 }
 
 .card-body {
-  padding: 20px 0;
-  border: 1px solid #79797954;
-  background-color: #f2f2f2;
-  text-align: left;
+    padding: 20px 0;
+    border: 1px solid #79797954;
+    background-color: #f2f2f2;
+    text-align: left;
 }
 
 .title {
-  font-size: 20px;
-  color: #7992e2;
+    font-size: 20px;
+    color: #7992e2;
+}
+
+
+/*---------Ipad--------------*/
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .card {
+        width: 60%;
+        margin: 0 auto;
+        padding: 1.953vw;
+        box-shadow: 0 0 1.172vw #7992e2;
+        border-radius: 1.094vw;
+    }
+    .card:hover {
+        box-shadow: 0 0 0.586vw #7992e2;
+    }
+    .card-body {
+        padding: 1.953vw 0;
+        border: 0.098vw solid #79797954;
+        background-color: #f2f2f2;
+        text-align: left;
+    }
+    .title {
+        font-size: 1.953vw;
+        color: #7992e2;
+    }
 }
