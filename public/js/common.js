@@ -21,6 +21,7 @@ $(function () {
     $('#back').on('click', function () {
         window.history.back();
     });
+    
     const body = document.querySelector('body'),
         sidebar = body.querySelector('nav'),
         toggle = body.querySelector(".toggle")
