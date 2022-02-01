@@ -164,4 +164,35 @@ class AttendanceDao implements AttendanceDaoInterface
 
         return $status;
     }
+
+    /**
+     * To get attendance lists of employee montly
+     * @return $array of employees
+     */
+    public function getMonthlyAttendances()
+    {
+        return Employee::with('role', 'department')
+            ->get();
+    }
+
+    /**
+     * To delete attendance lists of employee montly
+     * @return bool
+     */
+    public function deleteMonthlyAttendances()
+    {
+        try {
+            DB::beginTransaction();
+
+            Attendance::whereMonth('created_at', Carbon::now()->month)
+                ->whereYear('created_at', Carbon::now()->year)
+                ->delete();
+
+            DB::commit();
+            return true;
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
+    }
 }

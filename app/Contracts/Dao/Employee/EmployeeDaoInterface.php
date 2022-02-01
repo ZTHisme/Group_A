@@ -107,4 +107,18 @@ interface EmployeeDaoInterface
      * @return $array of employee
      */
     public function comeOfficeEmployee();
+
+    /**
+     * To get list of employees
+     *  @param
+     *  @return $employees
+     */
+    public function getExportEmployees();
+
+    /**
+     * To get list of managers
+     *  @param
+     *  @return $managers
+     */
+    public function getManagers();
 }

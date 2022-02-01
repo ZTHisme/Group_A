@@ -2,19 +2,25 @@
 
 namespace App\Jobs;
 
-use App\Mail\EmployeeMail;
 use App\Models\Employee;
+use App\Mail\EmployeeMail;
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
+use App\Contracts\Dao\Employee\EmployeeDaoInterface;
 
 class SendNewEmployee implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    /**
+     * employee dao
+     */
+    private $employeeDao;
 
     /**
      * The employee instance.
@@ -31,6 +37,7 @@ class SendNewEmployee implements ShouldQueue
     public function __construct(Employee $employees)
     {
         $this->employee = $employees;
+        $this->employeeDao = app()->make(EmployeeDaoInterface::class);
     }
 
     /**
@@ -40,11 +47,7 @@ class SendNewEmployee implements ShouldQueue
      */
     public function handle()
     {
-        $email = DB::table('employees')
-            ->join('mst_roles', 'employees.role_id', '=', 'mst_roles.id')
-            ->where('mst_roles.name', 'Manager')
-            ->select('employees.*')
-            ->get();
+        $email = $this->employeeDao->getManagers();
 
         Mail::to($email)
             ->send(new EmployeeMail($this->employee));
