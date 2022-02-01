@@ -26,17 +26,21 @@ class StoreEmployeeRequest extends FormRequest
     {
         $rule = [
             'required',
-            'max:10',
             function ($attribute, $value, $fail) {
                 if ($value < 1000) {
-                    $fail('The ' . $attribute . ' should be at least 1000 mmk');
+                    $fail('The ' . $attribute . ' should be at least 1000.');
+                }
+            },
+            function ($attribute, $value, $fail) {
+                if ($value > 99999999) {
+                    $fail('The ' . $attribute . ' should be at max 99999999.');
                 }
             },
         ];
 
         return [
             'name' => 'required',
-            'email' => 'required|email|unique:employees,email',
+            'email' => 'required|email|unique:employees,email,NULL,id,deleted_at,NULL',
             'password' => 'required|confirmed|min:6',
             'phone' => [
                 'required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10', 'max:15', 'ends_with:0,1,2,3,4,5,6,7,8,9',
@@ -51,7 +55,7 @@ class StoreEmployeeRequest extends FormRequest
                     }
                 },
             ],
-            'address' => 'required',
+            'address' => 'required|max:255',
             'profile' => 'required|mimes:png,jpg,jpeg,svg',
             'role_id' => 'required',
             'department_id' => 'required',

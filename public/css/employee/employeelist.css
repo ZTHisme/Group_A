@@ -1,5 +1,8 @@
 .mr-icon {
-  padding: 20px 7px 0 0;
+  padding: 9px 7px 10px 7px;
+  background-color: #3e64ff;
+  color: #fff;
+  border-radius: 5px;
 }
 
 .pull-right {
@@ -23,39 +26,58 @@
   border: none;
   background-color: #3e64ff;
   color: #fff;
+  font-size: 15px;
   cursor: pointer;
   border-radius: 10px;
 }
 
 .import-btn {
-  padding: 6px;
-  border: none;
+  margin-bottom: 10px;
   margin-left: 20px;
-  background-color: #04a51f;
+  padding: 7px;
+  border: none;
+  background-color: #3D9970;
   color: #fff;
+  font-size: 15px;
   cursor: pointer;
   border-radius: 7px;
-  font-size: 15px;
-  margin-bottom: 10px;
 }
 
 .export-btn {
-  padding: 6px;
+  margin-bottom: 10px;
+  padding: 7px;
   border: none;
-  background-color: #f05811;
+  background-color: #07a6be;
   color: #fff;
+  font-size: 15px;
   cursor: pointer;
   border-radius: 7px;
-  font-size: 15px;
-  margin-bottom: 10px;
+}
+
+.sm-btn{
+  display: inline;
 }
 
 input[type=date] {
+  position: relative;
   margin: 10px 0;
-  padding: 6px 10px;
+  padding: 10px 20px;
   border: 1px solid #d1d0d0;
   text-align: right;
   border-radius: 10px;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
 }
 
 input[type=date]:before {
@@ -63,35 +85,65 @@ input[type=date]:before {
   content: attr(placeholder) !important;
 }
 
-.pagination::before,
+input[type=date]:after{
+  font-family: "Font Awesome 5 Free";
+  content: '\f073';
+  font-weight: 900;
+  color: #515151;
+  padding-left: 10px;
+}
+
+nav::before,
+nav:after, .pagination::before,
 .pagination:after {
   display: table;
-  content: " ";
   clear: both;
+  content: " ";
 }
 
 .pagination {
+  float: right;
   margin: 10px;
 }
 
 .page-item {
   display: inline-block;
-  width: 30px;
-  height: 30px;
-  background-color: gray;
-  color: white;
-  font-size: 20px;
+  width: 35px;
+  height: 28px;
+  margin-right: 4px;
+  padding-top: 5px;
+  background-color: #ffffff;
+  font-size: 16px;
   text-align: center;
-  border-radius: 10px;
-  float: left;
-  margin-right: 5px;
+  border-radius: 2px;
+}
+
+.page-item .page-link:hover {
+  width: 35px;
+  height: 28px;
+  background-color: #3e64ff;
+  color: #fff;
+  border-radius: 2px;
 }
 
 .page-link {
-  color: white;
+  padding-top: 5px;
+  color: #000000;
 }
 
-.active,
+.active {
+  background-color: #3e64ff;
+}
+
 .disabled {
-  background-color: darkgray;
+  display: none;
+}
+
+.active .page-link,
+.disabled .page-link {
+  color: #fff;
+}
+
+.mr-5{
+  margin: 0 5px;
 }

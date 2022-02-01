@@ -26,7 +26,7 @@ class EditEmployeeRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required|email|unique:employees,email,' . $this->id,
+            'email' => 'required|email|unique:employees,email,' . $this->id . ',id,deleted_at,NULL',
             'phone' => [
                 'required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10', 'max:15', 'ends_with:0,1,2,3,4,5,6,7,8,9',
                 function ($attribute, $value, $fail) {

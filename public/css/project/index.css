@@ -1,6 +1,6 @@
 .my-button {
-  width: 45px;
-  padding: 7px 0;
+  font-size: 17px;
+  padding: 4px 9px;
   border: none;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
   background: #4966e7;

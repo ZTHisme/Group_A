@@ -8,8 +8,9 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
+use Maatwebsite\Excel\Concerns\WithValidation;
 
-class MstCalendarsImport implements ToModel, WithHeadingRow, WithStartRow, WithCustomCsvSettings
+class MstCalendarsImport implements ToModel, WithHeadingRow, WithStartRow, WithCustomCsvSettings, WithValidation
 {
     public function startRow(): int
     {
@@ -33,8 +34,19 @@ class MstCalendarsImport implements ToModel, WithHeadingRow, WithStartRow, WithC
             'year'  => $row['year'],
             'month' => $row['month'],
             'working_days' => $row['working_days'],
-            'created_at'    => $row['created_at'],
-            'updated_at'    => $row['updated_at'],
         ]);
+    }
+
+    /**
+     *
+     * @return validation rules array
+     */
+    public function rules(): array
+    {
+        return [
+            'year' => 'required|max:4',
+            'month' => 'required|max:2',
+            'working_days' => 'required|max:2',
+        ];
     }
 }

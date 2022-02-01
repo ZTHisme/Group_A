@@ -2,7 +2,7 @@
   <div class="listcard-header schedules clearfix">
     Schedules
     @can('create-task', $project)
-    <a href="{{ route('projects#scheduleCreateView', [$project->id]) }}" class="float-right"><i class="fas fa-plus"></i></a>
+    <a href="{{ route('projects#scheduleCreateView', [$project->id]) }}" class="my-button float-right"><i class="fas fa-plus"></i></a>
     @endcan
   </div>
   <table class="table" id="schedules">
