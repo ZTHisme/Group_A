@@ -168,7 +168,25 @@
     font-size: 2vw;
   }
 
-  #pie-chart {
-    width: 1vw;
+  #pie-chart,
+  #bar-chart {
+    width: 91vw !important;
+    height: 46vw !important;
   }
+
+  .card-body {
+    width: 98vw;
+  }
+
+  .card-icon {
+    float: right;
+    padding-left: 9vw;
+    font-size: 8vw;
+  }
+
+  .ttl-dashboard {
+    font-size: 3vw;
+}
+.show-date {
+  font-size: 3vw;}
 }

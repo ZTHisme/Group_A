@@ -27,8 +27,8 @@
   .list-card {
     margin-right: 7vw;
     width: 68vw;
-    border: 0.5vw solid #cdcdcd;
-    border-radius: 1.5vw;
+    border: 0.1vw solid #cdcdcd;
+    border-radius: 0.5vw;
   }
 
   .listcard-header {
