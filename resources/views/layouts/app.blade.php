@@ -124,10 +124,8 @@
             Swal.fire({
               icon: 'info',
               title: 'Alert...',
-              text: '{{session('
-              task ')}}',
-              footer: '<a href="{{ route('
-              projects #index ') }}">Go to Project Page...</a>'
+              text: '{{session('task')}}',
+              footer: '<a href="{{ route('projects#index') }}">Go to Project Page...</a>'
             });
           }, 3000);
           @endif
