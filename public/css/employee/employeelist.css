@@ -1,73 +1,236 @@
 .mr-icon {
-    padding: 9px 7px 10px 7px;
-    background-color: #3e64ff;
-    color: #fff;
-    border-radius: 5px;
+  padding: 9px 7px 10px 7px;
+  background-color: #3e64ff;
+  color: #fff;
+  border-radius: 5px;
 }
 
 .pull-right {
-    float: right;
+  float: right;
 }
 
 .form-display {
-    display: inline;
+  display: inline;
 }
 
 .searchForm {
-    display: inline-block;
+  display: inline-block;
 }
 
 .table {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .search-btn {
-    padding: 10px 20px;
-    border: none;
-    background-color: #3e64ff;
-    color: #fff;
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #3e64ff;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 .import-btn {
-    margin-bottom: 10px;
-    margin-left: 20px;
-    padding: 7px;
-    border: none;
-    background-color: #3D9970;
-    color: #fff;
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 7px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  padding: 7px;
+  border: none;
+  background-color: #3D9970;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 7px;
 }
 
 .export-btn {
-    margin-bottom: 10px;
-    padding: 7px;
-    border: none;
-    background-color: #07a6be;
-    color: #fff;
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 7px;
+  margin-bottom: 10px;
+  padding: 7px;
+  border: none;
+  background-color: #07a6be;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 7px;
 }
 
 .sm-btn {
-    display: inline;
+  display: inline;
 }
 
 input[type=date] {
-    position: relative;
-    margin: 10px 0;
-    padding: 10px 20px;
-    border: 1px solid #d1d0d0;
-    text-align: right;
-    border-radius: 10px;
+  position: relative;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: 1px solid #d1d0d0;
+  text-align: right;
+  border-radius: 10px;
+  width: 200px;
 }
 
 input[type=date]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
+}
+
+input[type=date]:before {
+  color: #b9b7b7;
+  content: attr(placeholder) !important;
+}
+
+input[type=date]:after {
+  font-family: "Font Awesome 5 Free";
+  content: '\f073';
+  font-weight: 900;
+  color: #515151;
+  padding-left: 10px;
+}
+
+nav::before,
+nav:after,
+.pagination::before,
+.pagination:after {
+  display: table;
+  clear: both;
+  content: " ";
+}
+
+.pagination {
+  float: right;
+  margin: 10px;
+}
+
+.page-item {
+  display: inline-block;
+  width: 35px;
+  height: 28px;
+  margin-right: 4px;
+  padding-top: 5px;
+  background-color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.page-item .page-link:hover {
+  width: 35px;
+  height: 28px;
+  background-color: #3e64ff;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.page-link {
+  padding-top: 5px;
+  color: #000000;
+}
+
+.active {
+  background-color: #3e64ff;
+}
+
+.disabled {
+  display: none;
+}
+
+.active .page-link,
+.disabled .page-link {
+  color: #fff;
+}
+
+.mr-5 {
+  margin: 0 5px;
+}
+
+
+/*---------Ipad--------------*/
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .mr-icon {
+    padding: 0.879vw 0.684vw 0.977vw 0.684vw;
+    background-color: #3e64ff;
+    color: #fff;
+    border-radius: 0.488vw;
+    font-size: 1.163vw;
+  }
+
+  .pull-right {
+    float: right;
+  }
+
+  .form-display {
+    display: inline;
+  }
+
+  .searchForm {
+    display: inline-block;
+  }
+
+  .table {
+    margin-top: -2.67vw !important;
+    margin-bottom: 0.25vw !important;
+  }
+
+  .search-btn {
+    padding: 0.977vw 2.5vw;
+    border: none;
+    background-color: #3e64ff;
+    color: #fff;
+    font-size: 1.045vw;
+    cursor: pointer;
+    border-radius: 0.977vw;
+    margin-right: -4.89vw;
+  }
+
+  .import-btn {
+    margin-left: 10.7vw;
+    margin-bottom: 4vw;
+    margin-top: -1vw;
+    padding: 0.684vw;
+    border: none;
+    background-color: #3D9970;
+    color: #fff;
+    font-size: 1.045vw;
+    cursor: pointer;
+    border-radius: 0.684vw;
+  }
+
+  .export-btn {
+    margin-bottom: 0.977vw;
+    padding: 0.684vw;
+    border: none;
+    background-color: #07a6be;
+    color: #fff;
+    font-size: 1.045vw;
+    cursor: pointer;
+    border-radius: 0.684vw;
+  }
+
+  .sm-btn {
+    display: inline;
+    font-size: 0.9vw;
+  }
+
+  input[type=date] {
+    font-size: 1.045vw;
+    width: 25%;
+    position: relative;
+    margin: 0.977vw 1vw;
+    padding: 0.977vw 0.34vw;
+    border: 0.098vw solid #d1d0d0;
+    text-align: right;
+    border-radius: 0.977vw;
+  }
+
+  input[type=date]::-webkit-calendar-picker-indicator {
     position: absolute;
     top: 0;
     right: 0;
@@ -78,218 +241,79 @@ input[type=date]::-webkit-calendar-picker-indicator {
     background: transparent;
     color: transparent;
     cursor: pointer;
-}
+  }
 
-input[type=date]:before {
+  input[type=date]:before {
     color: #b9b7b7;
     content: attr(placeholder) !important;
-}
+  }
 
-input[type=date]:after {
+  input[type=date]:after {
     font-family: "Font Awesome 5 Free";
     content: '\f073';
     font-weight: 900;
     color: #515151;
-    padding-left: 10px;
-}
+    padding-left: 0.977vw;
+  }
 
-nav::before,
-nav:after,
-.pagination::before,
-.pagination:after {
+  .input-group {
+    padding-left: 9.45vw;
+    width: 100%;
+  }
+
+  nav::before,
+  nav:after,
+  .pagination::before,
+  .pagination:after {
     display: table;
     clear: both;
     content: " ";
-}
+  }
 
-.pagination {
+  .pagination {
     float: right;
-    margin: 10px;
-}
+    margin: 0.977vw;
+  }
 
-.page-item {
+  .page-item {
     display: inline-block;
-    width: 35px;
-    height: 28px;
-    margin-right: 4px;
-    padding-top: 5px;
+    width: 2vw;
+    height: 2vw;
+    margin-right: 0.191vw;
+    padding-top: 0.488vw;
     background-color: #ffffff;
-    font-size: 16px;
     text-align: center;
-    border-radius: 2px;
-}
+    border-radius: 0.195vw;
+    font-size: 0.963vw;
+  }
 
-.page-item .page-link:hover {
+  .page-item .page-link:hover {
     width: 35px;
     height: 28px;
     background-color: #3e64ff;
     color: #fff;
-    border-radius: 2px;
-}
+    border-radius: 0.195vw;
+  }
 
-.page-link {
-    padding-top: 5px;
+  .page-link {
+    padding-top: 0.488vw;
     color: #000000;
-}
+  }
 
-.active {
+  .active {
     background-color: #3e64ff;
-}
+  }
 
-.disabled {
+  .disabled {
     display: none;
-}
+  }
 
-.active .page-link,
-.disabled .page-link {
+  .active .page-link,
+  .disabled .page-link {
     color: #fff;
-}
+  }
 
-.mr-5 {
-    margin: 0 5px;
-}
-
-
-/*---------Ipad--------------*/
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .mr-icon {
-        padding: 0.879vw 0.684vw 0.977vw 0.684vw;
-        background-color: #3e64ff;
-        color: #fff;
-        border-radius: 0.488vw;
-    }
-    .pull-right {
-        float: right;
-    }
-    .form-display {
-        display: inline;
-    }
-    .searchForm {
-        display: inline-block;
-    }
-    .table {
-        margin-top: -2.67vw !important;
-        margin-bottom: 0.25vw !important;
-    }
-    .search-btn {
-        padding: 0.977vw 2.5vw;
-        border: none;
-        background-color: #3e64ff;
-        color: #fff;
-        font-size: 1.045vw;
-        cursor: pointer;
-        border-radius: 0.977vw;
-        margin-right: -4.89vw;
-    }
-    .import-btn {
-        margin-left: 10.7vw;
-        margin-bottom: 4vw;
-        margin-top: -1vw;
-        padding: 0.684vw;
-        border: none;
-        background-color: #3D9970;
-        color: #fff;
-        font-size: 1.045vw;
-        cursor: pointer;
-        border-radius: 0.684vw;
-    }
-    .export-btn {
-        margin-bottom: 0.977vw;
-        padding: 0.684vw;
-        border: none;
-        background-color: #07a6be;
-        color: #fff;
-        font-size: 1.045vw;
-        cursor: pointer;
-        border-radius: 0.684vw;
-    }
-    .sm-btn {
-        display: inline;
-        font-size: 0.9vw;
-    }
-    input[type=date] {
-        font-size: 1.045vw;
-        width: 25%;
-        position: relative;
-        margin: 0.977vw 1vw;
-        padding: 0.977vw 0.34vw;
-        border: 0.098vw solid #d1d0d0;
-        text-align: right;
-        border-radius: 0.977vw;
-    }
-    input[type=date]::-webkit-calendar-picker-indicator {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: auto;
-        height: auto;
-        background: transparent;
-        color: transparent;
-        cursor: pointer;
-    }
-    input[type=date]:before {
-        color: #b9b7b7;
-        content: attr(placeholder) !important;
-    }
-    input[type=date]:after {
-        font-family: "Font Awesome 5 Free";
-        content: '\f073';
-        font-weight: 900;
-        color: #515151;
-        padding-left: 0.977vw;
-    }
-    .input-group {
-        padding-left: 9.45vw;
-        width: 100%;
-    }
-    nav::before,
-    nav:after,
-    .pagination::before,
-    .pagination:after {
-        display: table;
-        clear: both;
-        content: " ";
-    }
-    .pagination {
-        float: right;
-        margin: 0.977vw;
-    }
-    .page-item {
-        display: inline-block;
-        width: 3vw;
-        height: 3vw;
-        margin-right: 0.391vw;
-        padding-top: 0.488vw;
-        background-color: #ffffff;
-        font-size: 1.563vw;
-        text-align: center;
-        border-radius: 0.195vw;
-    }
-    .page-item .page-link:hover {
-        width: 35px;
-        height: 28px;
-        background-color: #3e64ff;
-        color: #fff;
-        border-radius: 0.195vw;
-    }
-    .page-link {
-        padding-top: 0.488vw;
-        color: #000000;
-    }
-    .active {
-        background-color: #3e64ff;
-    }
-    .disabled {
-        display: none;
-    }
-    .active .page-link,
-    .disabled .page-link {
-        color: #fff;
-    }
-    .mr-5 {
-        margin: 0 0.488vw;
-    }
+  .mr-5 {
+    margin: 0 0.488vw;
+  }
 }
