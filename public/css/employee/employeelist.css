@@ -243,6 +243,7 @@ nav:after,
     }
     .input-group {
         padding-left: 9.45vw;
+        width: 100%;
     }
     nav::before,
     nav:after,
@@ -258,8 +259,8 @@ nav:after,
     }
     .page-item {
         display: inline-block;
-        width: 35px;
-        height: 28px;
+        width: 3vw;
+        height: 3vw;
         margin-right: 0.391vw;
         padding-top: 0.488vw;
         background-color: #ffffff;

@@ -566,9 +566,11 @@ textarea {
         border-radius: 0.977vw;
     }
     .sm-btn {
-        margin-top: 0.43vw;
         padding: 0.12vw 0.56vw;
-        font-size: 1.289vw;
+        font-size: 0.889vw;
+        width: 70%;
+        margin-top: 1vw;
+        display: block;
     }
     /* ------------------------Error Msg------------------ -------- */
     .error-msg {
@@ -830,7 +832,7 @@ textarea {
     }
     div.dataTables_length select {
         border: 0.098vw solid #c5c5c5;
-        font-size: 1.465vw;
+        font-size: 0.865vw;
         border-radius: 0.488vw;
     }
     textarea {
@@ -842,7 +844,7 @@ textarea {
         color: #3e64ff;
     }
     .dataTables_wrapper .dataTables_filter input {
-        padding: 0.488vw;
+        padding: 0.1vw;
         border: 0.098vw solid #c5c5c5;
         border-radius: 0.977vw;
     }
