@@ -154,9 +154,6 @@ nav:after,
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .mr-icon {
-        position: relative;
-        top: -3.8vw;
-        left: 10.5vw;
         padding: 0.879vw 0.684vw 0.977vw 0.684vw;
         background-color: #3e64ff;
         color: #fff;
@@ -180,46 +177,43 @@ nav:after,
         border: none;
         background-color: #3e64ff;
         color: #fff;
-        font-size: 1.465vw;
+        font-size: 1.045vw;
         cursor: pointer;
         border-radius: 0.977vw;
-        margin-left: 2.11vw;
+        margin-right: -4.89vw;
     }
     .import-btn {
-        position: relative;
-        top: -3.8vw;
-        left: 10.5vw;
-        margin-bottom: 0.977vw;
-        margin-left: 1.953vw;
+        margin-left: 10.7vw;
+        margin-bottom: 4vw;
+        margin-top: -1vw;
         padding: 0.684vw;
         border: none;
         background-color: #3D9970;
         color: #fff;
-        font-size: 1.465vw;
+        font-size: 1.045vw;
         cursor: pointer;
         border-radius: 0.684vw;
     }
     .export-btn {
-        position: relative;
-        top: -3.8vw;
-        left: 10.5vw;
         margin-bottom: 0.977vw;
         padding: 0.684vw;
         border: none;
         background-color: #07a6be;
         color: #fff;
-        font-size: 1.465vw;
+        font-size: 1.045vw;
         cursor: pointer;
         border-radius: 0.684vw;
     }
     .sm-btn {
         display: inline;
+        font-size: 0.9vw;
     }
     input[type=date] {
-        width: 32%;
+        font-size: 1.045vw;
+        width: 25%;
         position: relative;
-        margin: 0.977vw 0;
-        padding: 0.977vw 1.953vw;
+        margin: 0.977vw 1vw;
+        padding: 0.977vw 0.34vw;
         border: 0.098vw solid #d1d0d0;
         text-align: right;
         border-radius: 0.977vw;
@@ -246,6 +240,9 @@ nav:after,
         font-weight: 900;
         color: #515151;
         padding-left: 0.977vw;
+    }
+    .input-group {
+        padding-left: 9.45vw;
     }
     nav::before,
     nav:after,

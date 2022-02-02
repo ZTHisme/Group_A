@@ -125,10 +125,7 @@
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .container {
-        width: 97%;
-        margin-left: 1vw;
-        margin-right: 21vw;
-        padding: -5vw;
+        margin-left: 9vw;
     }
     .card {
         width: 95%;
@@ -157,9 +154,9 @@
     }
     .show-date {
         float: right;
-        margin-right: 7vw;
+        margin-right: -3vw;
         color: #696969;
-        font-size: 1.953vw;
+        font-size: 2.5vw;
         font-weight: bold;
     }
     .ttl-dashboard {
@@ -189,8 +186,9 @@
     }
     .card-icon {
         float: right;
+        padding-top: 2.56vw;
         padding-right: 3.348vw;
-        font-size: 4.836vw;
+        font-size: 6.836vw;
     }
     .icon-empall,
     .font-empall {
