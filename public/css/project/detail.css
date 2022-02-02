@@ -39,13 +39,30 @@ textarea {
   width: 100%;
 }
 
-.btn-download{
+.btn-download {
   padding: 5px;
   background-color: #3e64ff;
   color: #ffffff;
   border-radius: 5px;
 }
 
-.icon-download{
+.icon-download {
   padding: 6px 6px;
+}
+
+
+/*phone screen */
+@media (max-width:640px) {
+  .half {
+    width: 90%;
+  }
+
+  .box {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  input[type=text] {
+    width: 80%;
+  }
 }

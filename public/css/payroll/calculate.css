@@ -21,3 +21,73 @@
   font-size: 20px;
   color: #7992e2;
 }
+
+/*phone screen */
+@media (max-width:640px) {
+
+  .container {
+    width: 90%;
+    padding: 0 5%;
+  }
+
+  .listcard-header {
+    padding: 1vw;
+    border: 0.3vw solid #cececee1;
+    font-size: 2.5vw;
+  }
+
+  .card-body {
+    font-size: 1.5vw;
+    padding: 2vw 0;
+    border: 0.3vw solid #79797954;
+  }
+
+  .value {
+    width: 40%;
+    padding: 0.7vw 1vw;
+    border-radius: 0.8vw;
+    background: #fff;
+    margin-right: 5vw;
+  }
+
+  .row {
+    margin-bottom: 2vw;
+  }
+
+  .label {
+    font-size: 1.5vw;
+    width: 40%;
+  }
+
+  .blue-btn {
+    padding: 1vw 1vw;
+    border-radius: 1.4vw;
+  }
+
+  .yellow-btn {
+    padding: 1vw 1vw;
+    border-radius: 1.2vw;
+  }
+
+  .align {
+    margin: 1vw;
+  }
+
+  .dataTables_wrapper .dataTables_info {
+    text-align: left;
+    clear: both;
+    float: left;
+    padding-top: 0.755em;
+    width: 19vw;
+    font-size: 1.2vw;
+  }
+
+  .dataTables_wrapper .dataTables_paginate {
+    float: right;
+    font-size: 1.5vw;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+    font-size: 1.2vw;
+  }
+}

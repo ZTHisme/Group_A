@@ -1,4 +1,4 @@
-.container{
+.container {
   margin: 0 auto;
   max-width: 1122px;
 }
@@ -12,66 +12,77 @@
   background-color: #f4f4f4;
 }
 
-.card-header{
+.card-header {
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #cececee1;
   background-color: #cececee1;
 }
-.icon-margin{
+
+.icon-margin {
   padding: 5px;
 }
 
-.card-body{
+.card-body {
   width: 800px;
 }
-.show-date{
+
+.show-date {
   float: right;
   font-size: 20px;
   font-weight: bold;
 }
-.show-date{
+
+.show-date {
   float: right;
   color: #696969;
   font-size: 20px;
   font-weight: bold;
 }
-.ttl-dashboard{
+
+.ttl-dashboard {
   display: inline;
   color: #696969;
   font-size: 27px;
 }
-.dashboard-card{
+
+.dashboard-card {
   display: inline-block;
   margin-top: 35px;
   padding: 20px 25px;
-  border: 1px solid rgba(0,0,0,.05);
+  border: 1px solid rgba(0, 0, 0, .05);
   box-shadow: 1px 1px 3px rgb(0 0 0 / 10%);
   border-radius: 5px;
   min-width: 339px;
 }
-.card-col{
+
+.card-col {
   display: inline-block;
 }
 
-.ttl-card{
+.ttl-card {
   color: #696969;
   font-size: 17px;
 }
-.count-data{
+
+.count-data {
   padding-bottom: 15px;
   font-size: 40px;
 }
-.card-icon{
+
+.card-icon {
   float: right;
   padding-left: 65px;
   font-size: 70px;
 }
-.icon-empall, .font-empall{
+
+.icon-empall,
+.font-empall {
   color: #0074D9;
 }
 
-.icon-newemp, .font-newemp{
+.icon-newemp,
+.font-newemp {
   color: #3D9970;
 }
 
@@ -80,7 +91,7 @@
   color: #FF851B;
 }
 
-.font-turnover{
+.font-turnover {
   color: #FF851B;
 }
 
@@ -89,19 +100,75 @@
   color: #5C40C0;
 }
 
-.font-office{
+.font-office {
   color: #5C40C0;
 }
-.mr-space{
+
+.mr-space {
   margin-right: 15px;
 }
-.subttl-card{
+
+.subttl-card {
   color: #696969;
   font-size: 12px;
   opacity: .6;
 }
+
 .clearfix::after {
   display: table;
   clear: both;
   content: "";
+}
+
+/*phone screen */
+@media (max-width:640px) {
+
+  .chartjs-render-monitor {
+    animation: chartjs-render-animation 0.001s;
+  }
+
+  element.style {
+    display: none;
+  }
+
+  .card {
+    width: 100%;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    padding-bottom: 1vw;
+    border: 0.3vw solid #ccc;
+    font-size: 1.5vw;
+  }
+
+  .dashboard-card {
+    margin-top: 4vw;
+    padding: 3vw 18vw;
+    border: 0.5vw solid rgba(0, 0, 0, .05);
+    box-shadow: 1vw 1vw 1.5vw rgb(0 0 0 / 10%);
+    font-size: 1.5vw;
+    border-radius: 0.3vw;
+    min-width: 52.96875vw;
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: 98%;
+  }
+
+  .count-data {
+    padding-bottom: 2vw;
+    font-size: 3.2vw;
+  }
+
+  .ttl-card {
+    font-size: 2vw;
+  }
+
+  .subttl-card {
+    font-size: 2vw;
+  }
+
+  #pie-chart {
+    width: 1vw;
+  }
 }

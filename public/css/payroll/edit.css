@@ -16,13 +16,74 @@
   text-align: left;
 }
 
-input[type=number]:before{
-    content:'';
-    margin-right:5px;
-    color:#9d9d9d;
+input[type=number]:before {
+  content: '';
+  margin-right: 5px;
+  color: #9d9d9d;
 }
 
 input[type=number] {
   width: 87%;
   position: relative;
+}
+
+/*phone screen */
+@media (max-width:640px) {
+
+  .container {
+    width: 90%;
+    font-size: 1.5vw;
+    margin-right: 27vw;
+    padding: 0vw;
+  }
+
+  .listcard-header {
+    width: 52vw;
+    padding: 1vw;
+    border: 0.5vw solid #cececee1;
+    font-size: 2vw;
+  }
+
+  .card-body {
+    width: 54vw;
+    padding: 2vw 0;
+    border: 0.4vw solid #79797954;
+  }
+
+  input[type=number] {
+    width: 100%;
+    font-size: 1.5vw;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 1vw;
+    border-radius: 0.7vw;
+  }
+
+  .row {
+    margin-bottom: 1.5vw;
+  }
+
+  input[type=submit] {
+    font-size: 1.5vw;
+  }
+
+  .blue-btn {
+    padding: 1vw 1.4vw;
+    border-radius: 1.2vw;
+    margin-left: 12vw;
+  }
+
+  .red-btn {
+    padding: 1vw 1.4vw;
+    font-size: 1.5vw;
+    border-radius: 1.2vw;
+  }
+
+  .text {
+    width: 30%;
+    margin-left: 6vw;
+    padding: 1vw 0;
+  }
 }
