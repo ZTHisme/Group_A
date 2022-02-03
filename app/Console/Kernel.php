@@ -19,7 +19,6 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command(SendPayroll::class)
-            ->tuesdays()
             ->lastDayOfMonth('22:00')
             ->onSuccess(function () {
                 Artisan::call(AttendanceBackup::class);
