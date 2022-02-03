@@ -28,31 +28,46 @@
 <body>
 
   <div class="d-flex">
-    <nav id="sidebar">
+    <nav id="sidebar" class="close">
+      <header class="side-header">
+        <div class="profile-text">
+          <img class="sideprofile-img" src="{{ \Illuminate\Support\Facades\Storage::exists('public/employees/' . auth()->user()->profile) ?
+              asset(config('path.profile_path') . auth()->user()->profile) : 
+              'https://ui-avatars.com/api/?name='.auth()->user()->name}}" id="img">
+          <div class="text-list text-group">
+            <p>{{ auth()->user()->name }}</p>
+            <a class="profile-link" href="{{ route('show.employee.get', [auth()->id()]) }}">Profile</a>
+          </div>
+        </div>
+        <i class="bx fas fa-chevron-circle-right toggle"></i>
+      </header>
       <h1><a href="/" class="logo">Employee Management</a></h1>
       <ul>
         <li>
-          <a href="{{ route('graph#dashBoard') }}" class="{{ Request::routeIs('graph#dashBoard') ? 'active' : '' }}"><span class="fas fa-tachometer-alt"></span> Dashboard</a>
+          <a href="{{ route('graph#dashBoard') }}" class="{{ Request::routeIs('graph#dashBoard') ? 'active' : '' }}"><span class="fas fa-tachometer-alt"></span><span class="text-list align-dashboard"> Dashboard </span></a>
         </li>
         <li>
-          <a href="{{ route('employee#showLists') }}" class="{{ request()->is('employees*') ? 'active' : '' }}"><span class="fa fa-users"></span> Employees</a>
+          <a href="{{ route('employee#showLists') }}" class="{{ request()->is('employees*') ? 'active' : '' }}"><span class="fa fa-users"></span><span class="text-list align-emp"> Employees </span></a>
         </li>
         <li>
-          <a href="{{ route('attendances#index') }}" class="{{ request()->is('attendances*') ? 'active' : '' }}"><span class="fas fa-file-invoice"></span> Attendance</a>
+          <a href="{{ route('attendances#index') }}" class="{{ request()->is('attendances*') ? 'active' : '' }}"><span class="fas fa-file-invoice"></span><span class="text-list align-att"> Attendance </span></a>
         </li>
         @can('isManager')
         <li>
-          <a href="{{ route('payrolls#index') }}" class="{{ request()->is('payrolls*') ? 'active' : '' }}"><span class="fas fa-cash-register"></span> Payroll Management</a>
+          <a href="{{ route('payrolls#index') }}" class="{{ request()->is('payrolls*') ? 'active' : '' }}"><span class="fas fa-cash-register"></span><span class="text-list"> Payroll Management </span></a>
         </li>
         @endcan
         <li>
-          <a href="{{ route('projects#index') }}" class="{{ request()->is('projects*') ? 'active' : '' }}"><span class="fas fa-tasks"></span> Project Management</a>
+          <a href="{{ route('projects#index') }}" class="{{ request()->is('projects*') ? 'active' : '' }}"><span class="fas fa-tasks"></span><span class="text-list"> Project Management </span></a>
         </li>
         @can('isManager')
         <li>
-          <a href="{{ route('calendar.upload') }}" class="{{ request()->is('settings*') ? 'active' : '' }}"><span class="far fa-calendar-alt"></span> Add Calendar</a>
+          <a href="{{ route('calendar.upload') }}" class="{{ request()->is('settings*') ? 'active' : '' }}"><span class="far fa-calendar-alt"></span><span class="text-list">Add Calendar</span></a>
         </li>
         @endcan
+        <li class="logout">
+          <a href="{{ route('logout') }}"><span class="fas fa-sign-out-alt"></span><span class="text-list">Logout</span></a>
+        </li>
       </ul>
     </nav>
     <!-- Page Content  -->
@@ -60,13 +75,13 @@
       <nav class="navbar">
         <ul class="navbar-nav">
           <li>
-            <img class="profile-img" src="{{ \Illuminate\Support\Facades\Storage::exists('public/employees/' . auth()->user()->profile) ?
+            <img class="profile-img ipad-profile" src="{{ \Illuminate\Support\Facades\Storage::exists('public/employees/' . auth()->user()->profile) ?
               asset(config('path.profile_path') . auth()->user()->profile) : 
               'https://ui-avatars.com/api/?name='.auth()->user()->name}}" id="img">
           </li>
           <li>
             <div class="dropdown">
-              <button class="dropbtn btn"><i class="fas fa-caret-down"> {{ auth()->user()->name }}</i></button>
+              <button class="dropbtn btn ipad-drop"><i class="fas fa-caret-down"> {{ auth()->user()->name }}</i></button>
               <div class="dropdown-content">
                 <a class="nav-link" href="{{ route('show.employee.get', [auth()->id()]) }}">&nbsp;&nbsp;Profile</a>
                 <a class="nav-link" href="{{ route('logout') }}">&nbsp;&nbsp;Logout</a>
@@ -119,5 +134,5 @@
     </div>
   </div>
 </body>
-
 </html>
+

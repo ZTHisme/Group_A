@@ -83,6 +83,7 @@
       @elseif ($schedule->status == config('constants.Progress'))
       <a href="{{ route('projects#updateStatus', [$schedule->id]) }}" class="blue-btn">Mark as Finished</a>
       @endif
+      <a href="#" id="back" class="red-btn">Back</a>
     </div>
   </div>
 </div>

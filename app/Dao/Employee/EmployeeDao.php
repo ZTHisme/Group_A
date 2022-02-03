@@ -285,4 +285,41 @@ class EmployeeDao implements EmployeeDaoInterface
 
         return $officeemployee;
     }
+
+    /**
+     * To get list of employees
+     *  @param
+     *  @return $employees
+     */
+    public function getExportEmployees()
+    {
+        return Employee::select(
+            [
+                'name',
+                'email',
+                'phone',
+                'address',
+                'profile',
+                'created_user_id',
+                'role_id',
+                'department_id',
+                'created_at',
+                'updated_at'
+            ]
+        )->get();
+    }
+
+    /**
+     * To get list of managers
+     *  @param
+     *  @return $managers
+     */
+    public function getManagers()
+    {
+        return DB::table('employees')
+            ->join('mst_roles', 'employees.role_id', '=', 'mst_roles.id')
+            ->where('mst_roles.name', 'Manager')
+            ->select('employees.*')
+            ->get();
+    }
 }

@@ -18,6 +18,7 @@
     </div>
     <div class="btn-group">
       <button class="btn-import">Import data</button>
+      <a href="#" id="back" class="red-btn">Cancel</a>
     </div>
   </form>
 </div>

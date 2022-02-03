@@ -9,6 +9,6 @@ $(function () {
     });
 
     $('#leave').on('change', function () {
-        $('input[type=radio').prop('disabled', this.checked);
+        $('input[type=radio]').prop('disabled', this.checked);
     });
 });
