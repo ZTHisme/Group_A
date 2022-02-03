@@ -69,6 +69,50 @@
   border-radius: 7px;
 }
 
+.ft-cp {
+  position: absolute;
+  bottom: 0;
+}
+
+/*phone screen */
+@media (max-width:640px) {
+
+  .card-upload {
+    width: 90%;
+    margin-bottom: 2vw;
+    padding-bottom: 1vw;
+    border: 0.3vw solid #cdcdcd;
+    font-size: 1.5vw;
+    border-radius: 0.5px;
+  }
+
+  .cardheader-upload {
+    padding: 1vw;
+    border: 0.3vw solid #e2e1e1;
+    font-size: 1.5vw;
+  }
+
+  .custom-file {
+    margin-top: 2vw;
+  }
+
+  .btn-filechoose {
+    font-size: 1.5vw;
+  }
+
+  .btn-import {
+    margin-bottom: 1vw;
+    padding: 1vw;
+    font-size: 1.5vw;
+    border-radius: 1.5vw;
+  }
+
+  .red-btn {
+    padding: 1vw;
+    font-size: 1.5vw;
+  }
+}
+
 /*---------Ipad--------------*/
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {

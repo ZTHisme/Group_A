@@ -1,11 +1,11 @@
 .card-submit {
   width: 400px;
   margin: 0 auto;
+  margin-bottom: 20px;
   padding-bottom: 10px;
   border: 1px solid #cdcdcd;
   background-color: #ffffff;
   border-radius: 5px;
-  margin-bottom: 20px;
 }
 
 .cardheader-submit {
@@ -53,8 +53,8 @@
 }
 
 .row {
-  text-align: center;
   margin: 14px;
+  text-align: center;
 }
 
 .dates {
@@ -64,6 +64,166 @@
 }
 
 
+/*phone screen */
+@media (max-width:640px) {
+
+  #content {
+    width: 90%;
+    min-height: 100vh;
+  }
+
+  .container {
+    width: 98%;
+  }
+
+  .cardheader-submit {
+    padding: 1vw;
+    border: 0.5vw solid #e2e1e1;
+    font-size: 1.5vw;
+  }
+
+  form {
+    width: 100%;
+    margin-top: 1vw;
+    font-size: 1.5vw;
+  }
+
+  .float-end {
+    margin-right: 0vw;
+  }
+
+  .form-check {
+    margin: 0.5vw;
+  }
+
+  .form-check-input {
+    margin-bottom: 0.5VW;
+  }
+
+  .card-submit {
+    width: 35vw;
+    margin: 0 auto;
+    margin-bottom: 2.5vw;
+    padding-bottom: 1.5vw;
+    border: 0.5px solid #cdcdcd;
+    border-radius: 1vw;
+  }
+
+  .blue-btn {
+    margin-top: 1.4vw;
+    padding: 0.4vw 1.5vw;
+    font-size: 1.3vw;
+    border-radius: 1.5vw;
+  }
+
+  .row {
+    width: 34vw;
+    margin: 1.5vw;
+    font-size: 1.5vw;
+  }
+
+  .dates {
+    margin-left: 1vw;
+    padding: 0.5vw;
+    font-size: 1.5vw;
+    border-radius: 0.3vw;
+  }
+
+  .mr-table {
+    margin-bottom: 1vw;
+  }
+
+  .mr-icon {
+    margin-right: 1VW;
+    padding: 0.5VW 0;
+  }
+
+  .listcard-header {
+    padding: 1vw;
+    border: 0.5vw solid #cececee1;
+    font-size: 2vw;
+  }
+
+  .list-card {
+    border: 0.1vw solid #cdcdcd;
+    border-radius: 0.5vw;
+  }
+
+  .dataTables_wrapper .dataTables_length,
+  .dataTables_wrapper .dataTables_filter {
+    font-size: 1.5vw;
+  }
+
+  table.dataTable {
+    width: 98%;
+    border: 0.5vw solid #cdcdcd;
+    font-size: 1.3vw;
+  }
+
+  .dataTables_wrapper .dataTables_info {
+    float: left;
+    clear: both;
+    width: 19vw;
+    padding-top: 0.755em;
+    font-size: 1.2vw;
+    text-align: left;
+  }
+
+  .dataTables_wrapper .dataTables_paginate {
+    float: right;
+    font-size: 1.5vw;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+    font-size: 1.2vw;
+  }
+
+  .dataTables_wrapper .dataTables_filter input {
+    padding: 0.1vw;
+    border: 0.2vw solid #c5c5c5;
+    border-radius: 1vw;
+  }
+
+  div.dataTables_length select {
+    border: 0.3vw solid #c5c5c5;
+    font-size: 1.4vw;
+    border-radius: 0.5vw;
+  }
+
+  table.dataTable thead th,
+  table.dataTable thead td {
+    padding: 1vw 1.5vw;
+    border-bottom: 0.3vw solid #111;
+  }
+
+  .dataTables_wrapper {
+    width: 100%;
+  }
+
+  .success-msg {
+    margin: 1vw 0;
+    padding: 2vw;
+    background-color: #DFF2BF;
+    color: #4F8A10;
+    font-size: 2vw;
+  }
+
+  table.dataTable tbody th,
+  table.dataTable tbody td {
+    padding: 0.8vw 1vw;
+  }
+
+  .card-text {
+    padding: 3.5vw 0 2vw 1.5vw;
+    font-size: 1.5vw;
+  }
+
+  .checkout-btn {
+    margin-left: 12vw;
+  }
+
+}
+
 /*---------Ipad--------------*/
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -71,11 +231,11 @@
   .card-submit {
     width: 36%;
     margin: 0 auto;
+    margin-bottom: 1.953vw;
     padding-bottom: 0.977vw;
     border: 0.098vw solid #cdcdcd;
     background-color: #ffffff;
     border-radius: 0.488vw;
-    margin-bottom: 1.953vw;
   }
 
   .cardheader-submit {
@@ -113,9 +273,9 @@
   }
 
   .checkin-btn {
-    font-size: 1.045vw;
     display: block;
     margin: 0vw auto 0.977vw;
+    font-size: 1.045vw;
   }
 
   .mr-icon {
@@ -124,14 +284,14 @@
   }
 
   .row {
-    text-align: center;
     margin: 1.567vw;
+    text-align: center;
   }
 
   .dates {
-    font-size: 1.045vw;
     margin-left: 1.953vw;
     padding: 0.781vw;
+    font-size: 1.045vw;
     border-radius: 0.977vw;
   }
 

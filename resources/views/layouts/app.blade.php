@@ -97,6 +97,10 @@
       <div class="seprator">
       </div>
       @yield('content')
+      <div class="ft-cp">
+        <p>Copyright &copy; 2022 Employee Management System. All rights reserved | Developed by Group A</a></p>
+      </div>
+
       @yield('script')
       <script>
         $(function() {

@@ -1,8 +1,3 @@
-/*.container {
-    margin: 0 auto;
-    max-width: 1122px;
-}*/
-
 .card {
   width: 800px;
   margin-top: 20px;
@@ -120,6 +115,77 @@
   content: "";
 }
 
+/*phone screen */
+@media (max-width:640px) {
+
+  .chartjs-render-monitor {
+    animation: chartjs-render-animation 0.001s;
+  }
+
+  element.style {
+    display: none;
+  }
+
+  .card {
+    width: 100%;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    padding-bottom: 1vw;
+    border: 0.3vw solid #ccc;
+    font-size: 1.5vw;
+  }
+
+  .dashboard-card {
+    margin-top: 4vw;
+    padding: 3vw 18vw;
+    border: 0.5vw solid rgba(0, 0, 0, .05);
+    box-shadow: 1vw 1vw 1.5vw rgb(0 0 0 / 10%);
+    font-size: 1.5vw;
+    border-radius: 0.3vw;
+    min-width: 52.96875vw;
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: 98%;
+  }
+
+  .count-data {
+    padding-bottom: 2vw;
+    font-size: 3.2vw;
+  }
+
+  .ttl-card {
+    font-size: 2vw;
+  }
+
+  .subttl-card {
+    font-size: 2vw;
+  }
+
+  #pie-chart,
+  #bar-chart {
+    width: 91vw !important;
+    height: 46vw !important;
+  }
+
+  .card-body {
+    width: 98vw;
+  }
+
+  .card-icon {
+    float: right;
+    padding-left: 9vw;
+    font-size: 8vw;
+  }
+
+  .ttl-dashboard {
+    font-size: 3vw;
+  }
+  .show-date {
+    font-size: 3vw;
+  }
+}
 
 /*---------Ipad--------------*/
 
