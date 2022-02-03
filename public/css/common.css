@@ -11,15 +11,16 @@ body {
 }
 
 #content {
+  position: relative;
   width: 100%;
   min-height: 100vh;
-  position: relative;
 }
 
 .ft-cp {
-  text-align: center;
   width: 100%;
   padding: 20px 0;
+  font-size: 15px;
+  text-align: center;
 }
 
 a {
@@ -478,7 +479,9 @@ textarea {
 /*---------Ipad--------------*/
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  td, th {
+
+  td,
+  th {
     font-size: 0.963vw;
   }
 
@@ -492,6 +495,12 @@ textarea {
     font-size: 0.963vw;
     font-weight: 400;
     text-align: left;
+  }
+
+
+  .ft-cp {
+    padding: 1.953vw 0;
+    font-size: 1.465vw;
   }
 
   #content {
@@ -575,9 +584,9 @@ textarea {
     border: none;
     background-color: #ca9801;
     color: #fff;
+    font-size: 0.963vw;
     cursor: pointer;
     border-radius: 0.977vw;
-    font-size: 0.963vw;
   }
 
   .red-btn {
@@ -755,8 +764,8 @@ textarea {
     border: none;
     background: #ffffff;
     color: #000;
-    border-radius: 0.488vw;
     font-size: 1.163vw;
+    border-radius: 0.488vw;
   }
 
   .swal2-popup {
@@ -792,9 +801,9 @@ textarea {
   }
 
   .container {
-    padding: 0 0.8%;
     width: 88%;
     margin: 0 auto;
+    padding: 0 0.8%;
   }
 
   .table {
@@ -909,9 +918,9 @@ textarea {
     padding: 1.172vw;
     border: none;
     box-sizing: border-box;
+    font-size: 1.163vw;
     outline: none;
     border-radius: 0.488vw;
-    font-size: 1.163vw;
   }
 
   .text label {
@@ -1267,5 +1276,10 @@ textarea {
   .dataTables_wrapper {
     width: 100%;
     overflow-x: auto;
+  }
+
+  .ft-cp {
+    padding: 3.125vw 0;
+    font-size: 2.144vw;
   }
 }

@@ -106,14 +106,14 @@
     margin-bottom: 2.5vw;
     padding-bottom: 1.5vw;
     border: 0.5px solid #cdcdcd;
-    border-radius: 3vw;
+    border-radius: 1vw;
   }
 
   .blue-btn {
+    margin-top: 1.4vw;
     padding: 0.4vw 1.5vw;
     font-size: 1.3vw;
     border-radius: 1.5vw;
-    margin-top: 1.4vw;
   }
 
   .row {
@@ -156,17 +156,17 @@
 
   table.dataTable {
     width: 98%;
-    font-size: 1.3vw;
     border: 0.5vw solid #cdcdcd;
+    font-size: 1.3vw;
   }
 
   .dataTables_wrapper .dataTables_info {
-    text-align: left;
-    clear: both;
     float: left;
-    padding-top: 0.755em;
+    clear: both;
     width: 19vw;
+    padding-top: 0.755em;
     font-size: 1.2vw;
+    text-align: left;
   }
 
   .dataTables_wrapper .dataTables_paginate {
@@ -223,6 +223,7 @@
   }
 
 }
+
 /*---------Ipad--------------*/
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -230,11 +231,11 @@
   .card-submit {
     width: 36%;
     margin: 0 auto;
+    margin-bottom: 1.953vw;
     padding-bottom: 0.977vw;
     border: 0.098vw solid #cdcdcd;
     background-color: #ffffff;
     border-radius: 0.488vw;
-    margin-bottom: 1.953vw;
   }
 
   .cardheader-submit {
@@ -272,9 +273,9 @@
   }
 
   .checkin-btn {
-    font-size: 1.045vw;
     display: block;
     margin: 0vw auto 0.977vw;
+    font-size: 1.045vw;
   }
 
   .mr-icon {
@@ -283,14 +284,14 @@
   }
 
   .row {
-    text-align: center;
     margin: 1.567vw;
+    text-align: center;
   }
 
   .dates {
-    font-size: 1.045vw;
     margin-left: 1.953vw;
     padding: 0.781vw;
+    font-size: 1.045vw;
     border-radius: 0.977vw;
   }
 
