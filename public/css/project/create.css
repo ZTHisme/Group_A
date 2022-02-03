@@ -103,3 +103,122 @@ td {
 .button-4:-webkit-details-marker {
   display: none;
 }
+
+
+/*---------Ipad--------------*/
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  input[type=text] {
+    width: 60%;
+    padding: 0.781vw;
+    border: none;
+    border-radius: 0.391vw;
+    resize: vertical;
+    outline: none;
+    font-size: 0.963vw;
+  }
+
+  label {
+    padding: 1.172vw 1.172vw 1.172vw 0;
+    display: inline-block;
+  }
+
+  .col-25 {
+    float: left;
+    width: 25%;
+  }
+
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 0.586vw;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .box {
+    border-radius: 0.488vw;
+    background-color: #f2f2f2;
+    padding: 1.953vw;
+  }
+
+  .dataTables_wrapper {
+    width: 60%;
+  }
+
+  .dataTables_filter,
+  .dataTables_length,
+  .dataTables_info,
+  .dataTables_paginate {
+    margin: 0.177vw;
+  }
+
+  td {
+    padding: 0.488vw !important;
+  }
+
+  .button-4 {
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 0.098vw solid rgba(27, 31, 35, 0.15);
+    border-radius: 0.586vw;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 0.098vw 0, rgba(255, 255, 255, 0.25) 0 0.098vw 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 0.767vw;
+    font-weight: 500;
+    line-height: 1.953vw;
+    list-style: none;
+    width: 3.324vw;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+  }
+
+  .button-4:hover {
+    background-color: #F3F4F6;
+    text-decoration: none;
+    transition-duration: 0.1s;
+  }
+
+  .button-4:disabled {
+    background-color: #FAFBFC;
+    border-color: rgba(27, 31, 35, 0.15);
+    color: #959DA5;
+    cursor: default;
+  }
+
+  .button-4:active {
+    background-color: #EDEFF2;
+    box-shadow: rgba(225, 228, 232, 0.2) 0 0.098vw 0 inset;
+    transition: none 0s;
+  }
+
+  .button-4:focus {
+    outline: 0.098vw transparent;
+  }
+
+  .button-4:before {
+    display: none;
+  }
+
+  .button-4:-webkit-details-marker {
+    display: none;
+  }
+}

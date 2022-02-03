@@ -62,3 +62,80 @@
   padding: 8px;
   border-radius: 10px;
 }
+
+
+/*---------Ipad--------------*/
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+  .card-submit {
+    width: 35%;
+    margin: 0 auto;
+    padding-bottom: 0.977vw;
+    border: 0.098vw solid #cdcdcd;
+    background-color: #ffffff;
+    border-radius: 0.488vw;
+    margin-bottom: 1.953vw;
+  }
+
+  .cardheader-submit {
+    padding: 0.977vw;
+    border: 0.098vw solid #e2e1e1;
+    background-color: #e2e1e1;
+    font-size: 1.465vw;
+  }
+
+  .txt-date {
+    float: right;
+    color: #7a7a7a;
+  }
+
+  .form-check {
+    display: inline-block;
+    margin: 1.953vw;
+  }
+
+  .form-check-input {
+    margin-bottom: 0.586vw;
+  }
+
+  .float-end {
+    float: right;
+    margin-right: 3.320vw;
+  }
+
+  .card-text {
+    padding: 1.465vw 0vw 1.465vw 0.977vw;
+  }
+
+  .checkout-btn {
+    margin-left: 13.184vw;
+  }
+
+  .checkin-btn {
+    font-size: 1.045vw;
+    display: block;
+    margin: 0vw auto 0.977vw;
+  }
+
+  .mr-icon {
+    margin-right: 0.391vw;
+    padding: 0.488vw 0vw;
+  }
+
+  .row {
+    text-align: center;
+    margin: 1.567vw;
+  }
+
+  .dates {
+    font-size: 1.045vw;
+    margin-left: 1.953vw;
+    padding: 0.781vw;
+    border-radius: 0.977vw;
+  }
+
+  label {
+    font-size: 0.963vw;
+  }
+}

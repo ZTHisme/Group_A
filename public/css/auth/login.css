@@ -1,16 +1,18 @@
-.login-form{
+.login-form {
   width: 400px;
   margin: 110px auto;
-  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
   text-align: center;
   border-radius: 10px;
   border-left: 5px solid #3e64ff;
 }
-.login-header{
+
+.login-header {
   padding: 30px 0 20px 0;
   font-size: 26px;
 }
-.formFooter{
+
+.formFooter {
   padding: 15px;
   background-color: #f6f6f6;
   font-size: 15px;
@@ -32,17 +34,18 @@
   color: #0d0d0d;
 }
 
-.underlineHover:hover:after{
+.underlineHover:hover:after {
   width: 100%;
 }
 
-.checkbox{
+.checkbox {
   margin-right: 150px;
   font-size: 15px;
   padding: 10px;
 }
 
-input[type=text],input[type=password]{
+input[type=text],
+input[type=password] {
   width: 251px;
   display: block;
   margin: 0 auto;
@@ -74,3 +77,86 @@ button[type=submit]:hover {
   background-color: #20329c;
 }
 
+
+/*---------Ipad--------------*/
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .login-form {
+    width: 46%;
+    margin: 10.742vw auto;
+    box-shadow: 0.195vw 0.195vw 0.488vw 0.098vw rgb(0 0 0 / 20%);
+    text-align: center;
+    border-radius: 0.977vw;
+    border-left: 0.488vw solid #3e64ff;
+  }
+
+  .login-header {
+    padding: 2.930vw 0vw 1.953vw 0vw;
+    font-size: 2.539vw;
+  }
+
+  .formFooter {
+    padding: 1.465vw;
+    background-color: #f6f6f6;
+    font-size: 1.465vw;
+    text-align: center;
+    border-top: 0.098vw solid #dce8f1;
+    border-radius: 0vw 0vw 0.977vw 0.977vw;
+  }
+
+  .underlineHover:after {
+    display: block;
+    width: 0;
+    height: 0.195vw;
+    background-color: #3e64ff;
+    content: "";
+    transition: 0.5s;
+  }
+
+  .underlineHover:hover {
+    color: #0d0d0d;
+  }
+
+  .underlineHover:hover:after {
+    width: 100%;
+  }
+
+  .checkbox {
+    margin-right: 14.648vw;
+    font-size: 1.465vw;
+    padding: 0.977vw;
+  }
+
+  input[type=text],
+  input[type=password] {
+    width: 74%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1.953vw;
+    margin-bottom: 0.977vw;
+    padding: 1.465vw;
+    border: 0.195vw solid #f6f6f6;
+    background-color: #f1f1f1;
+    color: #0d0d0d;
+    font-size: 1.367vw;
+    text-decoration: none;
+  }
+
+  button[type=submit] {
+    background-color: #3e64ff;
+    border: none;
+    color: white;
+    padding: 1.465vw 7.813vw;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.270vw;
+    border-radius: 0.488vw 0.488vw 0.488vw 0.488vw;
+    margin: 1.953vw 1.953vw 2.930vw 1.953vw;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+
+  button[type=submit]:hover {
+    background-color: #20329c;
+  }
+}
