@@ -67,6 +67,9 @@
       @endforeach
     </div>
   </div>
+  <div class="btn-group">
+    <a href="#" id="back" class="red-btn">Back</a>
+  </div>
 </div>
 @can('view-tasks', $project)
 @include('projects.sub-views.tasklists')

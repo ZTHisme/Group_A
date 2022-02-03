@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use App\Contracts\Dao\Employee\EmployeeDaoInterface;
 use App\Models\Employee;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -10,6 +11,21 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
 class EmployeesExport implements FromCollection, WithCustomCsvSettings, WithHeadings, ShouldAutoSize
 {
+    /**
+     * employee dao
+     */
+    private $employeeDao;
+    
+    /**
+     * Class Constructor
+     * @param EmployeeDaoInterface
+     * @return
+     */
+    public function __construct()
+    {
+        $this->employeeDao = app()->make(EmployeeDaoInterface::class);
+    }
+
     public function getCsvSettings(): array
     {
         return [
@@ -38,19 +54,6 @@ class EmployeesExport implements FromCollection, WithCustomCsvSettings, WithHead
      */
     public function collection()
     {
-        return Employee::select(
-            [
-                'name',
-                'email',
-                'phone',
-                'address',
-                'profile',
-                'created_user_id',
-                'role_id',
-                'department_id',
-                'created_at',
-                'updated_at'
-            ]
-        )->get();
+        return $this->employeeDao->getExportEmployees();
     }
 }

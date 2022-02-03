@@ -63,6 +63,11 @@
   text-align: center;
 }
 
+.red-btn {
+  font-size: 15px;
+  padding: 6px;
+  border-radius: 7px;
+}
 
 /*---------Ipad--------------*/
 

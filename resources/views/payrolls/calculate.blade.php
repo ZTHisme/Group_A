@@ -86,6 +86,7 @@
         </li>
       </ul>
       <div class="clearfix">
+        <a href="#" id="back" class="red-btn float-right align">Back</a>
         <a href="{{ route('payrolls#recalculate', [$calculatedPayroll->employee->id]) }}" class="yellow-btn float-right align">Recalculate the Payroll</a>
         <a href="{{ route('payrolls#sendPayrollMail', [$calculatedPayroll->id]) }}" class="blue-btn float-right align">Send Email to Employee</a>
       </div>

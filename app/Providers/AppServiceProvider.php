@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Employee;
 use App\Models\FinalSalary;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Blade;

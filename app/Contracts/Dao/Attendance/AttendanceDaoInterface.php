@@ -39,4 +39,16 @@ interface AttendanceDaoInterface
      * @return int type of none, checkedin, checkedout
      */
     public function getAttendanceStatus();
+
+    /**
+     * To get attendance lists of employee montly
+     * @return $array of employees
+     */
+    public function getMonthlyAttendances();
+
+    /**
+     * To delete attendance lists of employee montly
+     * @return bool
+     */
+    public function deleteMonthlyAttendances();
 }

@@ -2,9 +2,11 @@
 
 namespace App\Console;
 
+use App\Console\Commands\AttendanceBackup;
 use App\Console\Commands\SendPayroll;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Artisan;
 
 class Kernel extends ConsoleKernel
 {
@@ -16,7 +18,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command(SendPayroll::class)->lastDayOfMonth('17:00');
+        $schedule->command(SendPayroll::class)
+            ->lastDayOfMonth('22:00')
+            ->onSuccess(function () {
+                Artisan::call(AttendanceBackup::class);
+            });
     }
 
     /**
