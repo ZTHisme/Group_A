@@ -98,6 +98,7 @@
 
   .form-check-input {
     margin-bottom: 0.5VW;
+    width: 2vw;
   }
 
   .card-submit {
@@ -138,44 +139,47 @@
     padding: 0.5VW 0;
   }
 
-  .listcard-header {
-    padding: 1vw;
-    border: 0.5vw solid #cececee1;
-    font-size: 2vw;
-  }
-
   .list-card {
+    overflow-x: scroll;
     border: 0.1vw solid #cdcdcd;
     border-radius: 0.5vw;
+    font-size: 2.125vw;
+    width: 100vw;
+  }
+
+  .listcard-header {
+    padding: 1vw;
+    border: 0.3vw solid #cececee1;
+    font-size: 3.125vw;
+    width: 100vw;
   }
 
   .dataTables_wrapper .dataTables_length,
   .dataTables_wrapper .dataTables_filter {
-    font-size: 1.5vw;
+    font-size: 2vw;
   }
 
   table.dataTable {
     width: 98%;
     border: 0.5vw solid #cdcdcd;
-    font-size: 1.3vw;
+    font-size: 2.125vw;
   }
 
   .dataTables_wrapper .dataTables_info {
-    float: left;
-    clear: both;
-    width: 19vw;
-    padding-top: 0.755em;
-    font-size: 1.2vw;
     text-align: left;
-  }
-
+    clear: both;
+    float: left;
+    padding-top: 0.755em;
+    width: 24vw;
+    font-size: 2vw;
+}
   .dataTables_wrapper .dataTables_paginate {
     float: right;
-    font-size: 1.5vw;
+    font-size: 2vw;
   }
 
   .dataTables_wrapper .dataTables_paginate .paginate_button {
-    font-size: 1.2vw;
+    font-size: 1.8vw;
   }
 
   .dataTables_wrapper .dataTables_filter input {

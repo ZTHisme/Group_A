@@ -25,32 +25,34 @@
   }
 
   .list-card {
-    margin-right: 7vw;
-    width: 68vw;
+    overflow-x: scroll;
     border: 0.1vw solid #cdcdcd;
     border-radius: 0.5vw;
+    font-size: 2.125vw;
+    width: 100vw;
   }
 
   .listcard-header {
     padding: 1vw;
-    border: 0.5vw solid #cececee1;
-    font-size: 1.5vw;
+    border: 0.3vw solid #cececee1;
+    font-size: 3.125vw;
+    width: 100vw;
   }
 
   table.dataTable {
-    width: 67vw;
+    width: 98%;
     border: 0.5vw solid #cdcdcd;
-    font-size: 0.8vw;
+    font-size: 2.125vw;
   }
 
   .sm-btn {
-    padding: 0.2vw 0.5vw;
-    font-size: 0.35vw;
+    padding: 0.2vw 1.8vw;
+    font-size: 1.5vw;
   }
 
   .dataTables_wrapper .dataTables_length,
   .dataTables_wrapper .dataTables_filter {
-    font-size: 1.5vw;
+    font-size: 2.5vw;
   }
 
   div.dataTables_length select {
@@ -61,7 +63,7 @@
 
   .dataTables_wrapper .dataTables_info,
   .dataTables_wrapper .dataTables_paginate {
-    font-size: 1.5vw;
+    font-size: 2vw;
   }
 
   .dataTables_wrapper .dataTables_paginate {
@@ -110,17 +112,16 @@
     clear: both;
     float: left;
     padding-top: 0.755em;
-    width: 19vw;
-    font-size: 1.2vw;
-  }
-
+    width: 24vw;
+    font-size: 2vw;
+}
   .dataTables_wrapper .dataTables_paginate {
     float: right;
-    font-size: 1.5vw;
+    font-size: 2vw;
   }
 
   .dataTables_wrapper .dataTables_paginate .paginate_button {
-    font-size: 1.2vw;
+    font-size: 1.8vw;
   }
 }
 
