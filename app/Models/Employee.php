@@ -137,6 +137,17 @@ class Employee extends Authenticatable
         return $sum;
     }
 
+    /**
+     * Get the employee's joined date format.
+     *
+     * @return int
+     */
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format(config('constants.Date_Format'));   
+    }
+
+
     /**  
      * Ondelete cascade for employee
      */

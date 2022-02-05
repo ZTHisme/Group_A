@@ -77,7 +77,7 @@ class EmployeeController extends Controller
 
         if ($this->employeeInterface->sendEmployeeMail($employee)) {
             return redirect()
-                ->route('employee#showLists')
+                ->route('employee-showLists')
                 ->with('success', 'New Employee Created and Email has been sent to Managers.');
         } else {
             return back()
@@ -133,7 +133,7 @@ class EmployeeController extends Controller
 
         if ($employee) {
             return redirect()
-                ->route('employee#showLists')
+                ->route('employee-showLists')
                 ->with('success', 'Employee data is updated successfully.');
         } else {
             return back()
@@ -157,7 +157,7 @@ class EmployeeController extends Controller
 
         if ($result) {
             return redirect()
-                ->route('employee#showLists')
+                ->route('employee-showLists')
                 ->with('success', 'Employee data is deleted successfully.');
         } else {
             return back()
@@ -226,7 +226,7 @@ class EmployeeController extends Controller
 
         if ($this->employeeInterface->uploadCSV()) {
             return redirect()
-                ->route('employee#showLists')
+                ->route('employee-showLists')
                 ->with('success', 'Successfully Imported CSV File.');
         }
     }

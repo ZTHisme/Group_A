@@ -22,7 +22,7 @@
         associated
       @endif">
         <td>{{ $schedule->name }}</td>
-        <td>{{ \Carbon\Carbon::parse($schedule->end_date )->toDateString() }}</td>
+        <td>{{ \Carbon\Carbon::parse($schedule->end_date )->format(config('constants.Date_Format')) }}</td>
         <td>{{ $schedule->status_text }}</td>
         <td>{{ $schedule->assignor->name }}</td>
         <td>{{ $schedule->assignee->name }}</td>

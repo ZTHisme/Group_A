@@ -22,12 +22,12 @@ use App\Http\Controllers\Attendance\AttendanceController;
 */
 
 // Employee list resource route
-Route::prefix('employees')->middleware('auth')->group(function () {
-    Route::get('/lists', [EmployeeController::class, 'index'])->name('employee#showLists');
-    Route::get('download', [EmployeeController::class, 'downloadCSV'])->name('employees.download');
-    Route::get('upload', [EmployeeController::class, 'showUpload'])->name('employees.upload');
-    Route::post('submit', [EmployeeController::class, 'submitUpload'])->name('employees.submit');
-    Route::get('/show/{id}', [EmployeeController::class, 'showEmployeeDetailForm'])->name('show.employee.get');
+Route::prefix('employee')->middleware('auth')->group(function () {
+    Route::get('/', [EmployeeController::class, 'index'])->name('employee-showLists');
+    Route::get('download', [EmployeeController::class, 'downloadCSV'])->name('employees-download');
+    Route::get('upload', [EmployeeController::class, 'showUpload'])->name('employees-upload');
+    Route::post('submit', [EmployeeController::class, 'submitUpload'])->name('employees-submit');
+    Route::get('/{id}', [EmployeeController::class, 'showEmployeeDetailForm'])->name('employees-show');
     Route::get('add', [EmployeeController::class, 'showEmploeeForm'])->name('addEmployee.get');
     Route::post('add', [EmployeeController::class, 'submitEmployeeForm'])->name('addEmployee.post');
     Route::get('/edit/{id}', [EmployeeController::class, 'showEmployeeEditForm'])->name('edit.employee.get');

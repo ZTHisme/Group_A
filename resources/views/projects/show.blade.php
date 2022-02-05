@@ -61,7 +61,7 @@
     <div class="col-75">
       @foreach ($project->employees as $employee)
       <input class="group" type="text" id="link" value="{{ $employee->name }}" readonly>
-      <a href="{{ route('show.employee.get', [$employee->id]) }}" class="yellow-btn sm-btn">
+      <a href="{{ route('employees-show', [$employee->id]) }}" class="yellow-btn sm-btn">
         <span class="fas fa-eye"></span>
       </a>
       @endforeach

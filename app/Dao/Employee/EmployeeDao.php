@@ -156,16 +156,14 @@ class EmployeeDao implements EmployeeDaoInterface
      */
     public function searchEmployee(Request $request)
     {
-        if ($request->all() > 0) {
-            $name = $request->name;
-            $start_date = $request->start_date;
-            $end_date = $request->end_date;
-            $query = DB::table('employees')
-                ->join('mst_roles', 'employees.role_id', '=', 'mst_roles.id')
-                ->join('mst_departments', 'employees.department_id', '=', 'mst_departments.id')
-                ->whereNull('employees.deleted_at')
-                ->select('employees.*', 'mst_roles.name as role', 'mst_departments.name as department');
-        }
+        $name = $request->name;
+        $start_date = $request->start_date;
+        $end_date = $request->end_date;
+        $query = DB::table('employees')
+            ->join('mst_roles', 'employees.role_id', '=', 'mst_roles.id')
+            ->join('mst_departments', 'employees.department_id', '=', 'mst_departments.id')
+            ->whereNull('employees.deleted_at')
+            ->select('employees.*', 'mst_roles.name as role', 'mst_departments.name as department');
 
         $auth = DB::table('employees')
             ->join('mst_roles', 'employees.role_id', '=', 'mst_roles.id')
@@ -297,6 +295,7 @@ class EmployeeDao implements EmployeeDaoInterface
             [
                 'name',
                 'email',
+                'password',
                 'phone',
                 'address',
                 'profile',
@@ -306,7 +305,9 @@ class EmployeeDao implements EmployeeDaoInterface
                 'created_at',
                 'updated_at'
             ]
-        )->get();
+        )
+        ->get()
+        ->makeVisible(['password']);
     }
 
     /**
