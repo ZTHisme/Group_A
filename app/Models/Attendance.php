@@ -43,7 +43,7 @@ class Attendance extends Model
     {
         if ($this->type === config('constants.WFH')) {
             return 'WFH';
-        } elseif ($this->type == config('constants.Office')) {
+        } elseif ($this->type === config('constants.Office')) {
             return 'Office';
         } else {
             return '-';
@@ -57,7 +57,7 @@ class Attendance extends Model
      */
     public function getStatusAttribute()
     {
-        $attendance = $this->leave == 0;
+        $attendance = $this->leave === 0;
         return $attendance ? 'Present' : 'Absent';
     }
 }

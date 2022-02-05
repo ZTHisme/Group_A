@@ -13,7 +13,7 @@ interface ForgetPasswordInterface
      * To store forget password data and send email
      * 
      * @param Request $request request including inputs
-     * @return
+     * @return void
      */
     public function processForgetPasswordForm(Request $request);
 

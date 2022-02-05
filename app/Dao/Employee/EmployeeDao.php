@@ -42,7 +42,7 @@ class EmployeeDao implements EmployeeDaoInterface
     /**
      * To add new employee
      * @param Request $request
-     * @return
+     * @return $employee object
      */
     public function addEmployee(Request $request, $filename)
     {
@@ -90,7 +90,7 @@ class EmployeeDao implements EmployeeDaoInterface
     /**
      * To edit employee information
      * @param $id,Request $request
-     * @return
+     * @return $employee object
      */
     public function editEmployeeById(Request $request, $data)
     {
@@ -122,7 +122,7 @@ class EmployeeDao implements EmployeeDaoInterface
     /**
      * To delete employee by id
      * @param $id
-     * @return
+     * @return bool
      */
     public function deleteEmployeeById($id)
     {

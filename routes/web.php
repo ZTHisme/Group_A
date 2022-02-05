@@ -28,90 +28,90 @@ Route::prefix('employee')->middleware('auth')->group(function () {
     Route::get('upload', [EmployeeController::class, 'showUpload'])->name('employees-upload');
     Route::post('submit', [EmployeeController::class, 'submitUpload'])->name('employees-submit');
     Route::get('/{id}', [EmployeeController::class, 'showEmployeeDetailForm'])->name('employees-show');
-    Route::get('add', [EmployeeController::class, 'showEmploeeForm'])->name('addEmployee.get');
-    Route::post('add', [EmployeeController::class, 'submitEmployeeForm'])->name('addEmployee.post');
-    Route::get('/edit/{id}', [EmployeeController::class, 'showEmployeeEditForm'])->name('edit.employee.get');
-    Route::patch('/edit/{id}', [EmployeeController::class, 'submitEmployeeEditForm'])->name('edit.employee.post');
-    Route::delete('/delete/{id}', [EmployeeController::class, 'deleteEmployee'])->name('delete.employee');
+    Route::get('create/get', [EmployeeController::class, 'create'])->name('employees-create');
+    Route::post('add', [EmployeeController::class, 'submitEmployeeForm'])->name('employees-store');
+    Route::get('/{id}/edit', [EmployeeController::class, 'showEmployeeEditForm'])->name('employees-edit');
+    Route::patch('/{id}', [EmployeeController::class, 'submitEmployeeEditForm'])->name('employees-update');
+    Route::delete('/{id}', [EmployeeController::class, 'deleteEmployee'])->name('employees-delete');
 });
 
 // Dashboard route to show chart
-Route::get('/dashboard', [EmployeeController::class, 'graph'])->name('graph#dashBoard')->middleware('auth');
+Route::get('/dashboard', [EmployeeController::class, 'graph'])->name('graph-dashBoard')->middleware('auth');
 
 Route::get('/', function () {
-    return redirect()->route('graph#dashBoard');
+    return redirect()->route('graph-dashBoard');
 });
 
 // Attendance Routes
-Route::prefix('attendances')->middleware('auth')->group(function () {
-    Route::get('list', [AttendanceController::class, 'index'])->name('attendances#index');
-    Route::post('store', [AttendanceController::class, 'store'])->name('attendances#store');
-    Route::get('update', [AttendanceController::class, 'update'])->name('attendances#update');
+Route::prefix('attendance')->middleware('auth')->group(function () {
+    Route::get('/', [AttendanceController::class, 'index'])->name('attendances-index');
+    Route::post('store', [AttendanceController::class, 'store'])->name('attendances-store');
+    Route::get('update', [AttendanceController::class, 'update'])->name('attendances-update');
     Route::post('customleave', [AttendanceController::class, 'customLeave'])
-        ->name('attendances#customLeave');
+        ->name('attendances-customLeave');
 });
 
 // Payroll Routes
-Route::prefix('payrolls')->middleware('auth')->group(function () {
-    Route::get('list', [PayrollController::class, 'index'])->name('payrolls#index');
-    Route::get('{employee}/calculate', [PayrollController::class, 'calculate'])->name('payrolls#calculate');
-    Route::get('sendpayrollmail/{finalsalary}', [PayrollController::class, 'sendPayrollMail'])
-        ->name('payrolls#sendPayrollMail');
-    Route::get('{employee}/recalculate', [PayrollController::class, 'recalculate'])->name('payrolls#recalculate');
-    Route::get('editview/{employee}', [PayrollController::class, 'showEditView'])
-        ->name('payroll#showEditView');
-    Route::patch('updatepayroll/{employee}', [PayrollController::class, 'updatePayroll'])
-        ->name('payrolls#updatePayroll');
+Route::prefix('payroll')->middleware('auth')->group(function () {
+    Route::get('/', [PayrollController::class, 'index'])->name('payrolls-index');
+    Route::get('{employee}', [PayrollController::class, 'calculate'])->name('payrolls-calculate');
+    Route::get('{finalsalary}/sendpayrollmail', [PayrollController::class, 'sendPayrollMail'])
+        ->name('payrolls-sendPayrollMail');
+    Route::get('{employee}/recalculate', [PayrollController::class, 'recalculate'])->name('payrolls-recalculate');
+    Route::get('{employee}/editview', [PayrollController::class, 'showEditView'])
+        ->name('payroll-showEditView');
+    Route::patch('{employee}', [PayrollController::class, 'updatePayroll'])
+        ->name('payrolls-updatePayroll');
 });
 
 // Project Management Routes
-Route::prefix('projects')->middleware('auth')->group(function () {
-    Route::get('list', [ProjectController::class, 'index'])->name('projects#index');
+Route::prefix('project')->middleware('auth')->group(function () {
+    Route::get('/', [ProjectController::class, 'index'])->name('projects-index');
     Route::get('createview', [ProjectController::class, 'showCreateView'])
-        ->name('projects#showCreateView');
+        ->name('projects-showCreateView');
     Route::post('store', [ProjectController::class, 'postCreate'])
-        ->name('projects#postCreate');
+        ->name('projects-postCreate');
     Route::get('{project}/members', [ProjectController::class, 'getMembers'])
-        ->name('projects#getMembers');
-    Route::get('editview/{project}', [ProjectController::class, 'showEditView'])
-        ->name('projects#showEditView');
-    Route::get('{project}/membertoogle/{id}', [ProjectController::class, 'memberToogle'])
-        ->name('projects#memberToogle');
-    Route::patch('updateproject/{project}', [ProjectController::class, 'updateProject'])
-        ->name('projects#updateProject');
-    Route::delete('deleteproject/{project}', [ProjectController::class, 'deleteProject'])
-        ->name('projects#deleteProject');
-    Route::get('showdetail/{project}', [ProjectController::class, 'showDetail'])
-        ->name('projects#showDetail');
+        ->name('projects-getMembers');
+    Route::get('{project}/editview', [ProjectController::class, 'showEditView'])
+        ->name('projects-showEditView');
+    Route::get('{project}/{id}/membertoogle', [ProjectController::class, 'memberToogle'])
+        ->name('projects-memberToogle');
+    Route::patch('{project}', [ProjectController::class, 'updateProject'])
+        ->name('projects-updateProject');
+    Route::delete('{project}', [ProjectController::class, 'deleteProject'])
+        ->name('projects-deleteProject');
+    Route::get('{project}', [ProjectController::class, 'showDetail'])
+        ->name('projects-showDetail');
     Route::get('{project}/schedulecreateview', [ScheduleController::class, 'scheduleCreateView'])
-        ->name('projects#scheduleCreateView');
+        ->name('projects-scheduleCreateView');
     Route::post('{project}/storeschedule', [ScheduleController::class, 'storeSchedule'])
-        ->name('projects#storeSchedule');
-    Route::get('schedules/{schedule}/showschedule', [ScheduleController::class, 'showSchedule'])
-        ->name('projects#showSchedule');
-    Route::get('schedules/{schedule}/downloadfile', [ScheduleController::class, 'downloadFile'])
-        ->name('projects#downloadFile');
-    Route::get('schedules/{schedule}/updatestatus', [ScheduleController::class, 'updateStatus'])
-        ->name('projects#updateStatus');
+        ->name('projects-storeSchedule');
+    Route::get('schedule/{schedule}', [ScheduleController::class, 'showSchedule'])
+        ->name('projects-showSchedule');
+    Route::get('schedule/{schedule}/downloadfile', [ScheduleController::class, 'downloadFile'])
+        ->name('projects-downloadFile');
+    Route::get('schedule/{schedule}/updatestatus', [ScheduleController::class, 'updateStatus'])
+        ->name('projects-updateStatus');
 });
 
 // Setting Routes
-Route::prefix('settings')->middleware('auth')->group(function () {
-    Route::get('upload', [MstCalendarController::class, 'showUpload'])->name('calendar.upload');
-    Route::post('submit', [MstCalendarController::class, 'submitUpload'])->name('calendar.submit');
+Route::prefix('setting')->middleware('auth')->group(function () {
+    Route::get('/', [MstCalendarController::class, 'showUpload'])->name('calendar-upload');
+    Route::post('/', [MstCalendarController::class, 'submitUpload'])->name('calendar-submit');
 });
 
 // Custom auth routes
 Route::group(['middleware' => ['guest']], function () {
     Route::get('login', [AuthController::class, 'index'])->name('login');
-    Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
+    Route::post('post-login', [AuthController::class, 'postLogin'])->name('login-post');
     Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])
-        ->name('forget.password.get');
+        ->name('forget-password-get');
     Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])
-        ->name('forget.password.post');
+        ->name('forget-password-post');
     Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])
-        ->name('reset.password.get');
+        ->name('reset-password-get');
     Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])
-        ->name('reset.password.post');
+        ->name('reset-password-post');
 });
 Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');

@@ -24,7 +24,10 @@ class ForgetPasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|exists:employees,email,deleted_at,NULL'
+            'email' => ['required',
+                'email',
+                'exists:employees,email,deleted_at,NULL'
+            ]
         ];
     }
 }

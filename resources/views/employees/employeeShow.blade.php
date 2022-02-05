@@ -74,7 +74,7 @@
       </div>
       <div class="btn-group">
         @can('update-employee', $employee->id)
-        <a href="{{ route('edit.employee.get', [$employee->id]) }}" class="yellow-btn">Edit Profile</a>
+        <a href="{{ route('employees-edit', [$employee->id]) }}" class="yellow-btn">Edit Profile</a>
         @endcan
         <a href="#" id="back" class="blue-btn">Back</a>
       </div>

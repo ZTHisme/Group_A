@@ -40,7 +40,8 @@ class Schedule extends Model
      */
     public function getStatusTextAttribute()
     {
-        return $this->status == config('constants.Finished') ? 'Finished' : ($this->status == config('constants.Progress') ? 'Progress' : 'Not Started');
+        return $this->status === config('constants.Finished') ?
+            'Finished' : ($this->status === config('constants.Progress') ? 'Progress' : 'Not Started');
     }
 
     /**

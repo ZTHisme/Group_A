@@ -24,7 +24,7 @@
       <div>
         <a href="{{ route('employees-upload') }}" class="import-btn">Import Data</a>
         <a href="{{ route('employees-download') }}" class="export-btn">Export Data</a>
-        <a href="{{ route('addEmployee.get') }}"><i class="fas fa-user-plus mr-icon"></i></a>
+        <a href="{{ route('employees-create') }}"><i class="fas fa-user-plus mr-icon"></i></a>
       </div>
       @endcan
     </div>
@@ -54,11 +54,11 @@
               <td>
                 <a href="{{ route('employees-show', [$employee->id]) }}" class="blue-btn sm-btn">Show</a>
                 @can('update-employee', $employee->id)
-                <a href="{{ route('edit.employee.get', [$employee->id]) }}" class="yellow-btn sm-btn">Edit</a>
+                <a href="{{ route('employees-edit', [$employee->id]) }}" class="yellow-btn sm-btn">Edit</a>
                 @endcan
                 @can('isManager')
                 <a href="#" class="delete-btn red-btn sm-btn" data-id="{{ $employee->id }}">Delete</a>
-                <form action="{{ route('delete.employee', [$employee->id]) }}" method="POST" id="del-form{{ $employee->id }}">
+                <form action="{{ route('employees-delete', [$employee->id]) }}" method="POST" id="del-form{{ $employee->id }}">
                   @csrf
                   @method('DELETE')
                 </form>

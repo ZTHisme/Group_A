@@ -15,7 +15,7 @@
     <img class="profile-pic" src="{{ \Illuminate\Support\Facades\Storage::exists('public/employees/' . $employee->profile) ?
       asset(config('path.profile_path') . $employee->profile) : 
       'https://ui-avatars.com/api/?name='.$employee->name}}" id="preview-profile" alt="Profile" />
-    <form action="{{ route('edit.employee.post',$employee->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('employees-update',$employee->id) }}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PATCH')
 
