@@ -1,3 +1,7 @@
+.container{
+  height: 81%;
+}
+
 .con {
   width: 100%;
 }
@@ -67,11 +71,6 @@
   font-size: 15px;
   padding: 6px;
   border-radius: 7px;
-}
-
-.ft-cp {
-  position: absolute;
-  bottom: 0;
 }
 
 /*phone screen */

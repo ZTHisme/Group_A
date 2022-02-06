@@ -110,6 +110,7 @@
 
 @section('script')
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+<script src="{{ asset('js/library/jquery.heightLine.js') }}"></script>
 <script src="{{ asset('js/attendances/index.js') }}"></script>
 <script src="{{ asset('js/library/moment.min.js') }}"></script>
 <script src="{{ asset('js/library/daterangepicker.min.js') }}"></script>
