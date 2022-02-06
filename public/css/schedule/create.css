@@ -8,6 +8,29 @@ input[type=text].form-control {
   width: 100%;
 }
 
+/*phone screen*/
+@media (max-width:640px) {
+
+  .row {
+    font-size: 2vw;
+    width: 92%;
+    margin: 0 auto;
+    margin-bottom: 1.5vw;
+  }
+
+  .form-control {
+    padding: 1vw;
+    border-radius: 0.5vw;
+    font-size: 2vw;
+  }
+
+  .container {
+    padding: 0 5%;
+    height: 48%;
+  }
+
+}
+
 
 /*---------Ipad--------------*/
 

@@ -180,6 +180,13 @@ td {
     width: 11vw;
     font-size: 0.9vw;
   }
+
+  .listcard-header {
+    padding: 1vw;
+    border: 0.3vw solid #cececee1;
+    font-size: 3.125vw;
+    width: 76vw;
+  }
 }
 
 /*---------Ipad--------------*/

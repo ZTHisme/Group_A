@@ -580,10 +580,10 @@ table.dataTable td {
     }
 
     .ft-cp {
-        position: fixed;
+        margin-left: 3vw;
+        margin-top: 10vw;
         padding: 3.125vw 0;
-        font-size: 2vw;
-        bottom: 0;
+        font-size: 2.144vw;
     }
 
     .list-card {
@@ -689,4 +689,10 @@ table.dataTable td {
     .sm-btn {
         font-size: 1.5vw;
     }
+
+    input[type=submit] {
+        font-size: 1.5vw;
+        vertical-align: baseline;
+    }
+    
 }

@@ -107,6 +107,7 @@
     margin: 1vw;
   }
 
+  
   .dataTables_wrapper .dataTables_info {
     text-align: left;
     clear: both;
@@ -114,7 +115,8 @@
     padding-top: 0.755em;
     width: 24vw;
     font-size: 2vw;
-}
+  }
+
   .dataTables_wrapper .dataTables_paginate {
     float: right;
     font-size: 2vw;
@@ -123,6 +125,13 @@
   .dataTables_wrapper .dataTables_paginate .paginate_button {
     font-size: 1.8vw;
   }
+
+  .ft-cp {
+    margin-left: 3vw;
+    margin-top: 1vw;
+    padding: 3.125vw 0;
+    font-size: 2.144vw;
+}
 }
 
 /*---------Ipad--------------*/

@@ -89,6 +89,11 @@ input[type=number] {
 /*phone screen */
 @media (max-width:640px) {
 
+  .container {
+    height: 100vw;
+    max-width: 95%;
+  }
+
   .cardcreate {
     width: 90%;
     padding: 0vw 4vw 5vw;
@@ -99,6 +104,7 @@ input[type=number] {
     padding: 1vw;
     border: 0.3vw solid #cececee1;
     font-size: 2vw;
+    width: 78vw;
   }
 
   .form-control {
@@ -159,7 +165,14 @@ input[type=number] {
     margin-bottom: 3vw;
   }
 
+  .card-body {
+    width: 80.2vw;
+    padding: 1.5vw 0;
+    border: 0.1px solid #79797954;
 }
+
+}
+
 /*---------Ipad--------------*/
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {

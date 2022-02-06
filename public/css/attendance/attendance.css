@@ -172,7 +172,8 @@
     padding-top: 0.755em;
     width: 24vw;
     font-size: 2vw;
-}
+  }
+
   .dataTables_wrapper .dataTables_paginate {
     float: right;
     font-size: 2vw;
@@ -224,6 +225,13 @@
 
   .checkout-btn {
     margin-left: 12vw;
+  }
+
+  .ft-cp {
+    margin-left: 3vw;
+    margin-top: 1vw;
+    padding: 3.125vw 0;
+    font-size: 2.144vw;
   }
 
 }
