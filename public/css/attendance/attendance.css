@@ -241,7 +241,7 @@
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
   .card-submit {
-    width: 36%;
+    width: 49%;
     margin: 0 auto;
     margin-bottom: 1.953vw;
     padding-bottom: 0.977vw;
@@ -254,7 +254,7 @@
     padding: 0.977vw;
     border: 0.098vw solid #e2e1e1;
     background-color: #e2e1e1;
-    font-size: 1.465vw;
+    font-size: 2.184vw;
   }
 
   .txt-date {
@@ -287,7 +287,7 @@
   .checkin-btn {
     display: block;
     margin: 0vw auto 0.977vw;
-    font-size: 1.045vw;
+    font-size: 2.184vw;
   }
 
   .mr-icon {
@@ -303,11 +303,15 @@
   .dates {
     margin-left: 1.953vw;
     padding: 0.781vw;
-    font-size: 1.045vw;
+    font-size: 2.184vw;
     border-radius: 0.977vw;
   }
 
   label {
-    font-size: 0.963vw;
+    font-size: 2.184vw;
+  }
+
+  .ft-cp {
+    margin-top: 4vw;
   }
 }

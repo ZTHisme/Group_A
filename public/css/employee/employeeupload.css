@@ -46,6 +46,10 @@
   border-radius: 7px;
 }
 
+.btn-group {
+  margin-left: 28%;
+}
+
 .mb-4 {
   margin-bottom: 10px;
 }
@@ -141,7 +145,7 @@
     padding: 0.977vw;
     border: 0.098vw solid #e2e1e1;
     background-color: #e2e1e1;
-    font-size: 1.465vw;
+    font-size: 2.953vw;
   }
 
   .emp {
@@ -154,7 +158,7 @@
     border: none;
     background-color: #04a51f;
     color: #fff;
-    font-size: 1.465vw;
+    font-size: 2.184vw;
     cursor: pointer;
     border-radius: 0.684vw;
   }

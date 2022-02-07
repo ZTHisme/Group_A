@@ -29,15 +29,18 @@ input[type=text].form-control {
     height: 48%;
   }
 
+  .col-75 {
+    float: right;
+  }
+
 }
 
 
 /*---------Ipad--------------*/
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  row {
-    width: 50%;
-    margin: 0 auto;
+  .row {
+    width: 100%;
     margin-bottom: 1.465vw;
   }
 
@@ -46,6 +49,14 @@ input[type=text].form-control {
   }
 
   .form-control {
-    font-size: 0.963vw;
+    font-size: 2.184vw;
+  }
+
+  .btn-choose {
+    font-size: 2.184vw;
+  }
+
+  .col-75 {
+    float: right;
   }
 }

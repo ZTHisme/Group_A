@@ -197,13 +197,13 @@ td {
   }
 
   input[type=text] {
-    width: 60%;
+    width: 100%;
     padding: 0.781vw;
     border: none;
     border-radius: 0.391vw;
     resize: vertical;
     outline: none;
-    font-size: 0.963vw;
+    font-size: 2.184vw;
   }
 
   label {
@@ -235,7 +235,7 @@ td {
   }
 
   .dataTables_wrapper {
-    width: 60%;
+    width: 100%;
   }
 
   .dataTables_filter,
@@ -254,17 +254,17 @@ td {
     background-color: #FAFBFC;
     border: 0.098vw solid rgba(27, 31, 35, 0.15);
     border-radius: 0.586vw;
-    box-shadow: rgba(27, 31, 35, 0.04) 0 0.098vw 0, rgba(255, 255, 255, 0.25) 0 0.098vw 0 inset;
+    box-shadow: rgb(27 31 35 / 4%) 0 0.098vw 0, rgb(255 255 255 / 25%) 0 0.098vw 0 inset;
     box-sizing: border-box;
     color: #24292E;
     cursor: pointer;
     display: inline-block;
     font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    font-size: 0.767vw;
+    font-size: 1.5vw;
     font-weight: 500;
     line-height: 1.953vw;
     list-style: none;
-    width: 3.324vw;
+    width: 5.324vw;
     position: relative;
     transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
     user-select: none;
@@ -304,5 +304,9 @@ td {
 
   .button-4:-webkit-details-marker {
     display: none;
+  }
+
+  .ft-cp {
+    margin-top: 4vw;
   }
 }

@@ -27,6 +27,10 @@ input[type=number] {
   position: relative;
 }
 
+.btn-group {
+  margin-left: 30%;
+}
+
 /*phone screen */
 @media (max-width:640px) {
 
@@ -92,7 +96,7 @@ input[type=number] {
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .card {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     border: 0.098vw solid rgba(0, 0, 0, 0.125);
     border-radius: 0.391vw;
@@ -116,7 +120,7 @@ input[type=number] {
   }
 
   input[type=number] {
-    width: 87%;
+    width: 83%;
     position: relative;
   }
 }

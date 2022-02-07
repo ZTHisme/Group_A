@@ -50,6 +50,10 @@ textarea {
   padding: 6px 6px;
 }
 
+.btn-group {
+  margin-left: 25%;
+}
+
 
 /*phone screen */
 @media (max-width:640px) {
@@ -86,12 +90,12 @@ textarea {
   }
 
   .half {
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
   }
 
   .box {
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
   }
   

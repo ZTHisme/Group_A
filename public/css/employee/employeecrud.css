@@ -257,7 +257,11 @@ input[type=number] {
   }
 
   input[type=number] {
-    width: 92%;
+    width: 87%;
     position: relative;
+  }
+
+  .ft-cp {
+    margin-top: 2vw;
   }
 }

@@ -126,7 +126,11 @@
   }
 
   .title {
-    font-size: 1.953vw;
+    font-size: 2.553vw;
     color: #7992e2;
+  }
+
+  .ft-cp {
+    margin-top: 4vw;
   }
 }

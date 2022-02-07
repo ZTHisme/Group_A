@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
   <div class="card-upload">
-    <div class="cardheader-upload">Upload Working Days For One Year</div>
+    <div class="cardheader-upload">Upload Working Days</div>
     <form action="{{ route('calendar-submit') }}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="mb-4">

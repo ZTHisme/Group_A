@@ -81,7 +81,7 @@ textarea {
 
 .rounded-input {
   margin: 10px 0vw 10px 0.953vw;
-  padding: 0.98vw;
+  padding: 0.679vw;
   border: 0.098vw solid #d1d0d0;
   border-radius: 0.977vw;
   width: 150px;
@@ -482,10 +482,10 @@ textarea {
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
-  td,
+  /*td,
   th {
     font-size: 0.963vw;
-  }
+  }*/
 
   body {
     width: 100%;
@@ -494,7 +494,7 @@ textarea {
     background-color: #fff;
     color: #212529;
     font-family: 'Roboto', sans-serif;
-    font-size: 0.963vw;
+    font-size: 2.184vw;
     font-weight: 400;
     text-align: left;
   }
@@ -502,7 +502,7 @@ textarea {
 
   .ft-cp {
     padding: 1.953vw 0;
-    font-size: 1.465vw;
+    font-size: 1.716vw;
   }
 
   #content {
@@ -556,12 +556,12 @@ textarea {
   }
 
   .rounded-input {
-    width: 25%;
+    width: 24%;
     margin: 0.977vw 0vw 0.977vw 0.953vw;
     margin-right: 0.34vw;
     padding: 0.977vw 0.953vw;
     border: 0.098vw solid #d1d0d0;
-    font-size: 1.045vw;
+    font-size: 1.784vw;
     border-radius: 0.977vw;
   }
 
@@ -575,7 +575,7 @@ textarea {
     border: none;
     background-color: #3e64ff;
     color: #fff;
-    font-size: 0.963vw;
+    font-size: 2.184vw;
     cursor: pointer;
     border-radius: 0.977vw;
   }
@@ -586,7 +586,7 @@ textarea {
     border: none;
     background-color: #ca9801;
     color: #fff;
-    font-size: 0.963vw;
+    font-size: 2.184vw;
     cursor: pointer;
     border-radius: 0.977vw;
   }
@@ -597,24 +597,24 @@ textarea {
     border: none;
     background-color: #dc3545;
     color: #fff;
-    font-size: 0.963vw;
+    font-size: 2.184vw;
     cursor: pointer;
     border-radius: 0.977vw;
   }
 
   .sm-btn {
     width: 80%;
-    padding: 0.12vw 0.56vw;
-    font-size: 0.9vw;
+    padding: 0.32vw 0.86vw;
+    font-size: 1.5vw;
   }
 
   .cal-btn,
   .payroll-btn {
     display: inline-block;
-    width: 53%;
+    width: 65%;
     margin-bottom: 0.2vw;
     padding: 0.11vw 0.66vw;
-    font-size: 0.8vw;
+    font-size: 1.5vw;
   }
 
   /* ------------------------Error Msg------------------ -------- */
@@ -756,7 +756,7 @@ textarea {
     padding: 0.977vw;
     border: 0.098vw solid #cececee1;
     background-color: #cececee1;
-    font-size: 1.953vw;
+    font-size: 2.953vw;
   }
 
   /* ------------------------Form---------------------------- */
@@ -766,16 +766,16 @@ textarea {
     border: none;
     background: #ffffff;
     color: #000;
-    font-size: 1.163vw;
+    font-size: 2.184vw;
     border-radius: 0.488vw;
   }
 
   .swal2-popup {
-    font-size: 1.163vw !important;
+    font-size: 1.563vw  !important;
   }
 
   .btn-filechoose {
-    font-size: 1.163vw;
+    font-size: 2.184vw;
   }
 
   [type="file"]::-webkit-file-upload-button {
@@ -795,7 +795,7 @@ textarea {
 
   .mr-table {
     margin-bottom: 1.465vw;
-    font-size: 1.565vw;
+    font-size: 2.953vw;
   }
 
   .align {
@@ -912,7 +912,7 @@ textarea {
   }
 
   input[type=submit] {
-    font-size: 0.963vw;
+    font-size: 2.184vw;
   }
 
   .form-control {
@@ -920,13 +920,17 @@ textarea {
     padding: 1.172vw;
     border: none;
     box-sizing: border-box;
-    font-size: 1.163vw;
+    font-size: 2.184vw;
     outline: none;
     border-radius: 0.488vw;
   }
 
   .text label {
-    font-size: 1.163vw;
+    font-size: 2.184vw;
+  }
+
+  .dataTables_wrapper {
+    overflow-x: auto;
   }
 
   .dataTables_filter,
@@ -934,12 +938,12 @@ textarea {
   .dataTables_info,
   .dataTables_paginate {
     margin: 0.977vw;
-    font-size: 0.963vw;
+    font-size: 2.184vw;
   }
 
   div.dataTables_length select {
     border: 0.098vw solid #c5c5c5;
-    font-size: 0.865vw;
+    font-size: 2.184vw;
     border-radius: 0.488vw;
   }
 
