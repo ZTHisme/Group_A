@@ -17,14 +17,14 @@
 }
 
 input[type=number]:before {
-  content: '';
   margin-right: 5px;
   color: #9d9d9d;
+  content: '';
 }
 
 input[type=number] {
-  width: 87%;
   position: relative;
+  width: 87%;
 }
 
 /*phone screen */
@@ -32,9 +32,9 @@ input[type=number] {
 
   .container {
     width: 90%;
-    font-size: 1.5vw;
     margin-right: 27vw;
     padding: 0vw;
+    font-size: 1.5vw;
   }
 
   .listcard-header {
@@ -70,9 +70,9 @@ input[type=number] {
   }
 
   .blue-btn {
+    margin-left: 12vw;
     padding: 1vw 1.4vw;
     border-radius: 1.2vw;
-    margin-left: 12vw;
   }
 
   .red-btn {
@@ -110,13 +110,17 @@ input[type=number] {
   }
 
   input[type=number]:before {
-    content: '';
     margin-right: 0.488vw;
     color: #9d9d9d;
+    content: '';
   }
 
   input[type=number] {
-    width: 87%;
     position: relative;
+    width: 87%;
+  }
+
+  .ft-cp {
+    margin-top: 0;
   }
 }

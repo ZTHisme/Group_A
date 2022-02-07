@@ -97,8 +97,8 @@
   }
 
   .form-check-input {
-    margin-bottom: 0.5VW;
     width: 2vw;
+    margin-bottom: 0.5VW;
   }
 
   .card-submit {
@@ -140,18 +140,18 @@
   }
 
   .list-card {
-    overflow-x: scroll;
-    border: 0.1vw solid #cdcdcd;
-    border-radius: 0.5vw;
-    font-size: 2.125vw;
     width: 100vw;
+    border: 0.1vw solid #cdcdcd;
+    font-size: 2.125vw;
+    overflow-x: scroll;
+    border-radius: 0.5vw;
   }
 
   .listcard-header {
+    width: 100vw;
     padding: 1vw;
     border: 0.3vw solid #cececee1;
     font-size: 3.125vw;
-    width: 100vw;
   }
 
   .dataTables_wrapper .dataTables_length,
@@ -166,12 +166,12 @@
   }
 
   .dataTables_wrapper .dataTables_info {
-    text-align: left;
-    clear: both;
     float: left;
-    padding-top: 0.755em;
+    clear: both;
     width: 24vw;
+    padding-top: 0.755em;
     font-size: 2vw;
+    text-align: left;
   }
 
   .dataTables_wrapper .dataTables_paginate {
@@ -228,8 +228,8 @@
   }
 
   .ft-cp {
-    margin-left: 3vw;
     margin-top: 1vw;
+    margin-left: 3vw;
     padding: 3.125vw 0;
     font-size: 2.144vw;
   }
@@ -309,5 +309,9 @@
 
   label {
     font-size: 0.963vw;
+  }
+  
+  .ft-cp{
+    margin-top: 0;
   }
 }

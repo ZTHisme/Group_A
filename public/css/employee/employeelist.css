@@ -509,4 +509,8 @@ nav:after,
   .mr-5 {
     margin: 0 0.488vw;
   }
+  
+  .ft-cp{
+    margin-top: 0;
+  }
 }
