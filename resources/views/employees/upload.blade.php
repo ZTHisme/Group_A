@@ -10,7 +10,7 @@
 <div class="container">
   <div class="card-upload">
     <div class="cardheader-upload">Upload Employee Lists</div>
-    <form action="{{ route('employees.submit') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('employees-submit') }}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="mb-4">
         <div class="custom-file">

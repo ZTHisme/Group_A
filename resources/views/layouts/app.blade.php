@@ -36,7 +36,7 @@
               'https://ui-avatars.com/api/?name='.auth()->user()->name}}" id="img">
           <div class="text-list text-group">
             <p>{{ auth()->user()->name }}</p>
-            <a class="profile-link" href="{{ route('show.employee.get', [auth()->id()]) }}">Profile</a>
+            <a class="profile-link" href="{{ route('employees-show', [auth()->id()]) }}">Profile</a>
           </div>
         </div>
         <i class="bx fas fa-chevron-circle-right toggle"></i>
@@ -44,25 +44,25 @@
       <h1><a href="/" class="logo">Employee Management</a></h1>
       <ul>
         <li>
-          <a href="{{ route('graph#dashBoard') }}" class="{{ Request::routeIs('graph#dashBoard') ? 'active' : '' }}"><span class="fas fa-tachometer-alt"></span><span class="text-list align-dashboard"> Dashboard </span></a>
+          <a href="{{ route('graph-dashBoard') }}" class="{{ Request::routeIs('graph-dashBoard') ? 'active' : '' }}"><span class="fas fa-tachometer-alt"></span><span class="text-list align-dashboard"> Dashboard </span></a>
         </li>
         <li>
-          <a href="{{ route('employee#showLists') }}" class="{{ request()->is('employees*') ? 'active' : '' }}"><span class="fa fa-users"></span><span class="text-list align-emp"> Employees </span></a>
+          <a href="{{ route('employee-showLists') }}" class="{{ request()->is('employee*') ? 'active' : '' }}"><span class="fa fa-users"></span><span class="text-list align-emp"> Employees </span></a>
         </li>
         <li>
-          <a href="{{ route('attendances#index') }}" class="{{ request()->is('attendances*') ? 'active' : '' }}"><span class="fas fa-file-invoice"></span><span class="text-list align-att"> Attendance </span></a>
+          <a href="{{ route('attendances-index') }}" class="{{ request()->is('attendance*') ? 'active' : '' }}"><span class="fas fa-file-invoice"></span><span class="text-list align-att"> Attendance </span></a>
         </li>
         @can('isManager')
         <li>
-          <a href="{{ route('payrolls#index') }}" class="{{ request()->is('payrolls*') ? 'active' : '' }}"><span class="fas fa-cash-register"></span><span class="text-list"> Payroll Management </span></a>
+          <a href="{{ route('payrolls-index') }}" class="{{ request()->is('payroll*') ? 'active' : '' }}"><span class="fas fa-cash-register"></span><span class="text-list"> Payroll Management </span></a>
         </li>
         @endcan
         <li>
-          <a href="{{ route('projects#index') }}" class="{{ request()->is('projects*') ? 'active' : '' }}"><span class="fas fa-tasks"></span><span class="text-list"> Project Management </span></a>
+          <a href="{{ route('projects-index') }}" class="{{ request()->is('project*') ? 'active' : '' }}"><span class="fas fa-tasks"></span><span class="text-list"> Project Management </span></a>
         </li>
         @can('isManager')
         <li>
-          <a href="{{ route('calendar.upload') }}" class="{{ request()->is('settings*') ? 'active' : '' }}"><span class="far fa-calendar-alt"></span><span class="text-list">Add Calendar</span></a>
+          <a href="{{ route('calendar-upload') }}" class="{{ request()->is('setting*') ? 'active' : '' }}"><span class="far fa-calendar-alt"></span><span class="text-list">Add Calendar</span></a>
         </li>
         @endcan
         <li class="logout">
@@ -83,7 +83,7 @@
             <div class="dropdown">
               <button class="dropbtn btn ipad-drop"><i class="fas fa-caret-down"> {{ auth()->user()->name }}</i></button>
               <div class="dropdown-content">
-                <a class="nav-link" href="{{ route('show.employee.get', [auth()->id()]) }}">&nbsp;&nbsp;Profile</a>
+                <a class="nav-link" href="{{ route('employees-show', [auth()->id()]) }}">&nbsp;&nbsp;Profile</a>
                 <a class="nav-link" href="{{ route('logout') }}">&nbsp;&nbsp;Logout</a>
               </div>
 
@@ -129,7 +129,7 @@
               icon: 'info',
               title: 'Alert...',
               text: '{{session('task')}}',
-              footer: '<a href="{{ route('projects#index') }}">Go to Project Page...</a>'
+              footer: '<a href="{{ route('projects-index') }}">Go to Project Page...</a>'
             });
           }, 3000);
           @endif

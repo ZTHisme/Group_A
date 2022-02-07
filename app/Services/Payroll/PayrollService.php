@@ -6,11 +6,12 @@ use Mail;
 use App\Models\Employee;
 use App\Models\FinalSalary;
 use Illuminate\Http\Request;
-use App\Mail\EmployeePayroll;
 use App\Jobs\SendPayrollMailJob;
 use Illuminate\Support\Facades\Log;
 use App\Contracts\Dao\Payroll\PayrollDaoInterface;
 use App\Contracts\Services\Payroll\PayrollServiceInterface;
+use PDF;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Service class for employee
@@ -56,22 +57,36 @@ class PayrollService implements PayrollServiceInterface
      * To calculate pay roll
      * 
      * @param App\Models\Employee $employee
-     * @return $array of employee
+     * @return $final salary object
      */
     public function calculate(Employee $employee)
     {
-        return $this->payrollDao->calculate($employee);
+        $data = $this->payrollDao->calculate($employee);
+        $pdf = PDF::loadView('pdf.payroll', [
+            'monthlyWorkingDays' => $data['monthlyWorkingDays'],
+            'calculatedPayroll' => $data['calculatedPayroll']
+        ]);
+        Storage::put($data['calculatedPayroll']->file, $pdf->output());
+
+        return $data;
     }
 
     /**
      * To calculate pay roll
      * 
      * @param App\Models\Employee $employee
-     * @return $array of employee
+     * @return $final salary object
      */
     public function recalculate(Employee $employee)
     {
-        return $this->payrollDao->recalculate($employee);
+        $data = $this->payrollDao->recalculate($employee);
+        $pdf = PDF::loadView('pdf.payroll', [
+            'monthlyWorkingDays' => $data['monthlyWorkingDays'],
+            'calculatedPayroll' => $data['calculatedPayroll']
+        ]);
+        Storage::put($data['calculatedPayroll']->file, $pdf->output());
+
+        return $data;
     }
 
     /**

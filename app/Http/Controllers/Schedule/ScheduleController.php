@@ -62,12 +62,12 @@ class ScheduleController extends Controller
 
         if ($schedule) {
             return redirect()
-                ->route('projects#showDetail', [$project->id])
+                ->route('projects-showDetail', [$project->id])
                 ->with('success', 'Schdule Created Successfully.');
-        } else {
-            return back()
-                ->withErrors('Unknown error occured.');
         }
+
+        return back()
+            ->withErrors('Unknown error occured.');
     }
 
     /**
@@ -123,9 +123,9 @@ class ScheduleController extends Controller
         if ($result) {
             return back()
                 ->with('success', 'Schdule Marked as ' . $result->status_text . ' Successfully.');
-        } else {
-            return back()
-                ->withErrors('Unknown error occured.');
         }
+
+        return back()
+            ->withErrors('Unknown error occured.');
     }
 }

@@ -2,8 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\BasicSalary;
+use App\Rules\PhoneNumber;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Str;
 
 class StoreEmployeeRequest extends FormRequest
 {
@@ -24,44 +25,48 @@ class StoreEmployeeRequest extends FormRequest
      */
     public function rules()
     {
-        $rule = [
-            'required',
-            function ($attribute, $value, $fail) {
-                if ($value < 1000) {
-                    $fail('The ' . $attribute . ' should be at least 1000.');
-                }
-            },
-            function ($attribute, $value, $fail) {
-                if ($value > 99999999) {
-                    $fail('The ' . $attribute . ' should be at max 99999999.');
-                }
-            },
-        ];
-
         return [
-            'name' => 'required',
-            'email' => 'required|email|unique:employees,email,NULL,id,deleted_at,NULL',
-            'password' => 'required|confirmed|min:6',
-            'phone' => [
-                'required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10', 'max:15', 'ends_with:0,1,2,3,4,5,6,7,8,9',
-                function ($attribute, $value, $fail) {
-                    if (Str::substrCount($value, '-',) > 1) {
-                        $fail('The ' . $attribute . ' number must contain only one special character');
-                    }
-                },
-                function ($attribute, $value, $fail) {
-                    if (Str::substrCount($value, '+',) > 1) {
-                        $fail('The ' . $attribute . ' number must contain only one special character');
-                    }
-                },
+            'name' => ['required', 'max:100'],
+            'email' => ['required',
+                'email',
+                'unique:employees,email',
+                'max:100'
             ],
-            'address' => 'required|max:255',
-            'profile' => 'required|mimes:png,jpg,jpeg,svg',
-            'role_id' => 'required',
-            'department_id' => 'required',
-            'leave_fine' => $rule,
-            'overtime_fee' => $rule,
-            'basic_salary' => $rule,
+            'password' => ['required',
+                'min:6',
+                'max:20',
+                'confirmed'
+            ],
+            'phone' => [
+                'required',
+                'regex:/^([0-9\s\-\+\(\)]*)$/',
+                'min:10',
+                'max:15',
+                'ends_with:0,1,2,3,4,5,6,7,8,9',
+                new PhoneNumber
+            ],
+            'address' => ['required', 'max:255'],
+            'profile' => ['required', 'mimes:png,jpg,jpeg,svg', 'max:2000'],
+            'role_id' => ['required', 'max:100'],
+            'department_id' => ['required', 'max:100'],
+            'leave_fine' => [
+                'required',
+                'min:4',
+                'max:20',
+                new BasicSalary
+            ],
+            'overtime_fee' => [
+                'required',
+                'min:4',
+                'max:20',
+                new BasicSalary
+            ],
+            'basic_salary' => [
+                'required',
+                'min:4',
+                'max:20',
+                new BasicSalary
+            ]
         ];
     }
 

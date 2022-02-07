@@ -13,7 +13,9 @@
       {{ $employee->name }}'s Information
     </div>
     <div class="card-body">
-      <img class="profile-pic" src="{{ asset(config('path.profile_path') . $employee->profile) }}" alt="Profile" />
+      <img class="profile-pic" src="{{ \Illuminate\Support\Facades\Storage::exists('public/employees/' . $employee->profile) ?
+        asset(config('path.profile_path') . $employee->profile) : 
+        'https://ui-avatars.com/api/?name='.$employee->name}}" alt="Profile" />
       <div class="row clearfix">
         <div class="float-left text">
           <label for="name">Name</label>
@@ -67,20 +69,12 @@
           <label for="name">Join Date</label>
         </div>
         <div class="float-left input">
-          <input type="text" class="form-control" value="{{ \Carbon\Carbon::parse ($employee->created_at)->toDateString(); }}" readonly>
-        </div>
-      </div>
-      <div class="row clearfix">
-        <div class="float-left text">
-          <label for="name">Today Attendance</label>
-        </div>
-        <div class="float-left input">
-          <input type="text" class="form-control" value="{{ \Carbon\Carbon::parse ($employee->created_at)->toDateString(); }}" readonly>
+          <input type="text" class="form-control" value="{{ $employee->created_at }}" readonly>
         </div>
       </div>
       <div class="btn-group">
         @can('update-employee', $employee->id)
-        <a href="{{ route('edit.employee.get', [$employee->id]) }}" class="yellow-btn">Edit Profile</a>
+        <a href="{{ route('employees-edit', [$employee->id]) }}" class="yellow-btn">Edit Profile</a>
         @endcan
         <a href="#" id="back" class="blue-btn">Back</a>
       </div>

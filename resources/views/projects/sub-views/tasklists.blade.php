@@ -2,7 +2,7 @@
   <div class="listcard-header schedules clearfix">
     Schedules
     @can('create-task', $project)
-    <a href="{{ route('projects#scheduleCreateView', [$project->id]) }}" class="my-button float-right"><i class="fas fa-plus"></i></a>
+    <a href="{{ route('projects-scheduleCreateView', [$project->id]) }}" class="my-button float-right"><i class="fas fa-plus"></i></a>
     @endcan
   </div>
   <table class="table" id="schedules">
@@ -22,13 +22,13 @@
         associated
       @endif">
         <td>{{ $schedule->name }}</td>
-        <td>{{ \Carbon\Carbon::parse($schedule->end_date )->toDateString() }}</td>
+        <td>{{ \Carbon\Carbon::parse($schedule->end_date )->format(config('constants.Date_Format')) }}</td>
         <td>{{ $schedule->status_text }}</td>
         <td>{{ $schedule->assignor->name }}</td>
         <td>{{ $schedule->assignee->name }}</td>
         <td>
           @can('view-task', $schedule)
-          <a href="{{ route('projects#showSchedule', [$schedule->id]) }}" class="blue-btn sm-btn">Detail</a>
+          <a href="{{ route('projects-showSchedule', [$schedule->id]) }}" class="blue-btn sm-btn">Detail</a>
           @endcan
         </td>
       </tr>

@@ -10,7 +10,7 @@
 <div class="container">
   <div class="listcard-header">Project Edit</div>
   <div class="box">
-    <form action="{{ route('projects#updateProject', [$project->id]) }}" method="POST">
+    <form action="{{ route('projects-updateProject', [$project->id]) }}" method="POST">
       @csrf
       @method('PATCH')
       <div class="row">

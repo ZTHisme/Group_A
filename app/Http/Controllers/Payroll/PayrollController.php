@@ -98,7 +98,7 @@ class PayrollController extends Controller
 
         if ($this->payrollInterface->sendPayrollMail($finalsalary)) {
             return redirect()
-                ->route('payrolls#index')
+                ->route('payrolls-index')
                 ->with('success', 'Email has been sent.');
         }
     }
@@ -140,11 +140,11 @@ class PayrollController extends Controller
 
         if ($employee) {
             return redirect()
-                ->route('payrolls#index')
+                ->route('payrolls-index')
                 ->with('success', 'Employee payroll edited successfully.');
-        } else {
-            return back()
-                ->withErrors('Unknown error occured! Please try again.');
         }
+        
+        return back()
+            ->withErrors('Unknown error occured! Please try again.');
     }
 }

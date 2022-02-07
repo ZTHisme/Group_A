@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form action="{{ route('login.post') }}" method="POST" class="login-form">
+<form action="{{ route('login-post') }}" method="POST" class="login-form">
   @csrf
   @include('common.errors')
   <h1 class="login-header">Login</h1>
@@ -29,7 +29,7 @@
     Login
   </button>
   <div class="formFooter">
-    <a class="underlineHover" href="{{ route('forget.password.get') }}">
+    <a class="underlineHover" href="{{ route('forget-password-get') }}">
       Forget Your Password?
     </a>
   </div>

@@ -21,7 +21,7 @@
         <span class="txt-date">{{ now()->format('d-m-Y') }}</span>
       </div>
       <div class="card-body clearfix">
-        <form action="{{ route('attendances#store') }}" method="POST">
+        <form action="{{ route('attendances-store') }}" method="POST">
           {{ csrf_field() }}
           @if ($status == config('constants.Checkedin'))
           <div class="card-text">Please check out before shutting down your pc.</div>
@@ -40,7 +40,7 @@
           </div>
           @endif
           @if ($status == config('constants.Checkedin'))
-          <a href="{{ route('attendances#update') }}" class="blue-btn checkout-btn">
+          <a href="{{ route('attendances-update') }}" class="blue-btn checkout-btn">
             <i class="fa fa-user-check mr-icon"></i>Check Out
           </a>
           @else
@@ -58,7 +58,7 @@
         <span class="txt-date">{{ now()->format('d-m-Y') }}</span>
       </div>
       <div class="card-body">
-        <form action="{{ route('attendances#customLeave') }}" method="POST" id="custom-leave">
+        <form action="{{ route('attendances-customLeave') }}" method="POST" id="custom-leave">
           {{ csrf_field() }}
           <input type="date" name="start_date" hidden id="start">
           <input type="date" name="end_date" hidden id="end">

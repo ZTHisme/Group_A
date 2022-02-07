@@ -30,7 +30,7 @@ interface PayrollServiceInterface
      * To calculate pay roll
      * 
      * @param App\Models\Employee $employee
-     * @return $array of employee
+     * @return $final salary object
      */
     public function calculate(Employee $employee);
 
@@ -38,7 +38,7 @@ interface PayrollServiceInterface
      * To calculate pay roll
      * 
      * @param App\Models\Employee $employee
-     * @return $array of employee
+     * @return $final salary object
      */
     public function recalculate(Employee $employee);
 

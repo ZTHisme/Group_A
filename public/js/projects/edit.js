@@ -2,7 +2,7 @@ $(function () {
     var id = $('#prj-id').val();
     function getUpdateMembers() {
         $.ajax({
-            url: '/projects/' + id + '/members',
+            url: '/project/' + id + '/members',
             method: 'GET',
             success: function (data) {
                 if (data.result) {
@@ -31,7 +31,7 @@ $(function () {
     $("#members, #non-members").on("click", ".sync", function () {
         var memId = $(this).data('id');
         $.ajax({
-            url: '/projects/' + id + '/membertoogle/' + memId,
+            url: '/project/' + id + '/' + memId + '/membertoogle',
             method: 'GET',
             success: function (data) {
                 if (data.result) {

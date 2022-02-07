@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\BasicSalary;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePayrollRequest extends FormRequest
@@ -23,24 +24,25 @@ class UpdatePayrollRequest extends FormRequest
      */
     public function rules()
     {
-        $rule = [
-            'required',
-            function ($attribute, $value, $fail) {
-                if ($value < 1000) {
-                    $fail('The ' . $attribute . ' should be at least 1000.');
-                }
-            },
-            function ($attribute, $value, $fail) {
-                if ($value > 99999999) {
-                    $fail('The ' . $attribute . ' should be at max 99999999.');
-                }
-            },
-        ];
-
         return [
-            'basic_salary' => $rule,
-            'overtime_fee' => $rule,
-            'leave_fine' => $rule
+            'leave_fine' => [
+                'required',
+                'min:4',
+                'max:20',
+                new BasicSalary
+            ],
+            'overtime_fee' => [
+                'required',
+                'min:4',
+                'max:20',
+                new BasicSalary
+            ],
+            'basic_salary' => [
+                'required',
+                'min:4',
+                'max:20',
+                new BasicSalary
+            ]
         ];
     }
 }
