@@ -6,8 +6,8 @@
 }
 
 .operation {
-  margin: 10px;
   float: right;
+  margin: 10px;
 }
 
 .pull-right {
@@ -154,27 +154,28 @@ nav:after,
 }
 
 /*phone screen */
-@media (max-width:640px) {
+@media screen and (max-width:767.9px) {
 
   .list-card {
-    overflow-x: scroll;
-    border: 0.1vw solid #cdcdcd;
-    border-radius: 0.5vw;
-    font-size: 2.125vw;
     width: 100vw;
+    border: 0.1vw solid #cdcdcd;
+    font-size: 2.125vw;
+    overflow-x: scroll;
+    border-radius: 0.5vw;
   }
 
   .listcard-header {
+    width: 123vw;
     padding: 1vw;
     border: 0.3vw solid #cececee1;
     font-size: 3.125vw;
-    width: 100vw;
   }
 
   .table> :not(caption)>*>* {
     padding: 0.5vw 0.5vw;
     box-shadow: inset 0 0 0 1562.34375 vw var(--bs-table-accent-bg);
     background-color: var(--bs-table-bg);
+    font-size: 2.884vw;
   }
 
   .dataTables_wrapper .dataTables_length,
@@ -189,12 +190,12 @@ nav:after,
   }
 
   .dataTables_wrapper .dataTables_info {
-    text-align: left;
-    clear: both;
     float: left;
-    padding-top: 0.755em;
+    clear: both;
     width: 24vw;
+    padding-top: 0.755em;
     font-size: 2vw;
+    text-align: left;
   }
 
   .dataTables_wrapper .dataTables_paginate {
@@ -234,14 +235,14 @@ nav:after,
   }
 
   .mr-icon {
-    padding: 0.706vw 1.094vw 1.163vw 1.094vw;
-    font-size: 2vw;
+    padding: 1.206vw 1.094vw 1.763vw 1.094vw;
+    font-size: 2.5vw;
     border-radius: 0.681vw;
   }
 
   .search-btn {
     padding: 0.963vw 2.125vw;
-    font-size: 2vw;
+    font-size: 2.5vw;
     border-radius: 1.563vw;
   }
 
@@ -249,23 +250,23 @@ nav:after,
     margin-bottom: 1.563vw;
     margin-left: 2.225vw;
     padding: 0.94vw;
-    font-size: 2vw;
+    font-size: 2.5vw;
     border-radius: 1.094vw;
   }
 
   .export-btn {
     margin-bottom: 1.563vw;
     padding: 0.94vw;
-    font-size: 2vw;
+    font-size: 2.5vw;
     border-radius: 1.094vw;
   }
 
   input[type=date] {
-    width: 17vw;
+    width: 24vw;
     margin: 1.563vw 0;
     padding: 0.263vw 1.125vw;
     border: 0.3vw solid #d1d0d0;
-    font-size: 2vw;
+    font-size: 2.5vw;
     border-radius: 1.03vw;
   }
 
@@ -281,20 +282,21 @@ nav:after,
 
   #content {
     width: 98%;
-    min-height: 100vh;
+    min-height: 116vh;
   }
 
   .rounded-input {
+    width: 26%;
     margin: 1.563vw 0vw 1.563vw 2.125vw;
     padding: 0.763vw 1.18vw;
     border: 0.3vw solid #d1d0d0;
-    font-size: 2vw;
+    font-size: 2.5vw;
     border-radius: 1.263vw;
   }
 
   .sm-btn {
     padding: 0.1vw 1.1vw;
-    font-size: 1.8vw;
+    font-size: 2.5vw;
   }
 
   .page-link {
@@ -304,8 +306,8 @@ nav:after,
   }
 
   .page-item {
-    width: 2vw;
-    height: 2.6vw;
+    width: 4vw;
+    height: 3.8vw;
     margin-right: 0.4vw;
     padding-top: 0.5vw;
     font-size: 1.5vw;
@@ -327,8 +329,8 @@ nav:after,
   }
 
   .page-item .page-link:hover {
-    width: 2vw;
-    height: 2.6vw;
+    width: 4vw;
+    height: 3.8vw;
     margin-right: 0.4vw;
     padding-top: 0.5vw;
     border-radius: 0.2vw;
@@ -340,8 +342,11 @@ nav:after,
     font-size: 2.144vw;
   }
 
-
-
+  .operation {
+    float: none;
+    margin: 2vw 0;
+    text-align: center;
+  }
 }
 
 /*---------Ipad--------------*/
@@ -523,8 +528,8 @@ nav:after,
   .mr-5 {
     margin: 0 0.488vw;
   }
-  
-  .ft-cp{
+
+  .ft-cp {
     margin-top: 0;
   }
 }

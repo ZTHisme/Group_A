@@ -105,7 +105,7 @@ td {
 }
 
 /*phone screen */
-@media (max-width:640px) {
+@media screen and (max-width:767.9px) {
   .container {
     width: 98%;
   }
@@ -124,10 +124,11 @@ td {
   }
 
   input[type=text] {
-    width: 60%;
+    width: 82%;
+    margin-left: 2vw;
     padding: 1vw;
-    font-size: 1.5vw;
-    border-radius: 3vw;
+    font-size: 2.184vw;
+    border-radius: 1vw;
   }
 
   table.dataTable {
@@ -139,13 +140,15 @@ td {
   .button-4 {
     width: 10vw;
     line-height: 1.5vw;
+    padding: 1vw;
     border: 0.3vw solid rgba(27, 31, 35, 0.15);
-    font-size: 1vw;
+    font-size: 2.184vw;
     border-radius: 0.6vw;
   }
 
   label {
-    padding: 1vw 1vw 1vw;
+    padding: 1vw 0vw 1vw;
+    font-size: 2.184vw;
   }
 
   .row {
@@ -155,12 +158,13 @@ td {
 
   .blue-btn {
     padding: 1vw 3vw;
+    font-size: 2.184vw;
     border-radius: 1vw;
   }
 
   .red-btn {
     padding: 1vw 2vw;
-    font-size: 1.5vw;
+    font-size: 2.184vw;
     border-radius: 1vw;
   }
 
@@ -169,15 +173,15 @@ td {
   }
 
   .dataTables_wrapper .dataTables_filter input {
-    width: 10vw;
+    width: 25vw;
   }
 
   .dataTables_wrapper .dataTables_info {
     float: left;
     clear: both;
-    width: 11vw;
+    width: 29vw;
     padding-top: 1.755em;
-    font-size: 0.9vw;
+    font-size: 2.184vw;
     text-align: left;
   }
 
@@ -200,10 +204,10 @@ td {
     width: 100%;
     padding: 0.781vw;
     border: none;
+    font-size: 2.184vw;
+    outline: none;
     border-radius: 0.391vw;
     resize: vertical;
-    outline: none;
-    font-size: 2.184vw;
   }
 
   label {
@@ -252,6 +256,9 @@ td {
   .button-4 {
     display: inline-block;
     position: relative;
+    width: 5.324vw;
+    list-style: none;
+    line-height: 1.953vw;
     border: 0.098vw solid rgba(27, 31, 35, 0.15);
     box-shadow: rgb(27 31 35 / 4%) 0 0.098vw 0, rgb(255 255 255 / 25%) 0 0.098vw 0 inset;
     box-sizing: border-box;
@@ -260,9 +267,6 @@ td {
     font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     font-size: 1.5vw;
     font-weight: 500;
-    line-height: 1.953vw;
-    list-style: none;
-    width: 5.324vw;
     transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
     appearance: none;
     border-radius: 0.586vw;
