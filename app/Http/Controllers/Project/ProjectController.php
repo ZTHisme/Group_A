@@ -76,15 +76,9 @@ class ProjectController extends Controller
 
         Session::flash('success', 'Project Created Successfully.');
 
-        if ($project) {
-            return response()->json([
-                'result' => 1,
-            ]);
-        } else {
-            return response()->json([
-                'result' => 0,
-            ]);
-        }
+        return response()->json([
+            'result' => $project ? 1 : 0
+        ]);
     }
 
     /**
@@ -98,7 +92,7 @@ class ProjectController extends Controller
         $project->load('manager');
 
         $schedules = $this->projectInterface->getSchedules();
-        
+
         return view('projects.show')
             ->with([
                 'project' => $project,
@@ -146,12 +140,12 @@ class ProjectController extends Controller
         $project = $this->projectInterface->updateProject($request, $project);
         if ($project) {
             return redirect()
-                ->route('projects#index')
+                ->route('projects-index')
                 ->with('success', 'Project Updated Successfully.');
-        } else {
-            return back()
-                ->withErrors('Unknown error occured.');
         }
+        
+        return back()
+            ->withErrors('Unknown error occured.');
     }
 
     /**
@@ -169,15 +163,9 @@ class ProjectController extends Controller
 
         $result = $this->projectInterface->deleteProject($project);
 
-        if ($result) {
-            return response()->json([
-                'result' => 1,
-            ]);
-        } else {
-            return response()->json([
-                'result' => 0,
-            ]);
-        }
+        return response()->json([
+            'result' => $result ? 1 : 0
+        ]);
     }
 
     /**
@@ -190,17 +178,10 @@ class ProjectController extends Controller
     {
         $data = $this->projectInterface->getMembers($project);
 
-        if ($data) {
-            return response()->json([
-                'result' => 1,
-                'data' => $data
-            ]);
-        } else {
-            return response()->json([
-                'result' => 0,
-                'data' => null
-            ]);
-        }
+        return response()->json([
+            'result' => $data ? 1 : 0,
+            'data' => $data ? $data : null
+        ]);
     }
 
     /**
@@ -219,14 +200,8 @@ class ProjectController extends Controller
 
         $result = $this->projectInterface->memberToogle($project, $id);
 
-        if ($result) {
-            return response()->json([
-                'result' => 1,
-            ]);
-        } else {
-            return response()->json([
-                'result' => 0,
-            ]);
-        }
+        return response()->json([
+            'result' => $result ? 1 : 0
+        ]);
     }
 }

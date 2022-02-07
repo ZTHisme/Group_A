@@ -32,7 +32,7 @@ class ForgetPasswordService implements ForgetPasswordInterface
     /**
      * To store forget password data and send email
      * @param Request $request request including inputs
-     * @return Object created user object
+     * @return void
      */
     public function processForgetPasswordForm(Request $request)
     {

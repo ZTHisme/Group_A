@@ -59,7 +59,7 @@ class MstCalendarController extends Controller
 
         if ($this->MstCalendarInterface->uploadCSV()) {
             return redirect()
-                ->route('calendar.upload')
+                ->route('calendar-upload')
                 ->with('success', 'Successfully Imported CSV File.');
         }
     }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\PhoneNumber;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Str;
 
 class EditEmployeeRequest extends FormRequest
 {
@@ -25,25 +25,24 @@ class EditEmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email|unique:employees,email,' . $this->id . ',id,deleted_at,NULL',
-            'phone' => [
-                'required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10', 'max:15', 'ends_with:0,1,2,3,4,5,6,7,8,9',
-                function ($attribute, $value, $fail) {
-                    if (Str::substrCount($value, '-',) > 1) {
-                        $fail('The ' . $attribute . ' number must contain only one special character');
-                    }
-                },
-                function ($attribute, $value, $fail) {
-                    if (Str::substrCount($value, '+',) > 1) {
-                        $fail('The ' . $attribute . ' number must contain only one special character');
-                    }
-                },
+            'name' => ['required', 'max:100'],
+            'email' => ['required',
+                'email',
+                'unique:employees,email,' . $this->id,
+                'max:100'
             ],
-            'address' => 'required',
-            'role_id' => 'required',
-            'department_id' => 'required',
-            'profile' => 'mimes:png,jpg,jpeg,svg'
+            'phone' => [
+                'required',
+                'regex:/^([0-9\s\-\+\(\)]*)$/',
+                'min:10',
+                'max:15',
+                'ends_with:0,1,2,3,4,5,6,7,8,9',
+                new PhoneNumber
+            ],
+            'address' => ['required', 'max:200'],
+            'role_id' => ['required', 'max:100'],
+            'department_id' => ['required', 'max:100'],
+            'profile' => ['mimes:png,jpg,jpeg,svg', 'max:2000']
         ];
     }
 

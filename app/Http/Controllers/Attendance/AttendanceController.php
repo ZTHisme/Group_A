@@ -59,12 +59,12 @@ class AttendanceController extends Controller
 
         if ($result) {
             return redirect()
-                ->route('attendances#index')
+                ->route('attendances-index')
                 ->with('success', 'Your attendance info has been recorded.');
-        } else {
-            return back()
-                ->withErrors('You have already checked in.');
         }
+
+        return back()
+            ->withErrors('You have already checked in.');
     }
 
     /**
@@ -81,12 +81,12 @@ class AttendanceController extends Controller
 
         if ($result) {
             return redirect()
-                ->route('attendances#index')
+                ->route('attendances-index')
                 ->with('success', 'Your attendance for today has been recorded successfully.');
-        } else {
-            return back()
-                ->withErrors('You have already checked out or you may have taken leave.');
         }
+
+        return back()
+            ->withErrors('You have already checked out or you may have taken leave.');
     }
 
     /**
@@ -104,11 +104,11 @@ class AttendanceController extends Controller
 
         if (count($leaves)) {
             return redirect()
-                ->route('attendances#index')
+                ->route('attendances-index')
                 ->with('success', 'Your leave form has been recorded successfully.');
-        } else {
-            return back()
-                ->withErrors('You already have taken leave for these days.');
         }
+        
+        return back()
+            ->withErrors('You already have taken leave for these days.');
     }
 }

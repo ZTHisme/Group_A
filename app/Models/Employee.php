@@ -93,6 +93,14 @@ class Employee extends Authenticatable
     }
 
     /**
+     * The projects that belong to the employee.
+     */
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class)->withTimeStamps();
+    }
+
+    /**
      * Get the employee's total working days.
      *
      * @return int
@@ -137,6 +145,17 @@ class Employee extends Authenticatable
         return $sum;
     }
 
+    /**
+     * Get the employee's joined date format.
+     *
+     * @return int
+     */
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format(config('constants.Date_Format'));   
+    }
+
+
     /**  
      * Ondelete cascade for employee
      */
@@ -148,6 +167,7 @@ class Employee extends Authenticatable
             $employee->salary()->delete();
             $employee->finalsalaries()->delete();
             $employee->attendances()->delete();
+            $employee->projects()->detach();
         });
     }
 }

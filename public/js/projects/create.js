@@ -14,7 +14,7 @@ $(function () {
     });
     $('#submit-post').on('click', function (e) {
         $.ajax({
-            url: '/projects/store',
+            url: '/project/store',
             method: 'POST',
             data: {
                 'name': $('#name').val(),
@@ -23,7 +23,7 @@ $(function () {
             },
             success: function (data) {
                 if (data.result) {
-                    location.href = "/projects/list";
+                    location.href = "/project";
                 }
             },
             error: function (err) {

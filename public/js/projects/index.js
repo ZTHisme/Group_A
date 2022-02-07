@@ -16,7 +16,7 @@ $(function () {
         }).then(function (result) {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: '/projects/deleteproject/' + id,
+                    url: '/project/' + id,
                     method: 'DELETE',
                     success: function (data) {
                         if (data.result) {

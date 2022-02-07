@@ -7,7 +7,6 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
-use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Illuminate\Support\Str;
 
@@ -31,17 +30,26 @@ class EmployeesImport implements ToModel, WithHeadingRow, WithStartRow, WithCust
      */
     public function model(array $row)
     {
-        return new Employee([
+        $employee = Employee::create([
             'name'  => $row['name'],
             'email' => $row['email'],
-            'password' => Hash::make($row['password']),
+            'password' => $row['password'],
             'phone'    => $row['phone'],
             'address'    => $row['address'],
             'profile'    => $row['profile'],
             'created_user_id'    => $row['created_user_id'],
             'role_id'    => $row['role_id'],
             'department_id'    => $row['department_id'],
+            'created_at'  => $row['created_at'],
+            'updated_at' => $row['updated_at'],
         ]);
+        $employee->salary()->create([
+            'leave_fine' => 10000,
+            'overtime_fee' => 10000,
+            'basic_salary' => 500000
+        ]);
+
+        return $employee;
     }
 
     /**

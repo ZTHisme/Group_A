@@ -53,7 +53,7 @@ class EmployeeService implements EmployeeServiceInterface
     /**
      * To add new employee
      * @param Request $request
-     * @return
+     * @return $employee object
      */
     public function addEmployee(Request $request)
     {
@@ -80,7 +80,7 @@ class EmployeeService implements EmployeeServiceInterface
     /**
      * To edit emplyee information
      * @param $id,Request $request
-     * @return
+     * @return $employee object
      */
     public function editEmployeeById(Request $request, $id)
     {
@@ -103,7 +103,7 @@ class EmployeeService implements EmployeeServiceInterface
     /**
      * To delete employee by id
      * @param $id
-     * @return
+     * @return $employee object
      */
     public function deleteEmployeeById($id)
     {

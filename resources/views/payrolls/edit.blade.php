@@ -13,7 +13,7 @@
       Edit Payroll
     </div>
     <div class="card-body">
-      <form action="{{ route('payrolls#updatePayroll', [$employee->id]) }}" method="POST">
+      <form action="{{ route('payrolls-updatePayroll', [$employee->id]) }}" method="POST">
         {{ csrf_field() }}
         @method('PATCH')
         <div class="row clearfix">

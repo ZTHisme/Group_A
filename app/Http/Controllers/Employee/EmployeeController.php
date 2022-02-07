@@ -39,7 +39,8 @@ class EmployeeController extends Controller
     public function index(Request $request)
     {
         $employees = $this->employeeInterface->searchEmployee($request);
-        return view('Employee.index', compact('employees'));
+        return view('employees.index')
+            ->with(['employees' => $employees]);
     }
 
     /**
@@ -47,7 +48,7 @@ class EmployeeController extends Controller
      * @param
      * @return view
      */
-    public function showEmploeeForm()
+    public function create()
     {
         // Check user has manager access or not.
         if (Gate::denies('isManager')) {
@@ -57,7 +58,11 @@ class EmployeeController extends Controller
         $roles = $this->employeeInterface->getRoles();
         $departments = $this->employeeInterface->getDepartments();
 
-        return view('Employee.employeeCreate')->with(['roles' => $roles, 'departments' => $departments]);
+        return view('employees.employeeCreate')
+            ->with([
+                'roles' => $roles,
+                'departments' => $departments
+            ]);
     }
 
     /**
@@ -77,12 +82,12 @@ class EmployeeController extends Controller
 
         if ($this->employeeInterface->sendEmployeeMail($employee)) {
             return redirect()
-                ->route('employee#showLists')
+                ->route('employee-showLists')
                 ->with('success', 'New Employee Created and Email has been sent to Managers.');
-        } else {
-            return back()
-                ->withErrors('Unknown error occured! Please try again.');
         }
+
+        return back()
+            ->withErrors('Unknown error occured! Please try again.');
     }
 
     /**
@@ -93,7 +98,8 @@ class EmployeeController extends Controller
     public function showEmployeeDetailForm($id)
     {
         $employee = $this->employeeInterface->getEmployeeById($id);
-        return view('Employee.employeeShow')->with(['employee' => $employee]);
+        return view('employees.employeeShow')
+            ->with(['employee' => $employee]);
     }
 
     /**
@@ -112,8 +118,12 @@ class EmployeeController extends Controller
         $departments = $this->employeeInterface->getDepartments();
 
         $employee = $this->employeeInterface->getEmployeeById($id);
-        return view('Employee.employeeEdit')
-            ->with(['employee' => $employee, 'roles' => $roles, 'departments' => $departments]);
+        return view('employees.employeeEdit')
+            ->with([
+                'employee' => $employee,
+                'roles' => $roles,
+                'departments' => $departments
+            ]);
     }
 
     /**
@@ -133,12 +143,12 @@ class EmployeeController extends Controller
 
         if ($employee) {
             return redirect()
-                ->route('employee#showLists')
+                ->route('employee-showLists')
                 ->with('success', 'Employee data is updated successfully.');
-        } else {
-            return back()
-                ->withErrors('Unknown error occured! Please try again.');
         }
+
+        return back()
+            ->withErrors('Unknown error occured! Please try again.');
     }
 
     /**
@@ -157,12 +167,12 @@ class EmployeeController extends Controller
 
         if ($result) {
             return redirect()
-                ->route('employee#showLists')
+                ->route('employee-showLists')
                 ->with('success', 'Employee data is deleted successfully.');
-        } else {
-            return back()
-                ->withErrors('Unknown error occured! Please try again.');
         }
+
+        return back()
+            ->withErrors('Unknown error occured! Please try again.');
     }
 
     /**
@@ -174,12 +184,17 @@ class EmployeeController extends Controller
     {
         $data = $this->employeeInterface->showPieGraph();
         $bardata = $this->employeeInterface->showBarGraph();
-        $totalemployee= $this->employeeInterface->allEmployee();
+        $totalemployee = $this->employeeInterface->allEmployee();
         $newemployee = $this->employeeInterface->newEmployee();
         $employeeleave = $this->employeeInterface->turnoverEmployee();
         $officeemployee = $this->employeeInterface->comeOfficeEmployee();
         return view('dashboard.index', $data, $bardata)
-            ->with(['totalemployee' => $totalemployee, 'newemployee' => $newemployee, 'employeeleave' => $employeeleave, 'officeemployee' => $officeemployee]);
+            ->with(
+                ['totalemployee' => $totalemployee,
+                'newemployee' => $newemployee,
+                'employeeleave' => $employeeleave,
+                'officeemployee' => $officeemployee
+            ]);
     }
 
     /**
@@ -208,7 +223,7 @@ class EmployeeController extends Controller
             abort(401);
         }
 
-        return view('employee.upload');
+        return view('employees.upload');
     }
 
     /**
@@ -226,7 +241,7 @@ class EmployeeController extends Controller
 
         if ($this->employeeInterface->uploadCSV()) {
             return redirect()
-                ->route('employee#showLists')
+                ->route('employee-showLists')
                 ->with('success', 'Successfully Imported CSV File.');
         }
     }

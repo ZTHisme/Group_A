@@ -38,6 +38,7 @@ class EmployeesExport implements FromCollection, WithCustomCsvSettings, WithHead
         return [
             'Name',
             'Email',
+            'Password',
             'Phone',
             'Address',
             'Profile',

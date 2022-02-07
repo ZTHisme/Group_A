@@ -3,7 +3,7 @@
 @section('title', 'Reset Password')
 
 @section('content')
-<form action="{{ route('reset.password.post') }}" method="POST" class="login-form">
+<form action="{{ route('reset-password-post') }}" method="POST" class="login-form">
   @csrf
   @include('common.errors')
   <h1 class="login-header">Reset Password</h1>

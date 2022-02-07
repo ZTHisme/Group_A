@@ -24,7 +24,7 @@ class StoreAttendanceRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => 'required_unless:leave,1',
+            'type' => ['required_unless:leave,1']
         ];
     }
 

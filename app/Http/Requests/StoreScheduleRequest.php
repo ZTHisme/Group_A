@@ -24,12 +24,12 @@ class StoreScheduleRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'description' => 'required|max:255',
-            'start_date' => 'required|after:yesterday',
-            'end_date' => 'required|after_or_equal:start_date',
-            'assigne_id' => 'required',
-            'file' => 'required|mimes:png,jpg,xlsx,csv,doc'
+            'name' => ['required', 'max:100'],
+            'description' => ['required', 'max:255'],
+            'start_date' => ['required', 'after:yesterday'],
+            'end_date' => ['required', 'after_or_equal:start_date'],
+            'assigne_id' => ['required', 'max:100'],
+            'file' => ['required', 'mimes:png,jpg,xlsx,csv,doc', 'max:2000']
         ];
     }
 }

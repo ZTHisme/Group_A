@@ -13,7 +13,7 @@
     New Employee Information
   </div>
   <div class="card-body">
-    <form action="{{ route('addEmployee.post') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('employees-store') }}" method="POST" enctype="multipart/form-data">
       @csrf
 
       <div class="row clearfix">
