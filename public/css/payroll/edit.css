@@ -17,31 +17,35 @@
 }
 
 input[type=number]:before {
-  content: '';
   margin-right: 5px;
   color: #9d9d9d;
+  content: '';
 }
 
 input[type=number] {
-  width: 87%;
   position: relative;
+  width: 87%;
+}
+
+.btn-group {
+  margin-left: 30%;
 }
 
 /*phone screen */
-@media (max-width:640px) {
+@media screen and (max-width:767.9px) {
 
   .container {
     width: 90%;
-    font-size: 1.5vw;
     margin-right: 27vw;
     padding: 0vw;
+    font-size: 1.5vw;
   }
 
   .listcard-header {
     width: 52vw;
     padding: 1vw;
     border: 0.5vw solid #cececee1;
-    font-size: 2vw;
+    font-size: 3vw;
   }
 
   .card-body {
@@ -51,8 +55,8 @@ input[type=number] {
   }
 
   input[type=number] {
-    width: 100%;
-    font-size: 1.5vw;
+    width: 82%;
+    font-size: 2.184vw;
   }
 
   .form-control {
@@ -66,18 +70,18 @@ input[type=number] {
   }
 
   input[type=submit] {
-    font-size: 1.5vw;
+    font-size: 2.184vw;
   }
 
   .blue-btn {
+    margin-left: 12vw;
     padding: 1vw 1.4vw;
     border-radius: 1.2vw;
-    margin-left: 12vw;
   }
 
   .red-btn {
     padding: 1vw 1.4vw;
-    font-size: 1.5vw;
+    font-size: 2.184vw;
     border-radius: 1.2vw;
   }
 
@@ -85,6 +89,7 @@ input[type=number] {
     width: 30%;
     margin-left: 6vw;
     padding: 1vw 0;
+    font-size: 2.184vw;
   }
 }
 
@@ -92,7 +97,7 @@ input[type=number] {
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .card {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     border: 0.098vw solid rgba(0, 0, 0, 0.125);
     border-radius: 0.391vw;
@@ -110,13 +115,17 @@ input[type=number] {
   }
 
   input[type=number]:before {
-    content: '';
     margin-right: 0.488vw;
     color: #9d9d9d;
+    content: '';
   }
 
   input[type=number] {
-    width: 87%;
     position: relative;
+    width: 83%;
+  }
+
+  .ft-cp {
+    margin-top: 0;
   }
 }

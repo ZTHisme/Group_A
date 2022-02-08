@@ -2,6 +2,10 @@
 
 @section('title', 'Payroll Lists')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/payroll/calculate.css') }}">
+@endsection
+
 @section('content')
 <div class="container">
   <div class="list-card">

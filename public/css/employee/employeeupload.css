@@ -1,3 +1,7 @@
+.container {
+  height: 81%;
+}
+
 .con {
   width: 100%;
 }
@@ -42,6 +46,10 @@
   border-radius: 7px;
 }
 
+.btn-group {
+  margin-left: 28%;
+}
+
 .mb-4 {
   margin-bottom: 10px;
 }
@@ -64,18 +72,13 @@
 }
 
 .red-btn {
-  font-size: 15px;
   padding: 6px;
+  font-size: 15px;
   border-radius: 7px;
 }
 
-.ft-cp {
-  position: absolute;
-  bottom: 0;
-}
-
 /*phone screen */
-@media (max-width:640px) {
+@media screen and (max-width:767.9px) {
 
   .card-upload {
     width: 90%;
@@ -89,7 +92,7 @@
   .cardheader-upload {
     padding: 1vw;
     border: 0.3vw solid #e2e1e1;
-    font-size: 1.5vw;
+    font-size: 3vw;
   }
 
   .custom-file {
@@ -97,19 +100,19 @@
   }
 
   .btn-filechoose {
-    font-size: 1.5vw;
+    font-size: 2.184vw;
   }
 
   .btn-import {
     margin-bottom: 1vw;
-    padding: 1vw;
-    font-size: 1.5vw;
+    padding: 1.5vw;
+    font-size: 2.184vw;
     border-radius: 1.5vw;
   }
 
   .red-btn {
-    padding: 1vw;
-    font-size: 1.5vw;
+    padding: 1.5vw;
+    font-size: 2.184vw;
   }
 }
 
@@ -142,7 +145,7 @@
     padding: 0.977vw;
     border: 0.098vw solid #e2e1e1;
     background-color: #e2e1e1;
-    font-size: 1.465vw;
+    font-size: 2.953vw;
   }
 
   .emp {
@@ -155,7 +158,7 @@
     border: none;
     background-color: #04a51f;
     color: #fff;
-    font-size: 1.465vw;
+    font-size: 2.184vw;
     cursor: pointer;
     border-radius: 0.684vw;
   }
@@ -179,5 +182,9 @@
   .custom-file {
     margin-top: 2.344vw;
     text-align: center;
+  }
+
+  .ft-cp {
+    margin-top: 0;
   }
 }

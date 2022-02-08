@@ -50,9 +50,13 @@ textarea {
   padding: 6px 6px;
 }
 
+.btn-group {
+  margin-left: 25%;
+}
+
 
 /*phone screen */
-@media (max-width:640px) {
+@media screen and (max-width:767.9px) {
   .half {
     width: 90%;
   }
@@ -63,14 +67,29 @@ textarea {
   }
 
   input[type=text] {
-    width: 80%;
+    width: 80% !important;
+    font-size: 2.184vw;
   }
+
+  input[type=submit] {
+    font-size: 1.5vw;
+    vertical-align: baseline;
+  }
+
+  .container {
+    height: auto;
+  }
+
 }
 
 
 /*---------Ipad--------------*/
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    height: auto;
+  }
+
   .git-link {
     display: block;
   }
@@ -80,15 +99,15 @@ textarea {
   }
 
   .half {
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
   }
 
   .box {
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
   }
-  
+
   input[type=text] {
     width: 100%;
   }

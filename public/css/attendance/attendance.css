@@ -65,27 +65,28 @@
 
 
 /*phone screen */
-@media (max-width:640px) {
+@media screen and (max-width:767.9px) {
 
   #content {
     width: 90%;
-    min-height: 100vh;
+    min-height: 116vh;
   }
 
   .container {
     width: 98%;
+    height: 107vw;
   }
 
   .cardheader-submit {
     padding: 1vw;
     border: 0.5vw solid #e2e1e1;
-    font-size: 1.5vw;
+    font-size: 2.184vw;
   }
 
   form {
     width: 100%;
     margin-top: 1vw;
-    font-size: 1.5vw;
+    font-size: 2.184vw;
   }
 
   .float-end {
@@ -97,11 +98,12 @@
   }
 
   .form-check-input {
+    width: 2vw;
     margin-bottom: 0.5VW;
   }
 
   .card-submit {
-    width: 35vw;
+    width: 40vw;
     margin: 0 auto;
     margin-bottom: 2.5vw;
     padding-bottom: 1.5vw;
@@ -111,21 +113,21 @@
 
   .blue-btn {
     margin-top: 1.4vw;
-    padding: 0.4vw 1.5vw;
-    font-size: 1.3vw;
+    padding: 1.4vw 1.5vw;
+    font-size: 2vw;
     border-radius: 1.5vw;
   }
 
   .row {
     width: 34vw;
     margin: 1.5vw;
-    font-size: 1.5vw;
+    font-size: 2.184vw;
   }
 
   .dates {
     margin-left: 1vw;
     padding: 0.5vw;
-    font-size: 1.5vw;
+    font-size: 2.184vw;
     border-radius: 0.3vw;
   }
 
@@ -138,44 +140,45 @@
     padding: 0.5VW 0;
   }
 
-  .listcard-header {
-    padding: 1vw;
-    border: 0.5vw solid #cececee1;
-    font-size: 2vw;
-  }
-
   .list-card {
     border: 0.1vw solid #cdcdcd;
+    font-size: 2.184vw;
     border-radius: 0.5vw;
+  }
+
+  .listcard-header {
+    padding: 1vw;
+    border: 0.3vw solid #cececee1;
+    font-size: 3.125vw;
   }
 
   .dataTables_wrapper .dataTables_length,
   .dataTables_wrapper .dataTables_filter {
-    font-size: 1.5vw;
+    font-size: 2.884vw;
   }
 
   table.dataTable {
     width: 98%;
     border: 0.5vw solid #cdcdcd;
-    font-size: 1.3vw;
+    font-size: 2.184vw;
   }
 
   .dataTables_wrapper .dataTables_info {
     float: left;
     clear: both;
-    width: 19vw;
+    width: 42vw;
     padding-top: 0.755em;
-    font-size: 1.2vw;
+    font-size: 2.884vw;
     text-align: left;
   }
 
   .dataTables_wrapper .dataTables_paginate {
     float: right;
-    font-size: 1.5vw;
+    font-size: 2.184vw;
   }
 
   .dataTables_wrapper .dataTables_paginate .paginate_button {
-    font-size: 1.2vw;
+    font-size: 2.884vw;
   }
 
   .dataTables_wrapper .dataTables_filter input {
@@ -186,7 +189,7 @@
 
   div.dataTables_length select {
     border: 0.3vw solid #c5c5c5;
-    font-size: 1.4vw;
+    font-size: 2.684vw;
     border-radius: 0.5vw;
   }
 
@@ -197,7 +200,7 @@
   }
 
   .dataTables_wrapper {
-    width: 100%;
+    overflow-x: auto;
   }
 
   .success-msg {
@@ -205,7 +208,7 @@
     padding: 2vw;
     background-color: #DFF2BF;
     color: #4F8A10;
-    font-size: 2vw;
+    font-size: 2.184vw;
   }
 
   table.dataTable tbody th,
@@ -215,11 +218,18 @@
 
   .card-text {
     padding: 3.5vw 0 2vw 1.5vw;
-    font-size: 1.5vw;
+    font-size: 2.184vw;
   }
 
   .checkout-btn {
     margin-left: 12vw;
+  }
+
+  .ft-cp {
+    margin-top: 82vw;
+    margin-left: 3vw;
+    padding: 3.125vw 0;
+    font-size: 2.184vw;
   }
 
 }
@@ -229,7 +239,7 @@
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
   .card-submit {
-    width: 36%;
+    width: 49%;
     margin: 0 auto;
     margin-bottom: 1.953vw;
     padding-bottom: 0.977vw;
@@ -242,7 +252,7 @@
     padding: 0.977vw;
     border: 0.098vw solid #e2e1e1;
     background-color: #e2e1e1;
-    font-size: 1.465vw;
+    font-size: 2.184vw;
   }
 
   .txt-date {
@@ -275,7 +285,7 @@
   .checkin-btn {
     display: block;
     margin: 0vw auto 0.977vw;
-    font-size: 1.045vw;
+    font-size: 2.184vw;
   }
 
   .mr-icon {
@@ -291,11 +301,19 @@
   .dates {
     margin-left: 1.953vw;
     padding: 0.781vw;
-    font-size: 1.045vw;
+    font-size: 2.184vw;
     border-radius: 0.977vw;
   }
 
   label {
-    font-size: 0.963vw;
+    font-size: 2.184vw;
+  }
+
+  .ft-cp {
+    margin-top: 4vw;
+  }
+
+  .ft-cp {
+    margin-top: 0;
   }
 }

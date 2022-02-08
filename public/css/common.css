@@ -13,7 +13,7 @@ body {
 #content {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 170vh;
 }
 
 .ft-cp {
@@ -80,7 +80,8 @@ textarea {
 }
 
 .rounded-input {
-  margin: 0.977vw 0vw 0.977vw 0.953vw;
+  width: 150px;
+  margin: 10px 0vw 10px 0.953vw;
   padding: 0.679vw;
   border: 0.098vw solid #d1d0d0;
   border-radius: 0.977vw;
@@ -326,6 +327,7 @@ select.form-select {
 }
 
 .container {
+  height: 83%;
   padding: 0 5%;
 }
 
@@ -480,10 +482,10 @@ textarea {
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
-  td,
+  /*td,
   th {
     font-size: 0.963vw;
-  }
+  }*/
 
   body {
     width: 100%;
@@ -492,15 +494,16 @@ textarea {
     background-color: #fff;
     color: #212529;
     font-family: 'Roboto', sans-serif;
-    font-size: 0.963vw;
+    font-size: 2.184vw;
     font-weight: 400;
     text-align: left;
   }
 
 
   .ft-cp {
+    margin-top: 9vw;
     padding: 1.953vw 0;
-    font-size: 1.465vw;
+    font-size: 1.716vw;
   }
 
   #content {
@@ -554,12 +557,12 @@ textarea {
   }
 
   .rounded-input {
-    width: 25%;
+    width: 24%;
     margin: 0.977vw 0vw 0.977vw 0.953vw;
     margin-right: 0.34vw;
     padding: 0.977vw 0.953vw;
     border: 0.098vw solid #d1d0d0;
-    font-size: 1.045vw;
+    font-size: 1.784vw;
     border-radius: 0.977vw;
   }
 
@@ -573,7 +576,7 @@ textarea {
     border: none;
     background-color: #3e64ff;
     color: #fff;
-    font-size: 0.963vw;
+    font-size: 2.184vw;
     cursor: pointer;
     border-radius: 0.977vw;
   }
@@ -584,7 +587,7 @@ textarea {
     border: none;
     background-color: #ca9801;
     color: #fff;
-    font-size: 0.963vw;
+    font-size: 2.184vw;
     cursor: pointer;
     border-radius: 0.977vw;
   }
@@ -595,24 +598,24 @@ textarea {
     border: none;
     background-color: #dc3545;
     color: #fff;
-    font-size: 0.963vw;
+    font-size: 2.184vw;
     cursor: pointer;
     border-radius: 0.977vw;
   }
 
   .sm-btn {
     width: 80%;
-    padding: 0.12vw 0.56vw;
-    font-size: 0.9vw;
+    padding: 0.32vw 0.86vw;
+    font-size: 1.5vw;
   }
 
   .cal-btn,
   .payroll-btn {
     display: inline-block;
-    width: 53%;
+    width: 65%;
     margin-bottom: 0.2vw;
     padding: 0.11vw 0.66vw;
-    font-size: 0.8vw;
+    font-size: 1.5vw;
   }
 
   /* ------------------------Error Msg------------------ -------- */
@@ -754,7 +757,7 @@ textarea {
     padding: 0.977vw;
     border: 0.098vw solid #cececee1;
     background-color: #cececee1;
-    font-size: 1.953vw;
+    font-size: 2.953vw;
   }
 
   /* ------------------------Form---------------------------- */
@@ -764,16 +767,16 @@ textarea {
     border: none;
     background: #ffffff;
     color: #000;
-    font-size: 1.163vw;
+    font-size: 2.184vw;
     border-radius: 0.488vw;
   }
 
   .swal2-popup {
-    font-size: 1.163vw !important;
+    font-size: 1.563vw !important;
   }
 
   .btn-filechoose {
-    font-size: 1.163vw;
+    font-size: 2.184vw;
   }
 
   [type="file"]::-webkit-file-upload-button {
@@ -793,7 +796,7 @@ textarea {
 
   .mr-table {
     margin-bottom: 1.465vw;
-    font-size: 1.565vw;
+    font-size: 2.953vw;
   }
 
   .align {
@@ -802,6 +805,7 @@ textarea {
 
   .container {
     width: 88%;
+    height: 92%;
     margin: 0 auto;
     padding: 0 0.8%;
   }
@@ -910,7 +914,7 @@ textarea {
   }
 
   input[type=submit] {
-    font-size: 0.963vw;
+    font-size: 2.184vw;
   }
 
   .form-control {
@@ -918,13 +922,17 @@ textarea {
     padding: 1.172vw;
     border: none;
     box-sizing: border-box;
-    font-size: 1.163vw;
+    font-size: 2.184vw;
     outline: none;
     border-radius: 0.488vw;
   }
 
   .text label {
-    font-size: 1.163vw;
+    font-size: 2.184vw;
+  }
+
+  .dataTables_wrapper {
+    overflow-x: auto;
   }
 
   .dataTables_filter,
@@ -932,12 +940,12 @@ textarea {
   .dataTables_info,
   .dataTables_paginate {
     margin: 0.977vw;
-    font-size: 0.963vw;
+    font-size: 2.184vw;
   }
 
   div.dataTables_length select {
     border: 0.098vw solid #c5c5c5;
-    font-size: 0.865vw;
+    font-size: 2.184vw;
     border-radius: 0.488vw;
   }
 
@@ -997,14 +1005,14 @@ textarea {
   }
 
   .profile-link {
-    margin-right: 6.722vw;
+    margin-right: 6.022vw;
     color: #ffffff;
-    font-size: 0.879vw;
+    font-size: 1.2vw;
   }
 
   .sideprofile-img {
     display: flex;
-    height: 3.906vw;
+    height: 4.506vw;
     margin: 1.953vw 1.4vw 5.134vw;
     border-radius: 0.977vw;
   }
@@ -1021,7 +1029,7 @@ textarea {
   }
 
   #sidebar.close {
-    width: 6.708vw;
+    width: 7.708vw;
   }
 
   #sidebar ul li {
@@ -1033,7 +1041,7 @@ textarea {
     align-items: center;
     height: 100%;
     padding: 0 1.465vw;
-    font-size: 1.744vw;
+    font-size: 2.3vw;
     border-radius: 0.586vw;
   }
 
@@ -1045,7 +1053,7 @@ textarea {
     display: flex;
     align-items: center;
     list-style: none;
-    margin: 0.781vw 0.977vw;
+    margin: 1.781vw 0.977vw;
     padding: 0;
     background-color: transparent;
     font-size: 1.074vw;
@@ -1118,7 +1126,7 @@ textarea {
   }
 
   .text-list {
-    font-size: 2.031vw !important;
+    font-size: 2.331vw !important;
   }
 
   .align-att {
@@ -1154,12 +1162,12 @@ textarea {
   .profile-link {
     margin-right: 10.306vw;
     color: #ffffff;
-    font-size: 1.250vw;
+    font-size: 1.8vw;
   }
 
   .sideprofile-img {
     display: flex;
-    height: 6.094vw;
+    height: 7.094vw;
     margin: 2.969vw 2.188vw 7.969vw;
     border-radius: 1.563vw;
   }
@@ -1168,7 +1176,7 @@ textarea {
     top: 0;
     left: 0;
     z-index: 100;
-    width: 46.875vw;
+    width: 56.875vw;
     background: #3e64ff;
     color: #fff;
     text-align: center;
@@ -1176,7 +1184,7 @@ textarea {
   }
 
   #sidebar.close {
-    width: 10.469vw;
+    width: 11.469vw;
   }
 
   #sidebar ul li {
@@ -1187,8 +1195,8 @@ textarea {
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 0 2.188vw;
-    font-size: 2.656vw;
+    padding: 0 2.788vw;
+    font-size: 3.2vw;
     border-radius: 0.781vw;
   }
 
@@ -1200,7 +1208,7 @@ textarea {
     display: flex;
     align-items: center;
     list-style: none;
-    margin: 1.094vw 1.406vw;
+    margin: 3.094vw 1.06vw;
     padding: 0;
     background-color: transparent;
     font-size: 1.563vw;
@@ -1237,7 +1245,7 @@ textarea {
     display: flex;
     position: absolute;
     top: 28%;
-    right: -0.938vw;
+    right: -1.438vw;
     justify-content: center;
     align-items: center;
     border: 0.141vw solid #3e64ff;
@@ -1260,17 +1268,15 @@ textarea {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-}
 
-/*phone screen */
-@media (max-width:640px) {
   .swal2-popup {
-    font-size: 1.163vw !important;
+    font-size: 1.663vw !important;
   }
 
   .red-btn {
     padding: 1vw;
-    font-size: 1.5vw;
+    font-size: 2.4vw;
+    border-radius: 1vw;
   }
 
   .dataTables_wrapper {
@@ -1281,5 +1287,11 @@ textarea {
   .ft-cp {
     padding: 3.125vw 0;
     font-size: 2.144vw;
+  }
+
+  .mmk {
+    position: absolute;
+    top: 1.294vw;
+    right: 0;
   }
 }

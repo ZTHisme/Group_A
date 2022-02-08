@@ -1,3 +1,7 @@
+.container {
+  height: 89%;
+}
+
 .card {
   width: 800px;
   margin-top: 20px;
@@ -116,7 +120,11 @@
 }
 
 /*phone screen */
-@media (max-width:640px) {
+@media screen and (max-width:767.9px) {
+
+  .ft-cp {
+    margin-top: 4vw;
+  }
 
   .chartjs-render-monitor {
     animation: chartjs-render-animation 0.001s;
@@ -132,7 +140,7 @@
     margin-bottom: 2vw;
     padding-bottom: 1vw;
     border: 0.3vw solid #ccc;
-    font-size: 1.5vw;
+    font-size: 2.184vw;
   }
 
   .dashboard-card {
@@ -140,7 +148,7 @@
     padding: 3vw 18vw;
     border: 0.5vw solid rgba(0, 0, 0, .05);
     box-shadow: 1vw 1vw 1.5vw rgb(0 0 0 / 10%);
-    font-size: 1.5vw;
+    font-size: 2.184vw;
     border-radius: 0.3vw;
     min-width: 52.96875vw;
   }
@@ -152,15 +160,15 @@
 
   .count-data {
     padding-bottom: 2vw;
-    font-size: 3.2vw;
+    font-size: 6.2vw;
   }
 
   .ttl-card {
-    font-size: 2vw;
+    font-size: 2.584vw;
   }
 
   .subttl-card {
-    font-size: 2vw;
+    font-size: 2.284vw;
   }
 
   #pie-chart,
@@ -176,13 +184,20 @@
   .card-icon {
     float: right;
     padding-left: 9vw;
-    font-size: 8vw;
+    font-size: 10vw;
   }
 
   .ttl-dashboard {
+    float: left;
     font-size: 3vw;
   }
+
   .show-date {
+    font-size: 3vw;
+  }
+
+  .card-header {
+    padding: 2vw;
     font-size: 3vw;
   }
 }
@@ -190,6 +205,10 @@
 /*---------Ipad--------------*/
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+
+  .ft-cp {
+    margin-top: 4vw;
+  }
 
   .card {
     width: 95%;

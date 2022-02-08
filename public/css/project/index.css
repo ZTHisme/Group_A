@@ -17,51 +17,50 @@
 }
 
 /*phone screen */
-@media (max-width:640px) {
+@media screen and (max-width:767.9px) {
 
   #content {
     width: 100%;
-    min-height: 100vh;
   }
 
   .list-card {
-    margin-right: 7vw;
-    width: 68vw;
     border: 0.1vw solid #cdcdcd;
+    font-size: 2.125vw;
+    overflow-x: scroll;
     border-radius: 0.5vw;
   }
 
   .listcard-header {
     padding: 1vw;
-    border: 0.5vw solid #cececee1;
-    font-size: 1.5vw;
+    border: 0.3vw solid #cececee1;
+    font-size: 3.125vw;
   }
 
   table.dataTable {
-    width: 67vw;
+    width: 98%;
     border: 0.5vw solid #cdcdcd;
-    font-size: 0.8vw;
+    font-size: 2.125vw;
   }
 
   .sm-btn {
-    padding: 0.2vw 0.5vw;
-    font-size: 0.35vw;
+    padding: 0.2vw 1.8vw;
+    font-size: 2.184vw;
   }
 
   .dataTables_wrapper .dataTables_length,
   .dataTables_wrapper .dataTables_filter {
-    font-size: 1.5vw;
+    font-size: 2.5vw;
   }
 
   div.dataTables_length select {
     border: 0.3vw solid #c5c5c5;
-    font-size: 1.5vw;
+    font-size: 2.5vw;
     border-radius: 0.5vw;
   }
 
   .dataTables_wrapper .dataTables_info,
   .dataTables_wrapper .dataTables_paginate {
-    font-size: 1.5vw;
+    font-size: 2vw;
   }
 
   .dataTables_wrapper .dataTables_paginate {
@@ -69,15 +68,15 @@
   }
 
   .dataTables_wrapper .dataTables_paginate .paginate_button {
-    min-width: 1.5em;
-    padding: 0.2em 0.7em;
     margin-left: 1vw;
+    padding: 0.2em 0.7em;
+    min-width: 1.5em;
   }
 
   .my-button {
     padding: 1vw 1.5vw;
     box-shadow: 0 0.5vw 1vw rgb(0 0 0 / 15%);
-    font-size: 1.5vw;
+    font-size: 2vw;
     border-radius: 50%;
   }
 
@@ -105,22 +104,30 @@
     margin: 1vw;
   }
 
+
   .dataTables_wrapper .dataTables_info {
-    text-align: left;
-    clear: both;
     float: left;
+    clear: both;
+    width: 37vw;
     padding-top: 0.755em;
-    width: 19vw;
-    font-size: 1.2vw;
+    font-size: 2.884vw;
+    text-align: left;
   }
 
   .dataTables_wrapper .dataTables_paginate {
     float: right;
-    font-size: 1.5vw;
+    font-size: 2vw;
   }
 
   .dataTables_wrapper .dataTables_paginate .paginate_button {
-    font-size: 1.2vw;
+    font-size: 2.884vw;
+  }
+
+  .ft-cp {
+    margin-top: 1vw;
+    margin-left: 3vw;
+    padding: 3.125vw 0;
+    font-size: 2.144vw;
   }
 }
 
@@ -128,20 +135,24 @@
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .my-button {
-    font-size: 1.660vw;
-    padding: 0.391vw 0.879vw;
+    padding: 0.391vw 0.979vw;
     border: none;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 10px rgb(0 0 0 / 15%);
     background: #4966e7;
     color: white;
+    font-size: 2.184vw;
+    text-align: center;
     outline: none;
     cursor: pointer;
-    text-align: center;
     border-radius: 50%;
   }
 
   .my-button:hover {
     background: #fff;
     color: #4966e7;
+  }
+
+  .ft-cp {
+    margin-top: 4vw;
   }
 }
