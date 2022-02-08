@@ -24,7 +24,6 @@
   }
 
   .list-card {
-    width: 100vw;
     border: 0.1vw solid #cdcdcd;
     font-size: 2.125vw;
     overflow-x: scroll;

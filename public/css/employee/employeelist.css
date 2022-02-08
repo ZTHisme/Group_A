@@ -156,16 +156,17 @@ nav:after,
 /*phone screen */
 @media screen and (max-width:767.9px) {
 
+  .card-body {
+    overflow-x: auto;
+  }
+
   .list-card {
-    width: 100vw;
     border: 0.1vw solid #cdcdcd;
     font-size: 2.125vw;
-    overflow-x: scroll;
     border-radius: 0.5vw;
   }
 
   .listcard-header {
-    width: 123vw;
     padding: 1vw;
     border: 0.3vw solid #cececee1;
     font-size: 3.125vw;
@@ -241,9 +242,10 @@ nav:after,
   }
 
   .search-btn {
-    padding: 0.963vw 2.125vw;
+    padding: 0.94vw;
     font-size: 2.5vw;
-    border-radius: 1.563vw;
+    border-radius: 1.094vw;
+    margin-left: 19vw;
   }
 
   .import-btn {
@@ -268,6 +270,7 @@ nav:after,
     border: 0.3vw solid #d1d0d0;
     font-size: 2.5vw;
     border-radius: 1.03vw;
+    margin-right: 2vw;
   }
 
   input[type=date]:after {
@@ -292,6 +295,7 @@ nav:after,
     border: 0.3vw solid #d1d0d0;
     font-size: 2.5vw;
     border-radius: 1.263vw;
+    margin-right: 2vw;
   }
 
   .sm-btn {
@@ -346,6 +350,7 @@ nav:after,
     float: none;
     margin: 2vw 0;
     text-align: center;
+    margin-top: -5vw;
   }
 }
 

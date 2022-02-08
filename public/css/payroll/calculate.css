@@ -35,7 +35,6 @@
   }
 
   .listcard-header {
-    width: 97.3vw;
     padding: 1vw;
     border: 0.3vw solid #cececee1;
     font-size: 3vw;
@@ -104,7 +103,6 @@
   }
 
   .alert-errmsg {
-    width: 93.3vw;
     padding: 2vw 3vw;
     border: 0.3vw solid #ff9596;
     font-size: 2vw;

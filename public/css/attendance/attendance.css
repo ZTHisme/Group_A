@@ -141,15 +141,12 @@
   }
 
   .list-card {
-    width: 100vw;
     border: 0.1vw solid #cdcdcd;
     font-size: 2.184vw;
-    overflow-x: scroll;
     border-radius: 0.5vw;
   }
 
   .listcard-header {
-    width: 100vw;
     padding: 1vw;
     border: 0.3vw solid #cececee1;
     font-size: 3.125vw;
@@ -203,7 +200,7 @@
   }
 
   .dataTables_wrapper {
-    width: 103%;
+    overflow-x: auto;
   }
 
   .success-msg {

@@ -76,12 +76,20 @@ textarea {
     vertical-align: baseline;
   }
 
+  .container {
+    height: auto;
+  }
+
 }
 
 
 /*---------Ipad--------------*/
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    height: auto;
+  }
+
   .git-link {
     display: block;
   }
